@@ -26,18 +26,35 @@ parameters:
 pages:
   index.md:
     title: Introduction
+  workflow.md:
+    title: Workflow
+  logical-models.md:
+    title: Logical Models
+  mappings.md:
+    title: Mappings
   profiles.md:
     title: Profiles
   terminology.md:
     title: Terminology
   examples.md:
     title: Examples
+  artifacts.html:
+    title: Artifacts
   downloads.md:
     title: Downloads
+  version-history.md:
+    title: Version History
 
 menu:
   Home: index.html
-  Profiles: profiles.html
-  Terminology: terminology.html
-  Examples: examples.html
+  Background:
+    Workflow: workflow.html
+    Logical Models: logical-models.html
+    Mappings: mappings.html
+  FHIR Artifacts:
+    Profiles: profiles.html
+    Terminology: terminology.html
+    Examples: examples.html
+    All Artifacts: artifacts.html
   Downloads: downloads.html
+  Version History: version-history.html
