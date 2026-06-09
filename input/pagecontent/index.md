@@ -1,8 +1,20 @@
 # Introduction
 
-This Implementation Guide (IG) is a template for Inera FHIR IGs. It demonstrates the recommended structure, content conventions, and governance patterns used across Inera's FHIR standards.
+### [Domain name] Domain
 
-Authors should replace this introductory text with a description of what the IG covers, its intended audience, and its scope within the Swedish healthcare information infrastructure.
+*Describe the clinical or administrative domain this IG addresses. Explain why this domain is important in Swedish healthcare, what role it plays in patient care or information exchange, and why it has been prioritised for FHIR standardisation. Example: clinical laboratory results, referrals, care plans, prescriptions.*
+
+---
+
+### Scope
+
+*Define what this IG covers and what it does not. Specify the types of use cases, clinical scenarios, or information exchanges in scope. Mention any explicit exclusions or boundary decisions. If this IG is meant to be used as a base for more specialised guides, say so here. Example: "This IG applies to X within the context of Y. It does not cover Z. Derived guides may restrict or extend the scope as needed."*
+
+---
+
+### Purpose
+
+*State the goal of this IG. Explain what problem it solves, who it is intended for (implementers, vendors, healthcare providers), and how it fits into the broader Inera and Swedish e-health landscape. Reference any national or regional programmes, standards, or mandates that motivated the work.*
 
 ---
 
