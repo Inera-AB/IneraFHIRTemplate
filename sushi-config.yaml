@@ -1,0 +1,43 @@
+id: inera.core.template
+canonical: https://fhir.inera.se/StructureDefinition
+name: IneraCoreTemplate
+title: "Inera FHIR Implementation Guide Template"
+description: "Template Implementation Guide for Inera FHIR IGs, demonstrating structure and governance conventions."
+status: draft
+version: 0.1.0
+fhirVersion: 4.0.1
+copyrightYear: 2024+
+releaseLabel: ci-build
+
+publisher:
+  name: Inera AB
+  url: https://www.inera.se
+
+jurisdiction: urn:iso:std:iso:3166#SE "Sweden"
+
+dependencies:
+  hl7.fhir.r4.core: 4.0.1
+  hl7.fhir.se.secore: current
+
+parameters:
+  show-inherited-invariants: false
+  usage-stats-opt-out: true
+
+pages:
+  index.md:
+    title: Introduction
+  profiles.md:
+    title: Profiles
+  terminology.md:
+    title: Terminology
+  examples.md:
+    title: Examples
+  downloads.md:
+    title: Downloads
+
+menu:
+  Home: index.html
+  Profiles: profiles.html
+  Terminology: terminology.html
+  Examples: examples.html
+  Downloads: downloads.html
