@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - 'v*'
   workflow_dispatch:
 
 concurrency:
@@ -11,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -62,6 +64,51 @@ jobs:
           java -jar input-cache/publisher.jar \
             -ig ig.ini \
             -tx https://tx.fhir.org/r4
+
+      # On a version tag (e.g. v1.2.3), add a versioned entry to package-list.json
+      # and commit it back so the registry always reflects published versions.
+      - name: Update package-list.json for tagged release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          VERSION: ${{ github.ref_name }}
+          PAGES_URL: https://inera-ab.github.io/inerafhirtemplate
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION_NUM="${VERSION#v}"
+          DATE=$(date +%Y-%m-%d)
+          python3 - <<EOF
+          import json, os
+          v = os.environ['VERSION_NUM'] if 'VERSION_NUM' in os.environ else '${VERSION_NUM}'
+          date = '${DATE}'
+          url = '${PAGES_URL}'
+
+          with open('package-list.json') as f:
+              pl = json.load(f)
+
+          # Remove any existing entry for this version
+          pl['list'] = [e for e in pl['list'] if e.get('version') != v]
+
+          # Insert the new versioned entry after ci-build
+          pl['list'].append({
+              "version": v,
+              "desc": f"Release {v} ({date})",
+              "path": f"{url}/{v}",
+              "status": "draft",
+              "sequence": "STU 1",
+              "fhirversion": ["4.0.1"],
+              "current": False
+          })
+
+          with open('package-list.json', 'w') as f:
+              json.dump(pl, f, indent=2)
+              f.write('\n')
+          EOF
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add package-list.json
+          git commit -m "chore: add package-list entry for ${VERSION}"
+          git push origin HEAD:main
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

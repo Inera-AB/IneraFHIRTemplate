@@ -52,13 +52,52 @@ git checkout -b feature/my-first-profile
 
 Every push to a non-main branch, and every pull request, triggers the **SUSHI validation** workflow. Fix any errors before merging.
 
-### 6. Publish
+### 6. Register the IG in ig-registry
+
+Each Inera IG is tracked in [Inera-AB/ig-registry](https://github.com/Inera-AB/ig-registry). Do this once per IG, before the first publication.
+
+**a)** Update `package-list.json` in this repo to reflect the correct `package-id`, `canonical`, and `path` (GitHub Pages URL) for your IG.
+
+**b)** Add an entry for your IG to `fhir-ig-list.json` in `Inera-AB/ig-registry`:
+
+```json
+{
+  "package-id": "inera.<domain>.<name>",
+  "title": "Your IG Title",
+  "canonical": "https://fhir.inera.se/ig/<name>",
+  "category": "National Base",
+  "language": "sv",
+  "country": "SE",
+  "package-list": "https://raw.githubusercontent.com/Inera-AB/<repo-name>/main/package-list.json"
+}
+```
+
+Commit and push to `Inera-AB/ig-registry`. The registry now points to your IG's version history.
+
+### 7. Publish a CI build
 
 Merge your branch to `main`. The **Build and publish IG** workflow runs automatically:
 
 1. SUSHI compiles FSH to FHIR JSON.
 2. The HL7 FHIR IG Publisher builds the full HTML IG.
-3. The output is deployed to GitHub Pages.
+3. The output is deployed to GitHub Pages at `https://inera-ab.github.io/<repo-name>/`.
+
+### 8. Publish a versioned release
+
+When the IG is ready for a numbered release:
+
+1. Update `sushi-config.yaml` — bump `version` and set `releaseLabel` (e.g. `draft`, `ballot`, `release`).
+2. Update `input/pagecontent/version-history.md` with the new version and a change summary.
+3. Merge to `main` and create a Git tag:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+The `publish.yml` workflow detects the tag, builds the IG, deploys it to GitHub Pages, and **automatically adds a versioned entry to `package-list.json`** so the release is visible in the registry.
+
+For official registration with the global HL7 FHIR registry (tools.fhir.org), submit a PR to [FHIR/ig-registry](https://github.com/FHIR/ig-registry) with the same entry format as above.
 
 ---
 
@@ -67,7 +106,7 @@ Merge your branch to `main`. The **Build and publish IG** workflow runs automati
 | Workflow | Trigger | What it does |
 |----------|---------|--------------|
 | `validate.yml` | Push to any branch except `main`; pull requests | Runs SUSHI and uploads the generated artefacts |
-| `publish.yml` | Push to `main`; manual trigger | Runs SUSHI + IG Publisher and deploys to GitHub Pages |
+| `publish.yml` | Push to `main` or a version tag (`v*`); manual trigger | Runs SUSHI + IG Publisher, deploys to GitHub Pages; on tags also updates `package-list.json` |
 
 ---
 
@@ -98,7 +137,8 @@ open output/index.html
 ```
 .github/workflows/
   validate.yml          Validate FSH on push / PR
-  publish.yml           Build and deploy IG on push to main
+  publish.yml           Build and deploy IG on push to main or version tag
+package-list.json       IG version history — consumed by ig-registry
 sushi-config.yaml       IG metadata, dependencies, pages and menu
 ig.ini                  IG Publisher configuration
 input/
