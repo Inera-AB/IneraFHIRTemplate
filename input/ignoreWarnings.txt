@@ -1,4 +1,9 @@
 == Suppressed Messages ==
 
-# Display name for Sweden not available in sv-SE on tx server — acceptable for this IG
+# Display name for Sweden not available in sv-SE on tx server — acceptable
 There are no valid display names found for the code urn:iso:std:iso:3166#SE
+
+# Auto-generated links in the IG narrative point to the canonical URL which is not live yet.
+# These links will resolve once the IG is published at https://fhir.inera.se/ig/template
+The link 'StructureDefinition-IneraPatient.html' for "fake generated link for Implementation Guide" cannot be resolved
+The link 'Patient-IneraPatientExample.html' for "fake generated link for Implementation Guide" cannot be resolved
