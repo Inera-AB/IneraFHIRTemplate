@@ -45,13 +45,3 @@ A description of conformance requirements and guidance for Inera's FHIR IGs can 
 The Inera FHIR landing page provides an overview of conformance requirements that apply to Inera's FHIR standards. This includes for example the mandatory rules for interpreting MustSupport, the formal validation requirements that implementers must follow, the expectations for producing narrative texts and governance for how Inera Terminology is versioned, as well as security and client and API non-functional requirements.
 
 The landing page also offers help to developers to understand how to work with Inera's FHIR standards. This includes a guide on how to read an Implementation Guide. Users will also find instructions on how to use some of the FHIR tools, such as validation setup.
-
----
-
-{% include ip-statements.xhtml %}
-
-{% include cross-version-analysis.xhtml %}
-
-{% include dependency-table.xhtml %}
-
-{% include globals-table.xhtml %}
