@@ -35,8 +35,6 @@ pages:
     title: Terminology
   examples.md:
     title: Examples
-  artifacts.html:
-    title: Artifacts
   downloads.md:
     title: Downloads
   version-history.md:
