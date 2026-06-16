@@ -15,10 +15,6 @@ publisher:
 
 jurisdiction: urn:iso:std:iso:3166#SE "Sweden"
 
-dependencies:
-  hl7.fhir.r4.core: 4.0.1
-  hl7.fhir.se.secore: current
-
 parameters:
   show-inherited-invariants: false
   usage-stats-opt-out: true

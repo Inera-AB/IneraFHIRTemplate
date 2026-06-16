@@ -6,7 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-# Allow one concurrent deployment; cancel any in-progress run for the same branch
 concurrency:
   group: pages-${{ github.ref }}
   cancel-in-progress: true
@@ -37,14 +36,26 @@ jobs:
       - name: Install SUSHI
         run: npm install -g fsh-sushi
 
-      - name: Run SUSHI
-        run: sushi .
+      - name: Restore FHIR package cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.fhir/packages
+          key: fhir-packages-${{ hashFiles('sushi-config.yaml') }}
+          restore-keys: fhir-packages-
+
+      - name: Restore IG Publisher cache
+        uses: actions/cache@v4
+        with:
+          path: input-cache/publisher.jar
+          key: ig-publisher-${{ hashFiles('ig.ini') }}
 
       - name: Download IG Publisher
         run: |
           mkdir -p input-cache
-          curl -sL https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar \
-            -o input-cache/publisher.jar
+          if [ ! -f input-cache/publisher.jar ]; then
+            curl -sL https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar \
+              -o input-cache/publisher.jar
+          fi
 
       - name: Build IG
         run: |
