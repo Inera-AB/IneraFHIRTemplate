@@ -8,6 +8,7 @@ version: 0.1.0
 fhirVersion: 4.0.1
 copyrightYear: 2024+
 releaseLabel: ci-build
+license: CC0-1.0
 
 publisher:
   name: Inera AB
