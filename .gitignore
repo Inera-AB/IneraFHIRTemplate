@@ -1,7 +1,6 @@
 # IG Publisher output
 output/
 temp/
-template/
 input-cache/
 *.tgz
 
