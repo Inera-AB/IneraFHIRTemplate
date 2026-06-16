@@ -8,7 +8,7 @@ Authors should document each profile with a short description of its purpose, th
 
 | Profile | Base Resource | Description |
 |---------|--------------|-------------|
-| [IneraPatient](StructureDefinition-IneraPatient.html) | Patient | A template patient profile inheriting from SECorePatient, demonstrating Inera's profiling conventions. |
+| [IneraPatient](StructureDefinition-IneraPatient.html) | [Patient]({{site.data.fhir.path}}patient.html) | A template patient profile demonstrating Inera's profiling conventions. |
 
 ---
 

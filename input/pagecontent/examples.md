@@ -8,7 +8,7 @@ Examples demonstrate how the profiles should be populated in practice. Authors s
 
 | Example | Profile | Description |
 |---------|---------|-------------|
-| [IneraPatientExample](Patient-IneraPatientExample.html) | IneraPatient | A minimal example of a patient conforming to the IneraPatient profile. |
+| [IneraPatientExample](Patient-IneraPatientExample.html) | [IneraPatient](StructureDefinition-IneraPatient.html) | A minimal example of a patient conforming to the IneraPatient profile. |
 
 ---
 

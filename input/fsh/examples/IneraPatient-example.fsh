@@ -4,8 +4,6 @@ Title: "Inera Patient Example"
 Description: "A minimal example of a patient conforming to the IneraPatient profile."
 Usage: #example
 
-* meta.profile = "https://fhir.inera.se/StructureDefinition/IneraPatient"
-
 * identifier[personnummer].system = "http://electronichealth.se/identifier/personnummer"
 * identifier[personnummer].value = "195001011234"
 

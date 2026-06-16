@@ -1,0 +1,4 @@
+== Suppressed Messages ==
+
+# Display name for Sweden not available in sv-SE on tx server — acceptable for this IG
+There are no valid display names found for the code urn:iso:std:iso:3166#SE
