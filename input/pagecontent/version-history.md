@@ -6,7 +6,7 @@ This page records changes between published versions of this Implementation Guid
 
 | Version | Date | Status | Description |
 |---------|------|--------|-------------|
-| 0.1.0 | *YYYY-MM-DD* | Draft | Initial template version. |
+| 0.1.0 | 2026-06-16 | Draft | Initial template version. |
 
 ---
 
