@@ -1,9 +1,0 @@
-{
-  "name": "hl7.fhir.inera.template",
-  "type": "fhir.template",
-  "version": "0.1.0",
-  "base": "fhir.base.template",
-  "dependencies": {
-    "fhir.base.template": "current"
-  }
-}
