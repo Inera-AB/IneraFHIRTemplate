@@ -40,17 +40,3 @@ pages:
     title: Downloads
   version-history.md:
     title: Version History
-
-menu:
-  Home: index.html
-  Background:
-    Workflow: workflow.html
-    Logical Models: logical-models.html
-    Mappings: mappings.html
-  FHIR Artifacts:
-    Profiles: profiles.html
-    Terminology: terminology.html
-    Examples: examples.html
-    All Artifacts: artifacts.html
-  Downloads: downloads.html
-  Version History: version-history.html
