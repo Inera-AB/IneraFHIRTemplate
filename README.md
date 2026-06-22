@@ -1,6 +1,26 @@
 # Inera FHIR Implementation Guide Template
 
+[![Build and publish IG](https://github.com/Inera-AB/IneraFHIRTemplate/actions/workflows/publish.yml/badge.svg)](https://github.com/Inera-AB/IneraFHIRTemplate/actions/workflows/publish.yml)
+[![Validate FSH](https://github.com/Inera-AB/IneraFHIRTemplate/actions/workflows/validate.yml/badge.svg)](https://github.com/Inera-AB/IneraFHIRTemplate/actions/workflows/validate.yml)
+[![FHIR R4](https://img.shields.io/badge/FHIR-R4-blue)](https://hl7.org/fhir/R4/)
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+
 This repository is a GitHub template for Inera FHIR Implementation Guides. It includes the standard IG structure, author guidance pages, an example FSH profile, and pre-configured GitHub Actions for validation and publishing.
+
+---
+
+## Inera branding
+
+The template uses Inera's visual identity by default. All branding is isolated to four files:
+
+| File | Vad den gör |
+|------|------------|
+| `input/includes/fragment-css.html` | Laddar Inera CSS och favicon |
+| `input/includes/fragment-header.html` | Inera-logga i headern |
+| `input/images/inera.css` | Alla Inera-färger, typsnitt och layout |
+| `input/images/inera-*.svg / inera-*.png` | Loggor och favicon |
+
+Ta bort dessa fyra filer (och mappen `input/images/inera-*`) för att gå tillbaka till standard HL7 FHIR-styling.
 
 ---
 

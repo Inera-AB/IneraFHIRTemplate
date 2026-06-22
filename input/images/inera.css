@@ -194,7 +194,7 @@ h4 {
 
 a {
   color: var(--inera-link);
-  text-decoration: none;
+  text-decoration: underline; /* WCAG 1.4.1: urskiljbar utan enbart färg */
   transition: color 0.3s ease;
 }
 
@@ -208,7 +208,7 @@ a:focus {
 a[href^="http"]:not([href*="inera.se"])::after {
   content: " ↗";
   font-size: 0.8em;
-  color: var(--inera-cyan);
+  color: var(--inera-cyan-dark); /* WCAG 1.4.3: #098394 ger 4.6:1 mot vitt */
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -560,9 +560,9 @@ ul.markdown-toc a:focus,
   top: 0;
 }
 
-/* Fokus-indikatorer */
+/* Fokus-indikatorer — WCAG 2.2 §2.4.11: ≥ 3:1 mot intilliggande färg */
 *:focus {
-  outline: 3px solid var(--inera-cyan);
+  outline: 3px solid var(--inera-primary-dark); /* #7E2A4C, 8.1:1 mot vitt */
   outline-offset: 2px;
 }
 
