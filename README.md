@@ -41,10 +41,18 @@ Go to this repository on GitHub and click **"Use this template"** → **"Create 
 
 In the new repository, go to **Settings → Pages**.
 
-- Under **Source**, select **"GitHub Actions"**.
+- Under **Source**, select **"Deploy from a branch"**.
+- Set Branch to **`gh-pages`** / `/ (root)`.
 - Save.
 
-The IG will be published automatically at `https://inera-ab.github.io/<repo-name>/` the first time a push lands on `main`.
+The `gh-pages` branch is created automatically on the first push to `main`. Builds are then published to subdirectories:
+
+| Branch / tag | Published at |
+|---|---|
+| `main` | `https://inera-ab.github.io/<repo-name>/branches/main/` |
+| `develop` | `.../branches/develop/` |
+| `feature/my-profile` | `.../branches/feature-my-profile/` |
+| `v1.2.0` (tag) | `.../1.2.0/` |
 
 ### 3. Configure the IG
 
@@ -125,9 +133,10 @@ For official registration with the global HL7 FHIR registry (tools.fhir.org), su
 
 | Workflow | Trigger | What it does |
 |----------|---------|--------------|
-| `validate.yml` | Push to any branch except `main`; pull requests | Runs SUSHI and uploads the generated artefacts |
-| `pr-qa.yml` | Pull request (opened, updated) | Runs full IG Publisher build and posts QA report as PR comment |
-| `publish.yml` | Push to `main` or a version tag (`v*`); manual trigger | Runs SUSHI + IG Publisher, deploys to GitHub Pages; on tags also updates `package-list.json` |
+| `validate.yml` | Push to non-main branches; pull requests | Runs SUSHI, uploads generated artefacts |
+| `pr-qa.yml` | Pull request (opened, updated) | Full IG Publisher build (no tx server), posts QA report as PR comment |
+| `publish.yml` | Push to `main`, `develop`, `feature/**`, `support/**`, or `v*` tag; manual trigger | Full build + deploys to `gh-pages` branch under correct subdirectory; on tags verifies version, updates `package-list.json` |
+| `cleanup.yml` | Branch deleted | Removes the branch's build directory from `gh-pages` |
 | `release-please.yml` | Manual trigger only | Creates a "Release vX.Y.Z" PR with bumped version in `sushi-config.yaml` and updated `version-history.md` |
 
 ---
