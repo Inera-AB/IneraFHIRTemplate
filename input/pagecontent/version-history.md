@@ -1,23 +1,17 @@
-# Version history
+# Version History
 
-This page records changes between published versions of this Implementation Guide.
-
----
-
-| Version | Date | Status | Description |
-|---------|------|--------|-------------|
-| 0.1.0 | 2026-06-16 | Draft | Initial template version. |
+This page is maintained automatically by [release-please](https://github.com/googleapis/release-please).
+Entries are generated from commit messages that follow [Conventional Commits](https://www.conventionalcommits.org/).
 
 ---
 
-### Change log
+## [0.1.0] — 2026-06-16
 
-#### 0.1.0 — *YYYY-MM-DD* (Draft)
+### Features
 
-- Initial structure established.
-- IneraPatient template profile added.
-- Placeholder pages for workflow, logical models, mappings, and downloads added.
-
----
-
-> **Guidance for authors:** Add a new row to the table and a new section to the change log for each published version. Follow [semantic versioning](https://semver.org/): increment the patch version for corrections, the minor version for backwards-compatible additions, and the major version for breaking changes. Record the publication date, the ballot/release status (Draft, STU, Normative), and a brief summary of what changed.
+- Initial IG template structure with Inera branding
+- `IneraPatient` example profile with personnummer identifier slice
+- Navigation pages: Workflow, Logical Models, Mappings, Examples, Terminology, Downloads
+- GitHub Actions for SUSHI validation, full IG Publisher build, and GitHub Pages deployment
+- ig-registry integration via `package-list.json`
+- WCAG 2.1 AA-compliant CSS
