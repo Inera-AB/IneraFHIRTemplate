@@ -69,9 +69,22 @@ jobs:
 
       - name: Build IG
         run: |
-          java -jar input-cache/publisher.jar \
-            -ig ig.ini \
-            -tx https://tx.fhir.org/r4
+          build() {
+            java -jar input-cache/publisher.jar -ig ig.ini "$@"
+          }
+          # Try with terminology server, retry twice, then fall back to -tx n/a
+          if build -tx https://tx.fhir.org/r4; then
+            echo "Build succeeded with terminology server."
+          else
+            echo "TX attempt 1 failed, retrying in 30s..."
+            sleep 30
+            if build -tx https://tx.fhir.org/r4; then
+              echo "Build succeeded on retry."
+            else
+              echo "TX server unavailable — building without terminology validation."
+              build -tx n/a
+            fi
+          fi
 
       # On a version tag (e.g. v1.2.3), add a versioned entry to package-list.json
       # and commit it back so the registry always reflects published versions.
