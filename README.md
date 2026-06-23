@@ -126,7 +126,9 @@ For official registration with the global HL7 FHIR registry (tools.fhir.org), su
 | Workflow | Trigger | What it does |
 |----------|---------|--------------|
 | `validate.yml` | Push to any branch except `main`; pull requests | Runs SUSHI and uploads the generated artefacts |
+| `pr-qa.yml` | Pull request (opened, updated) | Runs full IG Publisher build and posts QA report as PR comment |
 | `publish.yml` | Push to `main` or a version tag (`v*`); manual trigger | Runs SUSHI + IG Publisher, deploys to GitHub Pages; on tags also updates `package-list.json` |
+| `release-please.yml` | Manual trigger only | Creates a "Release vX.Y.Z" PR with bumped version in `sushi-config.yaml` and updated `version-history.md` |
 
 ---
 
