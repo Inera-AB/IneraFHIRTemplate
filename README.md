@@ -129,6 +129,33 @@ For official registration with the global HL7 FHIR registry (tools.fhir.org), su
 
 ---
 
+## Publishing to fhir.inera.se (fhir-portal)
+
+All Inera IGs can be aggregated under `fhir.inera.se/ig/<repo-name>` via the shared hub repo `inera-ab/fhir-portal`. The `publish.yml` workflow includes the necessary steps — they activate only when one secret is configured.
+
+The workflow reads `title` and `description` from `sushi-config.yaml` automatically, and uses the repository name as the subdirectory slug — no extra variables needed.
+
+### Required configuration
+
+Add one secret to the IG repo (Settings → Secrets and variables → Actions → New repository secret):
+
+| Secret | Description |
+|--------|-------------|
+| `FHIR_PORTAL_TOKEN` | Fine-grained PAT with `Contents: Read and write` on `inera-ab/fhir-portal` |
+
+If `FHIR_PORTAL_TOKEN` is not set the portal steps are skipped; the IG still deploys to the repo's own GitHub Pages.
+
+### Resulting URLs
+
+| Build type | Published at |
+|------------|-------------|
+| Branch `main` | `fhir.inera.se/ig/<repo-name>/branches/main/` |
+| Branch `develop` | `fhir.inera.se/ig/<repo-name>/branches/develop/` |
+| Feature branch | `fhir.inera.se/ig/<repo-name>/branches/<slug>/` |
+| Release tag `v1.0.0` | `fhir.inera.se/ig/<repo-name>/1.0.0/` |
+
+---
+
 ## CI workflows
 
 | Workflow | Trigger | What it does |
