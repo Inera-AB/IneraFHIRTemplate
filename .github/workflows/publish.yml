@@ -132,29 +132,25 @@ jobs:
         if: steps.meta.outputs.is_release == 'true'
         env:
           VERSION: ${{ steps.meta.outputs.version }}
-          FHIR_PORTAL_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
-          IG_NAME: ${{ steps.meta.outputs.ig_name }}
         run: |
-          if [ -n "$FHIR_PORTAL_TOKEN" ]; then
-            export PAGES_URL="https://fhir.inera.se/ig/${IG_NAME}"
-          else
-            export PAGES_URL="https://inera-ab.github.io/${{ github.event.repository.name }}"
-          fi
-          DATE=$(date +%Y-%m-%d)
+          export DATE=$(date +%Y-%m-%d)
           python3 - <<'PYEOF'
           import json, os
           v    = os.environ['VERSION']
-          date = os.environ.get('DATE', '')
-          url  = os.environ['PAGES_URL']
+          date = os.environ['DATE']
 
           with open('package-list.json') as f:
               pl = json.load(f)
+
+          # Use the canonical URL from package-list.json as the base —
+          # avoids mismatch between repo name and canonical slug.
+          base = pl['canonical'].rstrip('/')
 
           pl['list'] = [e for e in pl['list'] if e.get('version') != v]
           pl['list'].append({
               "version": v,
               "desc": f"Release {v} ({date})",
-              "path": f"{url}/{v}",
+              "path": f"{base}/{v}",
               "status": "draft",
               "sequence": "STU 1",
               "fhirversion": ["4.0.1"],
