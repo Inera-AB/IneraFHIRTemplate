@@ -13,14 +13,14 @@ This repository is a GitHub template for Inera FHIR Implementation Guides. It in
 
 The template uses Inera's visual identity by default. All branding is isolated to four files:
 
-| File | Vad den gör |
-|------|------------|
-| `input/includes/fragment-css.html` | Laddar Inera CSS och favicon |
-| `input/includes/fragment-header.html` | Inera-logga i headern |
-| `input/images/inera.css` | Alla Inera-färger, typsnitt och layout |
-| `input/images/inera-*.svg / inera-*.png` | Loggor och favicon |
+| File | What it does |
+|------|-------------|
+| `input/includes/fragment-css.html` | Loads Inera CSS and favicon |
+| `input/includes/fragment-header.html` | Inera logo in the header |
+| `input/images/inera.css` | All Inera colours, fonts and layout |
+| `input/images/inera-*.svg / inera-*.png` | Logos and favicon |
 
-Ta bort dessa fyra filer (och mappen `input/images/inera-*`) för att gå tillbaka till standard HL7 FHIR-styling.
+Remove these four files (and the `input/images/inera-*` assets) to revert to standard HL7 FHIR styling.
 
 ---
 
@@ -30,47 +30,69 @@ Ta bort dessa fyra filer (och mappen `input/images/inera-*`) för att gå tillba
 
 Go to this repository on GitHub and click **"Use this template"** → **"Create a new repository"**.
 
-- Choose the `inera-ab` organisation (or your own) as owner.
-- Give the repository a name that reflects your IG, e.g. `inera-fhir-laboratory`.
+- Choose the `inera-ab` organisation as owner.
+- Give the repository a name that reflects your IG, e.g. `inera-laboratory`.
 - Set visibility to **Private** until the IG is ready for publication.
 - Click **"Create repository"**.
 
-> All files — including GitHub Actions workflows — are copied into the new repository.
+All files — including GitHub Actions workflows — are copied into the new repository.
 
-### 2. Enable GitHub Pages
+### 2. Configure the IG identity
+
+Edit these files before doing anything else. The values here drive everything — build output, registry entries, and published URLs.
+
+**`sushi-config.yaml`**
+
+| Field | Example | Notes |
+|-------|---------|-------|
+| `id` | `inera.laboratory` | npm package id, dots allowed |
+| `canonical` | `https://fhir.inera.se/ig/inera-laboratory` | Must match `package-list.json` exactly |
+| `name` | `IneraLaboratory` | PascalCase, no spaces |
+| `title` | `"Inera Laboratory IG"` | Human-readable, shown in IG header |
+| `description` | `"FHIR-profiler för laboratoriesvar."` | Shown in fhir-portal index card |
+| `version` | `0.1.0` | Must match tag when releasing |
+
+**`package-list.json`**
+
+Update `package-id`, `title`, `canonical`, and the `current` ci-build entry:
+
+```json
+{
+  "package-id": "inera.laboratory",
+  "title": "Inera Laboratory IG",
+  "canonical": "https://fhir.inera.se/ig/inera-laboratory",
+  "list": [
+    {
+      "version": "current",
+      "desc": "CI build — latest commit on main",
+      "path": "https://fhir.inera.se/ig/inera-laboratory/branches/main",
+      "status": "ci-build",
+      "current": true
+    }
+  ]
+}
+```
+
+> **Important:** The `canonical` field in `package-list.json` is the base URL that CI uses when adding versioned entries. It must be identical to `canonical` in `sushi-config.yaml`. IG Publisher also uses it to generate `history.html`.
+
+### 3. Enable GitHub Pages
 
 In the new repository, go to **Settings → Pages**.
 
 - Under **Source**, select **"Deploy from a branch"**.
-- Set Branch to **`gh-pages`** / `/ (root)`.
+- Set branch to **`gh-pages`** / `/ (root)`.
 - Save.
 
-The `gh-pages` branch is created automatically on the first push to `main`. Builds are then published to subdirectories:
+The `gh-pages` branch is created automatically on the first push to `main`. Until fhir-portal is configured (step 5), builds are published here:
 
 | Branch / tag | Published at |
 |---|---|
-| `main` | `https://inera-ab.github.io/<repo-name>/branches/main/` |
+| `main` | `https://inera-ab.github.io/<repo>/branches/main/` |
 | `develop` | `.../branches/develop/` |
 | `feature/my-profile` | `.../branches/feature-my-profile/` |
 | `v1.2.0` (tag) | `.../1.2.0/` |
 
-### 3. Configure the IG
-
-Edit the following files to reflect your IG:
-
-| File | What to update |
-|------|---------------|
-| `sushi-config.yaml` | `id`, `canonical`, `name`, `title`, `description`, `version` |
-| `input/pagecontent/index.md` | Domain, Scope, Purpose, and the governance section |
-| `input/pagecontent/version-history.md` | Initial version and date |
-
-### 4. Replace template content
-
-- Replace placeholder profiles in `input/fsh/profiles/` with your own.
-- Replace or extend examples in `input/fsh/examples/`.
-- Fill in the narrative pages in `input/pagecontent/`.
-
-### 5. Develop on a branch
+### 4. Develop and validate
 
 Create a feature branch for your work:
 
@@ -78,81 +100,79 @@ Create a feature branch for your work:
 git checkout -b feature/my-first-profile
 ```
 
-Every push to a non-main branch, and every pull request, triggers the **SUSHI validation** workflow. Fix any errors before merging.
+Every push to a non-main branch, and every pull request, triggers the **SUSHI validation** workflow. Full IG Publisher QA runs on pull requests and posts results as a PR comment. Fix all errors before merging.
 
-### 6. Register the IG in ig-registry
+Replace placeholder content:
 
-Each Inera IG is tracked in [Inera-AB/ig-registry](https://github.com/Inera-AB/ig-registry). Do this once per IG, before the first publication.
+- Profiles in `input/fsh/profiles/`
+- Examples in `input/fsh/examples/`
+- Narrative pages in `input/pagecontent/`
 
-**a)** Update `package-list.json` in this repo to reflect the correct `package-id`, `canonical`, and `path` (GitHub Pages URL) for your IG.
+### 5. Connect to fhir-portal (optional)
 
-**b)** Add an entry for your IG to `fhir-ig-list.json` in `Inera-AB/ig-registry`:
+All Inera IGs are aggregated at `fhir.inera.se/ig/` via the shared hub repo `inera-ab/fhir-portal`. Connecting is a one-time setup per IG repo.
+
+**a) Add the secret**
+
+In the IG repo: Settings → Secrets and variables → Actions → New repository secret:
+
+| Secret | Value |
+|--------|-------|
+| `FHIR_PORTAL_TOKEN` | Fine-grained PAT with `Contents: Read and write` on `inera-ab/fhir-portal` |
+
+Once set, `publish.yml` automatically:
+- Deploys each tagged release to `ig/<repo-name>/<version>/` on fhir-portal
+- Copies `history.html` and `package-list.json` to `ig/<repo-name>/` so the version history page works
+- Fires a `repository_dispatch` event to fhir-portal, which regenerates `fhir.inera.se/ig/index.html` with an updated entry for your IG
+
+The dispatch payload includes `ig_title` and `ig_description` read directly from the build output — no manual variables needed.
+
+Without `FHIR_PORTAL_TOKEN` these steps are silently skipped; the IG still deploys to the repo's own GitHub Pages.
+
+**b) Register in ig-registry**
+
+Add an entry to `fhir-ig-list.json` in `Inera-AB/ig-registry`:
 
 ```json
 {
-  "package-id": "inera.<domain>.<name>",
-  "title": "Your IG Title",
-  "canonical": "https://fhir.inera.se/ig/<name>",
+  "package-id": "inera.laboratory",
+  "title": "Inera Laboratory IG",
+  "canonical": "https://fhir.inera.se/ig/inera-laboratory",
   "category": "National Base",
   "language": "sv",
   "country": "SE",
-  "package-list": "https://raw.githubusercontent.com/Inera-AB/<repo-name>/main/package-list.json"
+  "package-list": "https://raw.githubusercontent.com/Inera-AB/inera-laboratory/main/package-list.json"
 }
 ```
 
-Commit and push to `Inera-AB/ig-registry`. The registry now points to your IG's version history.
+This is done once. CI keeps `package-list.json` up to date automatically from then on.
 
-### 7. Publish a CI build
+For registration in the global HL7 registry (tools.fhir.org): submit a PR to `FHIR/ig-registry` with the same format.
 
-Merge your branch to `main`. The **Build and publish IG** workflow runs automatically:
-
-1. SUSHI compiles FSH to FHIR JSON.
-2. The HL7 FHIR IG Publisher builds the full HTML IG.
-3. The output is deployed to GitHub Pages at `https://inera-ab.github.io/<repo-name>/`.
-
-### 8. Publish a versioned release
+### 6. Publish a versioned release
 
 When the IG is ready for a numbered release:
 
-1. Update `sushi-config.yaml` — bump `version` and set `releaseLabel` (e.g. `draft`, `ballot`, `release`).
-2. Update `input/pagecontent/version-history.md` with the new version and a change summary.
-3. Merge to `main` and create a Git tag:
+**a)** Run release-please: Actions → "Release Please" → Run workflow.
+It opens a PR that bumps `version` in `sushi-config.yaml` and adds a changelog entry to `version-history.md`. Review and merge the PR.
+
+**b)** Merge to `main`, then tag:
 
 ```bash
+git checkout main && git pull
 git tag v1.0.0
 git push origin v1.0.0
 ```
 
-The `publish.yml` workflow detects the tag, builds the IG, deploys it to GitHub Pages, and **automatically adds a versioned entry to `package-list.json`** so the release is visible in the registry.
+`publish.yml` detects the tag and:
 
-For official registration with the global HL7 FHIR registry (tools.fhir.org), submit a PR to [FHIR/ig-registry](https://github.com/FHIR/ig-registry) with the same entry format as above.
-
----
-
-## Publishing to fhir.inera.se (fhir-portal)
-
-All Inera IGs can be aggregated under `fhir.inera.se/ig/<repo-name>` via the shared hub repo `inera-ab/fhir-portal`. The `publish.yml` workflow includes the necessary steps — they activate only when one secret is configured.
-
-The workflow reads `title` and `description` from `sushi-config.yaml` automatically, and uses the repository name as the subdirectory slug — no extra variables needed.
-
-### Required configuration
-
-Add one secret to the IG repo (Settings → Secrets and variables → Actions → New repository secret):
-
-| Secret | Description |
-|--------|-------------|
-| `FHIR_PORTAL_TOKEN` | Fine-grained PAT with `Contents: Read and write` on `inera-ab/fhir-portal` |
-
-If `FHIR_PORTAL_TOKEN` is not set the portal steps are skipped; the IG still deploys to the repo's own GitHub Pages.
-
-### Resulting URLs
-
-| Build type | Published at |
-|------------|-------------|
-| Branch `main` | `fhir.inera.se/ig/<repo-name>/branches/main/` |
-| Branch `develop` | `fhir.inera.se/ig/<repo-name>/branches/develop/` |
-| Feature branch | `fhir.inera.se/ig/<repo-name>/branches/<slug>/` |
-| Release tag `v1.0.0` | `fhir.inera.se/ig/<repo-name>/1.0.0/` |
+1. Validates that the tag matches `version` in `sushi-config.yaml` — aborts if they differ.
+2. Builds the IG with SUSHI + IG Publisher.
+3. Reads `title`, `description`, and `version` from the build output (`package.manifest.json` and `ImplementationGuide-*.json`).
+4. Appends a versioned entry to `package-list.json` using the `canonical` field as the base URL, commits it back to `main`.
+5. Deploys the full IG output to `<version>/` on `gh-pages`.
+6. Copies `history.html` and `package-list.json` to the IG root on `gh-pages` so `history.html` resolves at the canonical URL.
+7. **If `FHIR_PORTAL_TOKEN` is set:** deploys to `ig/<repo-name>/<version>/` on fhir-portal, copies `history.html` to `ig/<repo-name>/`, and fires `repository_dispatch` so fhir-portal rebuilds `ig/index.html`.
 
 ---
 
@@ -161,10 +181,10 @@ If `FHIR_PORTAL_TOKEN` is not set the portal steps are skipped; the IG still dep
 | Workflow | Trigger | What it does |
 |----------|---------|--------------|
 | `validate.yml` | Push to non-main branches; pull requests | Runs SUSHI, uploads generated artefacts |
-| `pr-qa.yml` | Pull request (opened, updated) | Full IG Publisher build (no tx server), posts QA report as PR comment |
-| `publish.yml` | Push to `main`, `develop`, `feature/**`, `support/**`, or `v*` tag; manual trigger | Full build + deploys to `gh-pages` branch under correct subdirectory; on tags verifies version, updates `package-list.json` |
+| `pr-qa.yml` | Pull request (opened, synchronised) | Full IG Publisher build (no tx server), posts QA report as PR comment |
+| `publish.yml` | Push to `main`, `develop`, `feature/**`, `support/**`, or `v*` tag; manual trigger | Full build + deploys to `gh-pages` under correct subdirectory; on tags: validates version, updates `package-list.json`, deploys to fhir-portal if token is set |
 | `cleanup.yml` | Branch deleted | Removes the branch's build directory from `gh-pages` |
-| `release-please.yml` | Manual trigger only | Creates a "Release vX.Y.Z" PR with bumped version in `sushi-config.yaml` and updated `version-history.md` |
+| `release-please.yml` | Manual trigger only | Opens a PR bumping `version` in `sushi-config.yaml` and adding a changelog entry to `version-history.md` |
 
 ---
 
@@ -195,8 +215,11 @@ open output/index.html
 ```
 .github/workflows/
   validate.yml          Validate FSH on push / PR
-  publish.yml           Build and deploy IG on push to main or version tag
-package-list.json       IG version history — consumed by ig-registry
+  pr-qa.yml             IG Publisher QA on pull requests
+  publish.yml           Build, deploy, and notify fhir-portal on push / tag
+  cleanup.yml           Remove build dir for deleted branches
+  release-please.yml    Bump version and generate changelog (manual)
+package-list.json       IG version history — source of truth for canonical URLs
 sushi-config.yaml       IG metadata, dependencies, pages and menu
 ig.ini                  IG Publisher configuration
 input/
@@ -205,8 +228,8 @@ input/
     profiles/           FHIR profile definitions (.fsh)
     examples/           Example instances (.fsh)
   pagecontent/          Narrative IG pages (.md)
-  images/               Images and diagrams
-  includes/menu.xml     Navigation menu
+  images/               Images, CSS and diagrams
+  includes/             Fragment overrides (CSS, header) and menu.xml
 ```
 
 ---
