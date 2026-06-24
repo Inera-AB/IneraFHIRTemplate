@@ -53,12 +53,7 @@ jobs:
             echo "is_release=false"             >> $GITHUB_OUTPUT
           fi
 
-          # Extract IG metadata from sushi-config.yaml for fhir-portal
-          IG_TITLE=$(grep '^title:' sushi-config.yaml | sed 's/^title:[[:space:]]*//' | tr -d '"'"'")
-          IG_DESCRIPTION=$(grep '^description:' sushi-config.yaml | sed 's/^description:[[:space:]]*//' | tr -d '"'"'")
           echo "ig_name=${{ github.event.repository.name }}" >> $GITHUB_OUTPUT
-          echo "ig_title=${IG_TITLE}"                        >> $GITHUB_OUTPUT
-          echo "ig_description=${IG_DESCRIPTION}"            >> $GITHUB_OUTPUT
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -124,6 +119,14 @@ jobs:
             fi
           fi
 
+      - name: Read IG metadata from build output
+        run: |
+          MANIFEST=output/package.manifest.json
+          PKG_ID=$(jq -r '.name' "$MANIFEST")
+          echo "IG_VERSION=$(jq -r '.version' "$MANIFEST")"                           >> $GITHUB_ENV
+          echo "IG_TITLE=$(jq -r '.title' "output/ImplementationGuide-${PKG_ID}.json")"       >> $GITHUB_ENV
+          echo "IG_DESCRIPTION=$(jq -r '.description' "output/ImplementationGuide-${PKG_ID}.json")" >> $GITHUB_ENV
+
       - name: Update package-list.json for tagged release
         if: steps.meta.outputs.is_release == 'true'
         env:
@@ -131,8 +134,6 @@ jobs:
           FHIR_PORTAL_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
           IG_NAME: ${{ steps.meta.outputs.ig_name }}
         run: |
-          # Use fhir.inera.se canonical URL when fhir-portal is configured,
-          # otherwise fall back to the repo's own GitHub Pages URL.
           if [ -n "$FHIR_PORTAL_TOKEN" ]; then
             PAGES_URL="https://fhir.inera.se/ig/${IG_NAME}"
           else
@@ -197,14 +198,14 @@ jobs:
           commit_message: "deploy: history.html + package-list.json at root for v${{ steps.meta.outputs.version }}"
 
       # ---------------------------------------------------------------
-      # fhir-portal integration (optional)
+      # fhir-portal integration (optional — release builds only)
       # Activate by adding FHIR_PORTAL_TOKEN as a repository secret:
       #   Settings → Secrets and variables → Actions → New repository secret
       # A fine-grained PAT with Contents: Read and write on inera-ab/fhir-portal.
-      # IG name, title and description are read from sushi-config.yaml automatically.
+      # IG metadata is read from build output (package.manifest.json / ImplementationGuide-*.json).
       # ---------------------------------------------------------------
-      - name: Publish to fhir-portal
-        if: env.FHIR_PORTAL_TOKEN != ''
+      - name: Publish IG to fhir-portal
+        if: steps.meta.outputs.is_release == 'true' && env.FHIR_PORTAL_TOKEN != ''
         env:
           FHIR_PORTAL_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
         uses: peaceiris/actions-gh-pages@v4
@@ -213,9 +214,9 @@ jobs:
           external_repository: inera-ab/fhir-portal
           publish_branch: gh-pages
           publish_dir: ./output
-          destination_dir: ig/${{ steps.meta.outputs.ig_name }}/${{ steps.meta.outputs.deploy_path }}
+          destination_dir: ig/${{ steps.meta.outputs.ig_name }}/${{ env.IG_VERSION }}
           keep_files: true
-          commit_message: "deploy: ${{ steps.meta.outputs.ig_name }} ${{ github.ref_name }} → ig/${{ steps.meta.outputs.ig_name }}/${{ steps.meta.outputs.deploy_path }}"
+          commit_message: "deploy: ${{ steps.meta.outputs.ig_name }} v${{ env.IG_VERSION }}"
 
       - name: Deploy history.html to fhir-portal IG root
         if: steps.meta.outputs.is_release == 'true' && env.FHIR_PORTAL_TOKEN != ''
@@ -229,20 +230,11 @@ jobs:
           publish_dir: /tmp/ig-root
           destination_dir: ig/${{ steps.meta.outputs.ig_name }}
           keep_files: true
-          commit_message: "deploy: history.html at ig/${{ steps.meta.outputs.ig_name }} for v${{ steps.meta.outputs.version }}"
+          commit_message: "deploy: history.html at ig/${{ steps.meta.outputs.ig_name }} for v${{ env.IG_VERSION }}"
 
-      - name: Notify fhir-portal to rebuild index
-        if: env.FHIR_PORTAL_TOKEN != ''
+      - name: Update IG registry on fhir-portal
+        if: steps.meta.outputs.is_release == 'true' && env.FHIR_PORTAL_TOKEN != ''
         env:
           FHIR_PORTAL_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
           GH_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
-          IG_VERSION: ${{ steps.meta.outputs.version != '' && steps.meta.outputs.version || github.ref_name }}
-        run: |
-          gh api repos/inera-ab/fhir-portal/dispatches \
-            --method POST \
-            -f event_type=ig-deployed \
-            -f "client_payload[ig_name]=${{ steps.meta.outputs.ig_name }}" \
-            -f "client_payload[ig_title]=${{ steps.meta.outputs.ig_title }}" \
-            -f "client_payload[ig_description]=${{ steps.meta.outputs.ig_description }}" \
-            -f "client_payload[ig_version]=${IG_VERSION}" \
-            -f "client_payload[is_release]=${{ steps.meta.outputs.is_release }}"
+        run: gh api repos/inera-ab/fhir-portal/dispatches --method POST -f event_type=ig-deployed -f "client_payload[ig_name]=${{ steps.meta.outputs.ig_name }}" -f "client_payload[ig_title]=${{ env.IG_TITLE }}" -f "client_payload[ig_description]=${{ env.IG_DESCRIPTION }}" -f "client_payload[ig_version]=${{ env.IG_VERSION }}" -f "client_payload[is_release]=true"
