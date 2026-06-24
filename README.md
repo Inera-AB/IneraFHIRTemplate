@@ -65,7 +65,7 @@ Update `package-id`, `title`, `canonical`, and the `current` ci-build entry:
     {
       "version": "current",
       "desc": "CI build — latest commit on main",
-      "path": "https://inera-ab.github.io/inera-laboratory/branches/main",
+      "path": "https://inera-ab.github.io/inera-laboratory",
       "status": "ci-build",
       "current": true
     }
@@ -87,7 +87,7 @@ The `gh-pages` branch is created automatically on the first push to `main`. Unti
 
 | Branch / tag | Published at |
 |---|---|
-| `main` | `https://inera-ab.github.io/<repo>/branches/main/` |
+| `main` | `https://inera-ab.github.io/<repo>/` (root) |
 | `develop` | `.../branches/develop/` |
 | `feature/my-profile` | `.../branches/feature-my-profile/` |
 | `v1.2.0` (tag) | `.../1.2.0/` |

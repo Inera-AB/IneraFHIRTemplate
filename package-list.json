@@ -10,7 +10,7 @@
     {
       "version": "current",
       "desc": "Continuous Integration Build \u2014 latest commit on main branch",
-      "path": "https://inera-ab.github.io/IneraFHIRTemplate/branches/main",
+      "path": "https://inera-ab.github.io/IneraFHIRTemplate",
       "status": "ci-build",
       "current": true
     },
