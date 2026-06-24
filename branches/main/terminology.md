@@ -1,4 +1,4 @@
-# Terminology - Inera FHIR Implementation Guide Template v0.1.0
+# Terminology - Inera FHIR Implementation Guide Template v1.0.0
 
 * [**Table of Contents**](toc.md)
 * **Terminology**

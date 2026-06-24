@@ -1,4 +1,4 @@
-# Examples - Inera FHIR Implementation Guide Template v0.1.0
+# Examples - Inera FHIR Implementation Guide Template v1.0.0
 
 * [**Table of Contents**](toc.md)
 * **Examples**
