@@ -1,4 +1,4 @@
-# Introduction - Inera FHIR Implementation Guide Template v1.0.0
+# Introduction - Inera FHIR Implementation Guide Template v1.0.1
 
 * [**Table of Contents**](toc.md)
 * **Introduction**
@@ -7,7 +7,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template | *Version*:1.0.0 |
+| *Official URL*:https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template | *Version*:1.0.1 |
 | Draft as of 2026-06-24 | *Computable Name*:IneraCoreTemplate |
 
 # Introduction
@@ -67,11 +67,11 @@ The landing page also offers help to developers to understand how to work with I
   "resourceType" : "ImplementationGuide",
   "id" : "inera.core.template",
   "url" : "https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template",
-  "version" : "1.0.0",
+  "version" : "1.0.1",
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-06-24T10:22:04+00:00",
+  "date" : "2026-06-24T10:24:31+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

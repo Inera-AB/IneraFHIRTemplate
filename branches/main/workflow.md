@@ -1,4 +1,4 @@
-# Workflow - Inera FHIR Implementation Guide Template v1.0.0
+# Workflow - Inera FHIR Implementation Guide Template v1.0.1
 
 * [**Table of Contents**](toc.md)
 * **Workflow**

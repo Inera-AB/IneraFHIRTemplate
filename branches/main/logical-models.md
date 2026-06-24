@@ -1,4 +1,4 @@
-# Logical Models - Inera FHIR Implementation Guide Template v1.0.0
+# Logical Models - Inera FHIR Implementation Guide Template v1.0.1
 
 * [**Table of Contents**](toc.md)
 * **Logical Models**

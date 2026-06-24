@@ -1,4 +1,4 @@
-# Version History - Inera FHIR Implementation Guide Template v1.0.0
+# Version History - Inera FHIR Implementation Guide Template v1.0.1
 
 * [**Table of Contents**](toc.md)
 * **Version History**
@@ -8,6 +8,16 @@
 # Version History
 
 This page is maintained automatically by [release-please](https://github.com/googleapis/release-please). Entries are generated from commit messages that follow [Conventional Commits](https://www.conventionalcommits.org/).
+
+-------
+
+## [1.0.1] — 2026-06-24
+
+### Bug Fixes
+
+* Read IG metadata from build output instead of sushi-config.yaml
+* Fix `is_release` flag in fhir-portal dispatch to use tag ref check
+* Align dispatch payload fields with fhir-portal registry workflow
 
 -------
 
