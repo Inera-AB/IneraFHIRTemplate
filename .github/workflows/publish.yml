@@ -128,8 +128,16 @@ jobs:
         if: steps.meta.outputs.is_release == 'true'
         env:
           VERSION: ${{ steps.meta.outputs.version }}
-          PAGES_URL: https://inera-ab.github.io/inerafhirtemplate
+          FHIR_PORTAL_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
+          IG_NAME: ${{ steps.meta.outputs.ig_name }}
         run: |
+          # Use fhir.inera.se canonical URL when fhir-portal is configured,
+          # otherwise fall back to the repo's own GitHub Pages URL.
+          if [ -n "$FHIR_PORTAL_TOKEN" ]; then
+            PAGES_URL="https://fhir.inera.se/ig/${IG_NAME}"
+          else
+            PAGES_URL="https://inera-ab.github.io/${{ github.event.repository.name }}"
+          fi
           DATE=$(date +%Y-%m-%d)
           python3 - <<'PYEOF'
           import json, os
@@ -171,6 +179,23 @@ jobs:
           keep_files: true
           commit_message: "deploy: ${{ github.ref_name }} → ${{ steps.meta.outputs.deploy_path }}"
 
+      - name: Prepare IG root files for history page
+        if: steps.meta.outputs.is_release == 'true'
+        run: |
+          mkdir -p /tmp/ig-root
+          cp output/history.html /tmp/ig-root/history.html
+          cp package-list.json   /tmp/ig-root/package-list.json
+
+      - name: Deploy history.html to gh-pages root
+        if: steps.meta.outputs.is_release == 'true'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: /tmp/ig-root
+          destination_dir: ""
+          keep_files: true
+          commit_message: "deploy: history.html + package-list.json at root for v${{ steps.meta.outputs.version }}"
+
       # ---------------------------------------------------------------
       # fhir-portal integration (optional)
       # Activate by adding FHIR_PORTAL_TOKEN as a repository secret:
@@ -191,6 +216,20 @@ jobs:
           destination_dir: ig/${{ steps.meta.outputs.ig_name }}/${{ steps.meta.outputs.deploy_path }}
           keep_files: true
           commit_message: "deploy: ${{ steps.meta.outputs.ig_name }} ${{ github.ref_name }} → ig/${{ steps.meta.outputs.ig_name }}/${{ steps.meta.outputs.deploy_path }}"
+
+      - name: Deploy history.html to fhir-portal IG root
+        if: steps.meta.outputs.is_release == 'true' && env.FHIR_PORTAL_TOKEN != ''
+        env:
+          FHIR_PORTAL_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.FHIR_PORTAL_TOKEN }}
+          external_repository: inera-ab/fhir-portal
+          publish_branch: gh-pages
+          publish_dir: /tmp/ig-root
+          destination_dir: ig/${{ steps.meta.outputs.ig_name }}
+          keep_files: true
+          commit_message: "deploy: history.html at ig/${{ steps.meta.outputs.ig_name }} for v${{ steps.meta.outputs.version }}"
 
       - name: Notify fhir-portal to rebuild index
         if: env.FHIR_PORTAL_TOKEN != ''
