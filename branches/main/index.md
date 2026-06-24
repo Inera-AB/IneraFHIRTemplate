@@ -71,7 +71,7 @@ The landing page also offers help to developers to understand how to work with I
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-06-24T08:41:34+00:00",
+  "date" : "2026-06-24T09:41:40+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
