@@ -24,6 +24,17 @@
         "4.0.1"
       ],
       "current": false
+    },
+    {
+      "version": "1.0.1",
+      "desc": "Release 1.0.1 ()",
+      "path": "https://fhir.inera.se/ig/IneraFHIRTemplate/1.0.1",
+      "status": "draft",
+      "sequence": "STU 1",
+      "fhirversion": [
+        "4.0.1"
+      ],
+      "current": false
     }
   ]
 }
