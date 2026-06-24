@@ -123,9 +123,10 @@ jobs:
         run: |
           MANIFEST=output/package.manifest.json
           PKG_ID=$(jq -r '.name' "$MANIFEST")
-          echo "IG_VERSION=$(jq -r '.version' "$MANIFEST")"                           >> $GITHUB_ENV
-          echo "IG_TITLE=$(jq -r '.title' "output/ImplementationGuide-${PKG_ID}.json")"       >> $GITHUB_ENV
-          echo "IG_DESCRIPTION=$(jq -r '.description' "output/ImplementationGuide-${PKG_ID}.json")" >> $GITHUB_ENV
+          echo "IG_VERSION=$(jq -r '.version' "$MANIFEST")" >> $GITHUB_ENV
+          IG_FILE="output/ImplementationGuide-${PKG_ID}.json"
+          echo "IG_TITLE=$(jq -r '.title' "$IG_FILE")"       >> $GITHUB_ENV
+          echo "IG_DESCRIPTION=$(jq -r '.description' "$IG_FILE")" >> $GITHUB_ENV
 
       - name: Update package-list.json for tagged release
         if: steps.meta.outputs.is_release == 'true'
@@ -233,8 +234,8 @@ jobs:
           commit_message: "deploy: history.html at ig/${{ steps.meta.outputs.ig_name }} for v${{ env.IG_VERSION }}"
 
       - name: Update IG registry on fhir-portal
-        if: steps.meta.outputs.is_release == 'true' && env.FHIR_PORTAL_TOKEN != ''
+        if: env.FHIR_PORTAL_TOKEN != ''
         env:
           FHIR_PORTAL_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
           GH_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
-        run: gh api repos/inera-ab/fhir-portal/dispatches --method POST -f event_type=ig-deployed -f "client_payload[ig_name]=${{ steps.meta.outputs.ig_name }}" -f "client_payload[ig_title]=${{ env.IG_TITLE }}" -f "client_payload[ig_description]=${{ env.IG_DESCRIPTION }}" -f "client_payload[ig_version]=${{ env.IG_VERSION }}" -f "client_payload[is_release]=true"
+        run: gh api repos/inera-ab/fhir-portal/dispatches --method POST -f event_type=ig-deployed -f "client_payload[ig_name]=${{ github.event.repository.name }}" -f "client_payload[ig_title]=${{ env.IG_TITLE }}" -f "client_payload[ig_description]=${{ env.IG_DESCRIPTION }}" -f "client_payload[ig_version]=${{ env.IG_VERSION }}" -f "client_payload[is_release]=${{ github.event_name == 'release' }}"
