@@ -5,6 +5,16 @@ Entries are generated from commit messages that follow [Conventional Commits](ht
 
 ---
 
+## [1.0.1] — 2026-06-24
+
+### Bug Fixes
+
+- Read IG metadata from build output instead of sushi-config.yaml
+- Fix `is_release` flag in fhir-portal dispatch to use tag ref check
+- Align dispatch payload fields with fhir-portal registry workflow
+
+---
+
 ## [1.0.0] — 2026-06-24
 
 ### Features

@@ -238,4 +238,4 @@ jobs:
         env:
           FHIR_PORTAL_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
           GH_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
-        run: gh api repos/inera-ab/fhir-portal/dispatches --method POST -f event_type=ig-deployed -f "client_payload[ig_name]=${{ github.event.repository.name }}" -f "client_payload[ig_title]=${{ env.IG_TITLE }}" -f "client_payload[ig_description]=${{ env.IG_DESCRIPTION }}" -f "client_payload[ig_version]=${{ env.IG_VERSION }}" -f "client_payload[is_release]=${{ github.event_name == 'release' }}"
+        run: gh api repos/inera-ab/fhir-portal/dispatches --method POST -f event_type=ig-deployed -f "client_payload[ig_name]=${{ github.event.repository.name }}" -f "client_payload[ig_title]=${{ env.IG_TITLE }}" -f "client_payload[ig_description]=${{ env.IG_DESCRIPTION }}" -f "client_payload[ig_version]=${{ env.IG_VERSION }}" -f "client_payload[is_release]=${{ startsWith(github.ref, 'refs/tags/v') }}"
