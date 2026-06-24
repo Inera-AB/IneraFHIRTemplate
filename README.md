@@ -65,7 +65,7 @@ Update `package-id`, `title`, `canonical`, and the `current` ci-build entry:
     {
       "version": "current",
       "desc": "CI build — latest commit on main",
-      "path": "https://fhir.inera.se/ig/inera-laboratory/branches/main",
+      "path": "https://inera-ab.github.io/inera-laboratory/branches/main",
       "status": "ci-build",
       "current": true
     }
