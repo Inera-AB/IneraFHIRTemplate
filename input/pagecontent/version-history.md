@@ -5,6 +5,19 @@ Entries are generated from commit messages that follow [Conventional Commits](ht
 
 ---
 
+## [1.0.0] — 2026-06-24
+
+### Features
+
+- Multi-branch CI: `develop`, `feature/**` and `support/<M>.x` branches each build and deploy to their own subdirectory
+- fhir-portal integration: optionally push built IG to `inera-ab/fhir-portal` and notify index rebuild via `repository_dispatch`
+- QA report posted as PR comment by `pr-qa.yml`
+- `cleanup.yml` removes build directories for deleted branches
+- `release-please.yml` for automated version bumping and changelog (manual trigger)
+- WCAG 2.1 AA accessibility fixes in `inera.css`
+
+---
+
 ## [0.1.0] — 2026-06-16
 
 ### Features
