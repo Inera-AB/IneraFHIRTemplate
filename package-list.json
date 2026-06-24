@@ -9,10 +9,21 @@
   "list": [
     {
       "version": "current",
-      "desc": "Continuous Integration Build — latest commit on main branch",
+      "desc": "Continuous Integration Build \u2014 latest commit on main branch",
       "path": "https://inera-ab.github.io/inerafhirtemplate",
       "status": "ci-build",
       "current": true
+    },
+    {
+      "version": "1.0.0",
+      "desc": "Release 1.0.0 ()",
+      "path": "https://inera-ab.github.io/inerafhirtemplate/1.0.0",
+      "status": "draft",
+      "sequence": "STU 1",
+      "fhirversion": [
+        "4.0.1"
+      ],
+      "current": false
     }
   ]
 }
