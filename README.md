@@ -121,6 +121,39 @@ For official registration with the global HL7 FHIR registry (tools.fhir.org), su
 
 ---
 
+## Publishing to fhir.inera.se (fhir-portal)
+
+All Inera IGs can be aggregated under `fhir.inera.se/ig/<name>` via the shared hub repo `inera-ab/fhir-portal`. The `publish.yml` workflow includes the necessary steps — they activate only when two values are configured in the IG repo's settings.
+
+### Required configuration
+
+**Repository Variables** (Settings → Secrets and variables → Actions → Variables):
+
+| Variable | Example value | Description |
+|----------|--------------|-------------|
+| `IG_NAME` | `inera-laboratory` | Subdirectory under `/ig/` on fhir.inera.se |
+| `IG_TITLE` | `Inera Laboratory IG` | Display name on the portal index page |
+| `IG_DESCRIPTION` | `FHIR-profiler för laboratoriesvar` | Short description shown in the index card |
+
+**Repository Secret** (Settings → Secrets and variables → Actions → Secrets):
+
+| Secret | Description |
+|--------|-------------|
+| `FHIR_PORTAL_TOKEN` | Fine-grained PAT with `Contents: Read and write` on `inera-ab/fhir-portal` |
+
+### Resulting URLs
+
+| Build type | Published at |
+|------------|-------------|
+| Branch `main` | `fhir.inera.se/ig/<IG_NAME>/branches/main/` |
+| Branch `develop` | `fhir.inera.se/ig/<IG_NAME>/branches/develop/` |
+| Feature branch | `fhir.inera.se/ig/<IG_NAME>/branches/<slug>/` |
+| Release tag `v1.0.0` | `fhir.inera.se/ig/<IG_NAME>/1.0.0/` |
+
+If `IG_NAME` or `FHIR_PORTAL_TOKEN` is not set the portal steps are skipped; the IG still deploys to the repo's own GitHub Pages.
+
+---
+
 ## CI workflows
 
 | Workflow | Trigger | What it does |

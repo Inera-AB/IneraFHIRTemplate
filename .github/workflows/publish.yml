@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+      - develop
+      - 'feature/**'
+      - 'support/**'
     tags:
       - 'v*'
   workflow_dispatch:
@@ -14,8 +17,6 @@ concurrency:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   build:
@@ -23,6 +24,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Determine deploy path and validate tag
+        id: meta
+        run: |
+          REF="${{ github.ref }}"
+          BRANCH="${{ github.ref_name }}"
+
+          if [[ "$REF" == refs/tags/v* ]]; then
+            VERSION="${BRANCH#v}"
+            CONFIG_VERSION=$(grep '^version:' sushi-config.yaml | awk '{print $2}' | tr -d '"' | tr -d "'")
+            if [ "$VERSION" != "$CONFIG_VERSION" ]; then
+              echo "::error::Tag ${BRANCH} (${VERSION}) does not match sushi-config.yaml version (${CONFIG_VERSION}). Update sushi-config.yaml before tagging."
+              exit 1
+            fi
+            echo "deploy_path=${VERSION}"    >> $GITHUB_OUTPUT
+            echo "is_release=true"           >> $GITHUB_OUTPUT
+            echo "version=${VERSION}"        >> $GITHUB_OUTPUT
+          elif [[ "$BRANCH" == "main" ]]; then
+            echo "deploy_path=branches/main" >> $GITHUB_OUTPUT
+            echo "is_release=false"          >> $GITHUB_OUTPUT
+          elif [[ "$BRANCH" == "develop" ]]; then
+            echo "deploy_path=branches/develop" >> $GITHUB_OUTPUT
+            echo "is_release=false"             >> $GITHUB_OUTPUT
+          else
+            SLUG=$(echo "$BRANCH" | sed 's|[^a-zA-Z0-9]|-|g' | sed 's|-\+|-|g' | sed 's|^-||;s|-$||')
+            echo "deploy_path=branches/${SLUG}" >> $GITHUB_OUTPUT
+            echo "is_release=false"             >> $GITHUB_OUTPUT
+          fi
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -67,36 +96,44 @@ jobs:
               -o input-cache/publisher.jar
           fi
 
+      - name: Run SUSHI
+        run: sushi .
+
       - name: Build IG
         run: |
-          java -jar input-cache/publisher.jar \
-            -ig ig.ini \
-            -tx https://tx.fhir.org/r4
+          build() {
+            java -jar input-cache/publisher.jar -ig ig.ini "$@"
+          }
+          if build -tx https://tx.fhir.org/r4; then
+            echo "Build succeeded with terminology server."
+          else
+            echo "TX attempt 1 failed, retrying in 30s..."
+            sleep 30
+            if build -tx https://tx.fhir.org/r4; then
+              echo "Build succeeded on retry."
+            else
+              echo "TX server unavailable — building without terminology validation."
+              build -tx n/a
+            fi
+          fi
 
-      # On a version tag (e.g. v1.2.3), add a versioned entry to package-list.json
-      # and commit it back so the registry always reflects published versions.
       - name: Update package-list.json for tagged release
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: steps.meta.outputs.is_release == 'true'
         env:
-          VERSION: ${{ github.ref_name }}
+          VERSION: ${{ steps.meta.outputs.version }}
           PAGES_URL: https://inera-ab.github.io/inerafhirtemplate
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          VERSION_NUM="${VERSION#v}"
           DATE=$(date +%Y-%m-%d)
-          python3 - <<EOF
+          python3 - <<'PYEOF'
           import json, os
-          v = os.environ['VERSION_NUM'] if 'VERSION_NUM' in os.environ else '${VERSION_NUM}'
-          date = '${DATE}'
-          url = '${PAGES_URL}'
+          v    = os.environ['VERSION']
+          date = os.environ.get('DATE', '')
+          url  = os.environ['PAGES_URL']
 
           with open('package-list.json') as f:
               pl = json.load(f)
 
-          # Remove any existing entry for this version
           pl['list'] = [e for e in pl['list'] if e.get('version') != v]
-
-          # Insert the new versioned entry after ci-build
           pl['list'].append({
               "version": v,
               "desc": f"Release {v} ({date})",
@@ -110,27 +147,52 @@ jobs:
           with open('package-list.json', 'w') as f:
               json.dump(pl, f, indent=2)
               f.write('\n')
-          EOF
+          PYEOF
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add package-list.json
-          git commit -m "chore: add package-list entry for ${VERSION}"
+          git commit -m "chore: add package-list entry for v${{ steps.meta.outputs.version }}"
           git push origin HEAD:main
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to GitHub Pages (gh-pages branch)
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: output/
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          destination_dir: ${{ steps.meta.outputs.deploy_path }}
+          keep_files: true
+          commit_message: "deploy: ${{ github.ref_name }} → ${{ steps.meta.outputs.deploy_path }}"
 
-  deploy:
-    name: Deploy to GitHub Pages
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # ---------------------------------------------------------------
+      # fhir-portal integration (optional)
+      # Requires FHIR_PORTAL_TOKEN secret and IG_NAME variable.
+      # Set IG_NAME in repository Settings → Variables → Actions.
+      # Set FHIR_PORTAL_TOKEN in repository Settings → Secrets → Actions.
+      # ---------------------------------------------------------------
+      - name: Publish to fhir-portal
+        if: vars.IG_NAME != '' && secrets.FHIR_PORTAL_TOKEN != ''
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.FHIR_PORTAL_TOKEN }}
+          external_repository: inera-ab/fhir-portal
+          publish_branch: gh-pages
+          publish_dir: ./output
+          destination_dir: ig/${{ vars.IG_NAME }}/${{ steps.meta.outputs.deploy_path }}
+          keep_files: true
+          commit_message: "deploy: ${{ vars.IG_NAME }} ${{ github.ref_name }} → ig/${{ vars.IG_NAME }}/${{ steps.meta.outputs.deploy_path }}"
+
+      - name: Notify fhir-portal to rebuild index
+        if: vars.IG_NAME != '' && secrets.FHIR_PORTAL_TOKEN != ''
+        env:
+          GH_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
+          IG_VERSION: ${{ steps.meta.outputs.version != '' && steps.meta.outputs.version || github.ref_name }}
+        run: |
+          gh api repos/inera-ab/fhir-portal/dispatches \
+            --method POST \
+            -f event_type=ig-deployed \
+            -f "client_payload[ig_name]=${{ vars.IG_NAME }}" \
+            -f "client_payload[ig_title]=${{ vars.IG_TITLE }}" \
+            -f "client_payload[ig_description]=${{ vars.IG_DESCRIPTION }}" \
+            -f "client_payload[ig_version]=${IG_VERSION}" \
+            -f "client_payload[is_release]=${{ steps.meta.outputs.is_release }}"
