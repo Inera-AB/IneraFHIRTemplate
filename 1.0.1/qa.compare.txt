@@ -1,0 +1,22 @@
+IneraCoreTemplate : Validation Results
+=========================================
+
+err = 0, warn = 1, info = 3
+$--
+Generated $--. FHIR version $-- for inera.core.template#$-- (canonical = https://fhir.inera.se/ig/template)
+ Build Errors : 3 / 0 / 0
+ /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/ImplementationGuide-inera.core.template : 0 / 0 / 2
+ /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/Patient-IneraPatientExample : 0 / 1 / 1
+ /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/StructureDefinition-IneraPatient : 0 / 0 / 3
+</table>
+== n/a ==
+ERROR: logical-models.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 213, column 16: The link 'StructureDefinition-[ModelName].html' for "[ModelName]" cannot be resolved
+ERROR: mappings.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 219, column 16: The link 'StructureDefinition-[Profile].html' for "Profile.element" cannot be resolved
+ERROR: mappings.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 225, column 16: The link 'StructureDefinition-[Profile].html' for "Profile.element" cannot be resolved
+== fsh-generated/resources/ImplementationGuide-inera.core.template.json ==
+INFORMATION: ImplementationGuide/inera.core.template: ImplementationGuide.jurisdiction[0].coding[0].display: There are no valid display names found for the code urn:iso:std:iso:3166#SE for language(s) 'sv-SE'. The display is 'Sweden' which is a valid display for the default language
+== fsh-generated/resources/Patient-IneraPatientExample.json ==
+WARNING: Patient/IneraPatientExample: Patient.identifier[0].system: Ingen definition kunde hittas för URL-värdet 'http://electronichealth.se/identifier/personnummer'
+== fsh-generated/resources/StructureDefinition-IneraPatient.json ==
+INFORMATION: StructureDefinition/IneraPatient: StructureDefinition.jurisdiction[0].coding[0].display: There are no valid display names found for the code urn:iso:std:iso:3166#SE for language(s) 'sv-SE'. The display is 'Sweden' which is a valid display for the default language
+INFORMATION: StructureDefinition/IneraPatient: StructureDefinition.snapshot.element[4].binding.extension[0]: extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0 är föråldrad med noteringen: 'Use additionalBinding extension or element instead'
