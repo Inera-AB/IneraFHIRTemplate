@@ -1,53 +1,48 @@
 {
-  "date" : "Wed, 24 Jun, 2026 10:35:58 +0000",
+  "date" : "Wed, 24 Jun, 2026 11:03:45 +0000",
   "doco" : "For each file: start is seconds after start activity occurred. Length = milliseconds activity took",
   "files" : [{
     "name" : "/fsh-generated/resources/ImplementationGuide-inera.core.template.json",
     "size" : 3288,
     "processes" : [{
       "activity" : "load",
-      "start" : 18,
+      "start" : 17,
       "length" : 19
     },
     {
       "activity" : "checkR4R4B",
-      "start" : 19,
-      "length" : 19
+      "start" : 17,
+      "length" : 15
     },
     {
       "activity" : "generateNarratives",
-      "start" : 19,
-      "length" : 170
+      "start" : 17,
+      "length" : 174
     },
     {
       "activity" : "validate",
-      "start" : 25,
-      "length" : 3746
-    },
-    {
-      "activity" : "checkConformanceResources3",
-      "start" : 29,
-      "length" : 1
+      "start" : 22,
+      "length" : 2240
     },
     {
       "activity" : "generate1",
-      "start" : 29,
-      "length" : 72
+      "start" : 25,
+      "length" : 68
     },
     {
       "activity" : "generate2",
-      "start" : 33,
-      "length" : 64
+      "start" : 27,
+      "length" : 69
     },
     {
       "activity" : "generateValidationPack",
-      "start" : 42,
-      "length" : 2
+      "start" : 35,
+      "length" : 3
     },
     {
       "activity" : "scanExamplesForR5",
-      "start" : 45,
-      "length" : 1
+      "start" : 38,
+      "length" : 2
     }]
   },
   {
@@ -55,33 +50,43 @@
     "size" : 665,
     "processes" : [{
       "activity" : "loadResources",
-      "start" : 18,
+      "start" : 17,
       "length" : 3
     },
     {
       "activity" : "load-configure",
-      "start" : 19,
+      "start" : 17,
+      "length" : 1
+    },
+    {
+      "activity" : "checkR4R4B",
+      "start" : 17,
       "length" : 1
     },
     {
       "activity" : "generateNarratives",
-      "start" : 19,
-      "length" : 381
+      "start" : 17,
+      "length" : 253
     },
     {
       "activity" : "validate",
-      "start" : 29,
-      "length" : 16
+      "start" : 25,
+      "length" : 15
     },
     {
       "activity" : "generate1",
-      "start" : 29,
+      "start" : 25,
       "length" : 7
     },
     {
       "activity" : "generate2",
-      "start" : 33,
+      "start" : 27,
       "length" : 15
+    },
+    {
+      "activity" : "generateExampleZip",
+      "start" : 35,
+      "length" : 1
     }]
   },
   {
@@ -89,82 +94,82 @@
     "size" : 3193,
     "processes" : [{
       "activity" : "loadResources",
-      "start" : 18,
-      "length" : 5
+      "start" : 17,
+      "length" : 4
     },
     {
       "activity" : "load",
-      "start" : 18,
-      "length" : 13
+      "start" : 17,
+      "length" : 10
     },
     {
       "activity" : "generateSnapshots",
-      "start" : 18,
-      "length" : 82
-    },
-    {
-      "activity" : "load-configure",
-      "start" : 19,
-      "length" : 1
+      "start" : 17,
+      "length" : 81
     },
     {
       "activity" : "loadInfo",
-      "start" : 19,
+      "start" : 17,
       "length" : 1
     },
     {
       "activity" : "generateNarratives",
-      "start" : 19,
-      "length" : 544
+      "start" : 18,
+      "length" : 693
     },
     {
       "activity" : "validate",
-      "start" : 20,
-      "length" : 5609
+      "start" : 18,
+      "length" : 4126
+    },
+    {
+      "activity" : "checkConformanceResources3",
+      "start" : 25,
+      "length" : 1
     },
     {
       "activity" : "scanForUsageStats",
-      "start" : 29,
+      "start" : 25,
       "length" : 2
     },
     {
       "activity" : "generate1",
-      "start" : 29,
-      "length" : 224
+      "start" : 25,
+      "length" : 210
     },
     {
       "activity" : "generate2",
-      "start" : 33,
-      "length" : 1067
+      "start" : 27,
+      "length" : 1104
     },
     {
       "activity" : "generate2",
-      "start" : 34,
-      "length" : 1452
+      "start" : 28,
+      "length" : 1567
     },
     {
       "activity" : "generateValidationPack",
-      "start" : 42,
-      "length" : 17
+      "start" : 35,
+      "length" : 16
     },
     {
       "activity" : "scanExamplesForR5",
-      "start" : 45,
-      "length" : 3
+      "start" : 38,
+      "length" : 2
     }]
   },
   {
     "name" : "/input/includes/fragment-header.html",
-    "size" : 172,
-    "processes" : [{
-      "activity" : "generate2",
-      "start" : 34,
-      "length" : 1
-    }]
+    "size" : 172
   },
   {
     "name" : "/input/includes/menu.xml",
-    "size" : 1781
+    "size" : 1781,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 28,
+      "length" : 1
+    }]
   },
   {
     "name" : "/input/includes/fragment-css.html",
@@ -180,12 +185,7 @@
   },
   {
     "name" : "/input/pagecontent/examples.md",
-    "size" : 722,
-    "processes" : [{
-      "activity" : "generate2",
-      "start" : 34,
-      "length" : 1
-    }]
+    "size" : 722
   },
   {
     "name" : "/input/pagecontent/logical-models.md",
@@ -193,16 +193,16 @@
   },
   {
     "name" : "/input/pagecontent/mappings.md",
-    "size" : 1704
+    "size" : 1704,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 28,
+      "length" : 1
+    }]
   },
   {
     "name" : "/input/pagecontent/version-history.md",
-    "size" : 1457,
-    "processes" : [{
-      "activity" : "generateLogicalMaps",
-      "start" : 29,
-      "length" : 1
-    }]
+    "size" : 1457
   },
   {
     "name" : "/input/pagecontent/terminology.md",
@@ -210,21 +210,11 @@
   },
   {
     "name" : "/input/pagecontent/workflow.md",
-    "size" : 1891,
-    "processes" : [{
-      "activity" : "generate2",
-      "start" : 35,
-      "length" : 1
-    }]
+    "size" : 1891
   },
   {
     "name" : "/input/pagecontent/downloads.md",
-    "size" : 663,
-    "processes" : [{
-      "activity" : "generate2",
-      "start" : 34,
-      "length" : 1
-    }]
+    "size" : 663
   },
   {
     "name" : "/input/pagecontent/index.md",
@@ -232,11 +222,21 @@
   },
   {
     "name" : "/template/config",
-    "size" : 0
+    "size" : 0,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 28,
+      "length" : 1
+    }]
   },
   {
     "name" : "/template/config/_config.yml",
-    "size" : 140
+    "size" : 140,
+    "processes" : [{
+      "activity" : "scan",
+      "start" : 17,
+      "length" : 1
+    }]
   },
   {
     "name" : "/input/images",
@@ -256,12 +256,7 @@
   },
   {
     "name" : "/input/images/inera-logo.png",
-    "size" : 898,
-    "processes" : [{
-      "activity" : "generate2",
-      "start" : 34,
-      "length" : 1
-    }]
+    "size" : 898
   },
   {
     "name" : "/input/images/inera-thumbnail.png",
@@ -277,7 +272,12 @@
   },
   {
     "name" : "/input/images/inera-favicon.svg",
-    "size" : 304
+    "size" : 304,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 28,
+      "length" : 1
+    }]
   },
   {
     "name" : "/temp/pages/_includes/artifacts.xml",

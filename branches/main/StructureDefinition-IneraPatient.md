@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-IneraPatient.csv), [
   "name" : "IneraPatient",
   "title" : "Inera Patient",
   "status" : "draft",
-  "date" : "2026-06-24T10:35:58+00:00",
+  "date" : "2026-06-24T11:03:45+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
