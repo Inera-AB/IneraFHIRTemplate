@@ -179,7 +179,9 @@ jobs:
       # IG name, title and description are read from sushi-config.yaml automatically.
       # ---------------------------------------------------------------
       - name: Publish to fhir-portal
-        if: secrets.FHIR_PORTAL_TOKEN != ''
+        if: env.FHIR_PORTAL_TOKEN != ''
+        env:
+          FHIR_PORTAL_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
         uses: peaceiris/actions-gh-pages@v4
         with:
           personal_token: ${{ secrets.FHIR_PORTAL_TOKEN }}
@@ -191,8 +193,9 @@ jobs:
           commit_message: "deploy: ${{ steps.meta.outputs.ig_name }} ${{ github.ref_name }} → ig/${{ steps.meta.outputs.ig_name }}/${{ steps.meta.outputs.deploy_path }}"
 
       - name: Notify fhir-portal to rebuild index
-        if: secrets.FHIR_PORTAL_TOKEN != ''
+        if: env.FHIR_PORTAL_TOKEN != ''
         env:
+          FHIR_PORTAL_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
           GH_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
           IG_VERSION: ${{ steps.meta.outputs.version != '' && steps.meta.outputs.version || github.ref_name }}
         run: |
