@@ -10,14 +10,14 @@
     {
       "version": "current",
       "desc": "Continuous Integration Build \u2014 latest commit on main branch",
-      "path": "https://fhir.inera.se/ig/template/branches/main",
+      "path": "https://inera-ab.github.io/IneraFHIRTemplate",
       "status": "ci-build",
       "current": true
     },
     {
-      "version": "1.0.0",
-      "desc": "Release 1.0.0 (2026-06-24)",
-      "path": "https://fhir.inera.se/ig/template/1.0.0",
+      "version": "1.0.1",
+      "desc": "Release 1.0.1 (2026-06-24)",
+      "path": "https://fhir.inera.se/ig/template/1.0.1",
       "status": "draft",
       "sequence": "STU 1",
       "fhirversion": [
@@ -26,9 +26,9 @@
       "current": false
     },
     {
-      "version": "1.0.1",
-      "desc": "Release 1.0.1 (2026-06-24)",
-      "path": "https://fhir.inera.se/ig/template/1.0.1",
+      "version": "1.0.0",
+      "desc": "Release 1.0.0 (2026-06-24)",
+      "path": "https://fhir.inera.se/ig/template/1.0.0",
       "status": "draft",
       "sequence": "STU 1",
       "fhirversion": [
