@@ -136,9 +136,9 @@ jobs:
           IG_NAME: ${{ steps.meta.outputs.ig_name }}
         run: |
           if [ -n "$FHIR_PORTAL_TOKEN" ]; then
-            PAGES_URL="https://fhir.inera.se/ig/${IG_NAME}"
+            export PAGES_URL="https://fhir.inera.se/ig/${IG_NAME}"
           else
-            PAGES_URL="https://inera-ab.github.io/${{ github.event.repository.name }}"
+            export PAGES_URL="https://inera-ab.github.io/${{ github.event.repository.name }}"
           fi
           DATE=$(date +%Y-%m-%d)
           python3 - <<'PYEOF'
