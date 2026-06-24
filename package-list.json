@@ -9,7 +9,7 @@
   "list": [
     {
       "version": "current",
-      "desc": "Continuous Integration Build — latest commit on main branch",
+      "desc": "Continuous Integration Build \u2014 latest commit on main branch",
       "path": "https://fhir.inera.se/ig/template/branches/main",
       "status": "ci-build",
       "current": true
@@ -20,7 +20,9 @@
       "path": "https://fhir.inera.se/ig/template/1.0.0",
       "status": "draft",
       "sequence": "STU 1",
-      "fhirversion": ["4.0.1"],
+      "fhirversion": [
+        "4.0.1"
+      ],
       "current": false
     },
     {
@@ -29,7 +31,9 @@
       "path": "https://fhir.inera.se/ig/template/1.0.1",
       "status": "draft",
       "sequence": "STU 1",
-      "fhirversion": ["4.0.1"],
+      "fhirversion": [
+        "4.0.1"
+      ],
       "current": false
     }
   ]
