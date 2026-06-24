@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "IneraCoreTemplate"] ; # 
   fhir:title [ fhir:v "Inera FHIR Implementation Guide Template"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-06-24T16:05:40+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-06-24T16:17:55+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;
