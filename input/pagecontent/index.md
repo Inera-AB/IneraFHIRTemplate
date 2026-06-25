@@ -32,7 +32,7 @@ Denna IG har ett beroende till SE-core, definierat av HL7 Sweden. Detta återspe
 
 ### Dokumentation
 
-Mer information om Inera Core finns [här](https://www.inera.se/tjanster/alla-tjanster-a-o/inera-core/). Inera Core är en del av RIVTA – referensarkitekturen för svensk hälso- och sjukvård.
+Mer information om FHIR på Inera  finns [här](https://fhir.inera.se/). FHIR på Inera är en del av RIVTA – referensarkitekturen för svensk hälso- och sjukvård.
 
 ---
 
@@ -40,8 +40,8 @@ Mer information om Inera Core finns [här](https://www.inera.se/tjanster/alla-tj
 
 FHIR-profiler förvaltas av Inera: [Källkod](https://github.com/inera-ab).
 
-En beskrivning av krav på konformans och vägledning för Ineras FHIR-IG:ar finns på [Inera FHIR-landningssidan](https://www.inera.se/fhir).
+En beskrivning av krav på konformans och vägledning för Ineras FHIR-IG:ar finns på [Inera FHIR-landningssidan](https://fhir.inera.se/conformance).
 
-Landningssidan ger en översikt av de konformanskrav som gäller för Ineras FHIR-standarder. Det inkluderar bland annat obligatoriska regler för tolkning av MustSupport, formella valideringskrav som implementatörer måste följa, förväntningar på narrativa texter och styrning av hur Inera Terminologi versioneras, samt säkerhets- och icke-funktionella krav för klienter och API:er.
+Landningssidan ger en översikt av krav på system som vill ansuta sig till ineras tjänster via FHIR.
 
 Landningssidan erbjuder även stöd för utvecklare som vill förstå hur de arbetar med Ineras FHIR-standarder, inklusive en guide för att läsa en Implementation Guide och instruktioner för hur man använder FHIR-verktyg som valideringsuppsättning.
