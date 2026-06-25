@@ -1,23 +1,23 @@
-# Terminology
+# Terminologi
 
-All CodeSystems and ValueSets referenced in this IG that are developed by Inera are published on [Inera Terminologitjänst](https://www.inera.se/tjanster/alla-tjanster-a-o/terminologitjanst-for-nationell-e-halsa/).
+Alla kodsystem och värdemängder som refereras i denna IG och som utvecklats av Inera publiceras på [Inera Terminologitjänst](https://www.inera.se/tjanster/alla-tjanster-a-o/terminologitjanst-for-nationell-e-halsa/).
 
-### CodeSystems
+### Kodsystem
 
-Authors should list all CodeSystems defined or referenced in this IG here.
+Författare bör lista alla kodsystem som definieras eller refereras i denna IG här.
 
-| CodeSystem | Description |
+| Kodsystem | Beskrivning |
+|-----------|-------------|
+| *(inget definierat i denna mall)* | |
+
+### Värdemängder
+
+Författare bör lista alla värdemängder som definieras eller refereras i denna IG här.
+
+| Värdemängd | Beskrivning |
 |------------|-------------|
-| *(none defined in this template)* | |
-
-### ValueSets
-
-Authors should list all ValueSets defined or referenced in this IG here.
-
-| ValueSet | Description |
-|----------|-------------|
-| *(none defined in this template)* | |
+| *(ingen definierad i denna mall)* | |
 
 ---
 
-> **Guidance for authors:** Reference terminologies using their canonical URL. For Inera-owned terminologies, always link to Inera Terminologitjänst. For international terminologies (SNOMED CT, LOINC, etc.), link to the authoritative source.
+> **Vägledning för författare:** Referera terminologier med deras kanoniska URL. För Inera-ägda terminologier, länka alltid till Inera Terminologitjänst. För internationella terminologier (SNOMED CT, LOINC, etc.), länka till den auktoritativa källan.

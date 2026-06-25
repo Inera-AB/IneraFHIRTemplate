@@ -1,41 +1,41 @@
-# Workflow
+# Arbetsflöde
 
-This page describes the clinical or administrative workflows supported by this Implementation Guide, the roles involved, and the obligations that apply to each actor.
-
----
-
-### Workflows
-
-*Describe each workflow this IG supports. For each workflow, explain the trigger, the sequence of steps, and the outcome. Use diagrams where helpful (place images in `input/images/` and reference them here).*
-
-#### [Workflow name]
-
-*Describe the workflow. Example: "The laboratory result workflow begins when a clinician orders a test. The laboratory system analyses the specimen and produces a result, which is then made available to the ordering clinician and the patient's record system."*
-
-*Consider including a sequence diagram or swimlane diagram to illustrate the flow.*
+Denna sida beskriver de kliniska eller administrativa arbetsflöden som stöds av denna Implementation Guide, de roller som ingår och de skyldigheter som gäller för varje aktör.
 
 ---
 
-### Actors and roles
+### Arbetsflöden
 
-*List the systems or human roles that participate in the workflows above. For each actor, describe their responsibilities in the context of this IG.*
+*Beskriv varje arbetsflöde som denna IG stöder. För varje arbetsflöde, förklara vad som utlöser det, sekvensen av steg och resultatet. Använd diagram där det är lämpligt (placera bilder i `input/images/` och referera till dem här).*
 
-| Actor | Description |
+#### [Arbetsflödets namn]
+
+*Beskriv arbetsflödet. Exempel: "Laboratoriesvarsflödet börjar när en kliniker beställer ett prov. Laboratoriesystemet analyserar provet och producerar ett svar, som sedan görs tillgängligt för den beställande klinikern och patientjournalsystemet."*
+
+*Överväg att inkludera ett sekvensdiagram eller swimlane-diagram för att illustrera flödet.*
+
+---
+
+### Aktörer och roller
+
+*Lista de system eller mänskliga roller som deltar i arbetsflödena ovan. Beskriv för varje aktör deras ansvar i sammanhanget för denna IG.*
+
+| Aktör | Beskrivning |
 |-------|-------------|
-| *[Actor name]* | *Describe the role and responsibilities of this actor.* |
-| *[Actor name]* | *Describe the role and responsibilities of this actor.* |
+| *[Aktörens namn]* | *Beskriv rollen och ansvarsområdena för denna aktör.* |
+| *[Aktörens namn]* | *Beskriv rollen och ansvarsområdena för denna aktör.* |
 
 ---
 
-### Obligations
+### Skyldigheter
 
-*Specify what each actor MUST, SHOULD, or MAY do when implementing this IG. Use HL7 FHIR capability terminology where appropriate. If this IG defines formal CapabilityStatements, link to them here.*
+*Specificera vad varje aktör MÅSTE, BÖR eller FÅR göra vid implementering av denna IG. Använd HL7 FHIR:s terminologi för förmågor där det är lämpligt. Om denna IG definierar formella CapabilityStatements, länka till dem här.*
 
-| Actor | Obligation |
+| Aktör | Skyldighet |
 |-------|------------|
-| *[Actor name]* | *State the obligation, e.g. "SHALL be able to produce a [Resource] conforming to [Profile]."* |
-| *[Actor name]* | *State the obligation, e.g. "SHALL be able to consume and process a [Resource] conforming to [Profile]."* |
+| *[Aktörens namn]* | *Ange skyldigheten, t.ex. "SHALL kunna producera en [Resurs] som uppfyller [Profil]."* |
+| *[Aktörens namn]* | *Ange skyldigheten, t.ex. "SHALL kunna konsumera och bearbeta en [Resurs] som uppfyller [Profil]."* |
 
 ---
 
-> **Guidance for authors:** Keep workflows at a conceptual level here. Technical details belong in the profile and example pages. Reference relevant national regulations or RIVTA service contracts where applicable.
+> **Vägledning för författare:** Håll arbetsflödena på en konceptuell nivå här. Tekniska detaljer hör hemma på profil- och exempelsidorna. Referera till relevanta nationella föreskrifter eller RIVTA-tjänstekontrakt där det är tillämpligt.

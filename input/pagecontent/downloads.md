@@ -1,21 +1,21 @@
-# Downloads
+# Nedladdningar
 
-The following downloads are available for this Implementation Guide.
+Följande nedladdningar är tillgängliga för denna Implementation Guide.
 
-### Full IG package
+### Fullständigt IG-paket
 
-The full npm package for this IG, for use with the FHIR validator and other tooling:
+Det fullständiga npm-paketet för denna IG, för användning med FHIR-validatorn och andra verktyg:
 
-- [Package (tgz)](package.tgz)
+- [Paket (tgz)](package.tgz)
 
-### Validator setup
+### Valideringsinställning
 
-To validate instances against profiles in this IG, use the [HL7 FHIR Validator](https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator) with the package above:
+För att validera instanser mot profiler i denna IG, använd [HL7 FHIR Validator](https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator) med paketet ovan:
 
 ```
-java -jar validator_cli.jar <instance.json> -ig inera.core.template#0.1.0
+java -jar validator_cli.jar <instans.json> -ig inera.core.template#1.0.0
 ```
 
 ---
 
-> **Guidance for authors:** Add links to any additional artefacts relevant to your IG, such as example collections, mapping spreadsheets, or integration guides.
+> **Vägledning för författare:** Lägg till länkar till eventuella ytterligare artefakter som är relevanta för din IG, såsom exempelsamlingar, mappningskalkylblad eller integrationsguider.

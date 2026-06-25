@@ -2,7 +2,7 @@ id: inera.core.template
 canonical: https://fhir.inera.se/ig/template
 name: IneraCoreTemplate
 title: "Inera FHIR Implementation Guide Template"
-description: "Template Implementation Guide for Inera FHIR IGs, demonstrating structure and governance conventions."
+description: "Mall för Ineras FHIR Implementation Guides."
 status: draft
 version: 1.0.0
 fhirVersion: 4.0.1
@@ -19,23 +19,24 @@ jurisdiction: urn:iso:std:iso:3166#SE "Sweden"
 parameters:
   show-inherited-invariants: false
   usage-stats-opt-out: true
+  i18n-default-language: sv
 
 pages:
   index.md:
-    title: Introduction
+    title: Introduktion
   workflow.md:
-    title: Workflow
+    title: Arbetsflöde
   logical-models.md:
-    title: Logical Models
+    title: Logiska modeller
   mappings.md:
-    title: Mappings
+    title: Mappningar
   profiles.md:
-    title: Profiles
+    title: Profiler
   terminology.md:
-    title: Terminology
+    title: Terminologi
   examples.md:
-    title: Examples
+    title: Exempel
   downloads.md:
-    title: Downloads
+    title: Nedladdningar
   version-history.md:
-    title: Version History
+    title: Versionshistorik
