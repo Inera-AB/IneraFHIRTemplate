@@ -1,44 +1,44 @@
-# Mappings - Inera FHIR Implementation Guide Template v1.0.1
+# Mappningar - Inera FHIR Implementation Guide Template v1.0.0
 
 * [**Table of Contents**](toc.md)
-* **Mappings**
+* **Mappningar**
 
-## Mappings
+## Mappningar
 
-# Mappings
+# Mappningar
 
-This page documents how elements in the logical models defined in this IG map to elements in the corresponding FHIR profiles.
-
--------
-
-### Purpose
-
-**Explain the role of these mappings. Example: "The mappings below trace each element in the logical models to the FHIR profile element that carries that information. This makes it possible to verify coverage and to guide implementers who need to understand the relationship between clinical requirements and their technical representation."**
+Denna sida dokumenterar hur element i de logiska modellerna i denna IG mappas till element i motsvarande FHIR-profiler.
 
 -------
 
-### Mapping tables
+### Syfte
 
-**Provide one mapping table per logical model. Each row should show a logical model element, its cardinality, and the corresponding FHIR profile path.**
+**Förklara rollen för dessa mappningar. Exempel: "Mappningarna nedan spårar varje element i de logiska modellerna till det FHIR-profilelement som bär den informationen. Detta gör det möjligt att verifiera täckning och vägleder implementatörer som behöver förstå sambandet mellan kliniska krav och deras tekniska representation."**
 
-#### [Logical model name] → [Profile name]
+-------
+
+### Mappningstabeller
+
+**Tillhandahåll en mappningstabell per logisk modell. Varje rad ska visa ett logiskt modellelement, dess kardinalitet och motsvarande FHIR-profilsökväg.**
+
+#### [Logisk modells namn] → [Profilnamn]
 
 | | | | |
 | :--- | :--- | :--- | :--- |
-| **[Element name]** | **1..1** | **[Profile.element](StructureDefinition-[Profile].md)** | **Any notes on the mapping, e.g. value set constraints or transformation rules.** |
-| **[Element name]** | **0..*** | **[Profile.element](StructureDefinition-[Profile].md)** |   |
+| **[Elementnamn]** | **1..1** | **[Profil.element](StructureDefinition-[Profil].md)** | **Noteringar om mappningen, t.ex. värdemängdsbegränsningar eller transformationsregler.** |
+| **[Elementnamn]** | **0..*** | **[Profil.element](StructureDefinition-[Profil].md)** |   |
 
 -------
 
-### Unmapped elements
+### Omappade element
 
-**If any logical model elements are not covered by a profile element, list them here and explain why (out of scope, deferred to a future version, covered by a separate profile, etc.).**
+**Om logiska modellelement inte täcks av ett profilelement, lista dem här och förklara varför (utanför scope, uppskjutet till framtida version, täcks av separat profil, etc.).**
 
 | | |
 | :--- | :--- |
-| **[Element name]** | **Explanation.** |
+| **[Elementnamn]** | **Förklaring.** |
 
 -------
 
-> **Guidance for authors:** Keep mappings up to date as profiles evolve. Mappings can also be expressed formally using FHIR `StructureMap` resources if machine-processable transformation is needed. Place StructureMaps in `input/fsh/maps/`.
+> **Vägledning för författare:** Håll mappningarna uppdaterade i takt med att profilerna utvecklas. Mappningar kan också uttryckas formellt med FHIR `StructureMap`-resurser om maskinbearbetningsbar transformation behövs. Placera StructureMaps i `input/fsh/maps/`.
 

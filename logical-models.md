@@ -1,41 +1,41 @@
-# Logical Models - Inera FHIR Implementation Guide Template v1.0.1
+# Logiska modeller - Inera FHIR Implementation Guide Template v1.0.0
 
 * [**Table of Contents**](toc.md)
-* **Logical Models**
+* **Logiska modeller**
 
-## Logical Models
+## Logiska modeller
 
-# Logical Models
+# Logiska modeller
 
-This page describes the logical information models that underpin the profiles defined in this Implementation Guide. Logical models capture the information requirements of the domain independently of any technical representation.
-
--------
-
-### Purpose of logical models
-
-**Explain why logical models are included in this IG. Example: "The logical models below represent the information requirements agreed with clinical and domain experts. They serve as the authoritative definition of what data must be exchanged and form the basis for the FHIR profiles defined in this IG."**
+Denna sida beskriver de logiska informationsmodeller som ligger till grund för profilerna i denna Implementation Guide. Logiska modeller fångar domänens informationskrav oberoende av teknisk representation.
 
 -------
 
-### Models
+### Syfte med logiska modeller
 
-**List each logical model defined in this IG. For each model, provide a short description and link to the generated StructureDefinition page.**
+**Förklara varför logiska modeller ingår i denna IG. Exempel: "De logiska modellerna nedan representerar de informationskrav som överenskommits med kliniska och domänexperter. De utgör den auktoritativa definitionen av vilka data som måste utbytas och bildar underlag för de FHIR-profiler som definieras i denna IG."**
+
+-------
+
+### Modeller
+
+**Lista varje logisk modell som definieras i denna IG. Ge för varje modell en kort beskrivning och länk till den genererade StructureDefinition-sidan.**
 
 | | |
 | :--- | :--- |
-| **[[ModelName]](StructureDefinition-[ModelName].md)** | **Describe what information this model captures and in which context it is used.** |
+| **[[Modellnamn]](StructureDefinition-[Modellnamn].md)** | **Beskriv vilken information denna modell fångar och i vilket sammanhang den används.** |
 
 -------
 
-### Model descriptions
+### Modellbeskrivningar
 
-**For each logical model, describe its key elements, cardinalities, and any important constraints or business rules that are not self-evident from the element names.**
+**Beskriv för varje logisk modell dess nyckelelement, kardinaliteter och eventuella viktiga begränsningar eller affärsregler som inte är självklara utifrån elementnamnen.**
 
-#### [Model name]
+#### [Modellens namn]
 
-**Describe the model. List the most important elements and explain any design decisions, for example why certain elements are mandatory or why particular data types were chosen.**
+**Beskriv modellen. Lista de viktigaste elementen och förklara designbeslut, till exempel varför vissa element är obligatoriska eller varför specifika datatyper valts.**
 
 -------
 
-> **Guidance for authors:** Define logical models as FHIR `StructureDefinition` resources with `kind = logical` in FSH. Place them in `input/fsh/logicalmodels/`. Logical models should reflect agreed clinical or domain requirements and be reviewed by subject matter experts before the corresponding FHIR profiles are created.
+> **Vägledning för författare:** Definiera logiska modeller som FHIR `StructureDefinition`-resurser med `kind = logical` i FSH. Placera dem i `input/fsh/logicalmodels/`. Logiska modeller ska återspegla överenskomna kliniska eller domänkrav och granskas av ämnesexperter innan motsvarande FHIR-profiler skapas.
 

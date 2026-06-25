@@ -1,4 +1,4 @@
-# Inera Patient Example - Inera FHIR Implementation Guide Template v1.0.1
+# Inera Patient Example - Inera FHIR Implementation Guide Template v1.0.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)

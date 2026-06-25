@@ -1,62 +1,62 @@
-# Introduction - Inera FHIR Implementation Guide Template v1.0.1
+# Introduktion - Inera FHIR Implementation Guide Template v1.0.0
 
 * [**Table of Contents**](toc.md)
-* **Introduction**
+* **Introduktion**
 
-## Introduction
+## Introduktion
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template | *Version*:1.0.1 |
-| Draft as of 2026-06-24 | *Computable Name*:IneraCoreTemplate |
+| *Official URL*:https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template | *Version*:1.0.0 |
+| Draft as of 2026-06-25 | *Computable Name*:IneraCoreTemplate |
 
-# Introduction
+# Introduktion
 
-### [Domain name] Domain
+### [Domännamn]
 
-**Describe the clinical or administrative domain this IG addresses. Explain why this domain is important in Swedish healthcare, what role it plays in patient care or information exchange, and why it has been prioritised for FHIR standardisation. Example: clinical laboratory results, referrals, care plans, prescriptions.**
-
--------
-
-### Scope
-
-**Define what this IG covers and what it does not. Specify the types of use cases, clinical scenarios, or information exchanges in scope. Mention any explicit exclusions or boundary decisions. If this IG is meant to be used as a base for more specialised guides, say so here. Example: "This IG applies to X within the context of Y. It does not cover Z. Derived guides may restrict or extend the scope as needed."**
+**Beskriv det kliniska eller administrativa område som denna IG hanterar. Förklara varför området är viktigt inom svensk hälso- och sjukvård, vilken roll det spelar i patientvård eller informationsutbyte, och varför det prioriterats för FHIR-standardisering. Exempel: kliniska laboratoriesvar, remisser, vårdplaner, recept.**
 
 -------
 
-### Purpose
+### Omfattning
 
-**State the goal of this IG. Explain what problem it solves, who it is intended for (implementers, vendors, healthcare providers), and how it fits into the broader Inera and Swedish e-health landscape. Reference any national or regional programmes, standards, or mandates that motivated the work.**
-
--------
-
-### Terminology
-
-On [Inera Terminologitjänst](https://www.inera.se/tjanster/alla-tjanster-a-o/terminologitjanst-for-nationell-e-halsa/) all referenced CodeSystems and ValueSets developed by Inera can be found.
+**Definiera vad denna IG täcker och vad den inte täcker. Specificera vilka typer av användningsfall, kliniska scenarier eller informationsutbyten som ingår. Nämn eventuella explicita avgränsningar. Om denna IG är avsedd att användas som bas för mer specialiserade guider, säg det här. Exempel: "Denna IG gäller för X inom ramen för Y. Den täcker inte Z. Härledda guider kan begränsa eller utöka omfattningen vid behov."**
 
 -------
 
-### Dependencies
+### Syfte
 
-This IG has a dependency to SE-core, defined by HL7 Sweden. This is currently reflected in the profiles that inherit from SECore profiles.
-
--------
-
-### Documentation
-
-More information about Inera Core can be found [here](https://www.inera.se/tjanster/alla-tjanster-a-o/inera-core/). Inera Core is part of RIVTA – the reference architecture of Swedish healthcare.
+**Beskriv målet med denna IG. Förklara vilket problem den löser, vem den riktar sig till (implementatörer, leverantörer, vårdgivare) och hur den passar in i det bredare Inera- och e-hälsolandskapet. Hänvisa till nationella eller regionala program, standarder eller mandat som motiverat arbetet.**
 
 -------
 
-### Governance and guidance
+### Terminologi
 
-FHIR profiles are managed by Inera: [Source code](https://github.com/inera-ab).
+På [Inera Terminologitjänst](https://www.inera.se/tjanster/alla-tjanster-a-o/terminologitjanst-for-nationell-e-halsa/) finns alla refererade kodsystem och värdemängder som utvecklats av Inera.
 
-A description of conformance requirements and guidance for Inera's FHIR IGs can be found on the [Inera FHIR Landing Page](https://www.inera.se/fhir).
+-------
 
-The Inera FHIR landing page provides an overview of conformance requirements that apply to Inera's FHIR standards. This includes for example the mandatory rules for interpreting MustSupport, the formal validation requirements that implementers must follow, the expectations for producing narrative texts and governance for how Inera Terminology is versioned, as well as security and client and API non-functional requirements.
+### Beroenden
 
-The landing page also offers help to developers to understand how to work with Inera's FHIR standards. This includes a guide on how to read an Implementation Guide. Users will also find instructions on how to use some of the FHIR tools, such as validation setup.
+Denna IG har ett beroende till SE-core, definierat av HL7 Sweden. Detta återspeglas i de profiler som ärver från SECore-profiler.
+
+-------
+
+### Dokumentation
+
+Mer information om Inera Core finns [här](https://www.inera.se/tjanster/alla-tjanster-a-o/inera-core/). Inera Core är en del av RIVTA – referensarkitekturen för svensk hälso- och sjukvård.
+
+-------
+
+### Styrning och vägledning
+
+FHIR-profiler förvaltas av Inera: [Källkod](https://github.com/inera-ab).
+
+En beskrivning av krav på konformans och vägledning för Ineras FHIR-IG:ar finns på [Inera FHIR-landningssidan](https://www.inera.se/fhir).
+
+Landningssidan ger en översikt av de konformanskrav som gäller för Ineras FHIR-standarder. Det inkluderar bland annat obligatoriska regler för tolkning av MustSupport, formella valideringskrav som implementatörer måste följa, förväntningar på narrativa texter och styrning av hur Inera Terminologi versioneras, samt säkerhets- och icke-funktionella krav för klienter och API:er.
+
+Landningssidan erbjuder även stöd för utvecklare som vill förstå hur de arbetar med Ineras FHIR-standarder, inklusive en guide för att läsa en Implementation Guide och instruktioner för hur man använder FHIR-verktyg som valideringsuppsättning.
 
 
 
@@ -67,11 +67,11 @@ The landing page also offers help to developers to understand how to work with I
   "resourceType" : "ImplementationGuide",
   "id" : "inera.core.template",
   "url" : "https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template",
-  "version" : "1.0.1",
+  "version" : "1.0.0",
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-06-24T17:45:04+00:00",
+  "date" : "2026-06-25T07:50:33+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -80,7 +80,7 @@ The landing page also offers help to developers to understand how to work with I
       "value" : "https://www.inera.se"
     }]
   }],
-  "description" : "Template Implementation Guide for Inera FHIR IGs, demonstrating structure and governance conventions.",
+  "description" : "Mall för Ineras FHIR Implementation Guides.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -153,6 +153,17 @@ The landing page also offers help to developers to understand how to work with I
       {
         "url" : "value",
         "valueString" : "true"
+      }],
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+    },
+    {
+      "extension" : [{
+        "url" : "code",
+        "valueString" : "i18n-default-language"
+      },
+      {
+        "url" : "value",
+        "valueString" : "sv"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -460,6 +471,17 @@ The landing page also offers help to developers to understand how to work with I
     {
       "extension" : [{
         "url" : "code",
+        "valueCode" : "i18n-default-language"
+      },
+      {
+        "url" : "value",
+        "valueString" : "sv"
+      }],
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+    },
+    {
+      "extension" : [{
+        "url" : "code",
         "valueCode" : "autoload-resources"
       },
       {
@@ -748,7 +770,7 @@ The landing page also offers help to developers to understand how to work with I
           "valueUrl" : "index.html"
         }],
         "nameUrl" : "index.html",
-        "title" : "Introduction",
+        "title" : "Introduktion",
         "generation" : "markdown"
       },
       {
@@ -757,7 +779,7 @@ The landing page also offers help to developers to understand how to work with I
           "valueUrl" : "workflow.html"
         }],
         "nameUrl" : "workflow.html",
-        "title" : "Workflow",
+        "title" : "Arbetsflöde",
         "generation" : "markdown"
       },
       {
@@ -766,7 +788,7 @@ The landing page also offers help to developers to understand how to work with I
           "valueUrl" : "logical-models.html"
         }],
         "nameUrl" : "logical-models.html",
-        "title" : "Logical Models",
+        "title" : "Logiska modeller",
         "generation" : "markdown"
       },
       {
@@ -775,7 +797,7 @@ The landing page also offers help to developers to understand how to work with I
           "valueUrl" : "mappings.html"
         }],
         "nameUrl" : "mappings.html",
-        "title" : "Mappings",
+        "title" : "Mappningar",
         "generation" : "markdown"
       },
       {
@@ -784,7 +806,7 @@ The landing page also offers help to developers to understand how to work with I
           "valueUrl" : "profiles.html"
         }],
         "nameUrl" : "profiles.html",
-        "title" : "Profiles",
+        "title" : "Profiler",
         "generation" : "markdown"
       },
       {
@@ -793,7 +815,7 @@ The landing page also offers help to developers to understand how to work with I
           "valueUrl" : "terminology.html"
         }],
         "nameUrl" : "terminology.html",
-        "title" : "Terminology",
+        "title" : "Terminologi",
         "generation" : "markdown"
       },
       {
@@ -802,7 +824,7 @@ The landing page also offers help to developers to understand how to work with I
           "valueUrl" : "examples.html"
         }],
         "nameUrl" : "examples.html",
-        "title" : "Examples",
+        "title" : "Exempel",
         "generation" : "markdown"
       },
       {
@@ -811,7 +833,7 @@ The landing page also offers help to developers to understand how to work with I
           "valueUrl" : "downloads.html"
         }],
         "nameUrl" : "downloads.html",
-        "title" : "Downloads",
+        "title" : "Nedladdningar",
         "generation" : "markdown"
       },
       {
@@ -820,7 +842,7 @@ The landing page also offers help to developers to understand how to work with I
           "valueUrl" : "version-history.html"
         }],
         "nameUrl" : "version-history.html",
-        "title" : "Version History",
+        "title" : "Versionshistorik",
         "generation" : "markdown"
       }]
     },

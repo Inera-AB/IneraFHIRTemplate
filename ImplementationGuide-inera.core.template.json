@@ -1,17 +1,16 @@
 {
   "resourceType" : "ImplementationGuide",
   "id" : "inera.core.template",
-  "language" : "en",
   "text" : {
     "status" : "generated",
-    "div" : "<div xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\"><p class=\"res-header-id\"><b>Generated Narrative: ImplementationGuide inera.core.template</b></p><a name=\"inera.core.template\"> </a><a name=\"hcinera.core.template\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: en</p></div><h2>IneraCoreTemplate</h2><p>The official URL for this implementation guide is: </p><pre>https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template</pre><div><p>Template Implementation Guide for Inera FHIR IGs, demonstrating structure and governance conventions.</p>\n</div></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: ImplementationGuide inera.core.template</b></p><a name=\"inera.core.template\"> </a><a name=\"hcinera.core.template\"> </a><h2>IneraCoreTemplate</h2><p>Den officiella URL:en för denna implementationsguide är: </p><pre>https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template</pre><div><p>Mall för Ineras FHIR Implementation Guides.</p>\n</div></div>"
   },
   "url" : "https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template",
   "version" : "1.0.0",
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-06-25T07:04:27+00:00",
+  "date" : "2026-06-25T07:50:33+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -20,7 +19,7 @@
       "value" : "https://www.inera.se"
     }]
   }],
-  "description" : "Template Implementation Guide for Inera FHIR IGs, demonstrating structure and governance conventions.",
+  "description" : "Mall för Ineras FHIR Implementation Guides.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -93,6 +92,17 @@
       {
         "url" : "value",
         "valueString" : "true"
+      }],
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+    },
+    {
+      "extension" : [{
+        "url" : "code",
+        "valueString" : "i18n-default-language"
+      },
+      {
+        "url" : "value",
+        "valueString" : "sv"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -350,17 +360,6 @@
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
     {
-      "extension" : [{
-        "url" : "code",
-        "valueString" : "i18n-default-lang"
-      },
-      {
-        "url" : "value",
-        "valueString" : "en"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency",
       "valueCode" : "hl7.fhir.uv.tools.r4#1.1.2"
     },
@@ -405,6 +404,17 @@
       {
         "url" : "value",
         "valueString" : "true"
+      }],
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+    },
+    {
+      "extension" : [{
+        "url" : "code",
+        "valueCode" : "i18n-default-language"
+      },
+      {
+        "url" : "value",
+        "valueString" : "sv"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -660,17 +670,6 @@
         "valueString" : "true"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueCode" : "i18n-default-lang"
-      },
-      {
-        "url" : "value",
-        "valueString" : "en"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     }],
     "resource" : [{
       "extension" : [{
@@ -710,7 +709,7 @@
           "valueUrl" : "index.html"
         }],
         "nameUrl" : "index.html",
-        "title" : "Introduction",
+        "title" : "Introduktion",
         "generation" : "markdown"
       },
       {
@@ -719,7 +718,7 @@
           "valueUrl" : "workflow.html"
         }],
         "nameUrl" : "workflow.html",
-        "title" : "Workflow",
+        "title" : "Arbetsflöde",
         "generation" : "markdown"
       },
       {
@@ -728,7 +727,7 @@
           "valueUrl" : "logical-models.html"
         }],
         "nameUrl" : "logical-models.html",
-        "title" : "Logical Models",
+        "title" : "Logiska modeller",
         "generation" : "markdown"
       },
       {
@@ -737,7 +736,7 @@
           "valueUrl" : "mappings.html"
         }],
         "nameUrl" : "mappings.html",
-        "title" : "Mappings",
+        "title" : "Mappningar",
         "generation" : "markdown"
       },
       {
@@ -746,7 +745,7 @@
           "valueUrl" : "profiles.html"
         }],
         "nameUrl" : "profiles.html",
-        "title" : "Profiles",
+        "title" : "Profiler",
         "generation" : "markdown"
       },
       {
@@ -755,7 +754,7 @@
           "valueUrl" : "terminology.html"
         }],
         "nameUrl" : "terminology.html",
-        "title" : "Terminology",
+        "title" : "Terminologi",
         "generation" : "markdown"
       },
       {
@@ -764,7 +763,7 @@
           "valueUrl" : "examples.html"
         }],
         "nameUrl" : "examples.html",
-        "title" : "Examples",
+        "title" : "Exempel",
         "generation" : "markdown"
       },
       {
@@ -773,7 +772,7 @@
           "valueUrl" : "downloads.html"
         }],
         "nameUrl" : "downloads.html",
-        "title" : "Downloads",
+        "title" : "Nedladdningar",
         "generation" : "markdown"
       },
       {
@@ -782,7 +781,7 @@
           "valueUrl" : "version-history.html"
         }],
         "nameUrl" : "version-history.html",
-        "title" : "Version History",
+        "title" : "Versionshistorik",
         "generation" : "markdown"
       }]
     },
@@ -837,10 +836,6 @@
     {
       "code" : "path-pages",
       "value" : "template/config"
-    },
-    {
-      "code" : "path-pages",
-      "value" : "input/assets"
     },
     {
       "code" : "path-pages",

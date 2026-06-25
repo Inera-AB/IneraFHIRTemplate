@@ -1,23 +1,23 @@
-# Examples - Inera FHIR Implementation Guide Template v1.0.1
+# Exempel - Inera FHIR Implementation Guide Template v1.0.0
 
 * [**Table of Contents**](toc.md)
-* **Examples**
+* **Exempel**
 
-## Examples
+## Exempel
 
-# Examples
+# Exempel
 
-This page lists example instances defined in this Implementation Guide.
+Denna sida listar exempelinstanser som definieras i denna Implementation Guide.
 
-Examples demonstrate how the profiles should be populated in practice. Authors should provide at least one example per profile, covering the most common use cases.
+Exempel visar hur profilerna ska fyllas i i praktiken. Författare bör tillhandahålla minst ett exempel per profil som täcker de vanligaste användningsfallen.
 
-### Patient examples
+### Patientexempel
 
 | | | |
 | :--- | :--- | :--- |
-| [IneraPatientExample](Patient-IneraPatientExample.md) | [IneraPatient](StructureDefinition-IneraPatient.md) | A minimal example of a patient conforming to the IneraPatient profile. |
+| [IneraPatientExample](Patient-IneraPatientExample.md) | [IneraPatient](StructureDefinition-IneraPatient.md) | Ett minimalt exempel på en patient som uppfyller IneraPatient-profilen. |
 
 -------
 
-> **Guidance for authors:** Provide realistic but anonymised examples. Ensure each example validates against its stated profile. Use `meta.profile` to declare conformance explicitly.
+> **Vägledning för författare:** Tillhandahåll realistiska men anonymiserade exempel. Se till att varje exempel valideras mot sin angivna profil. Använd `meta.profile` för att deklarera konformans explicit.
 

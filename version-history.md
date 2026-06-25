@@ -1,9 +1,9 @@
-# Version History - Inera FHIR Implementation Guide Template v1.0.1
+# Versionshistorik - Inera FHIR Implementation Guide Template v1.0.0
 
 * [**Table of Contents**](toc.md)
-* **Version History**
+* **Versionshistorik**
 
-## Version History
+## Versionshistorik
 
 # Version History
 
