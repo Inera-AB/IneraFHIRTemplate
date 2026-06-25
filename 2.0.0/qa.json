@@ -1,0 +1,19 @@
+{
+  "url" : "https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template",
+  "name" : "IneraCoreTemplate",
+  "title" : "Inera FHIR Implementation Guide Template",
+  "description" : "Mall för Ineras FHIR Implementation Guides.",
+  "status" : "draft",
+  "package-id" : "inera.core.template",
+  "ig-ver" : "2.0.0",
+  "date" : "Thu, 25 Jun, 2026 07:56:07 +0000",
+  "dateISO8601" : "2026-06-25T07:56:07+00:00",
+  "errs" : 4,
+  "warnings" : 2,
+  "hints" : 3,
+  "suppressed-hints" : 0,
+  "suppressed-warnings" : 4,
+  "version" : "4.0.1",
+  "tool" : "5.0.0 (3)",
+  "maxMemory" : 786354176
+}

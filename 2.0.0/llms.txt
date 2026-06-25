@@ -1,0 +1,28 @@
+# inera.core.template#2.0.0: Inera FHIR Implementation Guide Template
+
+## Pages
+
+* [Introduktion](index.md)
+* [Nedladdningar](downloads.md)
+* [Mappningar](mappings.md)
+* [Profiler](profiles.md)
+* [Artifacts Summary](artifacts.md)
+* [Logiska modeller](logical-models.md)
+* [Terminologi](terminology.md)
+* [Exempel](examples.md)
+* [Arbetsflöde](workflow.md)
+* [Versionshistorik](version-history.md)
+
+## Resources
+
+### Resource Profiles
+
+* [Inera Patient](StructureDefinition-IneraPatient.md)
+
+### ImplementationGuides
+
+* [Inera FHIR Implementation Guide Template](index.md)
+
+### Examples
+
+* [IneraPatientExample (Patient)](Patient-IneraPatientExample.md)

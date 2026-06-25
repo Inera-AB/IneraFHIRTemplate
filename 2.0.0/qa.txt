@@ -1,0 +1,27 @@
+IneraCoreTemplate : Validation Results
+=========================================
+
+err = 4, warn = 2, info = 3
+IG Publisher Version: 2.2.9
+Generated Thu Jun 25 07:56:54 UTC 2026. FHIR version 4.0.1 for inera.core.template#2.0.0 (canonical = https://fhir.inera.se/ig/template)
+ Build Errors : 3 / 0 / 0
+ /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/ImplementationGuide-inera.core.template : 4 / 1 / 2
+ /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/Patient-IneraPatientExample : 0 / 1 / 1
+ /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/StructureDefinition-IneraPatient : 0 / 0 / 3
+</table>
+== n/a ==
+ERROR: logical-models.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 213, column 16: The link 'StructureDefinition-[Modellnamn].html' for "[Modellnamn]" cannot be resolved
+ERROR: mappings.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 219, column 16: The link 'StructureDefinition-[Profil].html' for "Profil.element" cannot be resolved
+ERROR: mappings.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 225, column 16: The link 'StructureDefinition-[Profil].html' for "Profil.element" cannot be resolved
+== fsh-generated/resources/ImplementationGuide-inera.core.template.json ==
+WARNING: /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/ImplementationGuide-inera.core.template: Unknown Parameters: [i18n-default-language=sv]
+INFORMATION: ImplementationGuide/inera.core.template: ImplementationGuide.jurisdiction[0].coding[0].display: There are no valid display names found for the code urn:iso:std:iso:3166#SE for language(s) 'sv-SE'. The display is 'Sweden' which is a valid display for the default language
+ERROR: ImplementationGuide/inera.core.template: ImplementationGuide.definition.extension[4].extension[0].value.ofType(string): System-URI:n kunde inte bestämmas för koden 'i18n-default-language' i ValueSet 'http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2'
+ERROR: ImplementationGuide/inera.core.template: ImplementationGuide.definition.extension[4].extension[0].value.ofType(string): Det angivna värdet ('i18n-default-language') hittades inte i värdemängden 'ig-parameters Codes ValueSet' (http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2), och en kod krävs från denna värdemängd  (error message = Den angivna koden '#i18n-default-language' hittades inte i värdemängden 'http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2'; System-URI:n kunde inte bestämmas för koden 'i18n-default-language' i ValueSet 'http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2')
+ERROR: ImplementationGuide/inera.core.template: ImplementationGuide.definition.extension[33].extension[0].value.ofType(code): System-URI:n kunde inte bestämmas för koden 'i18n-default-language' i ValueSet 'http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2'
+ERROR: ImplementationGuide/inera.core.template: ImplementationGuide.definition.extension[33].extension[0].value.ofType(code): Det angivna värdet ('i18n-default-language') hittades inte i värdemängden 'ig-parameters Codes ValueSet' (http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2), och en kod krävs från denna värdemängd  (error message = Den angivna koden '#i18n-default-language' hittades inte i värdemängden 'http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2'; System-URI:n kunde inte bestämmas för koden 'i18n-default-language' i ValueSet 'http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2')
+== fsh-generated/resources/Patient-IneraPatientExample.json ==
+WARNING: Patient/IneraPatientExample: Patient.identifier[0].system: Ingen definition kunde hittas för URL-värdet 'http://electronichealth.se/identifier/personnummer'
+== fsh-generated/resources/StructureDefinition-IneraPatient.json ==
+INFORMATION: StructureDefinition/IneraPatient: StructureDefinition.jurisdiction[0].coding[0].display: There are no valid display names found for the code urn:iso:std:iso:3166#SE for language(s) 'sv-SE'. The display is 'Sweden' which is a valid display for the default language
+INFORMATION: StructureDefinition/IneraPatient: StructureDefinition.snapshot.element[4].binding.extension[0]: extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0 är föråldrad med noteringen: 'Use additionalBinding extension or element instead'
