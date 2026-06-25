@@ -1,4 +1,4 @@
-# Profiler - Inera FHIR Implementation Guide Template v1.0.0
+# Profiler - Inera FHIR Implementation Guide Template v2.0.0
 
 * [**Table of Contents**](toc.md)
 * **Profiler**

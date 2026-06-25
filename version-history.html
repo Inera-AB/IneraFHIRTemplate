@@ -3,7 +3,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Versionshistorik - Inera FHIR Implementation Guide Template v1.0.0</title>
+    <title>Versionshistorik - Inera FHIR Implementation Guide Template v2.0.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -59,7 +59,7 @@
         <div id="ig-status">
           <p><span style="font-size:12pt;font-weight:bold">Inera FHIR Implementation Guide Template</span>
             <br/>
-            <span style="display:inline-block;">1.0.0 - ci-build
+            <span style="display:inline-block;">2.0.0 - ci-build
 
 
 
@@ -158,7 +158,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v1.0.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.0.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Versionshistorik</h2>
   
 
@@ -177,16 +177,20 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <div class="markdown-toc">
 <ul id="markdown-toc">
   <li><a href="#version-history" id="markdown-toc-version-history">Version History</a>    <ul>
+      <li><a href="#200--2026-06-25" id="markdown-toc-200--2026-06-25">[2.0.0] — 2026-06-25</a>        <ul>
+          <li><a href="#features" id="markdown-toc-features">Features</a></li>
+        </ul>
+      </li>
       <li><a href="#101--2026-06-24" id="markdown-toc-101--2026-06-24">[1.0.1] — 2026-06-24</a>        <ul>
           <li><a href="#bug-fixes" id="markdown-toc-bug-fixes">Bug Fixes</a></li>
         </ul>
       </li>
       <li><a href="#100--2026-06-24" id="markdown-toc-100--2026-06-24">[1.0.0] — 2026-06-24</a>        <ul>
-          <li><a href="#features" id="markdown-toc-features">Features</a></li>
+          <li><a href="#features-1" id="markdown-toc-features-1">Features</a></li>
         </ul>
       </li>
       <li><a href="#010--2026-06-16" id="markdown-toc-010--2026-06-16">[0.1.0] — 2026-06-16</a>        <ul>
-          <li><a href="#features-1" id="markdown-toc-features-1">Features</a></li>
+          <li><a href="#features-2" id="markdown-toc-features-2">Features</a></li>
         </ul>
       </li>
     </ul>
@@ -198,6 +202,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <p>This page is maintained automatically by <a href="https://github.com/googleapis/release-please">release-please</a>.
 Entries are generated from commit messages that follow <a href="https://www.conventionalcommits.org/">Conventional Commits</a>.</p>
+
+<hr />
+
+<h2 id="200--2026-06-25">[2.0.0] — 2026-06-25</h2>
+
+<h3 id="features">Features</h3>
+
+<ul>
+  <li>Svenska sidtexter och menyrubriker i alla mallsidor</li>
+  <li>Återgång till <code class="language-plaintext highlighter-rouge">fhir.base.template</code> (eliminerar <code class="language-plaintext highlighter-rouge">/en</code>-routing och aktiv bugg i fhir2.base.template)</li>
+  <li><code class="language-plaintext highlighter-rouge">i18n-default-language: sv</code> konfigurerat</li>
+</ul>
 
 <hr />
 
@@ -215,7 +231,7 @@ Entries are generated from commit messages that follow <a href="https://www.conv
 
 <h2 id="100--2026-06-24">[1.0.0] — 2026-06-24</h2>
 
-<h3 id="features">Features</h3>
+<h3 id="features-1">Features</h3>
 
 <ul>
   <li>Multi-branch CI: <code class="language-plaintext highlighter-rouge">develop</code>, <code class="language-plaintext highlighter-rouge">feature/**</code> and <code class="language-plaintext highlighter-rouge">support/&lt;M&gt;.x</code> branches each build and deploy to their own subdirectory</li>
@@ -230,7 +246,7 @@ Entries are generated from commit messages that follow <a href="https://www.conv
 
 <h2 id="010--2026-06-16">[0.1.0] — 2026-06-16</h2>
 
-<h3 id="features-1">Features</h3>
+<h3 id="features-2">Features</h3>
 
 <ul>
   <li>Initial IG template structure with Inera branding</li>
@@ -260,7 +276,7 @@ Entries are generated from commit messages that follow <a href="https://www.conv
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  Package inera.core.template#1.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Jun 25, 2026 07:50+0000">2026-06-25</span>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  Package inera.core.template#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Jun 25, 2026 07:55+0000">2026-06-25</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
                       Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |

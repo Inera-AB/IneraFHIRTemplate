@@ -1,4 +1,4 @@
-# Nedladdningar - Inera FHIR Implementation Guide Template v1.0.0
+# Nedladdningar - Inera FHIR Implementation Guide Template v2.0.0
 
 * [**Table of Contents**](toc.md)
 * **Nedladdningar**
@@ -20,7 +20,7 @@ Det fullständiga npm-paketet för denna IG, för användning med FHIR-validator
 För att validera instanser mot profiler i denna IG, använd [HL7 FHIR Validator](https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator) med paketet ovan:
 
 ```
-java -jar validator_cli.jar <instans.json> -ig inera.core.template#1.0.0
+java -jar validator_cli.jar <instans.json> -ig inera.core.template#2.0.0
 
 ```
 

@@ -6,11 +6,11 @@
     "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: ImplementationGuide inera.core.template</b></p><a name=\"inera.core.template\"> </a><a name=\"hcinera.core.template\"> </a><h2>IneraCoreTemplate</h2><p>Den officiella URL:en för denna implementationsguide är: </p><pre>https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template</pre><div><p>Mall för Ineras FHIR Implementation Guides.</p>\n</div></div>"
   },
   "url" : "https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template",
-  "version" : "1.0.0",
+  "version" : "2.0.0",
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-06-25T07:50:33+00:00",
+  "date" : "2026-06-25T07:55:44+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

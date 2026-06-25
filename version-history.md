@@ -1,4 +1,4 @@
-# Versionshistorik - Inera FHIR Implementation Guide Template v1.0.0
+# Versionshistorik - Inera FHIR Implementation Guide Template v2.0.0
 
 * [**Table of Contents**](toc.md)
 * **Versionshistorik**
@@ -8,6 +8,16 @@
 # Version History
 
 This page is maintained automatically by [release-please](https://github.com/googleapis/release-please). Entries are generated from commit messages that follow [Conventional Commits](https://www.conventionalcommits.org/).
+
+-------
+
+## [2.0.0] — 2026-06-25
+
+### Features
+
+* Svenska sidtexter och menyrubriker i alla mallsidor
+* Återgång till `fhir.base.template` (eliminerar `/en`-routing och aktiv bugg i fhir2.base.template)
+* `i18n-default-language: sv` konfigurerat
 
 -------
 
