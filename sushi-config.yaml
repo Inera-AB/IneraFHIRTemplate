@@ -4,7 +4,7 @@ name: IneraCoreTemplate
 title: "Inera FHIR Implementation Guide Template"
 description: "Mall för Ineras FHIR Implementation Guides."
 status: draft
-version: 1.0.0
+version: 2.0.0
 fhirVersion: 4.0.1
 copyrightYear: 2024+
 releaseLabel: ci-build

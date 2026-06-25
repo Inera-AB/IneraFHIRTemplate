@@ -5,6 +5,16 @@ Entries are generated from commit messages that follow [Conventional Commits](ht
 
 ---
 
+## [2.0.0] — 2026-06-25
+
+### Features
+
+- Svenska sidtexter och menyrubriker i alla mallsidor
+- Återgång till `fhir.base.template` (eliminerar `/en`-routing och aktiv bugg i fhir2.base.template)
+- `i18n-default-language: sv` konfigurerat
+
+---
+
 ## [1.0.1] — 2026-06-24
 
 ### Bug Fixes
