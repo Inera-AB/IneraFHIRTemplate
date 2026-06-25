@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "IneraPatient"] ; # 
   fhir:title [ fhir:v "Inera Patient"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-06-25T07:55:44+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-06-25T08:09:35+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;
