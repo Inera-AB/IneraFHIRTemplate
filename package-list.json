@@ -35,6 +35,17 @@
         "4.0.1"
       ],
       "current": false
+    },
+    {
+      "version": "2.0.0",
+      "desc": "Release 2.0.0 (2026-06-25)",
+      "path": "https://fhir.inera.se/ig/template/2.0.0",
+      "status": "draft",
+      "sequence": "STU 1",
+      "fhirversion": [
+        "4.0.1"
+      ],
+      "current": false
     }
   ]
 }
