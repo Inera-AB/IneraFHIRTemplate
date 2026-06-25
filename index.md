@@ -71,7 +71,7 @@ Landningssidan erbjuder även stöd för utvecklare som vill förstå hur de arb
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-06-25T12:40:37+00:00",
+  "date" : "2026-06-25T12:53:40+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
