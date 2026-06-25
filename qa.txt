@@ -1,22 +1,21 @@
 IneraCoreTemplate : Validation Results
 =========================================
 
-err = 0, warn = 1, info = 3
+err = 0, warn = 1, info = 1
 IG Publisher Version: 2.2.9
-Generated Wed Jun 24 17:45:44 UTC 2026. FHIR version 4.0.1 for inera.core.template#1.0.1 (canonical = https://fhir.inera.se/ig/template)
- Build Errors : 3 / 0 / 0
- /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/ImplementationGuide-inera.core.template : 0 / 0 / 2
+Generated Thu Jun 25 07:05:08 UTC 2026. FHIR version 4.0.1 for inera.core.template#1.0.0 (canonical = https://fhir.inera.se/ig/template)
+ Build Errors : 4 / 0 / 0
+ /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/ImplementationGuide-inera.core.template : 0 / 0 / 1
  /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/Patient-IneraPatientExample : 0 / 1 / 1
- /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/StructureDefinition-IneraPatient : 0 / 0 / 3
+ /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/StructureDefinition-IneraPatient : 0 / 0 / 2
 </table>
 == n/a ==
-ERROR: logical-models.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 213, column 16: The link 'StructureDefinition-[ModelName].html' for "[ModelName]" cannot be resolved
-ERROR: mappings.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 219, column 16: The link 'StructureDefinition-[Profile].html' for "Profile.element" cannot be resolved
-ERROR: mappings.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 225, column 16: The link 'StructureDefinition-[Profile].html' for "Profile.element" cannot be resolved
+ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 207, column 8: The link 'package.tgz' for "Package (tgz)" cannot be resolved
+ERROR: en/logical-models.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 224, column 16: The link 'StructureDefinition-[ModelName].html' for "[ModelName]" cannot be resolved
+ERROR: en/mappings.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 230, column 16: The link 'StructureDefinition-[Profile].html' for "Profile.element" cannot be resolved
+ERROR: en/mappings.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 236, column 16: The link 'StructureDefinition-[Profile].html' for "Profile.element" cannot be resolved
 == fsh-generated/resources/ImplementationGuide-inera.core.template.json ==
-INFORMATION: ImplementationGuide/inera.core.template: ImplementationGuide.jurisdiction[0].coding[0].display: There are no valid display names found for the code urn:iso:std:iso:3166#SE for language(s) 'sv-SE'. The display is 'Sweden' which is a valid display for the default language
 == fsh-generated/resources/Patient-IneraPatientExample.json ==
-WARNING: Patient/IneraPatientExample: Patient.identifier[0].system: Ingen definition kunde hittas för URL-värdet 'http://electronichealth.se/identifier/personnummer'
+WARNING: Patient/IneraPatientExample: Patient.identifier[0].system: No definition could be found for URL value 'http://electronichealth.se/identifier/personnummer'
 == fsh-generated/resources/StructureDefinition-IneraPatient.json ==
-INFORMATION: StructureDefinition/IneraPatient: StructureDefinition.jurisdiction[0].coding[0].display: There are no valid display names found for the code urn:iso:std:iso:3166#SE for language(s) 'sv-SE'. The display is 'Sweden' which is a valid display for the default language
-INFORMATION: StructureDefinition/IneraPatient: StructureDefinition.snapshot.element[4].binding.extension[0]: extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0 är föråldrad med noteringen: 'Use additionalBinding extension or element instead'
+INFORMATION: StructureDefinition/IneraPatient: StructureDefinition.snapshot.element[4].binding.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0 is deprecated with the note: 'Use additionalBinding extension or element instead'

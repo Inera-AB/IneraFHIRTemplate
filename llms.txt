@@ -1,28 +1,28 @@
-# inera.core.template#1.0.1: Inera FHIR Implementation Guide Template
+# inera.core.template#1.0.0: Inera FHIR Implementation Guide Template(en)
 
 ## Pages
 
-* [Introduction](index.md)
-* [Downloads](downloads.md)
-* [Mappings](mappings.md)
-* [Profiles](profiles.md)
-* [Artifacts Summary](artifacts.md)
-* [Logical Models](logical-models.md)
-* [Terminology](terminology.md)
-* [Examples](examples.md)
-* [Workflow](workflow.md)
-* [Version History](version-history.md)
+* [Introduction](en/index.md)
+* [Downloads](en/downloads.md)
+* [Mappings](en/mappings.md)
+* [Profiles](en/profiles.md)
+* [Artifacts Summary](en/artifacts.md)
+* [Logical Models](en/logical-models.md)
+* [Terminology](en/terminology.md)
+* [Examples](en/examples.md)
+* [Workflow](en/workflow.md)
+* [Version History](en/version-history.md)
 
 ## Resources
 
 ### Resource Profiles
 
-* [Inera Patient](StructureDefinition-IneraPatient.md)
+* [Inera Patient](en/StructureDefinition-IneraPatient.md)
 
 ### ImplementationGuides
 
-* [Inera FHIR Implementation Guide Template](index.md)
+* [Inera FHIR Implementation Guide Template](en/ImplementationGuide-inera.core.template.md)
 
 ### Examples
 
-* [IneraPatientExample (Patient)](Patient-IneraPatientExample.md)
+* [IneraPatientExample (Patient)](en/Patient-IneraPatientExample.md)
