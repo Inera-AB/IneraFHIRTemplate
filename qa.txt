@@ -3,7 +3,7 @@ IneraCoreTemplate : Validation Results
 
 err = 4, warn = 2, info = 3
 IG Publisher Version: 2.2.9 Out of date - current version is 2.2.10
-Generated Fri Jun 26 08:03:51 UTC 2026. FHIR version 4.0.1 for inera.core.template#2.0.0 (canonical = https://fhir.inera.se/ig/template)
+Generated Fri Jun 26 08:07:33 UTC 2026. FHIR version 4.0.1 for inera.core.template#2.0.0 (canonical = https://fhir.inera.se/ig/template)
  Build Errors : 3 / 0 / 0
  /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/ImplementationGuide-inera.core.template : 4 / 1 / 2
  /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/Patient-IneraPatientExample : 0 / 1 / 1
