@@ -8,7 +8,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template | *Version*:2.0.0 |
-| Draft as of 2026-06-25 | *Computable Name*:IneraCoreTemplate |
+| Draft as of 2026-06-26 | *Computable Name*:IneraCoreTemplate |
 
 # Introduktion
 
@@ -52,7 +52,7 @@ Mer information om FHIR på Inera finns [här](https://fhir.inera.se/). FHIR på
 
 FHIR-profiler förvaltas av Inera: [Källkod](https://github.com/inera-ab).
 
-En beskrivning av krav på konformans och vägledning för Ineras FHIR-IG:ar finns på [Inera FHIR-landningssidan](https://fhir.inera.se/conformance).
+En beskrivning av krav på följsamhet samt vägledning vid implementering av Ineras FHIR-IG:ar finns på [Inera FHIR-landningssidan](https://fhir.inera.se/conformance).
 
 Landningssidan ger en översikt av krav på system som vill ansuta sig till ineras tjänster via FHIR.
 
@@ -71,7 +71,7 @@ Landningssidan erbjuder även stöd för utvecklare som vill förstå hur de arb
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-06-25T12:53:40+00:00",
+  "date" : "2026-06-26T08:03:05+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
