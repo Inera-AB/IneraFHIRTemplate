@@ -8,13 +8,7 @@ Det fullständiga npm-paketet för denna IG, för användning med FHIR-validator
 
 - [Paket (tgz)](package.tgz)
 
-### Valideringsinställning
-
-För att validera instanser mot profiler i denna IG, använd [HL7 FHIR Validator](https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator) med paketet ovan:
-
-```
-java -jar validator_cli.jar <instans.json> -ig inera.core.template#2.0.0
-```
+Se [Testning och validering](testing.html) för instruktioner om hur paketet används för att validera instanser mot profilerna i denna IG.
 
 ---
 
