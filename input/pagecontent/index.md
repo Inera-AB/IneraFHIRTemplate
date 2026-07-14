@@ -2,9 +2,9 @@
 
 ### [Domännamn]
 
-*Ange namnet på den avgränsade förmåga som denna IG realiserar, t.ex. "Fasta kontakter" eller "Remisser" — inte ett brett kliniskt område som "Läkemedel". En förmåga ska vara tillräckligt avgränsad för att kunna implementeras i sin helhet av denna IG. Om ert verksamhetsområde är stort, dela upp det i flera IG:er per avgränsad förmåga och länka mellan dem vid behov.*
+*Ange ett namn som ringar in det avgränsade område som denna IG realiserar, t.ex. "Fasta kontakter" eller "Öppenvårdsemiss". 
 
-*Förklara varför förmågan är viktig inom svensk hälso- och sjukvård, vilken roll den spelar i patientvård eller informationsutbyte, och varför den prioriterats för FHIR-standardisering.*
+Välj ett kort, stabilt och beskrivande namn som speglar informationsmängden eller API:ets syfte, snarare än projekt-, organisations- eller versionsnamn. Domännamnet (canonical URL) ska ligga under en långsiktigt förvaltad Inera-domän, https://inera.se/fhir/ig/<namn>, och ska inte innehålla versionsnummer eftersom versioner hanteras i FHIR-paketet och Implementation Guidens metadata. Använd samma namn konsekvent i paketnamn, repository, canonical URL och dokumentation för att underlätta identifiering och återanvändning.
 
 ---
 
