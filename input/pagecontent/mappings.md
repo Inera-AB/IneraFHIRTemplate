@@ -1,23 +1,35 @@
-# Mappningar
+# Mappning till profiler
 
-Denna sida dokumenterar hur element i informationsunderlaget (se [Introduktion](introduction.html)) mappas till element i motsvarande FHIR-profiler. Om denna IG definierar egna logiska modeller i FSH (`input/fsh/logicalmodels/`), länka till respektive genererade StructureDefinition-sida i mappningstabellerna nedan.
+Denna sida dokumenterar vilka delar av informationsunderlaget (se [Introduktion](introduction.html)) som denna IG realiserar, eventuella avvikelser i FHIR-realiseringen, samt hur enskilda element mappas till element i motsvarande FHIR-profiler.
 
 ---
 
-### Syfte
+### Omfattade delar
 
-*Förklara rollen för dessa mappningar. Exempel: "Mappningarna nedan spårar varje element i de logiska modellerna till det FHIR-profilelement som bär den informationen. Detta gör det möjligt att verifiera täckning och vägleder implementatörer som behöver förstå sambandet mellan kliniska krav och deras tekniska representation."*
+*Ange vilka kapitel, processer eller entiteter i informationsspecifikationen som denna IG realiserar i FHIR.*
+
+---
+
+### Avvikelser och tillägg
+
+*Beskriv eventuella avvikelser från eller tillägg till informationsspecifikationen i FHIR-realiseringen, och motivera varför.*
+
+---
+
+### Syfte med mappningarna
+
+*Förklara rollen för dessa mappningar. Exempel: "Mappningarna nedan spårar varje element i informationsunderlaget till det FHIR-profilelement som bär den informationen. Detta gör det möjligt att verifiera täckning och vägleder implementatörer som behöver förstå sambandet mellan verksamhetskrav och deras tekniska representation."*
 
 ---
 
 ### Mappningstabeller
 
-*Tillhandahåll en mappningstabell per logisk modell. Varje rad ska visa ett logiskt modellelement, dess kardinalitet och motsvarande FHIR-profilsökväg.*
+*Tillhandahåll en mappningstabell per informationsmodell/entitet. Varje rad ska visa ett modellelement, dess kardinalitet och motsvarande FHIR-profilsökväg. Om denna IG definierar egna logiska modeller i FSH (`input/fsh/logicalmodels/`), länka till respektive genererade StructureDefinition-sida.*
 
-#### [Logisk modells namn] → [Profilnamn]
+#### [Modellens namn] → [Profilnamn]
 
-| Logiskt modellelement | Kard. | FHIR-profilelement | Noteringar |
-|-----------------------|-------|--------------------|------------|
+| Modellelement | Kard. | FHIR-profilelement | Noteringar |
+|----------------|-------|--------------------|------------|
 | *[Elementnamn]* | *1..1* | *[Profil.element](StructureDefinition-[Profil].html)* | *Noteringar om mappningen, t.ex. värdemängdsbegränsningar eller transformationsregler.* |
 | *[Elementnamn]* | *0..\** | *[Profil.element](StructureDefinition-[Profil].html)* | |
 
@@ -25,10 +37,10 @@ Denna sida dokumenterar hur element i informationsunderlaget (se [Introduktion](
 
 ### Omappade element
 
-*Om logiska modellelement inte täcks av ett profilelement, lista dem här och förklara varför (utanför scope, uppskjutet till framtida version, täcks av separat profil, etc.).*
+*Om element i informationsunderlaget inte täcks av ett profilelement, lista dem här och förklara varför (utanför scope, uppskjutet till framtida version, täcks av separat profil, etc.).*
 
-| Logiskt modellelement | Orsak till att det inte mappas |
-|-----------------------|-------------------------------|
+| Modellelement | Orsak till att det inte mappas |
+|----------------|-------------------------------|
 | *[Elementnamn]* | *Förklaring.* |
 
 ---

@@ -14,7 +14,17 @@
             <li><a href="index.html">Hem</a></li>
             <li><a href="introduction.html">Introduktion</a></li>
             <li><a href="functional.html">Funktionellt</a></li>
-            <li><a href="implementation.html">Implementering</a></li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementering<b class="caret"> </b></a>
+              <ul class="dropdown-menu">
+                <li><a href="rest-interactions.html">REST-interaktioner och sökparametrar</a></li>
+                <li><a href="expected-responses.html">Förväntade svar</a></li>
+                <li><a href="capabilitystatement.html">CapabilityStatement</a></li>
+                <li><a href="error-handling.html">Felhantering</a></li>
+                <li><a href="security.html">Säkerhet och behörighet</a></li>
+                <li><a href="testing.html">Testning och validering</a></li>
+              </ul>
+            </li>
             <li class="dropdown">
               <a data-toggle="dropdown" href="#" class="dropdown-toggle">Om<b class="caret"> </b></a>
               <ul class="dropdown-menu">
@@ -28,7 +38,7 @@
               <ul class="dropdown-menu">
                 <li><a href="profiles.html">Profiler</a></li>
                 <li><a href="terminology.html">Terminologi</a></li>
-                <li><a href="mappings.html">Mappningar</a></li>
+                <li><a href="mappings.html">Mappning till profiler</a></li>
                 <li><a href="examples.html">Exempel</a></li>
                 <li><a href="artifacts.html">Alla artefakter</a></li>
               </ul>

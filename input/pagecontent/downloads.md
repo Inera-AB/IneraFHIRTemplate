@@ -8,7 +8,7 @@ Det fullständiga npm-paketet för denna IG, för användning med FHIR-validator
 
 - [Paket (tgz)](package.tgz)
 
-Se [Implementering](implementation.html#testning-och-validering) för instruktioner om hur paketet används för att validera instanser mot profilerna i denna IG.
+Se [Testning och validering](testing.html) för instruktioner om hur paketet används för att validera instanser mot profilerna i denna IG.
 
 ---
 

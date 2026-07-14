@@ -28,8 +28,18 @@ pages:
     title: Introduktion
   functional.md:
     title: Funktionellt
-  implementation.md:
-    title: Implementering
+  rest-interactions.md:
+    title: REST-interaktioner och sökparametrar
+  expected-responses.md:
+    title: Förväntade svar
+  capabilitystatement.md:
+    title: CapabilityStatement
+  error-handling.md:
+    title: Felhantering
+  security.md:
+    title: Säkerhet och behörighet
+  testing.md:
+    title: Testning och validering
   about.md:
     title: Om
   downloads.md:
@@ -41,6 +51,6 @@ pages:
   terminology.md:
     title: Terminologi
   mappings.md:
-    title: Mappningar
+    title: Mappning till profiler
   examples.md:
     title: Exempel

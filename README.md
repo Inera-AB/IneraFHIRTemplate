@@ -9,6 +9,15 @@ This repository is a GitHub template for Inera FHIR Implementation Guides. It in
 
 ---
 
+## Design choices
+
+Two deliberate choices shape how this template's narrative pages are organised:
+
+- **Menu structure inspired by European specifications.** The top menu (Home / Introduction / Functional / Implementation / About / Artifacts) mirrors the pattern used by specifications such as FHIR ePS, rather than the ad-hoc Background/Artifacts grouping used in earlier versions of this template. This gives implementers a familiar entry point across Inera and other European FHIR IGs, and separates background material (Introduction), business requirements (Functional), and what implementers actually build against (Implementation) into distinct top-level sections.
+- **The information model is published externally, separate from the IG.** Concept models, information models and detailed business workflows are not restated in this template — they live in an authoritative, independently published information specification that the IG references (see `introduction.md`'s "Informationsunderlag" section and `mappings.md`). This avoids duplicate documentation that can drift out of sync between the information specification and the IG over time.
+
+---
+
 ## Inera branding
 
 The template uses Inera's visual identity by default. All branding is isolated to four files:
