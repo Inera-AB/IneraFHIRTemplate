@@ -14,9 +14,9 @@
 
 ### [Domännamn]
 
-*Ange ett namn som ringar in det avgränsade område som denna IG realiserar, t.ex. "Fasta kontakter" eller "Öppenvårdsemiss".
+**Ange ett namn som ringar in det avgränsade område som denna IG realiserar, t.ex. "Fasta kontakter" eller "Öppenvårdsemiss".**
 
-Välj ett kort, stabilt och beskrivande namn som speglar informationsmängden eller API:ets syfte, snarare än projekt-, organisations- eller versionsnamn. Domännamnet (canonical URL) ska ligga under en långsiktigt förvaltad Inera-domän, https://inera.se/fhir/ig/, och ska inte innehålla versionsnummer eftersom versioner hanteras i FHIR-paketet och Implementation Guidens metadata. Använd samma namn konsekvent i paketnamn, repository, canonical URL och dokumentation för att underlätta identifiering och återanvändning."*
+*Välj ett kort, stabilt och beskrivande namn som speglar informationsmängden eller API:ets syfte, snarare än projekt-, organisations- eller versionsnamn. Domännamnet (canonical URL) ska ligga under en långsiktigt förvaltad Inera-domän, https://inera.se/fhir/ig/, och ska inte innehålla versionsnummer eftersom versioner hanteras i FHIR-paketet och Implementation Guidens metadata. Använd samma namn konsekvent i paketnamn, repository, canonical URL och dokumentation för att underlätta identifiering och återanvändning."*
 
 -------
 
@@ -34,7 +34,7 @@ Välj ett kort, stabilt och beskrivande namn som speglar informationsmängden el
 
 ### Målgrupp
 
-**Ange vem denna IG riktar sig till, t.ex. implementatörer, systemleverantörer, vårdgivare och/eller förvaltningsorganisationer. Beskriv vilken bakgrundskunskap läsaren förväntas ha (t.ex. grundläggande FHIR-kunskap) och hänvisa till [Inledning](introduction.md) och Implementering (se t.ex. [REST-interaktioner och sökparametrar](rest-interactions.md)) för den som ska bygga mot IG:n.**
+**Ange målgrupper för IG:n, (speciellt viktigt om IG:n vänder sig till andra målgrupper än systemarkitekter och utvecklare, t ex levernatörer av vissa system, eller verksamhetsarkitektrer inom en viss verksamhet). Hänvisa gärna nya läsare till [Inledning](introduction.md) och implementatörer till relevanta tekniska avsnitt, exempelvis [REST-interaktioner och sökparametrar](rest-interactions.md).**
 
 -------
 
@@ -46,7 +46,7 @@ På [Inera Terminologitjänst](https://www.inera.se/tjanster/alla-tjanster-a-o/t
 
 ### Beroenden
 
-Om denna IG har ett beroende till t ex SE-core, definierat av HL7 Sweden ska detta beskrivas här. Detta återspeglas även i de profiler som ärver från eller refererar till SECore-profiler.
+**Om denna IG har ett beroende till t ex SE-core, definierat av HL7 Sweden ska detta beskrivas här. Detta återspeglas även i de profiler som ärver från eller refererar till SECore-profiler.**
 
 -------
 
@@ -77,7 +77,7 @@ Informationsmodellen för denna förmåga publiceras externt och fristående i e
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-07-14T14:06:40+00:00",
+  "date" : "2026-07-14T14:21:13+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

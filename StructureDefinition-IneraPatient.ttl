@@ -17,7 +17,7 @@
   fhir:StructureDefinition.name [ fhir:value "IneraPatient"] ;
   fhir:StructureDefinition.title [ fhir:value "Inera Patient"] ;
   fhir:StructureDefinition.status [ fhir:value "draft"] ;
-  fhir:StructureDefinition.date [ fhir:value "2026-07-14T14:06:40+00:00"^^xsd:dateTime] ;
+  fhir:StructureDefinition.date [ fhir:value "2026-07-14T14:21:13+00:00"^^xsd:dateTime] ;
   fhir:StructureDefinition.publisher [ fhir:value "Inera AB"] ;
   fhir:StructureDefinition.contact [
      fhir:index 0 ;
