@@ -22,7 +22,7 @@
 
 ### Målgrupp
 
-*Ange vem denna IG riktar sig till, t.ex. implementatörer, systemleverantörer, vårdgivare och/eller förvaltningsorganisationer. Beskriv vilken bakgrundskunskap läsaren förväntas ha (t.ex. grundläggande FHIR-kunskap) och hänvisa till [Introduktion](introduction.html) och Implementering (se t.ex. [REST-interaktioner och sökparametrar](rest-interactions.html)) för den som ska bygga mot IG:n.*
+*Ange vem denna IG riktar sig till, t.ex. implementatörer, systemleverantörer, vårdgivare och/eller förvaltningsorganisationer. Beskriv vilken bakgrundskunskap läsaren förväntas ha (t.ex. grundläggande FHIR-kunskap) och hänvisa till [Inledning](introduction.html) och Implementering (se t.ex. [REST-interaktioner och sökparametrar](rest-interactions.html)) för den som ska bygga mot IG:n.*
 
 ---
 
@@ -48,6 +48,6 @@ Information om hur denna IG förvaltas finns under [Om](about.html).
 
 ### Om mallens struktur
 
-Menyn i denna IG är medvetet utformad efter samma mönster som europeiska specifikationer, t.ex. FHIR ePS (Hem / Introduktion / Funktionellt / Implementering / Om / Artefakter), för att ge implementatörer en igenkännbar ingång oavsett vilken europeisk FHIR-IG de arbetar med.
+Menyn i denna IG är medvetet utformad efter samma mönster som europeiska specifikationer, t.ex. FHIR ePS (Hem / Inledning / Funktionellt / Implementering / Om / Artefakter), för att ge implementatörer en igenkännbar ingång oavsett vilken europeisk FHIR-IG de arbetar med.
 
-Informationsmodellen för denna förmåga publiceras externt och fristående i en egen informationsspecifikation (se [Introduktion](introduction.html)) snarare än i denna IG. Det håller informationsspecifikationen som den auktoritativa källan för begrepp och informationsstruktur, och undviker att IG:n och specifikationen glider isär över tid.
+Informationsmodellen för denna förmåga publiceras externt och fristående i en egen informationsspecifikation (se [Informationsunderlag](information-basis.html) under Funktionellt) snarare än i denna IG. Det håller informationsspecifikationen som den auktoritativa källan för begrepp och informationsstruktur, och undviker att IG:n och specifikationen glider isär över tid.

@@ -8,4 +8,4 @@
 
 ---
 
-> **Vägledning för författare:** Roller och deras verksamhetsansvar beskrivs under [Funktionellt](functional.html). Håll denna sida på ett konkret, tekniskt REST-plan.
+> **Vägledning för författare:** Roller och deras verksamhetsansvar beskrivs under [Roller och ansvar](roles-and-responsibilities.html) (Funktionellt). Håll denna sida på ett konkret, tekniskt REST-plan.

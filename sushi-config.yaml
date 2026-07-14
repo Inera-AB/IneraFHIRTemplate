@@ -25,9 +25,15 @@ pages:
   index.md:
     title: Hem
   introduction.md:
-    title: Introduktion
-  functional.md:
-    title: Funktionellt
+    title: Inledning
+  information-basis.md:
+    title: Informationsunderlag
+  use-cases.md:
+    title: Användningsfall
+  roles-and-responsibilities.md:
+    title: Roller och ansvar
+  mappings.md:
+    title: Mappning till profiler
   rest-interactions.md:
     title: REST-interaktioner och sökparametrar
   expected-responses.md:
@@ -46,11 +52,3 @@ pages:
     title: Nedladdningar
   version-history.md:
     title: Versionshistorik
-  profiles.md:
-    title: Profiler
-  terminology.md:
-    title: Terminologi
-  mappings.md:
-    title: Mappning till profiler
-  examples.md:
-    title: Exempel
