@@ -1,7 +1,7 @@
 Source File	Size	loadResources	load	generateSnapshots	load-configure	scan	loadDepInfo	loadInfo	checkR4R4B	generateNarratives	validate	loadLists	checkConformanceResources	checkConformanceResources2	checkConformanceResources3	generateLogicalMaps	validateExpressions	scanForUsageStats	checkURLsUnique	processProvenanceDetails	generate1	generate2	generateLogicals	makeDependencies	generateExampleZip	generateValidationPack	scanProfilesForR5	scanExamplesForR5
-/fsh-generated/resources/ImplementationGuide-inera.core.template.json	4226	-	0	0	0	0	0	0	17	164	0	0	0	0	1	0	0	1	0	0	68	85	0	0	0	3	0	2
-fsh-generated/resources/Patient-IneraPatientExample.json	665	3	0	0	1	0	0	0	0	315	0	0	0	0	0	0	0	0	0	0	7	16	0	0	0	0	0	0
-fsh-generated/resources/StructureDefinition-IneraPatient.json	3193	4	0	117	0	0	0	1	1	656	0	0	0	0	0	0	0	2	0	0	217	1272	0	0	0	9	0	3
+/fsh-generated/resources/ImplementationGuide-inera.core.template.json	4226	-	0	0	0	0	0	0	18	96	0	0	0	0	0	0	0	0	0	0	68	61	0	0	0	3	0	0
+fsh-generated/resources/Patient-IneraPatientExample.json	665	4	0	0	1	0	0	0	0	325	0	0	0	0	0	0	0	0	0	0	7	15	0	0	0	0	0	0
+fsh-generated/resources/StructureDefinition-IneraPatient.json	3193	4	0	93	1	0	0	0	0	353	0	0	0	0	1	0	0	2	0	0	219	1264	0	0	0	14	0	1
 /input/includes/fragment-header.html	172	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
 /input/includes/menu.xml	2707	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 /input/includes/fragment-css.html	160	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
@@ -12,15 +12,15 @@ fsh-generated/resources/StructureDefinition-IneraPatient.json	3193	4	0	117	0	0	0
 /input/pagecontent/testing.md	273	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 /input/pagecontent/mappings.md	2360	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 /input/pagecontent/expected-responses.md	280	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-/input/pagecontent/version-history.md	1704	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
-/input/pagecontent/use-cases.md	572	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/version-history.md	1704	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/use-cases.md	572	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
 /input/pagecontent/capabilitystatement.md	499	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 /input/pagecontent/introduction.md	1329	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 /input/pagecontent/downloads.md	596	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 /input/pagecontent/information-basis.md	1215	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 /input/pagecontent/error-handling.md	184	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-/input/pagecontent/index.md	3071	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
-/input/pagecontent/rest-interactions.md	655	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/index.md	3131	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/rest-interactions.md	655	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
 /template/config	0	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 /template/config/_config.yml	140	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 /input/images	0	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0

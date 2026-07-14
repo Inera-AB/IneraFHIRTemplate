@@ -46,7 +46,7 @@ På [Inera Terminologitjänst](https://www.inera.se/tjanster/alla-tjanster-a-o/t
 
 ### Beroenden
 
-Denna IG har ett beroende till SE-core, definierat av HL7 Sweden. Detta återspeglas i de profiler som ärver från SECore-profiler.
+Om denna IG har ett beroende till t ex SE-core, definierat av HL7 Sweden ska detta beskrivas här. Detta återspeglas även i de profiler som ärver från eller refererar till SECore-profiler.
 
 -------
 
@@ -77,7 +77,7 @@ Informationsmodellen för denna förmåga publiceras externt och fristående i e
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-07-14T13:33:33+00:00",
+  "date" : "2026-07-14T13:42:28+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
