@@ -25,7 +25,7 @@ Denna sida dokumenterar vilka delar av informationsunderlaget (se [Informationsu
 
 ### Syfte med mappningarna
 
-**Förklara rollen för dessa mappningar. Exempel: "Mappningarna nedan spårar varje element i informationsunderlaget till det FHIR-profilelement som bär den informationen. Detta gör det möjligt att verifiera täckning och vägleder implementatörer som behöver förstå sambandet mellan verksamhetskrav och deras tekniska representation."**
+**Förklara rollen för dessa mappningar. Exempel: "Mappningarna nedan spårar varje element i informationsmodellen till det FHIR-profilelement som bär den informationen. Detta gör det möjligt att verifiera täckning och vägleder implementatörer som behöver förstå sambandet mellan verksamhetskrav och deras tekniska representation."**
 
 -------
 
@@ -52,5 +52,5 @@ Denna sida dokumenterar vilka delar av informationsunderlaget (se [Informationsu
 
 -------
 
-> **Vägledning för författare:** Håll mappningarna uppdaterade i takt med att profilerna utvecklas. Mappningar kan också uttryckas formellt med FHIR `StructureMap`-resurser om maskinbearbetningsbar transformation behövs. Placera StructureMaps i `input/fsh/maps/`.
+> **Vägledning för författare:** Håll mappningarna uppdaterade i takt med att profilerna utvecklas. Mappningar kan också uttryckas med FHIR `ConceptMap`-resurser om maskinbearbetningsbar representation behövs.
 
