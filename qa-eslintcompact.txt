@@ -1,6 +1,7 @@
 IneraCoreTemplate
 =========================================
 
+Generic: line 0, col 0, Warning - Illegal HTML: illegal html element: namn (, och ska inte innehålla versionsnummer eftersom versioner hanteras i FHIR-paketet och Implementation Guidens metadata. Använd samma namn konsekvent i paketnamn, repository, canonical URL och dokumentation för att underlätta identifiering och återanvändning."*) (INVALID)
 Generic: line 0, col 0, Error - The link '[länk till publicerat dokument]' for "Namn på informationsspecifikationen" cannot be resolved (NOTFOUND)
 Generic: line 0, col 0, Error - The link 'StructureDefinition-[Profil].html' for "Profil.element" cannot be resolved (NOTFOUND)
 Generic: line 0, col 0, Error - The link 'StructureDefinition-[Profil].html' for "Profil.element" cannot be resolved (NOTFOUND)
@@ -16,5 +17,5 @@ Generic: line 0, col 0, Error - The link 'StructureDefinition-[Profil].html' for
 /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/StructureDefinition-IneraPatient.json: line 1, col 41494, Info - extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0 är föråldrad med noteringen: 'Use additionalBinding extension or element instead' (BUSINESSRULE)
 /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/StructureDefinition-IneraPatient.json: line 0, col 0, Info - The resource StructureDefinition/IneraPatient could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root) (BUSINESSRULE)
 
-err = 4, warn = 2, info = 5
+err = 4, warn = 3, info = 5
 IG Publisher Version: 2.2.10
