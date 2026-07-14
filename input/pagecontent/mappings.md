@@ -1,6 +1,6 @@
 # Mappningar
 
-Denna sida dokumenterar hur element i de logiska modellerna i denna IG mappas till element i motsvarande FHIR-profiler.
+Denna sida dokumenterar hur element i informationsunderlaget (se [Introduktion](introduction.html)) mappas till element i motsvarande FHIR-profiler. Om denna IG definierar egna logiska modeller i FSH (`input/fsh/logicalmodels/`), länka till respektive genererade StructureDefinition-sida i mappningstabellerna nedan.
 
 ---
 

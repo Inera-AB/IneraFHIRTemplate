@@ -12,25 +12,28 @@
         <div class="nav-collapse collapse navbar-inverse-collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.html">Hem</a></li>
+            <li><a href="introduction.html">Introduktion</a></li>
+            <li><a href="functional.html">Funktionellt</a></li>
+            <li><a href="implementation.html">Implementering</a></li>
             <li class="dropdown">
-              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Bakgrund<b class="caret"> </b></a>
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Om<b class="caret"> </b></a>
               <ul class="dropdown-menu">
-                <li><a href="workflow.html">Arbetsflöde</a></li>
-                <li><a href="logical-models.html">Logiska modeller</a></li>
-                <li><a href="mappings.html">Mappningar</a></li>
+                <li><a href="about.html">Styrning och förvaltning</a></li>
+                <li><a href="downloads.html">Nedladdningar</a></li>
+                <li><a href="version-history.html">Versionshistorik</a></li>
               </ul>
             </li>
             <li class="dropdown">
-              <a data-toggle="dropdown" href="#" class="dropdown-toggle">FHIR-artefakter<b class="caret"> </b></a>
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Artefakter<b class="caret"> </b></a>
               <ul class="dropdown-menu">
                 <li><a href="profiles.html">Profiler</a></li>
                 <li><a href="terminology.html">Terminologi</a></li>
+                <li><a href="mappings.html">Mappningar</a></li>
                 <li><a href="examples.html">Exempel</a></li>
                 <li><a href="artifacts.html">Alla artefakter</a></li>
               </ul>
             </li>
-            <li><a href="downloads.html">Nedladdningar</a></li>
-            <li><a href="version-history.html">Versionshistorik</a></li>
+            <li><a href="https://fhir.inera.se/" target="_blank" rel="noopener">FHIR på Inera <span aria-hidden="true">&#8599;</span></a></li>
           </ul>
         </div>
       </div>

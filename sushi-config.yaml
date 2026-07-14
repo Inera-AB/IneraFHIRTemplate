@@ -23,20 +23,24 @@ parameters:
 
 pages:
   index.md:
+    title: Hem
+  introduction.md:
     title: Introduktion
-  workflow.md:
-    title: Arbetsflöde
-  logical-models.md:
-    title: Logiska modeller
-  mappings.md:
-    title: Mappningar
-  profiles.md:
-    title: Profiler
-  terminology.md:
-    title: Terminologi
-  examples.md:
-    title: Exempel
+  functional.md:
+    title: Funktionellt
+  implementation.md:
+    title: Implementering
+  about.md:
+    title: Om
   downloads.md:
     title: Nedladdningar
   version-history.md:
     title: Versionshistorik
+  profiles.md:
+    title: Profiler
+  terminology.md:
+    title: Terminologi
+  mappings.md:
+    title: Mappningar
+  examples.md:
+    title: Exempel
