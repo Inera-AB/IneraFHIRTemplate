@@ -3,7 +3,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>Mappningar - Inera FHIR Implementation Guide Template v2.0.0</title>
+    <title>Mappning till profiler - Inera FHIR Implementation Guide Template v2.0.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -44,8 +44,8 @@
 	  <script src="assets/js/prism.js"></script>
     <script src="assets/js/mermaid.js" type="text/javascript"></script>
     <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
-    <style type="text/css">h2{--heading-prefix:"4"}
-    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <style type="text/css">h2{--heading-prefix:"15"}
+    h3,h4,h5,h6{--heading-prefix:"15"}</style>
     <div id="segment-header" class="segment">    <!-- segment-header -->
       <div class="container">    <!-- container -->
 
@@ -101,25 +101,38 @@
         <div class="nav-collapse collapse navbar-inverse-collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.html">Hem</a></li>
+            <li><a href="introduction.html">Introduktion</a></li>
+            <li><a href="functional.html">Funktionellt</a></li>
             <li class="dropdown">
-              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Bakgrund<b class="caret"> </b></a>
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementering<b class="caret"> </b></a>
               <ul class="dropdown-menu">
-                <li><a href="workflow.html">Arbetsflöde</a></li>
-                <li><a href="logical-models.html">Logiska modeller</a></li>
-                <li><a href="mappings.html">Mappningar</a></li>
+                <li><a href="rest-interactions.html">REST-interaktioner och sökparametrar</a></li>
+                <li><a href="expected-responses.html">Förväntade svar</a></li>
+                <li><a href="capabilitystatement.html">CapabilityStatement</a></li>
+                <li><a href="error-handling.html">Felhantering</a></li>
+                <li><a href="security.html">Säkerhet och behörighet</a></li>
+                <li><a href="testing.html">Testning och validering</a></li>
               </ul>
             </li>
             <li class="dropdown">
-              <a data-toggle="dropdown" href="#" class="dropdown-toggle">FHIR-artefakter<b class="caret"> </b></a>
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Om<b class="caret"> </b></a>
+              <ul class="dropdown-menu">
+                <li><a href="about.html">Styrning och förvaltning</a></li>
+                <li><a href="downloads.html">Nedladdningar</a></li>
+                <li><a href="version-history.html">Versionshistorik</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Artefakter<b class="caret"> </b></a>
               <ul class="dropdown-menu">
                 <li><a href="profiles.html">Profiler</a></li>
                 <li><a href="terminology.html">Terminologi</a></li>
+                <li><a href="mappings.html">Mappning till profiler</a></li>
                 <li><a href="examples.html">Exempel</a></li>
                 <li><a href="artifacts.html">Alla artefakter</a></li>
               </ul>
             </li>
-            <li><a href="downloads.html">Nedladdningar</a></li>
-            <li><a href="version-history.html">Versionshistorik</a></li>
+            <li><a rel="noopener" href="https://fhir.inera.se/" target="_blank">FHIR på Inera <span aria-hidden="true">↗</span></a></li>
           </ul>
         </div>
       </div>
@@ -138,7 +151,7 @@
     <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
       <div class="container">    <!-- container -->
         <ul class="breadcrumb">
-          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>Mappningar</b></li>
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>Mappning till profiler</b></li>
 
         </ul>
       </div>    <!-- /container -->
@@ -159,7 +172,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </style>
 <div class="col-12">
     <!-- ReleaseHeader --><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.0.0) byggt av FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. Se <a href="https://fhir.inera.se/ig/template/history.html">katalogen över publicerade versioner</a></p>  <!-- EndReleaseHeader -->
-  <h2>Mappningar</h2>
+  <h2>Mappning till profiler</h2>
   
 
 
@@ -176,8 +189,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <p>  <!-- white space is critical inside of capture --></p>
 <div class="markdown-toc">
 <ul id="markdown-toc">
-  <li><a href="#mappningar" id="markdown-toc-mappningar">Mappningar</a>    <ul>
-      <li><a href="#syfte" id="markdown-toc-syfte">Syfte</a></li>
+  <li><a href="#mappning-till-profiler" id="markdown-toc-mappning-till-profiler">Mappning till profiler</a>    <ul>
+      <li><a href="#omfattade-delar" id="markdown-toc-omfattade-delar">Omfattade delar</a></li>
+      <li><a href="#avvikelser-och-tillägg" id="markdown-toc-avvikelser-och-tillägg">Avvikelser och tillägg</a></li>
+      <li><a href="#syfte-med-mappningarna" id="markdown-toc-syfte-med-mappningarna">Syfte med mappningarna</a></li>
       <li><a href="#mappningstabeller" id="markdown-toc-mappningstabeller">Mappningstabeller</a></li>
       <li><a href="#omappade-element" id="markdown-toc-omappade-element">Omappade element</a></li>
     </ul>
@@ -185,28 +200,40 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </ul>
 
 </div>
-<h1 id="mappningar">Mappningar</h1>
+<h1 id="mappning-till-profiler">Mappning till profiler</h1>
 
-<p>Denna sida dokumenterar hur element i de logiska modellerna i denna IG mappas till element i motsvarande FHIR-profiler.</p>
+<p>Denna sida dokumenterar vilka delar av informationsunderlaget (se <a href="introduction.html">Introduktion</a>) som denna IG realiserar, eventuella avvikelser i FHIR-realiseringen, samt hur enskilda element mappas till element i motsvarande FHIR-profiler.</p>
 
 <hr/>
 
-<h3 id="syfte">Syfte</h3>
+<h3 id="omfattade-delar">Omfattade delar</h3>
 
-<p><em>Förklara rollen för dessa mappningar. Exempel: "Mappningarna nedan spårar varje element i de logiska modellerna till det FHIR-profilelement som bär den informationen. Detta gör det möjligt att verifiera täckning och vägleder implementatörer som behöver förstå sambandet mellan kliniska krav och deras tekniska representation."</em></p>
+<p><em>Ange vilka kapitel, processer eller entiteter i informationsspecifikationen som denna IG realiserar i FHIR.</em></p>
+
+<hr/>
+
+<h3 id="avvikelser-och-tillägg">Avvikelser och tillägg</h3>
+
+<p><em>Beskriv eventuella avvikelser från eller tillägg till informationsspecifikationen i FHIR-realiseringen, och motivera varför.</em></p>
+
+<hr/>
+
+<h3 id="syfte-med-mappningarna">Syfte med mappningarna</h3>
+
+<p><em>Förklara rollen för dessa mappningar. Exempel: "Mappningarna nedan spårar varje element i informationsunderlaget till det FHIR-profilelement som bär den informationen. Detta gör det möjligt att verifiera täckning och vägleder implementatörer som behöver förstå sambandet mellan verksamhetskrav och deras tekniska representation."</em></p>
 
 <hr/>
 
 <h3 id="mappningstabeller">Mappningstabeller</h3>
 
-<p><em>Tillhandahåll en mappningstabell per logisk modell. Varje rad ska visa ett logiskt modellelement, dess kardinalitet och motsvarande FHIR-profilsökväg.</em></p>
+<p><em>Tillhandahåll en mappningstabell per informationsmodell/entitet. Varje rad ska visa ett modellelement, dess kardinalitet och motsvarande FHIR-profilsökväg. Om denna IG definierar egna logiska modeller i FSH (<code class="language-plaintext highlighter-rouge">input/fsh/logicalmodels/</code>), länka till respektive genererade StructureDefinition-sida.</em></p>
 
-<h4 id="logisk-modells-namn--profilnamn">[Logisk modells namn] → [Profilnamn]</h4>
+<h4 id="modellens-namn--profilnamn">[Modellens namn] → [Profilnamn]</h4>
 
 <table>
   <thead>
     <tr>
-      <th>Logiskt modellelement</th>
+      <th>Modellelement</th>
       <th>Kard.</th>
       <th>FHIR-profilelement</th>
       <th>Noteringar</th>
@@ -216,13 +243,13 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <tr>
       <td><em>[Elementnamn]</em></td>
       <td><em>1..1</em></td>
-      <td><em><a name="l406">​</a><a href="StructureDefinition-[Profil].html">Profil.element</a></em></td>
+      <td><em><a name="l483">​</a><a href="StructureDefinition-[Profil].html">Profil.element</a></em></td>
       <td><em>Noteringar om mappningen, t.ex. värdemängdsbegränsningar eller transformationsregler.</em></td>
     </tr>
     <tr>
       <td><em>[Elementnamn]</em></td>
       <td><em>0..*</em></td>
-      <td><em><a name="l426">​</a><a href="StructureDefinition-[Profil].html">Profil.element</a></em></td>
+      <td><em><a name="l503">​</a><a href="StructureDefinition-[Profil].html">Profil.element</a></em></td>
       <td>&nbsp;</td>
     </tr>
   </tbody>
@@ -232,12 +259,12 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h3 id="omappade-element">Omappade element</h3>
 
-<p><em>Om logiska modellelement inte täcks av ett profilelement, lista dem här och förklara varför (utanför scope, uppskjutet till framtida version, täcks av separat profil, etc.).</em></p>
+<p><em>Om element i informationsunderlaget inte täcks av ett profilelement, lista dem här och förklara varför (utanför scope, uppskjutet till framtida version, täcks av separat profil, etc.).</em></p>
 
 <table>
   <thead>
     <tr>
-      <th>Logiskt modellelement</th>
+      <th>Modellelement</th>
       <th>Orsak till att det inte mappas</th>
     </tr>
   </thead>
@@ -274,7 +301,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &copy; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  Package inera.core.template#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, Jun 26, 2026 08:06+0000">2026-06-26</span>
+          IG &copy; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  Package inera.core.template#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Jul 14, 2026 09:00+0000">2026-07-14</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
                       Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |

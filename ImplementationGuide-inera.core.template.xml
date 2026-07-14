@@ -11,7 +11,7 @@
   <name value="IneraCoreTemplate"/>
   <title value="Inera FHIR Implementation Guide Template"/>
   <status value="draft"/>
-  <date value="2026-06-26T08:06:54+00:00"/>
+  <date value="2026-07-14T09:00:12+00:00"/>
   <publisher value="Inera AB"/>
   <contact>
     <name value="Inera AB"/>
@@ -533,31 +533,95 @@
           <valueUrl value="index.html"/>
         </extension>
         <nameUrl value="index.html"/>
+        <title value="Hem"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="introduction.html"/>
+        </extension>
+        <nameUrl value="introduction.html"/>
         <title value="Introduktion"/>
         <generation value="markdown"/>
       </page>
       <page>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="workflow.html"/>
+          <valueUrl value="functional.html"/>
         </extension>
-        <nameUrl value="workflow.html"/>
-        <title value="Arbetsflöde"/>
+        <nameUrl value="functional.html"/>
+        <title value="Funktionellt"/>
         <generation value="markdown"/>
       </page>
       <page>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="logical-models.html"/>
+          <valueUrl value="rest-interactions.html"/>
         </extension>
-        <nameUrl value="logical-models.html"/>
-        <title value="Logiska modeller"/>
+        <nameUrl value="rest-interactions.html"/>
+        <title value="REST-interaktioner och sökparametrar"/>
         <generation value="markdown"/>
       </page>
       <page>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="mappings.html"/>
+          <valueUrl value="expected-responses.html"/>
         </extension>
-        <nameUrl value="mappings.html"/>
-        <title value="Mappningar"/>
+        <nameUrl value="expected-responses.html"/>
+        <title value="Förväntade svar"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="capabilitystatement.html"/>
+        </extension>
+        <nameUrl value="capabilitystatement.html"/>
+        <title value="CapabilityStatement"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="error-handling.html"/>
+        </extension>
+        <nameUrl value="error-handling.html"/>
+        <title value="Felhantering"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="security.html"/>
+        </extension>
+        <nameUrl value="security.html"/>
+        <title value="Säkerhet och behörighet"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="testing.html"/>
+        </extension>
+        <nameUrl value="testing.html"/>
+        <title value="Testning och validering"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="about.html"/>
+        </extension>
+        <nameUrl value="about.html"/>
+        <title value="Om"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="downloads.html"/>
+        </extension>
+        <nameUrl value="downloads.html"/>
+        <title value="Nedladdningar"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="version-history.html"/>
+        </extension>
+        <nameUrl value="version-history.html"/>
+        <title value="Versionshistorik"/>
         <generation value="markdown"/>
       </page>
       <page>
@@ -578,26 +642,18 @@
       </page>
       <page>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="mappings.html"/>
+        </extension>
+        <nameUrl value="mappings.html"/>
+        <title value="Mappning till profiler"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
           <valueUrl value="examples.html"/>
         </extension>
         <nameUrl value="examples.html"/>
         <title value="Exempel"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="downloads.html"/>
-        </extension>
-        <nameUrl value="downloads.html"/>
-        <title value="Nedladdningar"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="version-history.html"/>
-        </extension>
-        <nameUrl value="version-history.html"/>
-        <title value="Versionshistorik"/>
         <generation value="markdown"/>
       </page>
     </page>

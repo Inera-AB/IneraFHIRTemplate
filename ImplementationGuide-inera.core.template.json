@@ -10,7 +10,7 @@
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-06-26T08:06:54+00:00",
+  "date" : "2026-07-14T09:00:12+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -709,34 +709,106 @@
           "valueUrl" : "index.html"
         }],
         "nameUrl" : "index.html",
+        "title" : "Hem",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "introduction.html"
+        }],
+        "nameUrl" : "introduction.html",
         "title" : "Introduktion",
         "generation" : "markdown"
       },
       {
         "extension" : [{
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "workflow.html"
+          "valueUrl" : "functional.html"
         }],
-        "nameUrl" : "workflow.html",
-        "title" : "Arbetsflöde",
+        "nameUrl" : "functional.html",
+        "title" : "Funktionellt",
         "generation" : "markdown"
       },
       {
         "extension" : [{
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "logical-models.html"
+          "valueUrl" : "rest-interactions.html"
         }],
-        "nameUrl" : "logical-models.html",
-        "title" : "Logiska modeller",
+        "nameUrl" : "rest-interactions.html",
+        "title" : "REST-interaktioner och sökparametrar",
         "generation" : "markdown"
       },
       {
         "extension" : [{
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "mappings.html"
+          "valueUrl" : "expected-responses.html"
         }],
-        "nameUrl" : "mappings.html",
-        "title" : "Mappningar",
+        "nameUrl" : "expected-responses.html",
+        "title" : "Förväntade svar",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "capabilitystatement.html"
+        }],
+        "nameUrl" : "capabilitystatement.html",
+        "title" : "CapabilityStatement",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "error-handling.html"
+        }],
+        "nameUrl" : "error-handling.html",
+        "title" : "Felhantering",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "security.html"
+        }],
+        "nameUrl" : "security.html",
+        "title" : "Säkerhet och behörighet",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "testing.html"
+        }],
+        "nameUrl" : "testing.html",
+        "title" : "Testning och validering",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "about.html"
+        }],
+        "nameUrl" : "about.html",
+        "title" : "Om",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "downloads.html"
+        }],
+        "nameUrl" : "downloads.html",
+        "title" : "Nedladdningar",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "version-history.html"
+        }],
+        "nameUrl" : "version-history.html",
+        "title" : "Versionshistorik",
         "generation" : "markdown"
       },
       {
@@ -760,28 +832,19 @@
       {
         "extension" : [{
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "mappings.html"
+        }],
+        "nameUrl" : "mappings.html",
+        "title" : "Mappning till profiler",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
           "valueUrl" : "examples.html"
         }],
         "nameUrl" : "examples.html",
         "title" : "Exempel",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "downloads.html"
-        }],
-        "nameUrl" : "downloads.html",
-        "title" : "Nedladdningar",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "version-history.html"
-        }],
-        "nameUrl" : "version-history.html",
-        "title" : "Versionshistorik",
         "generation" : "markdown"
       }]
     },

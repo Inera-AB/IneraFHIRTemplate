@@ -1,20 +1,22 @@
-# Introduktion - Inera FHIR Implementation Guide Template v2.0.0
+# Hem - Inera FHIR Implementation Guide Template v2.0.0
 
 * [**Table of Contents**](toc.md)
-* **Introduktion**
+* **Hem**
 
-## Introduktion
+## Hem
 
 | | |
 | :--- | :--- |
 | *Official URL*:https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template | *Version*:2.0.0 |
-| Draft as of 2026-06-26 | *Computable Name*:IneraCoreTemplate |
+| Draft as of 2026-07-14 | *Computable Name*:IneraCoreTemplate |
 
-# Introduktion
+# Hem
 
 ### [Domännamn]
 
-**Beskriv det kliniska eller administrativa område som denna IG hanterar. Förklara varför området är viktigt inom svensk hälso- och sjukvård, vilken roll det spelar i patientvård eller informationsutbyte, och varför det prioriterats för FHIR-standardisering. Exempel: kliniska laboratoriesvar, remisser, vårdplaner, recept.**
+**Ange namnet på den avgränsade förmåga som denna IG realiserar, t.ex. "Fasta kontakter" eller "Remisser" — inte ett brett kliniskt område som "Läkemedel". En förmåga ska vara tillräckligt avgränsad för att kunna implementeras i sin helhet av denna IG. Om ert verksamhetsområde är stort, dela upp det i flera IG:er per avgränsad förmåga och länka mellan dem vid behov.**
+
+**Förklara varför förmågan är viktig inom svensk hälso- och sjukvård, vilken roll den spelar i patientvård eller informationsutbyte, och varför den prioriterats för FHIR-standardisering.**
 
 -------
 
@@ -26,7 +28,13 @@
 
 ### Syfte
 
-**Beskriv målet med denna IG. Förklara vilket problem den löser, vem den riktar sig till (implementatörer, leverantörer, vårdgivare) och hur den passar in i det bredare Inera- och e-hälsolandskapet. Hänvisa till nationella eller regionala program, standarder eller mandat som motiverat arbetet.**
+**Beskriv målet med denna IG. Förklara vilket problem den löser och hur den passar in i det bredare Inera- och e-hälsolandskapet. Hänvisa till nationella eller regionala program, standarder eller mandat som motiverat arbetet.**
+
+-------
+
+### Målgrupp
+
+**Ange vem denna IG riktar sig till, t.ex. implementatörer, systemleverantörer, vårdgivare och/eller förvaltningsorganisationer. Beskriv vilken bakgrundskunskap läsaren förväntas ha (t.ex. grundläggande FHIR-kunskap) och hänvisa till [Introduktion](introduction.md) och Implementering (se t.ex. [REST-interaktioner och sökparametrar](rest-interactions.md)) för den som ska bygga mot IG:n.**
 
 -------
 
@@ -46,17 +54,15 @@ Denna IG har ett beroende till SE-core, definierat av HL7 Sweden. Detta återspe
 
 Mer information om FHIR på Inera finns [här](https://fhir.inera.se/). FHIR på Inera är en del av RIVTA – referensarkitekturen för svensk hälso- och sjukvård.
 
+Information om hur denna IG förvaltas finns under [Om](about.md).
+
 -------
 
-### Styrning och vägledning
+### Om mallens struktur
 
-FHIR-profiler förvaltas av Inera: [Källkod](https://github.com/inera-ab).
+Menyn i denna IG är medvetet utformad efter samma mönster som europeiska specifikationer, t.ex. FHIR ePS (Hem / Introduktion / Funktionellt / Implementering / Om / Artefakter), för att ge implementatörer en igenkännbar ingång oavsett vilken europeisk FHIR-IG de arbetar med.
 
-En beskrivning av krav på följsamhet samt vägledning vid implementering av Ineras FHIR-IG:ar finns på [Inera FHIR-landningssidan](https://fhir.inera.se/).
-
-Landningssidan ger en översikt av krav på system som vill ansuta sig till ineras tjänster via FHIR.
-
-Landningssidan erbjuder även stöd för utvecklare som vill förstå hur de arbetar med Ineras FHIR-standarder, inklusive en guide för att läsa en Implementation Guide och instruktioner för hur man använder FHIR-verktyg som valideringsuppsättning.
+Informationsmodellen för denna förmåga publiceras externt och fristående i en egen informationsspecifikation (se [Introduktion](introduction.md)) snarare än i denna IG. Det håller informationsspecifikationen som den auktoritativa källan för begrepp och informationsstruktur, och undviker att IG:n och specifikationen glider isär över tid.
 
 
 
@@ -71,7 +77,7 @@ Landningssidan erbjuder även stöd för utvecklare som vill förstå hur de arb
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-06-26T08:06:54+00:00",
+  "date" : "2026-07-14T09:00:12+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -770,34 +776,106 @@ Landningssidan erbjuder även stöd för utvecklare som vill förstå hur de arb
           "valueUrl" : "index.html"
         }],
         "nameUrl" : "index.html",
+        "title" : "Hem",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "introduction.html"
+        }],
+        "nameUrl" : "introduction.html",
         "title" : "Introduktion",
         "generation" : "markdown"
       },
       {
         "extension" : [{
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "workflow.html"
+          "valueUrl" : "functional.html"
         }],
-        "nameUrl" : "workflow.html",
-        "title" : "Arbetsflöde",
+        "nameUrl" : "functional.html",
+        "title" : "Funktionellt",
         "generation" : "markdown"
       },
       {
         "extension" : [{
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "logical-models.html"
+          "valueUrl" : "rest-interactions.html"
         }],
-        "nameUrl" : "logical-models.html",
-        "title" : "Logiska modeller",
+        "nameUrl" : "rest-interactions.html",
+        "title" : "REST-interaktioner och sökparametrar",
         "generation" : "markdown"
       },
       {
         "extension" : [{
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "mappings.html"
+          "valueUrl" : "expected-responses.html"
         }],
-        "nameUrl" : "mappings.html",
-        "title" : "Mappningar",
+        "nameUrl" : "expected-responses.html",
+        "title" : "Förväntade svar",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "capabilitystatement.html"
+        }],
+        "nameUrl" : "capabilitystatement.html",
+        "title" : "CapabilityStatement",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "error-handling.html"
+        }],
+        "nameUrl" : "error-handling.html",
+        "title" : "Felhantering",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "security.html"
+        }],
+        "nameUrl" : "security.html",
+        "title" : "Säkerhet och behörighet",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "testing.html"
+        }],
+        "nameUrl" : "testing.html",
+        "title" : "Testning och validering",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "about.html"
+        }],
+        "nameUrl" : "about.html",
+        "title" : "Om",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "downloads.html"
+        }],
+        "nameUrl" : "downloads.html",
+        "title" : "Nedladdningar",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "version-history.html"
+        }],
+        "nameUrl" : "version-history.html",
+        "title" : "Versionshistorik",
         "generation" : "markdown"
       },
       {
@@ -821,28 +899,19 @@ Landningssidan erbjuder även stöd för utvecklare som vill förstå hur de arb
       {
         "extension" : [{
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "mappings.html"
+        }],
+        "nameUrl" : "mappings.html",
+        "title" : "Mappning till profiler",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
           "valueUrl" : "examples.html"
         }],
         "nameUrl" : "examples.html",
         "title" : "Exempel",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "downloads.html"
-        }],
-        "nameUrl" : "downloads.html",
-        "title" : "Nedladdningar",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "version-history.html"
-        }],
-        "nameUrl" : "version-history.html",
-        "title" : "Versionshistorik",
         "generation" : "markdown"
       }]
     },

@@ -2,15 +2,22 @@
 
 ## Pages
 
-* [Introduktion](index.md)
+* [Hem](index.md)
+* [CapabilityStatement](capabilitystatement.md)
+* [Funktionellt](functional.md)
 * [Nedladdningar](downloads.md)
-* [Mappningar](mappings.md)
+* [Mappning till profiler](mappings.md)
+* [Testning och validering](testing.md)
 * [Profiler](profiles.md)
 * [Artifacts Summary](artifacts.md)
-* [Logiska modeller](logical-models.md)
+* [Felhantering](error-handling.md)
 * [Terminologi](terminology.md)
+* [Om](about.md)
 * [Exempel](examples.md)
-* [Arbetsflöde](workflow.md)
+* [Introduktion](introduction.md)
+* [Förväntade svar](expected-responses.md)
+* [REST-interaktioner och sökparametrar](rest-interactions.md)
+* [Säkerhet och behörighet](security.md)
 * [Versionshistorik](version-history.md)
 
 ## Resources

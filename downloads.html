@@ -44,8 +44,8 @@
 	  <script src="assets/js/prism.js"></script>
     <script type="text/javascript" src="assets/js/mermaid.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
-    <style type="text/css">h2{--heading-prefix:"8"}
-    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <style type="text/css">h2{--heading-prefix:"11"}
+    h3,h4,h5,h6{--heading-prefix:"11"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
 
@@ -101,25 +101,38 @@
         <div class="nav-collapse collapse navbar-inverse-collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.html">Hem</a></li>
+            <li><a href="introduction.html">Introduktion</a></li>
+            <li><a href="functional.html">Funktionellt</a></li>
             <li class="dropdown">
-              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Bakgrund<b class="caret"> </b></a>
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementering<b class="caret"> </b></a>
               <ul class="dropdown-menu">
-                <li><a href="workflow.html">Arbetsflöde</a></li>
-                <li><a href="logical-models.html">Logiska modeller</a></li>
-                <li><a href="mappings.html">Mappningar</a></li>
+                <li><a href="rest-interactions.html">REST-interaktioner och sökparametrar</a></li>
+                <li><a href="expected-responses.html">Förväntade svar</a></li>
+                <li><a href="capabilitystatement.html">CapabilityStatement</a></li>
+                <li><a href="error-handling.html">Felhantering</a></li>
+                <li><a href="security.html">Säkerhet och behörighet</a></li>
+                <li><a href="testing.html">Testning och validering</a></li>
               </ul>
             </li>
             <li class="dropdown">
-              <a data-toggle="dropdown" href="#" class="dropdown-toggle">FHIR-artefakter<b class="caret"> </b></a>
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Om<b class="caret"> </b></a>
+              <ul class="dropdown-menu">
+                <li><a href="about.html">Styrning och förvaltning</a></li>
+                <li><a href="downloads.html">Nedladdningar</a></li>
+                <li><a href="version-history.html">Versionshistorik</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Artefakter<b class="caret"> </b></a>
               <ul class="dropdown-menu">
                 <li><a href="profiles.html">Profiler</a></li>
                 <li><a href="terminology.html">Terminologi</a></li>
+                <li><a href="mappings.html">Mappning till profiler</a></li>
                 <li><a href="examples.html">Exempel</a></li>
                 <li><a href="artifacts.html">Alla artefakter</a></li>
               </ul>
             </li>
-            <li><a href="downloads.html">Nedladdningar</a></li>
-            <li><a href="version-history.html">Versionshistorik</a></li>
+            <li><a href="https://fhir.inera.se/" target="_blank" rel="noopener">FHIR på Inera <span aria-hidden="true">&#8599;</span></a></li>
           </ul>
         </div>
       </div>
@@ -174,15 +187,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
     <p><!-- white space is critical inside of capture --></p>
-<div class="markdown-toc">
-<ul id="markdown-toc">
-  <li><a href="#nedladdningar" id="markdown-toc-nedladdningar">Nedladdningar</a>    <ul>
-      <li><a href="#fullständigt-ig-paket" id="markdown-toc-fullständigt-ig-paket">Fullständigt IG-paket</a></li>
-      <li><a href="#valideringsinställning" id="markdown-toc-valideringsinställning">Valideringsinställning</a></li>
-    </ul>
-  </li>
-</ul>
-
+<div>
+<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
 </div>
 <h1 id="nedladdningar">Nedladdningar</h1>
 
@@ -196,12 +202,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="package.tgz">Paket (tgz)</a></li>
 </ul>
 
-<h3 id="valideringsinställning">Valideringsinställning</h3>
-
-<p>För att validera instanser mot profiler i denna IG, använd <a href="https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator">HL7 FHIR Validator</a> med paketet ovan:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java -jar validator_cli.jar &lt;instans.json&gt; -ig inera.core.template#2.0.0
-</code></pre></div></div>
+<p>Se <a href="testing.html">Testning och validering</a> för instruktioner om hur paketet används för att validera instanser mot profilerna i denna IG.</p>
 
 <hr />
 
@@ -228,7 +229,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  Package inera.core.template#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, Jun 26, 2026 08:06+0000">2026-06-26</span>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  Package inera.core.template#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Jul 14, 2026 09:00+0000">2026-07-14</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
                       Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
