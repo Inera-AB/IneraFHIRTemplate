@@ -4,7 +4,7 @@ name: IneraCoreTemplate
 title: "Inera FHIR Implementation Guide Template"
 description: "Mall för Ineras FHIR Implementation Guides."
 status: draft
-version: 2.0.0
+version: 2.1.0
 fhirVersion: 4.0.1
 copyrightYear: 2024+
 releaseLabel: ci-build
@@ -25,9 +25,15 @@ pages:
   index.md:
     title: Hem
   introduction.md:
-    title: Introduktion
-  functional.md:
-    title: Funktionellt
+    title: Inledning
+  information-basis.md:
+    title: Informationsunderlag
+  use-cases.md:
+    title: Användningsfall
+  roles-and-responsibilities.md:
+    title: Roller och ansvar
+  mappings.md:
+    title: Mappning till profiler
   rest-interactions.md:
     title: REST-interaktioner och sökparametrar
   expected-responses.md:
@@ -46,11 +52,3 @@ pages:
     title: Nedladdningar
   version-history.md:
     title: Versionshistorik
-  profiles.md:
-    title: Profiler
-  terminology.md:
-    title: Terminologi
-  mappings.md:
-    title: Mappning till profiler
-  examples.md:
-    title: Exempel
