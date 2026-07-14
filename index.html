@@ -3,7 +3,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Hem - Inera FHIR Implementation Guide Template v2.0.0</title>
+    <title>Hem - Inera FHIR Implementation Guide Template v2.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -59,7 +59,7 @@
         <div id="ig-status">
           <p><span style="font-size:12pt;font-weight:bold">Inera FHIR Implementation Guide Template</span>
             <br/>
-            <span style="display:inline-block;">2.0.0 - ci-build
+            <span style="display:inline-block;">2.1.0 - ci-build
 
 
 
@@ -101,8 +101,16 @@
         <div class="nav-collapse collapse navbar-inverse-collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.html">Hem</a></li>
-            <li><a href="introduction.html">Introduktion</a></li>
-            <li><a href="functional.html">Funktionellt</a></li>
+            <li><a href="introduction.html">Inledning</a></li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Funktionellt<b class="caret"> </b></a>
+              <ul class="dropdown-menu">
+                <li><a href="information-basis.html">Informationsunderlag</a></li>
+                <li><a href="use-cases.html">Användningsfall</a></li>
+                <li><a href="roles-and-responsibilities.html">Roller och ansvar</a></li>
+                <li><a href="mappings.html">Mappning till profiler</a></li>
+              </ul>
+            </li>
             <li class="dropdown">
               <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementering<b class="caret"> </b></a>
               <ul class="dropdown-menu">
@@ -122,16 +130,7 @@
                 <li><a href="version-history.html">Versionshistorik</a></li>
               </ul>
             </li>
-            <li class="dropdown">
-              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Artefakter<b class="caret"> </b></a>
-              <ul class="dropdown-menu">
-                <li><a href="profiles.html">Profiler</a></li>
-                <li><a href="terminology.html">Terminologi</a></li>
-                <li><a href="mappings.html">Mappning till profiler</a></li>
-                <li><a href="examples.html">Exempel</a></li>
-                <li><a href="artifacts.html">Alla artefakter</a></li>
-              </ul>
-            </li>
+            <li><a href="artifacts.html">Artefakter</a></li>
             <li><a href="https://fhir.inera.se/" target="_blank" rel="noopener">FHIR på Inera <span aria-hidden="true">&#8599;</span></a></li>
           </ul>
         </div>
@@ -171,7 +170,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.0.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.1.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Hem</h2>
   
 
@@ -186,7 +185,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td colspan="4"><i>Official URL</i>: <span class="copy-text">https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template<button title="Click to copy URL" class="btn-copy" data-clipboard-text="https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template"/></span>
       </td>
       <td><i>Version</i>:
-      <span class="copy-text">2.0.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template|2.0.0"/></span>
+      <span class="copy-text">2.1.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template|2.1.0"/></span>
       </td>
     </tr>
 
@@ -266,7 +265,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h3 id="målgrupp">Målgrupp</h3>
 
-<p><em>Ange vem denna IG riktar sig till, t.ex. implementatörer, systemleverantörer, vårdgivare och/eller förvaltningsorganisationer. Beskriv vilken bakgrundskunskap läsaren förväntas ha (t.ex. grundläggande FHIR-kunskap) och hänvisa till <a href="introduction.html">Introduktion</a> och Implementering (se t.ex. <a href="rest-interactions.html">REST-interaktioner och sökparametrar</a>) för den som ska bygga mot IG:n.</em></p>
+<p><em>Ange vem denna IG riktar sig till, t.ex. implementatörer, systemleverantörer, vårdgivare och/eller förvaltningsorganisationer. Beskriv vilken bakgrundskunskap läsaren förväntas ha (t.ex. grundläggande FHIR-kunskap) och hänvisa till <a href="introduction.html">Inledning</a> och Implementering (se t.ex. <a href="rest-interactions.html">REST-interaktioner och sökparametrar</a>) för den som ska bygga mot IG:n.</em></p>
 
 <hr />
 
@@ -292,9 +291,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h3 id="om-mallens-struktur">Om mallens struktur</h3>
 
-<p>Menyn i denna IG är medvetet utformad efter samma mönster som europeiska specifikationer, t.ex. FHIR ePS (Hem / Introduktion / Funktionellt / Implementering / Om / Artefakter), för att ge implementatörer en igenkännbar ingång oavsett vilken europeisk FHIR-IG de arbetar med.</p>
+<p>Menyn i denna IG är medvetet utformad efter samma mönster som europeiska specifikationer, t.ex. FHIR ePS (Hem / Inledning / Funktionellt / Implementering / Om / Artefakter), för att ge implementatörer en igenkännbar ingång oavsett vilken europeisk FHIR-IG de arbetar med.</p>
 
-<p>Informationsmodellen för denna förmåga publiceras externt och fristående i en egen informationsspecifikation (se <a href="introduction.html">Introduktion</a>) snarare än i denna IG. Det håller informationsspecifikationen som den auktoritativa källan för begrepp och informationsstruktur, och undviker att IG:n och specifikationen glider isär över tid.</p>
+<p>Informationsmodellen för denna förmåga publiceras externt och fristående i en egen informationsspecifikation (se <a href="information-basis.html">Informationsunderlag</a> under Funktionellt) snarare än i denna IG. Det håller informationsspecifikationen som den auktoritativa källan för begrepp och informationsstruktur, och undviker att IG:n och specifikationen glider isär över tid.</p>
 
 
 
@@ -315,7 +314,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  Package inera.core.template#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Jul 14, 2026 09:00+0000">2026-07-14</span>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  Package inera.core.template#2.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Jul 14, 2026 13:33+0000">2026-07-14</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
                       Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |

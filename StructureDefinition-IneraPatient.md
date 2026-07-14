@@ -1,4 +1,4 @@
-# Inera Patient - Inera FHIR Implementation Guide Template v2.0.0
+# Inera Patient - Inera FHIR Implementation Guide Template v2.1.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://fhir.inera.se/ig/template/StructureDefinition/IneraPatient | *Version*:2.0.0 |
+| *Official URL*:https://fhir.inera.se/ig/template/StructureDefinition/IneraPatient | *Version*:2.1.0 |
 | Draft as of 2026-07-14 | *Computable Name*:IneraPatient |
 
  
@@ -37,11 +37,11 @@ Other representations of profile: [CSV](StructureDefinition-IneraPatient.csv), [
   "resourceType" : "StructureDefinition",
   "id" : "IneraPatient",
   "url" : "https://fhir.inera.se/ig/template/StructureDefinition/IneraPatient",
-  "version" : "2.0.0",
+  "version" : "2.1.0",
   "name" : "IneraPatient",
   "title" : "Inera Patient",
   "status" : "draft",
-  "date" : "2026-07-14T09:00:12+00:00",
+  "date" : "2026-07-14T13:33:33+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

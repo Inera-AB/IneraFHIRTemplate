@@ -1,4 +1,4 @@
-# Hem - Inera FHIR Implementation Guide Template v2.0.0
+# Hem - Inera FHIR Implementation Guide Template v2.1.0
 
 * [**Table of Contents**](toc.md)
 * **Hem**
@@ -7,7 +7,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template | *Version*:2.0.0 |
+| *Official URL*:https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template | *Version*:2.1.0 |
 | Draft as of 2026-07-14 | *Computable Name*:IneraCoreTemplate |
 
 # Hem
@@ -34,7 +34,7 @@
 
 ### Målgrupp
 
-**Ange vem denna IG riktar sig till, t.ex. implementatörer, systemleverantörer, vårdgivare och/eller förvaltningsorganisationer. Beskriv vilken bakgrundskunskap läsaren förväntas ha (t.ex. grundläggande FHIR-kunskap) och hänvisa till [Introduktion](introduction.md) och Implementering (se t.ex. [REST-interaktioner och sökparametrar](rest-interactions.md)) för den som ska bygga mot IG:n.**
+**Ange vem denna IG riktar sig till, t.ex. implementatörer, systemleverantörer, vårdgivare och/eller förvaltningsorganisationer. Beskriv vilken bakgrundskunskap läsaren förväntas ha (t.ex. grundläggande FHIR-kunskap) och hänvisa till [Inledning](introduction.md) och Implementering (se t.ex. [REST-interaktioner och sökparametrar](rest-interactions.md)) för den som ska bygga mot IG:n.**
 
 -------
 
@@ -60,9 +60,9 @@ Information om hur denna IG förvaltas finns under [Om](about.md).
 
 ### Om mallens struktur
 
-Menyn i denna IG är medvetet utformad efter samma mönster som europeiska specifikationer, t.ex. FHIR ePS (Hem / Introduktion / Funktionellt / Implementering / Om / Artefakter), för att ge implementatörer en igenkännbar ingång oavsett vilken europeisk FHIR-IG de arbetar med.
+Menyn i denna IG är medvetet utformad efter samma mönster som europeiska specifikationer, t.ex. FHIR ePS (Hem / Inledning / Funktionellt / Implementering / Om / Artefakter), för att ge implementatörer en igenkännbar ingång oavsett vilken europeisk FHIR-IG de arbetar med.
 
-Informationsmodellen för denna förmåga publiceras externt och fristående i en egen informationsspecifikation (se [Introduktion](introduction.md)) snarare än i denna IG. Det håller informationsspecifikationen som den auktoritativa källan för begrepp och informationsstruktur, och undviker att IG:n och specifikationen glider isär över tid.
+Informationsmodellen för denna förmåga publiceras externt och fristående i en egen informationsspecifikation (se [Informationsunderlag](information-basis.md) under Funktionellt) snarare än i denna IG. Det håller informationsspecifikationen som den auktoritativa källan för begrepp och informationsstruktur, och undviker att IG:n och specifikationen glider isär över tid.
 
 
 
@@ -73,11 +73,11 @@ Informationsmodellen för denna förmåga publiceras externt och fristående i e
   "resourceType" : "ImplementationGuide",
   "id" : "inera.core.template",
   "url" : "https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template",
-  "version" : "2.0.0",
+  "version" : "2.1.0",
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-07-14T09:00:12+00:00",
+  "date" : "2026-07-14T13:33:33+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -785,16 +785,43 @@ Informationsmodellen för denna förmåga publiceras externt och fristående i e
           "valueUrl" : "introduction.html"
         }],
         "nameUrl" : "introduction.html",
-        "title" : "Introduktion",
+        "title" : "Inledning",
         "generation" : "markdown"
       },
       {
         "extension" : [{
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "functional.html"
+          "valueUrl" : "information-basis.html"
         }],
-        "nameUrl" : "functional.html",
-        "title" : "Funktionellt",
+        "nameUrl" : "information-basis.html",
+        "title" : "Informationsunderlag",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "use-cases.html"
+        }],
+        "nameUrl" : "use-cases.html",
+        "title" : "Användningsfall",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "roles-and-responsibilities.html"
+        }],
+        "nameUrl" : "roles-and-responsibilities.html",
+        "title" : "Roller och ansvar",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "mappings.html"
+        }],
+        "nameUrl" : "mappings.html",
+        "title" : "Mappning till profiler",
         "generation" : "markdown"
       },
       {
@@ -876,42 +903,6 @@ Informationsmodellen för denna förmåga publiceras externt och fristående i e
         }],
         "nameUrl" : "version-history.html",
         "title" : "Versionshistorik",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "profiles.html"
-        }],
-        "nameUrl" : "profiles.html",
-        "title" : "Profiler",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "terminology.html"
-        }],
-        "nameUrl" : "terminology.html",
-        "title" : "Terminologi",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "mappings.html"
-        }],
-        "nameUrl" : "mappings.html",
-        "title" : "Mappning till profiler",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "examples.html"
-        }],
-        "nameUrl" : "examples.html",
-        "title" : "Exempel",
         "generation" : "markdown"
       }]
     },

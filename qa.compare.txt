@@ -10,9 +10,9 @@ Generated $--. FHIR version $-- for inera.core.template#$-- (canonical = https:/
  /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/StructureDefinition-IneraPatient : 0 / 0 / 4
 </table>
 == n/a ==
-ERROR: introduction.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 213, column 16: The link '[länk till publicerat dokument]' for "Namn på informationsspecifikationen" cannot be resolved
-ERROR: mappings.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 246, column 16: The link 'StructureDefinition-[Profil].html' for "Profil.element" cannot be resolved
-ERROR: mappings.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 252, column 16: The link 'StructureDefinition-[Profil].html' for "Profil.element" cannot be resolved
+ERROR: information-basis.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 208, column 16: The link '[länk till publicerat dokument]' for "Namn på informationsspecifikationen" cannot be resolved
+ERROR: mappings.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 245, column 16: The link 'StructureDefinition-[Profil].html' for "Profil.element" cannot be resolved
+ERROR: mappings.html#/html/body/div/div/div/div/div/table/tbody/tr/td/em/a at Line 251, column 16: The link 'StructureDefinition-[Profil].html' for "Profil.element" cannot be resolved
 == fsh-generated/resources/ImplementationGuide-inera.core.template.json ==
 WARNING: /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/ImplementationGuide-inera.core.template: Unknown Parameters: [i18n-default-language=sv]
 INFORMATION: ImplementationGuide/inera.core.template: ImplementationGuide.jurisdiction[0].coding[0].display: There are no valid display names found for the code urn:iso:std:iso:3166#SE for language(s) 'sv-SE'. The display is 'Sweden' which is a valid display for the default language

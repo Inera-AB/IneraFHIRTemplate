@@ -1,4 +1,4 @@
-# Mappning till profiler - Inera FHIR Implementation Guide Template v2.0.0
+# Mappning till profiler - Inera FHIR Implementation Guide Template v2.1.0
 
 * [**Table of Contents**](toc.md)
 * **Mappning till profiler**
@@ -7,7 +7,7 @@
 
 # Mappning till profiler
 
-Denna sida dokumenterar vilka delar av informationsunderlaget (se [Introduktion](introduction.md)) som denna IG realiserar, eventuella avvikelser i FHIR-realiseringen, samt hur enskilda element mappas till element i motsvarande FHIR-profiler.
+Denna sida dokumenterar vilka delar av informationsunderlaget (se [Informationsunderlag](information-basis.md)) som denna IG realiserar, eventuella avvikelser i FHIR-realiseringen, samt hur enskilda element mappas till element i motsvarande FHIR-profiler.
 
 -------
 

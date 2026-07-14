@@ -13,11 +13,11 @@
      fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: ImplementationGuide inera.core.template</b></p><a name=\"inera.core.template\"> </a><a name=\"hcinera.core.template\"> </a><h2>IneraCoreTemplate</h2><p>Den officiella URL:en för denna implementationsguide är: </p><pre>https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template</pre><div><p>Mall för Ineras FHIR Implementation Guides.</p>\n</div></div>"
   ] ;
   fhir:ImplementationGuide.url [ fhir:value "https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template"] ;
-  fhir:ImplementationGuide.version [ fhir:value "2.0.0"] ;
+  fhir:ImplementationGuide.version [ fhir:value "2.1.0"] ;
   fhir:ImplementationGuide.name [ fhir:value "IneraCoreTemplate"] ;
   fhir:ImplementationGuide.title [ fhir:value "Inera FHIR Implementation Guide Template"] ;
   fhir:ImplementationGuide.status [ fhir:value "draft"] ;
-  fhir:ImplementationGuide.date [ fhir:value "2026-07-14T09:00:12+00:00"^^xsd:dateTime] ;
+  fhir:ImplementationGuide.date [ fhir:value "2026-07-14T13:33:33+00:00"^^xsd:dateTime] ;
   fhir:ImplementationGuide.publisher [ fhir:value "Inera AB"] ;
   fhir:ImplementationGuide.contact [
      fhir:index 0 ;
@@ -810,130 +810,40 @@
            fhir:Extension.valueUrl [ fhir:value "introduction.html" ]
          ] ;
          fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "introduction.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Introduktion" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Inledning" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 2 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "functional.html" ]
+           fhir:Extension.valueUrl [ fhir:value "information-basis.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "functional.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Funktionellt" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "information-basis.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Informationsunderlag" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 3 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "rest-interactions.html" ]
+           fhir:Extension.valueUrl [ fhir:value "use-cases.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "rest-interactions.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "REST-interaktioner och sökparametrar" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "use-cases.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Användningsfall" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 4 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "expected-responses.html" ]
+           fhir:Extension.valueUrl [ fhir:value "roles-and-responsibilities.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "expected-responses.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Förväntade svar" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "roles-and-responsibilities.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Roller och ansvar" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 5 ;
-         fhir:Element.extension [
-           fhir:index 0 ;
-           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "capabilitystatement.html" ]
-         ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "capabilitystatement.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "CapabilityStatement" ] ;
-         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
-       ], [
-         fhir:index 6 ;
-         fhir:Element.extension [
-           fhir:index 0 ;
-           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "error-handling.html" ]
-         ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "error-handling.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Felhantering" ] ;
-         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
-       ], [
-         fhir:index 7 ;
-         fhir:Element.extension [
-           fhir:index 0 ;
-           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "security.html" ]
-         ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "security.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Säkerhet och behörighet" ] ;
-         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
-       ], [
-         fhir:index 8 ;
-         fhir:Element.extension [
-           fhir:index 0 ;
-           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "testing.html" ]
-         ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "testing.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Testning och validering" ] ;
-         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
-       ], [
-         fhir:index 9 ;
-         fhir:Element.extension [
-           fhir:index 0 ;
-           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "about.html" ]
-         ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "about.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Om" ] ;
-         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
-       ], [
-         fhir:index 10 ;
-         fhir:Element.extension [
-           fhir:index 0 ;
-           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "downloads.html" ]
-         ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "downloads.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Nedladdningar" ] ;
-         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
-       ], [
-         fhir:index 11 ;
-         fhir:Element.extension [
-           fhir:index 0 ;
-           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "version-history.html" ]
-         ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "version-history.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Versionshistorik" ] ;
-         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
-       ], [
-         fhir:index 12 ;
-         fhir:Element.extension [
-           fhir:index 0 ;
-           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "profiles.html" ]
-         ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "profiles.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Profiler" ] ;
-         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
-       ], [
-         fhir:index 13 ;
-         fhir:Element.extension [
-           fhir:index 0 ;
-           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "terminology.html" ]
-         ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "terminology.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Terminologi" ] ;
-         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
-       ], [
-         fhir:index 14 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -943,14 +853,94 @@
          fhir:ImplementationGuide.definition.page.title [ fhir:value "Mappning till profiler" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
-         fhir:index 15 ;
+         fhir:index 6 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "examples.html" ]
+           fhir:Extension.valueUrl [ fhir:value "rest-interactions.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "examples.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Exempel" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "rest-interactions.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "REST-interaktioner och sökparametrar" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 7 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "expected-responses.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "expected-responses.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Förväntade svar" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 8 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "capabilitystatement.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "capabilitystatement.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "CapabilityStatement" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 9 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "error-handling.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "error-handling.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Felhantering" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 10 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "security.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "security.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Säkerhet och behörighet" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 11 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "testing.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "testing.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Testning och validering" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 12 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "about.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "about.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Om" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 13 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "downloads.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "downloads.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Nedladdningar" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 14 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "version-history.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "version-history.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Versionshistorik" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ]
      ] ;

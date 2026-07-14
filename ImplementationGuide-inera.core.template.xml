@@ -7,11 +7,11 @@
 </div></div>
   </text>
   <url value="https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template"/>
-  <version value="2.0.0"/>
+  <version value="2.1.0"/>
   <name value="IneraCoreTemplate"/>
   <title value="Inera FHIR Implementation Guide Template"/>
   <status value="draft"/>
-  <date value="2026-07-14T09:00:12+00:00"/>
+  <date value="2026-07-14T13:33:33+00:00"/>
   <publisher value="Inera AB"/>
   <contact>
     <name value="Inera AB"/>
@@ -541,15 +541,39 @@
           <valueUrl value="introduction.html"/>
         </extension>
         <nameUrl value="introduction.html"/>
-        <title value="Introduktion"/>
+        <title value="Inledning"/>
         <generation value="markdown"/>
       </page>
       <page>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="functional.html"/>
+          <valueUrl value="information-basis.html"/>
         </extension>
-        <nameUrl value="functional.html"/>
-        <title value="Funktionellt"/>
+        <nameUrl value="information-basis.html"/>
+        <title value="Informationsunderlag"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="use-cases.html"/>
+        </extension>
+        <nameUrl value="use-cases.html"/>
+        <title value="Användningsfall"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="roles-and-responsibilities.html"/>
+        </extension>
+        <nameUrl value="roles-and-responsibilities.html"/>
+        <title value="Roller och ansvar"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="mappings.html"/>
+        </extension>
+        <nameUrl value="mappings.html"/>
+        <title value="Mappning till profiler"/>
         <generation value="markdown"/>
       </page>
       <page>
@@ -622,38 +646,6 @@
         </extension>
         <nameUrl value="version-history.html"/>
         <title value="Versionshistorik"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="profiles.html"/>
-        </extension>
-        <nameUrl value="profiles.html"/>
-        <title value="Profiler"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="terminology.html"/>
-        </extension>
-        <nameUrl value="terminology.html"/>
-        <title value="Terminologi"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="mappings.html"/>
-        </extension>
-        <nameUrl value="mappings.html"/>
-        <title value="Mappning till profiler"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="examples.html"/>
-        </extension>
-        <nameUrl value="examples.html"/>
-        <title value="Exempel"/>
         <generation value="markdown"/>
       </page>
     </page>

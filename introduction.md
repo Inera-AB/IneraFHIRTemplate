@@ -1,35 +1,19 @@
-# Introduktion - Inera FHIR Implementation Guide Template v2.0.0
+# Inledning - Inera FHIR Implementation Guide Template v2.1.0
 
 * [**Table of Contents**](toc.md)
-* **Introduktion**
+* **Inledning**
 
-## Introduktion
+## Inledning
 
-# Introduktion
+# Inledning
 
-Denna sida beskriver informationsunderlaget som denna Implementation Guide bygger på. Detaljerade begrepps- och informationsmodeller, samt fullständiga processbeskrivningar, återfinns i den informationsspecifikation som anges nedan — de upprepas inte här för att undvika dubbeldokumentation som kan glida isär över tid.
+**Detta är beskrivningen av [Domännamn] i tjänstedomänen [tjänstedomän/supportprocess]. Denna Implementation Guide (IG) är baserad på RIVTA 2.1 [R2] och regleras genom arkitekturella beslut [R1].**
 
--------
+**Denna IG är en kravspecifikation. Den ska fungera som ett teknikneutralt, formellt regelverk som reglerar integrationskrav för parter (tjänstekonsumenter och tjänsteproducenter) som avser ansluta system för samverkan enligt denna IG. IG:n är också ett viktigt underlag för skapandet av de tekniska artefakterna (FHIR-profiler och StructureDefinitions).**
 
-### Informationsunderlag
-
-**Ange vilken informationsspecifikation denna IG baseras på.**
-
-| | |
-| :--- | :--- |
-| **Informationsspecifikation** | **[Namn på informationsspecifikationen]([länk till publicerat dokument])** |
-| **Version** | **[Version/datum för den informationsspecifikation som denna IG realiserar]** |
-
-**Länkar:**
-
-* **[Länk till publicerad informationsspecifikation]**
-* **[Länk till begreppsmodell]**
-* **[Länk till informationsmodell]**
-* **[Länk till ev. externa mappningsdokument]**
-
-Se [Mappning till profiler](mappings.md) för vilka delar av informationsspecifikationen som denna IG realiserar och eventuella avvikelser eller tillägg i FHIR-realiseringen.
+**Detta dokument kompletterar reglerna i de tekniska artefakterna. Tjänsteproducenter och tjänstekonsumenter ska med andra ord följa såväl de maskintolkbara reglerna i FHIR-profilerna, som de regler som uttrycks verbalt i detta dokument.**
 
 -------
 
-> **Vägledning för författare:** Håll denna sida kort. Roller, ansvar och arbetsflödet beskrivs under [Funktionellt](functional.md). Tekniska detaljer om REST-anrop, sökparametrar och konformanskrav hör hemma under Implementering (se t.ex. [CapabilityStatement](capabilitystatement.md)).
+> **Vägledning för författare:** Informationsunderlaget, användningsfall, roller och ansvar samt mappning till profiler beskrivs under Funktionellt (se [Informationsunderlag](information-basis.md), [Användningsfall](use-cases.md), [Roller och ansvar](roles-and-responsibilities.md) och [Mappning till profiler](mappings.md)). Tekniska detaljer om REST-anrop, sökparametrar och konformanskrav hör hemma under Implementering (se t.ex. [CapabilityStatement](capabilitystatement.md)).
 
