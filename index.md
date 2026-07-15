@@ -22,7 +22,7 @@
 
 ### Omfattning
 
-**Definiera vad denna IG täcker och vad den inte täcker. Specificera vilka typer av användningsfall, kliniska scenarier eller informationsutbyten som ingår. Nämn eventuella explicita avgränsningar. Om denna IG är avsedd att användas som bas för mer specialiserade guider, säg det här. Exempel: "Denna IG gäller för X inom ramen för Y. Den täcker inte Z. Härledda guider kan begränsa eller utöka omfattningen vid behov."**
+**Definiera vad som ingår i denna IG och beskriv eventuella avgränsningar. Specificera vilka användningsfall, kliniska scenarier eller informationsutbyten som beskrivs. Om denna IG är avsedd att användas som en basprofil/gemensam profil för mer specialiserade guider, beskriv det här.**
 
 -------
 
@@ -77,7 +77,7 @@ Informationsmodellen för denna förmåga publiceras externt och fristående i e
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-07-15T09:17:12+00:00",
+  "date" : "2026-07-15T09:18:52+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
