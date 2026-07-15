@@ -8,7 +8,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template | *Version*:2.1.0 |
-| Draft as of 2026-07-14 | *Computable Name*:IneraCoreTemplate |
+| Draft as of 2026-07-15 | *Computable Name*:IneraCoreTemplate |
 
 # Hem
 
@@ -77,7 +77,7 @@ Informationsmodellen för denna förmåga publiceras externt och fristående i e
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-07-14T14:21:13+00:00",
+  "date" : "2026-07-15T09:17:12+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

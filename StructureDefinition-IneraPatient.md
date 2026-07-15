@@ -9,7 +9,8 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://fhir.inera.se/ig/template/StructureDefinition/IneraPatient | *Version*:2.1.0 |
-| Draft as of 2026-07-14 | *Computable Name*:IneraPatient |
+| Draft as of 2026-07-15 | *Computable Name*:IneraPatient |
+| *Other Identifiers:*IneraPatient | |
 
  
 A template patient profile demonstrating Inera's FHIR profiling conventions. Authors should replace this description with the clinical purpose and scope of the profile. 
@@ -37,11 +38,14 @@ Other representations of profile: [CSV](StructureDefinition-IneraPatient.csv), [
   "resourceType" : "StructureDefinition",
   "id" : "IneraPatient",
   "url" : "https://fhir.inera.se/ig/template/StructureDefinition/IneraPatient",
+  "identifier" : [{
+    "value" : "IneraPatient"
+  }],
   "version" : "2.1.0",
   "name" : "IneraPatient",
   "title" : "Inera Patient",
   "status" : "draft",
-  "date" : "2026-07-14T14:21:13+00:00",
+  "date" : "2026-07-15",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
