@@ -10,7 +10,7 @@
 
 ### Omfattning
 
-*Definiera vad denna IG täcker och vad den inte täcker. Specificera vilka typer av användningsfall, kliniska scenarier eller informationsutbyten som ingår. Nämn eventuella explicita avgränsningar. Om denna IG är avsedd att användas som bas för mer specialiserade guider, säg det här. Exempel: "Denna IG gäller för X inom ramen för Y. Den täcker inte Z. Härledda guider kan begränsa eller utöka omfattningen vid behov."*
+*Definiera vad som ingår i denna IG och beskriv eventuella avgränsningar. Specificera vilka användningsfall, kliniska scenarier eller informationsutbyten som beskrivs. Om denna IG är avsedd att användas som en basprofil/gemensam profil för mer specialiserade guider, beskriv det här.*
 
 ---
 
