@@ -16,7 +16,7 @@
 
 **Ange ett namn som ringar in det avgränsade område som denna IG realiserar, t.ex. "Fasta kontakter" eller "Öppenvårdsemiss".**
 
-*Välj ett kort, stabilt och beskrivande namn som speglar informationsmängden eller API:ets syfte, snarare än projekt-, organisations- eller versionsnamn. Domännamnet (canonical URL) ska ligga under en långsiktigt förvaltad Inera-domän, https://inera.se/fhir/ig/, och ska inte innehålla versionsnummer eftersom versioner hanteras i FHIR-paketet och Implementation Guidens metadata. Använd samma namn konsekvent i paketnamn, repository, canonical URL och dokumentation för att underlätta identifiering och återanvändning."*
+*Välj ett kort, stabilt och beskrivande namn som speglar informationsmängden eller API:ets syfte, snarare än projekt-, organisations- eller versionsnamn. Domännamnet (canonical URL) ska ligga under en långsiktigt förvaltad Inera-domän, https://fhir.inera.se/ig/, och ska inte innehålla versionsnummer eftersom versioner hanteras i FHIR-paketet och Implementation Guidens metadata. Använd samma namn konsekvent i paketnamn, repository, canonical URL och dokumentation för att underlätta identifiering och återanvändning."*
 
 -------
 
@@ -77,7 +77,7 @@ Informationsmodellen för denna förmåga publiceras externt och fristående i e
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-07-15T09:18:52+00:00",
+  "date" : "2026-07-15T11:42:23+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
