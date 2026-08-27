@@ -187,9 +187,27 @@ jobs:
         run: |
           mkdir -p /tmp/ig-root
           cp package-list.json /tmp/ig-root/package-list.json
-          if [ -f output/history.html ]; then
-            cp output/history.html /tmp/ig-root/history.html
-            cp output/history.html /tmp/ig-root/index.html
+
+          # downloads.md links to <canonical>/package.tgz, so the package has
+          # to exist at the IG root and not only under the version directory.
+          # This is the "latest release" copy of the package.
+          if [ -f output/package.tgz ]; then
+            cp output/package.tgz /tmp/ig-root/package.tgz
+          else
+            echo "::warning::output/package.tgz missing — the download link at the IG root will not resolve"
+          fi
+
+          # fhir2.base.template emits pages under a language directory
+          # (output/sv/...), so look there as well as at the output root.
+          HISTORY=""
+          for c in output/history.html output/*/history.html; do
+            if [ -f "$c" ]; then HISTORY="$c"; break; fi
+          done
+
+          if [ -n "$HISTORY" ]; then
+            echo "Using history.html from ${HISTORY}"
+            cp "$HISTORY" /tmp/ig-root/history.html
+            cp "$HISTORY" /tmp/ig-root/index.html
           else
             echo "history.html not generated — building fallback index from package-list.json"
             python3 - <<'PYEOF'
