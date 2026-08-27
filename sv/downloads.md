@@ -1,4 +1,4 @@
-# Nedladdningar - Inera FHIR Implementation Guide Template v2.2.0
+# Nedladdningar - Inera FHIR Implementation Guide Template v2.2.1
 
 ## Nedladdningar
 

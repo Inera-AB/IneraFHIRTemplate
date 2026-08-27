@@ -1,4 +1,4 @@
-# inera.core.template#2.2.0: Inera FHIR Implementation Guide Template(sv)
+# inera.core.template#2.2.1: Inera FHIR Implementation Guide Template(sv)
 
 ## Pages
 

@@ -1,4 +1,4 @@
-# Mappning till profiler - Inera FHIR Implementation Guide Template v2.2.0
+# Mappning till profiler - Inera FHIR Implementation Guide Template v2.2.1
 
 ## Mappning till profiler
 

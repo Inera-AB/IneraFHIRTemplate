@@ -1,4 +1,4 @@
-# Roller och ansvar - Inera FHIR Implementation Guide Template v2.2.0
+# Roller och ansvar - Inera FHIR Implementation Guide Template v2.2.1
 
 ## Roller och ansvar
 

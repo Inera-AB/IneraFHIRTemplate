@@ -1,10 +1,18 @@
-# Versionshistorik - Inera FHIR Implementation Guide Template v2.2.0
+# Versionshistorik - Inera FHIR Implementation Guide Template v2.2.1
 
 ## Versionshistorik
 
 # Version History
 
 This page is maintained automatically by [release-please](https://github.com/googleapis/release-please). Entries are generated from commit messages that follow [Conventional Commits](https://www.conventionalcommits.org/).
+
+-------
+
+## [2.2.1] — 2026-08-27
+
+### Bug Fixes
+
+* Reservindexet som byggs när IG Publisher inte genererar `history.html` skrevs bara till `index.html`. Publishern stämplar in en länk till `<canonical>/history.html` på varje sida, så den länken gav 404 medan `<canonical>/` fungerade. Filen skrivs nu under båda namnen
 
 -------
 

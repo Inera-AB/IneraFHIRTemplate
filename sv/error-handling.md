@@ -1,4 +1,4 @@
-# Felhantering - Inera FHIR Implementation Guide Template v2.2.0
+# Felhantering - Inera FHIR Implementation Guide Template v2.2.1
 
 ## Felhantering
 

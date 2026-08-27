@@ -1,4 +1,4 @@
-# REST-interaktioner och sökparametrar - Inera FHIR Implementation Guide Template v2.2.0
+# REST-interaktioner och sökparametrar - Inera FHIR Implementation Guide Template v2.2.1
 
 ## REST-interaktioner och sökparametrar
 

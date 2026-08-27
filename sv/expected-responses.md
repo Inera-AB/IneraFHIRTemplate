@@ -1,4 +1,4 @@
-# Förväntade svar - Inera FHIR Implementation Guide Template v2.2.0
+# Förväntade svar - Inera FHIR Implementation Guide Template v2.2.1
 
 ## Förväntade svar
 

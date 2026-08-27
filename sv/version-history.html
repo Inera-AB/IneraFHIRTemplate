@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Versionshistorik - Inera FHIR Implementation Guide Template v2.2.0</title>
+    <title>Versionshistorik - Inera FHIR Implementation Guide Template v2.2.1</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -65,7 +65,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">Inera FHIR Implementation Guide Template</span>
             <br/>
-            <span style="display:inline-block;">2.2.0 - ci-build
+            <span style="display:inline-block;">2.2.1 - ci-build
 
 
 
@@ -180,7 +180,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.2.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.2.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Versionshistorik</h2>
   
 
@@ -200,9 +200,13 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <div class="markdown-toc">
 <ul id="markdown-toc">
   <li><a href="#version-history" id="markdown-toc-version-history">Version History</a>    <ul>
+      <li><a href="#221--2026-08-27" id="markdown-toc-221--2026-08-27">[2.2.1] — 2026-08-27</a>        <ul>
+          <li><a href="#bug-fixes" id="markdown-toc-bug-fixes">Bug Fixes</a></li>
+        </ul>
+      </li>
       <li><a href="#220--2026-08-27" id="markdown-toc-220--2026-08-27">[2.2.0] — 2026-08-27</a>        <ul>
           <li><a href="#features" id="markdown-toc-features">Features</a></li>
-          <li><a href="#bug-fixes" id="markdown-toc-bug-fixes">Bug Fixes</a></li>
+          <li><a href="#bug-fixes-1" id="markdown-toc-bug-fixes-1">Bug Fixes</a></li>
         </ul>
       </li>
       <li><a href="#200--2026-06-25" id="markdown-toc-200--2026-06-25">[2.0.0] — 2026-06-25</a>        <ul>
@@ -210,7 +214,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
         </ul>
       </li>
       <li><a href="#101--2026-06-24" id="markdown-toc-101--2026-06-24">[1.0.1] — 2026-06-24</a>        <ul>
-          <li><a href="#bug-fixes-1" id="markdown-toc-bug-fixes-1">Bug Fixes</a></li>
+          <li><a href="#bug-fixes-2" id="markdown-toc-bug-fixes-2">Bug Fixes</a></li>
         </ul>
       </li>
       <li><a href="#100--2026-06-24" id="markdown-toc-100--2026-06-24">[1.0.0] — 2026-06-24</a>        <ul>
@@ -230,6 +234,19 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <p>This page is maintained automatically by <a href="https://github.com/googleapis/release-please">release-please</a>.
 Entries are generated from commit messages that follow <a href="https://www.conventionalcommits.org/">Conventional Commits</a>.</p>
+
+<hr />
+
+<h2 id="221--2026-08-27">[2.2.1] — 2026-08-27</h2>
+
+<h3 id="bug-fixes">Bug Fixes</h3>
+
+<ul>
+  <li>Reservindexet som byggs när IG Publisher inte genererar <code class="language-plaintext highlighter-rouge">history.html</code>
+skrevs bara till <code class="language-plaintext highlighter-rouge">index.html</code>. Publishern stämplar in en länk till
+<code class="language-plaintext highlighter-rouge">&lt;canonical&gt;/history.html</code> på varje sida, så den länken gav 404 medan
+<code class="language-plaintext highlighter-rouge">&lt;canonical&gt;/</code> fungerade. Filen skrivs nu under båda namnen</li>
+</ul>
 
 <hr />
 
@@ -253,7 +270,7 @@ REST-interaktioner, förväntade svar, felhantering, säkerhet och testning</li>
 som körs vid varje push och pull request</li>
 </ul>
 
-<h3 id="bug-fixes">Bug Fixes</h3>
+<h3 id="bug-fixes-1">Bug Fixes</h3>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">i18n-default-lang</code> ersätter det felstavade <code class="language-plaintext highlighter-rouge">i18n-default-language</code>, som
@@ -286,7 +303,7 @@ vid release</li>
 
 <h2 id="101--2026-06-24">[1.0.1] — 2026-06-24</h2>
 
-<h3 id="bug-fixes-1">Bug Fixes</h3>
+<h3 id="bug-fixes-2">Bug Fixes</h3>
 
 <ul>
   <li>Read IG metadata from build output instead of sushi-config.yaml</li>
@@ -350,9 +367,9 @@ vid release</li>
 
 
           IG © 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.core.template#2.2.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
+          Paket inera.core.template#2.2.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Genererad 
-  <span title="2026-08-27 11:50:00 +0000">
+  <span title="2026-08-27 14:44:00 +0000">
     2026-08-27
   </span>
 
