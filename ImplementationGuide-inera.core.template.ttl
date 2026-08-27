@@ -8,16 +8,17 @@
 <https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template> a fhir:ImplementationGuide ;
   fhir:nodeRole fhir:treeRoot ;
   fhir:Resource.id [ fhir:value "inera.core.template"] ;
+  fhir:Resource.language [ fhir:value "sv"] ;
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ] ;
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: ImplementationGuide inera.core.template</b></p><a name=\"inera.core.template\"> </a><a name=\"hcinera.core.template\"> </a><h2>IneraCoreTemplate</h2><p>Den officiella URL:en för denna implementationsguide är: </p><pre>https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template</pre><div><p>Mall för Ineras FHIR Implementation Guides.</p>\n</div></div>"
+     fhir:Narrative.div "<div xml:lang=\"sv\" xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"sv\"><p class=\"res-header-id\"><b>Genererad berättande text: ImplementationGuide inera.core.template</b></p><a name=\"inera.core.template\"> </a><a name=\"hcinera.core.template\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Språk: sv</p></div><h2>IneraCoreTemplate</h2><p>Den officiella URL:en för denna implementationsguide är: </p><pre>https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template</pre><div><p>Mall för Ineras FHIR Implementation Guides.</p>\n</div></div>"
   ] ;
   fhir:ImplementationGuide.url [ fhir:value "https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template"] ;
   fhir:ImplementationGuide.version [ fhir:value "2.1.0"] ;
   fhir:ImplementationGuide.name [ fhir:value "IneraCoreTemplate"] ;
   fhir:ImplementationGuide.title [ fhir:value "Inera FHIR Implementation Guide Template"] ;
   fhir:ImplementationGuide.status [ fhir:value "draft"] ;
-  fhir:ImplementationGuide.date [ fhir:value "2026-07-15T11:42:23+00:00"^^xsd:dateTime] ;
+  fhir:ImplementationGuide.date [ fhir:value "2026-08-27T11:45:16+00:00"^^xsd:dateTime] ;
   fhir:ImplementationGuide.publisher [ fhir:value "Inera AB"] ;
   fhir:ImplementationGuide.contact [
      fhir:index 0 ;
@@ -57,7 +58,7 @@
        fhir:link <http://terminology.hl7.org/ImplementationGuide/hl7.terminology>
      ] ;
      fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "hl7.terminology.r4" ] ;
-     fhir:ImplementationGuide.dependsOn.version [ fhir:value "7.2.0" ]
+     fhir:ImplementationGuide.dependsOn.version [ fhir:value "7.3.0" ]
   ], [
      fhir:index 1 ;
      fhir:Element.id [ fhir:value "hl7ext" ] ;
@@ -127,7 +128,7 @@
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueString [ fhir:value "i18n-default-language" ]
+         fhir:Extension.valueString [ fhir:value "i18n-default-lang" ]
        ], [
          fhir:index 1 ;
          fhir:Extension.url [ fhir:value "value" ] ;
@@ -151,7 +152,7 @@
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueString [ fhir:value "path-liquid" ]
+         fhir:Extension.valueString [ fhir:value "path-liquid-template" ]
        ], [
          fhir:index 1 ;
          fhir:Extension.url [ fhir:value "value" ] ;
@@ -163,7 +164,7 @@
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueString [ fhir:value "path-liquid" ]
+         fhir:Extension.valueString [ fhir:value "path-liquid-template" ]
        ], [
          fhir:index 1 ;
          fhir:Extension.url [ fhir:value "value" ] ;
@@ -467,7 +468,7 @@
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueCode [ fhir:value "i18n-default-language" ]
+         fhir:Extension.valueCode [ fhir:value "i18n-default-lang" ]
        ], [
          fhir:index 1 ;
          fhir:Extension.url [ fhir:value "value" ] ;
@@ -491,7 +492,7 @@
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueCode [ fhir:value "path-liquid" ]
+         fhir:Extension.valueCode [ fhir:value "path-liquid-template" ]
        ], [
          fhir:index 1 ;
          fhir:Extension.url [ fhir:value "value" ] ;
@@ -503,7 +504,7 @@
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueCode [ fhir:value "path-liquid" ]
+         fhir:Extension.valueCode [ fhir:value "path-liquid-template" ]
        ], [
          fhir:index 1 ;
          fhir:Extension.url [ fhir:value "value" ] ;
@@ -999,9 +1000,13 @@
      ], [
        fhir:index 13 ;
        fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-pages" ] ;
-       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/images" ]
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/assets" ]
      ], [
        fhir:index 14 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-pages" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/images" ]
+     ], [
+       fhir:index 15 ;
        fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-tx-cache" ] ;
        fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input-cache/txcache" ]
      ]
