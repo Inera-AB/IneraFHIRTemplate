@@ -234,8 +234,12 @@ jobs:
           <table><thead><tr><th>Version</th><th>Beskrivning</th><th>Status</th></tr></thead>
           <tbody>{rows}</tbody></table>
           </body></html>"""
-          with open('/tmp/ig-root/index.html', 'w') as f:
-              f.write(html)
+          # Written to both names: the publisher stamps a link to
+          # <canonical>/history.html into every page, while <canonical>/ itself
+          # needs an index. Writing only one of them leaves the other a 404.
+          for name in ('index.html', 'history.html'):
+              with open(f'/tmp/ig-root/{name}', 'w') as f:
+                  f.write(html)
           PYEOF
           fi
 
