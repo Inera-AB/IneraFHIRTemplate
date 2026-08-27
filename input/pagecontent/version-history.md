@@ -5,6 +5,17 @@ Entries are generated from commit messages that follow [Conventional Commits](ht
 
 ---
 
+## [2.2.1] — 2026-08-27
+
+### Bug Fixes
+
+- Reservindexet som byggs när IG Publisher inte genererar `history.html`
+  skrevs bara till `index.html`. Publishern stämplar in en länk till
+  `<canonical>/history.html` på varje sida, så den länken gav 404 medan
+  `<canonical>/` fungerade. Filen skrivs nu under båda namnen
+
+---
+
 ## [2.2.0] — 2026-08-27
 
 Version 2.1.0 sattes i `sushi-config.yaml` men släpptes aldrig — den fick
