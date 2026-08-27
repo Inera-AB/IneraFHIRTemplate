@@ -19,7 +19,7 @@ jurisdiction: urn:iso:std:iso:3166#SE "Sweden"
 parameters:
   show-inherited-invariants: false
   usage-stats-opt-out: true
-  i18n-default-language: sv
+  i18n-default-lang: sv
 
 pages:
   index.md:

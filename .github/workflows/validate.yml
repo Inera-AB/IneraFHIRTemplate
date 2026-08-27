@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Test CI helper scripts
+        run: node --test .github/scripts/*.test.js
+
       - name: Install SUSHI
         run: npm install -g fsh-sushi
 
