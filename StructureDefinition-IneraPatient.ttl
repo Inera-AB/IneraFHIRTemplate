@@ -17,7 +17,7 @@
      fhir:index 0 ;
      fhir:Identifier.value [ fhir:value "IneraPatient" ]
   ] ;
-  fhir:StructureDefinition.version [ fhir:value "2.1.0"] ;
+  fhir:StructureDefinition.version [ fhir:value "2.2.0"] ;
   fhir:StructureDefinition.name [ fhir:value "IneraPatient"] ;
   fhir:StructureDefinition.title [ fhir:value "Inera Patient"] ;
   fhir:StructureDefinition.status [ fhir:value "draft"] ;

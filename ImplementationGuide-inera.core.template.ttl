@@ -14,11 +14,11 @@
      fhir:Narrative.div "<div xml:lang=\"sv\" xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"sv\"><p class=\"res-header-id\"><b>Genererad berättande text: ImplementationGuide inera.core.template</b></p><a name=\"inera.core.template\"> </a><a name=\"hcinera.core.template\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Språk: sv</p></div><h2>IneraCoreTemplate</h2><p>Den officiella URL:en för denna implementationsguide är: </p><pre>https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template</pre><div><p>Mall för Ineras FHIR Implementation Guides.</p>\n</div></div>"
   ] ;
   fhir:ImplementationGuide.url [ fhir:value "https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template"] ;
-  fhir:ImplementationGuide.version [ fhir:value "2.1.0"] ;
+  fhir:ImplementationGuide.version [ fhir:value "2.2.0"] ;
   fhir:ImplementationGuide.name [ fhir:value "IneraCoreTemplate"] ;
   fhir:ImplementationGuide.title [ fhir:value "Inera FHIR Implementation Guide Template"] ;
   fhir:ImplementationGuide.status [ fhir:value "draft"] ;
-  fhir:ImplementationGuide.date [ fhir:value "2026-08-27T11:45:16+00:00"^^xsd:dateTime] ;
+  fhir:ImplementationGuide.date [ fhir:value "2026-08-27T11:50:41+00:00"^^xsd:dateTime] ;
   fhir:ImplementationGuide.publisher [ fhir:value "Inera AB"] ;
   fhir:ImplementationGuide.contact [
      fhir:index 0 ;

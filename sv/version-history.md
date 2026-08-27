@@ -1,10 +1,31 @@
-# Versionshistorik - Inera FHIR Implementation Guide Template v2.1.0
+# Versionshistorik - Inera FHIR Implementation Guide Template v2.2.0
 
 ## Versionshistorik
 
 # Version History
 
 This page is maintained automatically by [release-please](https://github.com/googleapis/release-please). Entries are generated from commit messages that follow [Conventional Commits](https://www.conventionalcommits.org/).
+
+-------
+
+## [2.2.0] — 2026-08-27
+
+Version 2.1.0 sattes i `sushi-config.yaml` men släpptes aldrig — den fick ingen tagg och ingen changelog-post. Ändringarna därifrån ingår i den här releasen.
+
+### Features
+
+* Byte till `fhir2.base.template`, HL7:s språkmedvetna bastemplate. Sidorna genereras under `output/sv/` med en omdirigering i roten, och template- texterna följer språkinställningen
+* Omstrukturerad meny: Hem, Inledning, Funktionellt, Implementering, Om och Artefakter, med nya sidor för användningsfall, roller och ansvar, REST-interaktioner, förväntade svar, felhantering, säkerhet och testning
+* Vägledande kommentarer för profilering inbäddade i exempelprofilen
+* QA-skriptet utbrutet till `.github/scripts/qa-comment.js` med en testsvit som körs vid varje push och pull request
+
+### Bug Fixes
+
+* `i18n-default-lang` ersätter det felstavade `i18n-default-language`, som publishern ignorerade tyst. Det var orsaken till att ett tidigare försök med fhir2 lade alla sidor under `/en` trots att svenska var konfigurerat
+* QA-kommentaren rapporterade noll fel och noll varningar för bygget som hade sex varningar. Siffrorna hämtas nu från publisherns egen summering i `build.log` och detaljerna från `output/qa.txt`; en trasig eller saknad källa redovisas öppet i stället för att visas som ett rent bygge
+* `history.html` söks även i språkkatalogen, så releasesteget använder publisherns riktiga versionslista i stället för reservindexet
+* Nedladdningslänken pekar på canonical och paketet kopieras till IG-roten vid release
+* Platshållaren `<namn>` i `index.md` tolkades som ett HTML-element
 
 -------
 

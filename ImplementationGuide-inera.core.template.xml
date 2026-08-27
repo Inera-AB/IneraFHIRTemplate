@@ -8,11 +8,11 @@
 </div></div>
   </text>
   <url value="https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template"/>
-  <version value="2.1.0"/>
+  <version value="2.2.0"/>
   <name value="IneraCoreTemplate"/>
   <title value="Inera FHIR Implementation Guide Template"/>
   <status value="draft"/>
-  <date value="2026-08-27T11:45:16+00:00"/>
+  <date value="2026-08-27T11:50:41+00:00"/>
   <publisher value="Inera AB"/>
   <contact>
     <name value="Inera AB"/>

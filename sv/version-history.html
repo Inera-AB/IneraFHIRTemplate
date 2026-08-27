@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Versionshistorik - Inera FHIR Implementation Guide Template v2.1.0</title>
+    <title>Versionshistorik - Inera FHIR Implementation Guide Template v2.2.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -65,7 +65,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">Inera FHIR Implementation Guide Template</span>
             <br/>
-            <span style="display:inline-block;">2.1.0 - ci-build
+            <span style="display:inline-block;">2.2.0 - ci-build
 
 
 
@@ -180,7 +180,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.1.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.2.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Versionshistorik</h2>
   
 
@@ -200,20 +200,25 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <div class="markdown-toc">
 <ul id="markdown-toc">
   <li><a href="#version-history" id="markdown-toc-version-history">Version History</a>    <ul>
-      <li><a href="#200--2026-06-25" id="markdown-toc-200--2026-06-25">[2.0.0] — 2026-06-25</a>        <ul>
+      <li><a href="#220--2026-08-27" id="markdown-toc-220--2026-08-27">[2.2.0] — 2026-08-27</a>        <ul>
           <li><a href="#features" id="markdown-toc-features">Features</a></li>
-        </ul>
-      </li>
-      <li><a href="#101--2026-06-24" id="markdown-toc-101--2026-06-24">[1.0.1] — 2026-06-24</a>        <ul>
           <li><a href="#bug-fixes" id="markdown-toc-bug-fixes">Bug Fixes</a></li>
         </ul>
       </li>
-      <li><a href="#100--2026-06-24" id="markdown-toc-100--2026-06-24">[1.0.0] — 2026-06-24</a>        <ul>
+      <li><a href="#200--2026-06-25" id="markdown-toc-200--2026-06-25">[2.0.0] — 2026-06-25</a>        <ul>
           <li><a href="#features-1" id="markdown-toc-features-1">Features</a></li>
         </ul>
       </li>
-      <li><a href="#010--2026-06-16" id="markdown-toc-010--2026-06-16">[0.1.0] — 2026-06-16</a>        <ul>
+      <li><a href="#101--2026-06-24" id="markdown-toc-101--2026-06-24">[1.0.1] — 2026-06-24</a>        <ul>
+          <li><a href="#bug-fixes-1" id="markdown-toc-bug-fixes-1">Bug Fixes</a></li>
+        </ul>
+      </li>
+      <li><a href="#100--2026-06-24" id="markdown-toc-100--2026-06-24">[1.0.0] — 2026-06-24</a>        <ul>
           <li><a href="#features-2" id="markdown-toc-features-2">Features</a></li>
+        </ul>
+      </li>
+      <li><a href="#010--2026-06-16" id="markdown-toc-010--2026-06-16">[0.1.0] — 2026-06-16</a>        <ul>
+          <li><a href="#features-3" id="markdown-toc-features-3">Features</a></li>
         </ul>
       </li>
     </ul>
@@ -228,9 +233,48 @@ Entries are generated from commit messages that follow <a href="https://www.conv
 
 <hr />
 
-<h2 id="200--2026-06-25">[2.0.0] — 2026-06-25</h2>
+<h2 id="220--2026-08-27">[2.2.0] — 2026-08-27</h2>
+
+<p>Version 2.1.0 sattes i <code class="language-plaintext highlighter-rouge">sushi-config.yaml</code> men släpptes aldrig — den fick
+ingen tagg och ingen changelog-post. Ändringarna därifrån ingår i den här
+releasen.</p>
 
 <h3 id="features">Features</h3>
+
+<ul>
+  <li>Byte till <code class="language-plaintext highlighter-rouge">fhir2.base.template</code>, HL7:s språkmedvetna bastemplate. Sidorna
+genereras under <code class="language-plaintext highlighter-rouge">output/sv/</code> med en omdirigering i roten, och template-
+texterna följer språkinställningen</li>
+  <li>Omstrukturerad meny: Hem, Inledning, Funktionellt, Implementering, Om och
+Artefakter, med nya sidor för användningsfall, roller och ansvar,
+REST-interaktioner, förväntade svar, felhantering, säkerhet och testning</li>
+  <li>Vägledande kommentarer för profilering inbäddade i exempelprofilen</li>
+  <li>QA-skriptet utbrutet till <code class="language-plaintext highlighter-rouge">.github/scripts/qa-comment.js</code> med en testsvit
+som körs vid varje push och pull request</li>
+</ul>
+
+<h3 id="bug-fixes">Bug Fixes</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">i18n-default-lang</code> ersätter det felstavade <code class="language-plaintext highlighter-rouge">i18n-default-language</code>, som
+publishern ignorerade tyst. Det var orsaken till att ett tidigare försök
+med fhir2 lade alla sidor under <code class="language-plaintext highlighter-rouge">/en</code> trots att svenska var konfigurerat</li>
+  <li>QA-kommentaren rapporterade noll fel och noll varningar för bygget som
+hade sex varningar. Siffrorna hämtas nu från publisherns egen summering i
+<code class="language-plaintext highlighter-rouge">build.log</code> och detaljerna från <code class="language-plaintext highlighter-rouge">output/qa.txt</code>; en trasig eller saknad
+källa redovisas öppet i stället för att visas som ett rent bygge</li>
+  <li><code class="language-plaintext highlighter-rouge">history.html</code> söks även i språkkatalogen, så releasesteget använder
+publisherns riktiga versionslista i stället för reservindexet</li>
+  <li>Nedladdningslänken pekar på canonical och paketet kopieras till IG-roten
+vid release</li>
+  <li>Platshållaren <code class="language-plaintext highlighter-rouge">&lt;namn&gt;</code> i <code class="language-plaintext highlighter-rouge">index.md</code> tolkades som ett HTML-element</li>
+</ul>
+
+<hr />
+
+<h2 id="200--2026-06-25">[2.0.0] — 2026-06-25</h2>
+
+<h3 id="features-1">Features</h3>
 
 <ul>
   <li>Svenska sidtexter och menyrubriker i alla mallsidor</li>
@@ -242,7 +286,7 @@ Entries are generated from commit messages that follow <a href="https://www.conv
 
 <h2 id="101--2026-06-24">[1.0.1] — 2026-06-24</h2>
 
-<h3 id="bug-fixes">Bug Fixes</h3>
+<h3 id="bug-fixes-1">Bug Fixes</h3>
 
 <ul>
   <li>Read IG metadata from build output instead of sushi-config.yaml</li>
@@ -254,7 +298,7 @@ Entries are generated from commit messages that follow <a href="https://www.conv
 
 <h2 id="100--2026-06-24">[1.0.0] — 2026-06-24</h2>
 
-<h3 id="features-1">Features</h3>
+<h3 id="features-2">Features</h3>
 
 <ul>
   <li>Multi-branch CI: <code class="language-plaintext highlighter-rouge">develop</code>, <code class="language-plaintext highlighter-rouge">feature/**</code> and <code class="language-plaintext highlighter-rouge">support/&lt;M&gt;.x</code> branches each build and deploy to their own subdirectory</li>
@@ -269,7 +313,7 @@ Entries are generated from commit messages that follow <a href="https://www.conv
 
 <h2 id="010--2026-06-16">[0.1.0] — 2026-06-16</h2>
 
-<h3 id="features-2">Features</h3>
+<h3 id="features-3">Features</h3>
 
 <ul>
   <li>Initial IG template structure with Inera branding</li>
@@ -306,9 +350,9 @@ Entries are generated from commit messages that follow <a href="https://www.conv
 
 
           IG © 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.core.template#2.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
+          Paket inera.core.template#2.2.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Genererad 
-  <span title="2026-08-27 11:45:00 +0000">
+  <span title="2026-08-27 11:50:00 +0000">
     2026-08-27
   </span>
 

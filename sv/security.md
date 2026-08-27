@@ -1,4 +1,4 @@
-# Säkerhet och behörighet - Inera FHIR Implementation Guide Template v2.1.0
+# Säkerhet och behörighet - Inera FHIR Implementation Guide Template v2.2.0
 
 ## Säkerhet och behörighet
 
