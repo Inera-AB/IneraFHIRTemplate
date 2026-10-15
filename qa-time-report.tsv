@@ -1,14 +1,14 @@
 Source File	Size	loadResources	load	generateSnapshots	load-configure	scan	loadDepInfo	loadInfo	checkR4R4B	generateNarratives	validate	loadLists	checkConformanceResources	checkConformanceResources2	checkConformanceResources3	generateLogicalMaps	validateExpressions	scanForUsageStats	checkURLsUnique	processProvenanceDetails	translate	generate1	generate2	generateLogicals	makeDependencies	generateExampleZip	generateValidationPack	scanProfilesForR5	scanExamplesForR5
-/fsh-generated/resources/ImplementationGuide-inera.core.template.json	4222	-	0	0	0	0	0	0	12	474	0	0	0	0	0	0	0	1	0	0	0	97	123	0	0	0	2	0	0
-fsh-generated/resources/Patient-IneraPatientExample.json	665	4	0	0	1	0	0	0	1	356	0	0	0	0	0	0	0	0	0	0	0	13	54	0	0	0	0	0	0
-fsh-generated/resources/StructureDefinition-IneraPatient.json	3282	6	0	80	0	0	0	0	0	1817	0	0	0	0	0	0	0	1	0	0	0	334	1727	0	0	0	17	0	1
-/input/includes/fragment-header.html	172	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
+/fsh-generated/resources/ImplementationGuide-inera.core.template.json	4222	-	0	0	0	0	0	0	12	410	0	0	0	0	0	0	0	1	0	0	0	127	79	0	0	0	2	0	0
+fsh-generated/resources/Patient-IneraPatientExample.json	665	3	0	0	1	0	0	0	0	281	0	0	0	0	0	0	0	0	0	0	0	12	20	0	0	0	0	0	0
+fsh-generated/resources/StructureDefinition-IneraPatient.json	3282	3	0	68	0	0	0	0	1	681	0	0	0	0	0	0	0	2	0	0	0	299	1442	0	0	0	13	1	1
+/input/includes/fragment-header.html	172	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 /input/includes/fragment-css.html	160	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
 /input/includes/menu.xml	1731	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 /fsh-generated/includes/fsh-link-references.md	109	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-/input/pagecontent/roles-and-responsibilities.md	1578	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-/input/pagecontent/information-basis.md	1191	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
-/input/pagecontent/version-history.md	4545	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/roles-and-responsibilities.md	1578	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
+/input/pagecontent/information-basis.md	1191	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+/input/pagecontent/version-history.md	4545	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
 /input/pagecontent/index.md	3082	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
 /input/pagecontent/error-handling.md	168	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 /input/pagecontent/testing.md	246	-	-	-	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
