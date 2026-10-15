@@ -1,24 +1,29 @@
-# Version History
-
 This page is maintained automatically by [release-please](https://github.com/googleapis/release-please).
 Entries are generated from commit messages that follow [Conventional Commits](https://www.conventionalcommits.org/).
 
 ---
 
-## [2.2.2] — 2026-10-15
+### [2.2.2] — 2026-10-15
 
-### Bug Fixes
+#### Bug Fixes
 
 - `menu.xml` innehöll samma omslutande element (`#segment-navbar`,
   `#stripe`, `container` och `nav`) som templatet redan lägger runt menyn.
   Det gav dubbla id:n på varje sida och varningen `HTML_DUPLICATE_ID` i
   QA-rapporten. Filen innehåller nu bara `<ul class="nav navbar-nav">`
+- Varje sida i `input/pagecontent/` började med en egen `# Rubrik`, men
+  templatet visar redan sidans titel som `<h2>`. IG Publisher 3.0 rapporterar
+  det som ett fel, eftersom sidans första rubrik måste vara dess högsta nivå.
+  Raden är borttagen; titeln styrs av `pages` i `sushi-config.yaml`
+- Övriga rubriker följer samma regel: versionerna i versionshistoriken är
+  `###` och avsnitten `####`, och mallrubriken i `use-cases.md` är `###`
+  i stället för `####`, så att ingen nivå hoppas över
 
 ---
 
-## [2.2.1] — 2026-08-27
+### [2.2.1] — 2026-08-27
 
-### Bug Fixes
+#### Bug Fixes
 
 - Reservindexet som byggs när IG Publisher inte genererar `history.html`
   skrevs bara till `index.html`. Publishern stämplar in en länk till
@@ -27,13 +32,13 @@ Entries are generated from commit messages that follow [Conventional Commits](ht
 
 ---
 
-## [2.2.0] — 2026-08-27
+### [2.2.0] — 2026-08-27
 
 Version 2.1.0 sattes i `sushi-config.yaml` men släpptes aldrig — den fick
 ingen tagg och ingen changelog-post. Ändringarna därifrån ingår i den här
 releasen.
 
-### Features
+#### Features
 
 - Byte till `fhir2.base.template`, HL7:s språkmedvetna bastemplate. Sidorna
   genereras under `output/sv/` med en omdirigering i roten, och template-
@@ -45,7 +50,7 @@ releasen.
 - QA-skriptet utbrutet till `.github/scripts/qa-comment.js` med en testsvit
   som körs vid varje push och pull request
 
-### Bug Fixes
+#### Bug Fixes
 
 - `i18n-default-lang` ersätter det felstavade `i18n-default-language`, som
   publishern ignorerade tyst. Det var orsaken till att ett tidigare försök
@@ -62,9 +67,9 @@ releasen.
 
 ---
 
-## [2.0.0] — 2026-06-25
+### [2.0.0] — 2026-06-25
 
-### Features
+#### Features
 
 - Svenska sidtexter och menyrubriker i alla mallsidor
 - Återgång till `fhir.base.template` (eliminerar `/en`-routing och aktiv bugg i fhir2.base.template)
@@ -72,9 +77,9 @@ releasen.
 
 ---
 
-## [1.0.1] — 2026-06-24
+### [1.0.1] — 2026-06-24
 
-### Bug Fixes
+#### Bug Fixes
 
 - Read IG metadata from build output instead of sushi-config.yaml
 - Fix `is_release` flag in fhir-portal dispatch to use tag ref check
@@ -82,9 +87,9 @@ releasen.
 
 ---
 
-## [1.0.0] — 2026-06-24
+### [1.0.0] — 2026-06-24
 
-### Features
+#### Features
 
 - Multi-branch CI: `develop`, `feature/**` and `support/<M>.x` branches each build and deploy to their own subdirectory
 - fhir-portal integration: optionally push built IG to `inera-ab/fhir-portal` and notify index rebuild via `repository_dispatch`
@@ -95,9 +100,9 @@ releasen.
 
 ---
 
-## [0.1.0] — 2026-06-16
+### [0.1.0] — 2026-06-16
 
-### Features
+#### Features
 
 - Initial IG template structure with Inera branding
 - `IneraPatient` example profile with personnummer identifier slice

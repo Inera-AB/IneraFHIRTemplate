@@ -165,6 +165,7 @@ When the IG is ready for a numbered release:
 
 **a)** Run release-please: Actions → "Release Please" → Run workflow.
 It opens a PR that bumps `version` in `sushi-config.yaml` and adds a changelog entry to `version-history.md`. Review and merge the PR.
+release-please writes the entry as `##` (version) and `###` (sections); change them to `###` and `####` before merging. The template renders the page title as `<h2>`, and IG Publisher reports a second `<h2>` on the page as an error.
 
 **b)** Merge to `main`, then tag:
 
@@ -237,7 +238,7 @@ input/
     aliases.fsh         Shared FSH aliases
     profiles/           FHIR profile definitions (.fsh)
     examples/           Example instances (.fsh)
-  pagecontent/          Narrative IG pages (.md)
+  pagecontent/          Narrative IG pages (.md); no leading "# Title", the template renders the page title
   images/               Images, CSS and diagrams
   includes/             Fragment overrides (CSS, header) and menu.xml (only the <ul>; the IG template supplies the surrounding navbar markup)
 ```
