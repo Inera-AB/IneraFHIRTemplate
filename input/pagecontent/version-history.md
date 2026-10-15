@@ -1,5 +1,3 @@
-# Version History
-
 This page is maintained automatically by [release-please](https://github.com/googleapis/release-please).
 Entries are generated from commit messages that follow [Conventional Commits](https://www.conventionalcommits.org/).
 
@@ -13,6 +11,10 @@ Entries are generated from commit messages that follow [Conventional Commits](ht
   `#stripe`, `container` och `nav`) som templatet redan lägger runt menyn.
   Det gav dubbla id:n på varje sida och varningen `HTML_DUPLICATE_ID` i
   QA-rapporten. Filen innehåller nu bara `<ul class="nav navbar-nav">`
+- Varje sida i `input/pagecontent/` började med en egen `# Rubrik`, men
+  templatet visar redan sidans titel som `<h2>`. IG Publisher 3.0 rapporterar
+  det som ett fel, eftersom sidans första rubrik måste vara dess högsta nivå.
+  Raden är borttagen; titeln styrs av `pages` i `sushi-config.yaml`
 
 ---
 

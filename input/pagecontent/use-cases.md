@@ -1,5 +1,3 @@
-# Användningsfall
-
 *Beskriv varje användningsfall som denna IG stöder. För varje användningsfall, förklara vad som utlöser det, vilka aktörer som deltar och vilket resultat det leder till.*
 
 #### [Användningsfallets namn]

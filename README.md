@@ -237,7 +237,7 @@ input/
     aliases.fsh         Shared FSH aliases
     profiles/           FHIR profile definitions (.fsh)
     examples/           Example instances (.fsh)
-  pagecontent/          Narrative IG pages (.md)
+  pagecontent/          Narrative IG pages (.md); no leading "# Title", the template renders the page title
   images/               Images, CSS and diagrams
   includes/             Fragment overrides (CSS, header) and menu.xml (only the <ul>; the IG template supplies the surrounding navbar markup)
 ```
