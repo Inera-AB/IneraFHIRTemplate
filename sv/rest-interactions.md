@@ -2,8 +2,6 @@
 
 ## REST-interaktioner och sökparametrar
 
-# REST-interaktioner och sökparametrar
-
 **Beskriv vilka REST-interaktioner (read, search, create, update, …) varje roll ska stödja, för vilka resurser/profiler. Lista de sökparametrar som stöds per resurs, inklusive eventuella kombinationer som ska stödjas.**
 
 | | | |

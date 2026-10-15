@@ -2,8 +2,6 @@
 
 ## Hem
 
-# Hem
-
 ### [Domännamn]
 
 **Ange ett namn som ringar in det avgränsade område som denna IG realiserar, t.ex. "Fasta kontakter" eller "Öppenvårdsemiss".**

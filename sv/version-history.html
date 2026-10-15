@@ -182,64 +182,44 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <p><!-- white space is critical inside of capture --></p>
 <div class="markdown-toc">
 <ul id="markdown-toc">
-  <li><a href="#version-history" id="markdown-toc-version-history">Version History</a>    <ul>
-      <li><a href="#222--2026-10-15" id="markdown-toc-222--2026-10-15">[2.2.2] — 2026-10-15</a>        <ul>
-          <li><a href="#bug-fixes" id="markdown-toc-bug-fixes">Bug Fixes</a></li>
-        </ul>
-      </li>
-      <li><a href="#221--2026-08-27" id="markdown-toc-221--2026-08-27">[2.2.1] — 2026-08-27</a>        <ul>
-          <li><a href="#bug-fixes-1" id="markdown-toc-bug-fixes-1">Bug Fixes</a></li>
-        </ul>
-      </li>
-      <li><a href="#220--2026-08-27" id="markdown-toc-220--2026-08-27">[2.2.0] — 2026-08-27</a>        <ul>
-          <li><a href="#features" id="markdown-toc-features">Features</a></li>
-          <li><a href="#bug-fixes-2" id="markdown-toc-bug-fixes-2">Bug Fixes</a></li>
-        </ul>
-      </li>
-      <li><a href="#200--2026-06-25" id="markdown-toc-200--2026-06-25">[2.0.0] — 2026-06-25</a>        <ul>
-          <li><a href="#features-1" id="markdown-toc-features-1">Features</a></li>
-        </ul>
-      </li>
-      <li><a href="#101--2026-06-24" id="markdown-toc-101--2026-06-24">[1.0.1] — 2026-06-24</a>        <ul>
-          <li><a href="#bug-fixes-3" id="markdown-toc-bug-fixes-3">Bug Fixes</a></li>
-        </ul>
-      </li>
-      <li><a href="#100--2026-06-24" id="markdown-toc-100--2026-06-24">[1.0.0] — 2026-06-24</a>        <ul>
-          <li><a href="#features-2" id="markdown-toc-features-2">Features</a></li>
-        </ul>
-      </li>
-      <li><a href="#010--2026-06-16" id="markdown-toc-010--2026-06-16">[0.1.0] — 2026-06-16</a>        <ul>
-          <li><a href="#features-3" id="markdown-toc-features-3">Features</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
+  <li><a href="#222--2026-10-15" id="markdown-toc-222--2026-10-15">[2.2.2] — 2026-10-15</a></li>
+  <li><a href="#221--2026-08-27" id="markdown-toc-221--2026-08-27">[2.2.1] — 2026-08-27</a></li>
+  <li><a href="#220--2026-08-27" id="markdown-toc-220--2026-08-27">[2.2.0] — 2026-08-27</a></li>
+  <li><a href="#200--2026-06-25" id="markdown-toc-200--2026-06-25">[2.0.0] — 2026-06-25</a></li>
+  <li><a href="#101--2026-06-24" id="markdown-toc-101--2026-06-24">[1.0.1] — 2026-06-24</a></li>
+  <li><a href="#100--2026-06-24" id="markdown-toc-100--2026-06-24">[1.0.0] — 2026-06-24</a></li>
+  <li><a href="#010--2026-06-16" id="markdown-toc-010--2026-06-16">[0.1.0] — 2026-06-16</a></li>
 </ul>
 
 </div>
-<h1 id="version-history">Version History</h1>
-
 <p>This page is maintained automatically by <a href="https://github.com/googleapis/release-please">release-please</a>.
 Entries are generated from commit messages that follow <a href="https://www.conventionalcommits.org/">Conventional Commits</a>.</p>
 
 <hr />
 
-<h2 id="222--2026-10-15">[2.2.2] — 2026-10-15</h2>
+<h3 id="222--2026-10-15">[2.2.2] — 2026-10-15</h3>
 
-<h3 id="bug-fixes">Bug Fixes</h3>
+<h4 id="bug-fixes">Bug Fixes</h4>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">menu.xml</code> innehöll samma omslutande element (<code class="language-plaintext highlighter-rouge">#segment-navbar</code>,
 <code class="language-plaintext highlighter-rouge">#stripe</code>, <code class="language-plaintext highlighter-rouge">container</code> och <code class="language-plaintext highlighter-rouge">nav</code>) som templatet redan lägger runt menyn.
 Det gav dubbla id:n på varje sida och varningen <code class="language-plaintext highlighter-rouge">HTML_DUPLICATE_ID</code> i
 QA-rapporten. Filen innehåller nu bara <code class="language-plaintext highlighter-rouge">&lt;ul class="nav navbar-nav"&gt;</code></li>
+  <li>Varje sida i <code class="language-plaintext highlighter-rouge">input/pagecontent/</code> började med en egen <code class="language-plaintext highlighter-rouge"># Rubrik</code>, men
+templatet visar redan sidans titel som <code class="language-plaintext highlighter-rouge">&lt;h2&gt;</code>. IG Publisher 3.0 rapporterar
+det som ett fel, eftersom sidans första rubrik måste vara dess högsta nivå.
+Raden är borttagen; titeln styrs av <code class="language-plaintext highlighter-rouge">pages</code> i <code class="language-plaintext highlighter-rouge">sushi-config.yaml</code></li>
+  <li>Övriga rubriker följer samma regel: versionerna i versionshistoriken är
+<code class="language-plaintext highlighter-rouge">###</code> och avsnitten <code class="language-plaintext highlighter-rouge">####</code>, och mallrubriken i <code class="language-plaintext highlighter-rouge">use-cases.md</code> är <code class="language-plaintext highlighter-rouge">###</code>
+i stället för <code class="language-plaintext highlighter-rouge">####</code>, så att ingen nivå hoppas över</li>
 </ul>
 
 <hr />
 
-<h2 id="221--2026-08-27">[2.2.1] — 2026-08-27</h2>
+<h3 id="221--2026-08-27">[2.2.1] — 2026-08-27</h3>
 
-<h3 id="bug-fixes-1">Bug Fixes</h3>
+<h4 id="bug-fixes-1">Bug Fixes</h4>
 
 <ul>
   <li>Reservindexet som byggs när IG Publisher inte genererar <code class="language-plaintext highlighter-rouge">history.html</code>
@@ -250,13 +230,13 @@ skrevs bara till <code class="language-plaintext highlighter-rouge">index.html</
 
 <hr />
 
-<h2 id="220--2026-08-27">[2.2.0] — 2026-08-27</h2>
+<h3 id="220--2026-08-27">[2.2.0] — 2026-08-27</h3>
 
 <p>Version 2.1.0 sattes i <code class="language-plaintext highlighter-rouge">sushi-config.yaml</code> men släpptes aldrig — den fick
 ingen tagg och ingen changelog-post. Ändringarna därifrån ingår i den här
 releasen.</p>
 
-<h3 id="features">Features</h3>
+<h4 id="features">Features</h4>
 
 <ul>
   <li>Byte till <code class="language-plaintext highlighter-rouge">fhir2.base.template</code>, HL7:s språkmedvetna bastemplate. Sidorna
@@ -270,7 +250,7 @@ REST-interaktioner, förväntade svar, felhantering, säkerhet och testning</li>
 som körs vid varje push och pull request</li>
 </ul>
 
-<h3 id="bug-fixes-2">Bug Fixes</h3>
+<h4 id="bug-fixes-2">Bug Fixes</h4>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">i18n-default-lang</code> ersätter det felstavade <code class="language-plaintext highlighter-rouge">i18n-default-language</code>, som
@@ -289,9 +269,9 @@ vid release</li>
 
 <hr />
 
-<h2 id="200--2026-06-25">[2.0.0] — 2026-06-25</h2>
+<h3 id="200--2026-06-25">[2.0.0] — 2026-06-25</h3>
 
-<h3 id="features-1">Features</h3>
+<h4 id="features-1">Features</h4>
 
 <ul>
   <li>Svenska sidtexter och menyrubriker i alla mallsidor</li>
@@ -301,9 +281,9 @@ vid release</li>
 
 <hr />
 
-<h2 id="101--2026-06-24">[1.0.1] — 2026-06-24</h2>
+<h3 id="101--2026-06-24">[1.0.1] — 2026-06-24</h3>
 
-<h3 id="bug-fixes-3">Bug Fixes</h3>
+<h4 id="bug-fixes-3">Bug Fixes</h4>
 
 <ul>
   <li>Read IG metadata from build output instead of sushi-config.yaml</li>
@@ -313,9 +293,9 @@ vid release</li>
 
 <hr />
 
-<h2 id="100--2026-06-24">[1.0.0] — 2026-06-24</h2>
+<h3 id="100--2026-06-24">[1.0.0] — 2026-06-24</h3>
 
-<h3 id="features-2">Features</h3>
+<h4 id="features-2">Features</h4>
 
 <ul>
   <li>Multi-branch CI: <code class="language-plaintext highlighter-rouge">develop</code>, <code class="language-plaintext highlighter-rouge">feature/**</code> and <code class="language-plaintext highlighter-rouge">support/&lt;M&gt;.x</code> branches each build and deploy to their own subdirectory</li>
@@ -328,9 +308,9 @@ vid release</li>
 
 <hr />
 
-<h2 id="010--2026-06-16">[0.1.0] — 2026-06-16</h2>
+<h3 id="010--2026-06-16">[0.1.0] — 2026-06-16</h3>
 
-<h3 id="features-3">Features</h3>
+<h4 id="features-3">Features</h4>
 
 <ul>
   <li>Initial IG template structure with Inera branding</li>
@@ -369,7 +349,7 @@ vid release</li>
           IG © 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.core.template#2.2.2 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Genererad 
-  <span title="2026-10-15 16:02:00 +0000">
+  <span title="2026-10-15 16:30:00 +0000">
     2026-10-15
   </span>
 

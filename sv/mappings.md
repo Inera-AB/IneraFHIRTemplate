@@ -2,8 +2,6 @@
 
 ## Mappning till profiler
 
-# Mappning till profiler
-
 Denna sida dokumenterar vilka delar av informationsunderlaget (se [Informationsunderlag](information-basis.md)) som denna IG realiserar, eventuella avvikelser i FHIR-realiseringen, samt hur enskilda element mappas till element i motsvarande FHIR-profiler.
 
 -------

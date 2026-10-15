@@ -2,8 +2,6 @@
 
 ## Nedladdningar
 
-# Nedladdningar
-
 Följande nedladdningar är tillgängliga för denna Implementation Guide.
 
 ### Fullständigt IG-paket

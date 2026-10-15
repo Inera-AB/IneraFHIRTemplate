@@ -2,8 +2,6 @@
 
 ## Informationsunderlag
 
-# Informationsunderlag
-
 Denna sida beskriver informationsunderlaget som denna Implementation Guide bygger på. Detaljerade begrepps- och informationsmodeller, samt fullständiga processbeskrivningar, återfinns i den informationsspecifikation som anges nedan — de upprepas inte här för att undvika dubbeldokumentation som kan glida isär över tid.
 
 **Ange vilken informationsspecifikation denna IG baseras på.**

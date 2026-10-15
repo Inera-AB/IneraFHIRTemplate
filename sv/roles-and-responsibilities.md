@@ -2,8 +2,6 @@
 
 ## Roller och ansvar
 
-# Roller och ansvar
-
 **Lista de system eller mänskliga roller som deltar i användningsfallen (se [Användningsfall](use-cases.md)). Beskriv för varje roll dess verksamhetsansvar i sammanhanget för denna IG — vem som ansvarar för vad, inte hur anropen tekniskt går till.**
 
 | | |

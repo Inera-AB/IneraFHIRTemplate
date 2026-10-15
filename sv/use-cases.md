@@ -2,11 +2,9 @@
 
 ## Användningsfall
 
-# Användningsfall
-
 **Beskriv varje användningsfall som denna IG stöder. För varje användningsfall, förklara vad som utlöser det, vilka aktörer som deltar och vilket resultat det leder till.**
 
-#### [Användningsfallets namn]
+### [Användningsfallets namn]
 
 **Beskriv användningsfallet. Exempel: "En vårdgivare behöver hämta en patients fasta kontakter för att avgöra vem som ska kontaktas vid en vårdhändelse."**
 

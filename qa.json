@@ -6,9 +6,9 @@
   "status" : "draft",
   "package-id" : "inera.core.template",
   "ig-ver" : "2.2.2",
-  "date" : "Thu, 15 Oct, 2026 16:02:36 +0000",
-  "dateISO8601" : "2026-10-15T16:02:36+00:00",
-  "errs" : 23,
+  "date" : "Thu, 15 Oct, 2026 16:30:17 +0000",
+  "dateISO8601" : "2026-10-15T16:30:17+00:00",
+  "errs" : 0,
   "warnings" : 1,
   "hints" : 5,
   "broken-links" : 3,
@@ -16,5 +16,5 @@
   "suppressed-warnings" : 3,
   "version" : "4.0.1",
   "tool" : "6.0.0-snapshot1 (3)",
-  "maxMemory" : 977031168
+  "maxMemory" : 828305424
 }
