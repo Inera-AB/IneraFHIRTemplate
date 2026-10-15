@@ -5,6 +5,17 @@ Entries are generated from commit messages that follow [Conventional Commits](ht
 
 ---
 
+## [2.2.2] — 2026-10-15
+
+### Bug Fixes
+
+- `menu.xml` innehöll samma omslutande element (`#segment-navbar`,
+  `#stripe`, `container` och `nav`) som templatet redan lägger runt menyn.
+  Det gav dubbla id:n på varje sida och varningen `HTML_DUPLICATE_ID` i
+  QA-rapporten. Filen innehåller nu bara `<ul class="nav navbar-nav">`
+
+---
+
 ## [2.2.1] — 2026-08-27
 
 ### Bug Fixes

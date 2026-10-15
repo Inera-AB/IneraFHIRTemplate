@@ -239,7 +239,7 @@ input/
     examples/           Example instances (.fsh)
   pagecontent/          Narrative IG pages (.md)
   images/               Images, CSS and diagrams
-  includes/             Fragment overrides (CSS, header) and menu.xml
+  includes/             Fragment overrides (CSS, header) and menu.xml (only the <ul>; the IG template supplies the surrounding navbar markup)
 ```
 
 ---
