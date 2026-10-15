@@ -1,6 +1,6 @@
 {
   "package": "inera.core.template",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "fhirVersion": "4.0.1",
   "jurisdiction": "SE",
   "extensions": [],

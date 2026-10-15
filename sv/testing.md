@@ -1,4 +1,4 @@
-# Testning och validering - Inera FHIR Implementation Guide Template v2.2.1
+# Testning och validering - Inera FHIR Implementation Guide Template v2.2.2
 
 ## Testning och validering
 

@@ -1,9 +1,6 @@
-# Inera Patient - Inera FHIR Implementation Guide Template v2.2.1
+# Inera Patient - Inera FHIR Implementation Guide Template v2.2.2
 
 ## Resursprofil: Inera Patient 
-
- 
-A template patient profile demonstrating Inera's FHIR profiling conventions. Authors should replace this description with the clinical purpose and scope of the profile. 
 
 **Användningar:**
 
@@ -25,20 +22,13 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 
 #### Begränsningar
 
+Denna struktur är härledd från [Patient](http://hl7.org/fhir/R4/patient.html) 
+
 #### Terminologibindningar
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Obligatorisk: 0 element(2 nästlade obligatoriska elements)
- Måste stödjas: 12 elements
-
-**Skivor**
-
-Denna struktur definierar följande [skivor](http://hl7.org/fhir/R4/profiling.html#slices):
-
-* Elementet 1 är uppdelat baserat på värdet av Patient.identifier
+Denna struktur är härledd från [Patient](http://hl7.org/fhir/R4/patient.html) 
 
  **Vy med nyckelelement** 
 
@@ -48,22 +38,15 @@ Denna struktur definierar följande [skivor](http://hl7.org/fhir/R4/profiling.ht
 
  **Differentialvy** 
 
+Denna struktur är härledd från [Patient](http://hl7.org/fhir/R4/patient.html) 
+
  **ÖgonblicksbildsvyView** 
 
 #### Terminologibindningar
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Obligatorisk: 0 element(2 nästlade obligatoriska elements)
- Måste stödjas: 12 elements
-
-**Skivor**
-
-Denna struktur definierar följande [skivor](http://hl7.org/fhir/R4/profiling.html#slices):
-
-* Elementet 1 är uppdelat baserat på värdet av Patient.identifier
+Denna struktur är härledd från [Patient](http://hl7.org/fhir/R4/patient.html) 
 
  
 
@@ -81,7 +64,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-IneraPatient.cs
   "identifier" : [{
     "value" : "IneraPatient"
   }],
-  "version" : "2.2.1",
+  "version" : "2.2.2",
   "name" : "IneraPatient",
   "title" : "Inera Patient",
   "status" : "draft",

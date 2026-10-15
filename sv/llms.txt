@@ -1,23 +1,23 @@
-# inera.core.template#2.2.1: Inera FHIR Implementation Guide Template(sv)
+# inera.core.template#2.2.2: Inera FHIR Implementation Guide Template(sv)
 
 ## Pages
 
 * [Hem](index.md)
-* [REST-interaktioner och sökparametrar](rest-interactions.md)
-* [Testning och validering](testing.md)
-* [Om](about.md)
-* [Versionshistorik](version-history.md)
-* [Roller och ansvar](roles-and-responsibilities.md)
-* [Sammanfattning av artefakter](artifacts.md)
-* [Säkerhet och behörighet](security.md)
-* [Mappning till profiler](mappings.md)
-* [Inledning](introduction.md)
-* [CapabilityStatement](capabilitystatement.md)
 * [Användningsfall](use-cases.md)
+* [Om](about.md)
+* [Testning och validering](testing.md)
+* [Felhantering](error-handling.md)
+* [Inledning](introduction.md)
+* [Mappning till profiler](mappings.md)
+* [Sammanfattning av artefakter](artifacts.md)
 * [Förväntade svar](expected-responses.md)
 * [Nedladdningar](downloads.md)
-* [Felhantering](error-handling.md)
+* [CapabilityStatement](capabilitystatement.md)
+* [Säkerhet och behörighet](security.md)
+* [Versionshistorik](version-history.md)
 * [Informationsunderlag](information-basis.md)
+* [REST-interaktioner och sökparametrar](rest-interactions.md)
+* [Roller och ansvar](roles-and-responsibilities.md)
 
 ## Resources
 

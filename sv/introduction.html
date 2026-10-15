@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Inledning - Inera FHIR Implementation Guide Template v2.2.1</title>
+    <title>Inledning - Inera FHIR Implementation Guide Template v2.2.2</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -20,9 +20,9 @@
     <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
     <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
   	<link href="assets/css/prism.css" rel="stylesheet" />
+    <link href="assets/css/liquid.css" rel="stylesheet" />
     <link href="assets/css/project.css" rel="stylesheet"/>
-  	<link href="assets/css/cqf.css" rel="stylesheet" />
-    <link href="inera.css" rel="stylesheet"/>
+  	<link href="inera.css" rel="stylesheet"/>
 <link rel="icon" type="image/png" href="inera-thumbnail.png"/>
 <link rel="shortcut icon" href="inera-thumbnail.png"/>
 
@@ -65,7 +65,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">Inera FHIR Implementation Guide Template</span>
             <br/>
-            <span style="display:inline-block;">2.2.1 - ci-build
+            <span style="display:inline-block;">2.2.2 - ci-build
 
 
 
@@ -94,57 +94,40 @@
             </button>
             <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
             <div class="nav-collapse collapse navbar-inverse-collapse">
-              <div id="segment-navbar" class="segment">
-  <div id="stripe"> </div>
-  <div class="container">
-    <nav class="navbar navbar-inverse">
-      <div class="container">
-        <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
-          <span class="icon-bar"> </span>
-          <span class="icon-bar"> </span>
-          <span class="icon-bar"> </span>
-        </button>
-        <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
-        <div class="nav-collapse collapse navbar-inverse-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="index.html">Hem</a></li>
-            <li><a href="introduction.html">Inledning</a></li>
-            <li class="dropdown">
-              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Funktionellt<b class="caret"> </b></a>
-              <ul class="dropdown-menu">
-                <li><a href="information-basis.html">Informationsunderlag</a></li>
-                <li><a href="use-cases.html">Användningsfall</a></li>
-                <li><a href="roles-and-responsibilities.html">Roller och ansvar</a></li>
-                <li><a href="mappings.html">Mappning till profiler</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementering<b class="caret"> </b></a>
-              <ul class="dropdown-menu">
-                <li><a href="rest-interactions.html">REST-interaktioner och sökparametrar</a></li>
-                <li><a href="expected-responses.html">Förväntade svar</a></li>
-                <li><a href="capabilitystatement.html">CapabilityStatement</a></li>
-                <li><a href="error-handling.html">Felhantering</a></li>
-                <li><a href="security.html">Säkerhet och behörighet</a></li>
-                <li><a href="testing.html">Testning och validering</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Om<b class="caret"> </b></a>
-              <ul class="dropdown-menu">
-                <li><a href="about.html">Styrning och förvaltning</a></li>
-                <li><a href="downloads.html">Nedladdningar</a></li>
-                <li><a href="version-history.html">Versionshistorik</a></li>
-              </ul>
-            </li>
-            <li><a href="artifacts.html">Artefakter</a></li>
-            <li><a href="https://fhir.inera.se/" target="_blank" rel="noopener">FHIR på Inera <span aria-hidden="true">&#8599;</span></a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-</div>
+              <ul class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="introduction.html">Inledning</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Funktionellt<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="information-basis.html">Informationsunderlag</a></li>
+      <li><a href="use-cases.html">Användningsfall</a></li>
+      <li><a href="roles-and-responsibilities.html">Roller och ansvar</a></li>
+      <li><a href="mappings.html">Mappning till profiler</a></li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementering<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="rest-interactions.html">REST-interaktioner och sökparametrar</a></li>
+      <li><a href="expected-responses.html">Förväntade svar</a></li>
+      <li><a href="capabilitystatement.html">CapabilityStatement</a></li>
+      <li><a href="error-handling.html">Felhantering</a></li>
+      <li><a href="security.html">Säkerhet och behörighet</a></li>
+      <li><a href="testing.html">Testning och validering</a></li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Om<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="about.html">Styrning och förvaltning</a></li>
+      <li><a href="downloads.html">Nedladdningar</a></li>
+      <li><a href="version-history.html">Versionshistorik</a></li>
+    </ul>
+  </li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+  <li><a href="https://fhir.inera.se/" target="_blank" rel="noopener">FHIR på Inera <span aria-hidden="true">&#8599;</span></a></li>
+</ul>
 
             </div>  <!-- /.nav-collapse -->
 
@@ -180,7 +163,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.2.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.2.2) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Inledning</h2>
   
 
@@ -240,10 +223,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
           IG © 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.core.template#2.2.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
+          Paket inera.core.template#2.2.2 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Genererad 
-  <span title="2026-08-27 14:44:00 +0000">
-    2026-08-27
+  <span title="2026-10-15 16:02:00 +0000">
+    2026-10-15
   </span>
 
           <br/>
