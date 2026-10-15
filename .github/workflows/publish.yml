@@ -138,6 +138,11 @@ jobs:
         env:
           VERSION: ${{ steps.meta.outputs.version }}
         run: |
+          # Start from main's list, not the tagged commit's: main may already
+          # carry this entry (re-run) or entries added after the tag.
+          git fetch --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+          git show origin/main:package-list.json > package-list.json
+
           export DATE=$(date +%Y-%m-%d)
           python3 - <<'PYEOF'
           import json, os
@@ -151,27 +156,38 @@ jobs:
           # avoids mismatch between repo name and canonical slug.
           base = pl['canonical'].rstrip('/')
 
-          pl['list'] = [e for e in pl['list'] if e.get('version') != v]
-          pl['list'].append({
-              "version": v,
-              "desc": f"Release {v} ({date})",
-              "path": f"{base}/{v}",
-              "status": "draft",
-              "sequence": "STU 1",
-              "fhirversion": ["4.0.1"],
-              "current": False
-          })
+          # Keep an existing entry so a re-run does not rewrite its date.
+          if not any(e.get('version') == v for e in pl['list']):
+              pl['list'].append({
+                  "version": v,
+                  "desc": f"Release {v} ({date})",
+                  "path": f"{base}/{v}",
+                  "status": "draft",
+                  "sequence": "STU 1",
+                  "fhirversion": ["4.0.1"],
+                  "current": False
+              })
 
           with open('package-list.json', 'w') as f:
               json.dump(pl, f, indent=2)
               f.write('\n')
           PYEOF
 
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add package-list.json
-          git commit -m "chore: add package-list entry for v${{ steps.meta.outputs.version }}"
-          git push origin HEAD:main
+          if git diff --quiet origin/main -- package-list.json; then
+            echo "package-list.json on main already lists v${VERSION}"
+            exit 0
+          fi
+
+          # Commit on top of main in a separate worktree; the tagged checkout
+          # stays as built for the deploy steps below.
+          WT="$RUNNER_TEMP/main-worktree"
+          git worktree add --detach "$WT" origin/main
+          cp package-list.json "$WT/package-list.json"
+          git -C "$WT" config user.name "github-actions[bot]"
+          git -C "$WT" config user.email "github-actions[bot]@users.noreply.github.com"
+          git -C "$WT" add package-list.json
+          git -C "$WT" commit -m "chore: add package-list entry for v${VERSION}"
+          git -C "$WT" push origin HEAD:main
 
       - name: Deploy to GitHub Pages (gh-pages branch)
         uses: peaceiris/actions-gh-pages@v4
