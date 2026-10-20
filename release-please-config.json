@@ -3,6 +3,8 @@
     ".": {
       "release-type": "simple",
       "bump-minor-pre-major": true,
+      "include-v-in-tag": false,
+      "skip-github-release": true,
       "changelog-path": "input/pagecontent/version-history.md",
       "changelog-sections": [
         {"type": "feat",     "section": "Features"},

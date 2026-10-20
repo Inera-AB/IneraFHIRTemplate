@@ -12,7 +12,7 @@ The link 'Patient-IneraPatientExample.html' for "fake generated link for Impleme
 # valid wherever the IG is served from. The publisher resolves canonical-
 # prefixed links against the local build, where the package sits at the output
 # root rather than under the canonical path, so it cannot verify this one.
-# publish.yml copies output/package.tgz to the IG root on every release.
+# A milestone release copies the published IG, package.tgz included, to the IG root.
 The link 'https://fhir.inera.se/ig/template/package.tgz' for "Paket (tgz)" cannot be resolved
 
 # Standard xhtml fragments not included — acceptable when using a custom local template
