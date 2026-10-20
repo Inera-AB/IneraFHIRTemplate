@@ -183,16 +183,18 @@ release-please writes entries as `##` (version) and `###` (sections). The first 
 
 ## CI workflows
 
+The workflows in `.github/workflows/` only set the triggers and permissions. They call the shared workflows in [Inera-AB/fhir-ig-workflows](https://github.com/Inera-AB/fhir-ig-workflows) at `@v1`, so fixes to the build and release flow reach every IG made from this template without copying files.
+
 | Workflow | Trigger | What it does |
 |----------|---------|--------------|
-| `validate.yml` | Push to non-main branches; pull requests | Runs SUSHI and the tests of the CI helper scripts |
+| `validate.yml` | Push to non-main branches; pull requests | Runs SUSHI |
 | `pr-qa.yml` | Pull request (opened, synchronised) | Full IG Publisher build (no tx server), posts QA report as PR comment |
 | `publish.yml` | Push to `main`, `develop`, `feature/**`, `support/**`; manual trigger | Branch build, deployed to `gh-pages` of this repo under the branch's directory; updates the IG catalog entry |
 | `release.yml` | Push of a release tag (`1.2.0`, `1.2.0-rc1`); manual trigger | Publishes the release with `-go-publish`: a tag to fhir.inera.se, a manual run on a branch to the test web root |
 | `cleanup.yml` | Branch deleted | Removes the branch's build directory from `gh-pages` |
 | `release-please.yml` | Manual trigger only | Opens a PR bumping `version` in `sushi-config.yaml` and adding a changelog entry to `version-history.md`. Creates no tag or GitHub release |
 
-Repository variables `IG_WEB_REPO` and `IG_TEST_WEB_REPO` override the web roots (`inera-ab/fhir-portal`, `inera-ab/fhir-portal-test`).
+Settings such as the web roots, the terminology server (an R5 IG uses `https://tx.fhir.org/r5`) and the IG Publisher version are inputs of the shared workflows, set with `with:` in the caller. See the [fhir-ig-workflows README](https://github.com/Inera-AB/fhir-ig-workflows#using-them-from-an-ig-repo).
 
 ---
 
@@ -221,7 +223,7 @@ open output/index.html
 ## Repository structure
 
 ```
-.github/workflows/
+.github/workflows/         Callers of the shared workflows in Inera-AB/fhir-ig-workflows
   validate.yml             Validate FSH on push / PR
   pr-qa.yml                IG Publisher QA on pull requests
   publish.yml              Branch builds to this repo's GitHub Pages

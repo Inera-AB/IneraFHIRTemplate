@@ -34,7 +34,7 @@ ig-formular-r5/    ← nytt repo vid R5-migrering
 
 Versionsnumreringen börjar om från 1.0.0 i det nya repot, och de två repona lever sedan oberoende av varandra.
 
-Det nya repot behöver ett eget paket-id och en egen canonical. Tredje delen av paket-id:t blir IG:ns katalog på fhir.inera.se och måste vara unik, till exempel `inera.blankett.formular-r5` → `https://fhir.inera.se/ig/formular-r5`. Workflows i mallen använder terminologiservern för R4 (`tx.fhir.org/r4`), och den behöver bytas i ett R5-repo.
+Det nya repot behöver ett eget paket-id och en egen canonical. Tredje delen av paket-id:t blir IG:ns katalog på fhir.inera.se och måste vara unik, till exempel `inera.blankett.formular-r5` → `https://fhir.inera.se/ig/formular-r5`. Workflowsen använder terminologiservern för R4 (`tx.fhir.org/r4`) som standard. Ett R5-repo sätter `tx-server: https://tx.fhir.org/r5` med `with:` i anropen i `publish.yml` och `release.yml`.
 
 ---
 
@@ -57,6 +57,8 @@ Regler:
 ---
 
 ## Vad CI gör
+
+Workflowsen i IG-repot är korta anrop till de delade workflowsen i [Inera-AB/fhir-ig-workflows](https://github.com/Inera-AB/fhir-ig-workflows). En rättning där når alla IG:er som anropar samma huvudversion (`@v1`).
 
 | Händelse | Workflow | Publiceras till |
 |---|---|---|

@@ -10,10 +10,11 @@ Mallen själv flyttades på det här sättet med version 2.3.0. Flytten övades 
 
 Ta över följande från [IneraFHIRTemplate](https://github.com/Inera-AB/IneraFHIRTemplate):
 
-- `.github/workflows/release.yml` (ny)
-- `.github/workflows/publish.yml`, som nu bara bygger brancher
-- `.github/workflows/release-please.yml` och `release-please-config.json` (taggar utan `v`, ingen GitHub-release)
-- `publication-request.json`, ifylld för IG:n med `"first": false`
+- Alla filer i `.github/workflows/`. De är korta anrop till de delade workflowsen i [Inera-AB/fhir-ig-workflows](https://github.com/Inera-AB/fhir-ig-workflows) och ersätter IG-repots egna kopior. En IG som behöver andra inställningar, till exempel terminologiservern för R5, sätter dem med `with:` i anropet.
+- `release-please-config.json` (taggar utan `v`, ingen GitHub-release).
+- `publication-request.json`, ifylld för IG:n med `"first": false`.
+
+Ta bort `.github/scripts/` om den finns. Skripten ligger nu i fhir-ig-workflows.
 
 Ta bort `package-list.json` ur IG-repot. Publishern vägrar publicera från en källmapp som har en.
 
