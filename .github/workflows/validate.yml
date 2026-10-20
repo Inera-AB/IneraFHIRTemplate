@@ -6,38 +6,9 @@ on:
       - main
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
-  sushi:
-    name: SUSHI validation
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Test CI helper scripts
-        run: node --test .github/scripts/*.test.js
-
-      - name: Install SUSHI
-        run: npm install -g fsh-sushi
-
-      - name: Restore FHIR package cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.fhir/packages
-          key: fhir-packages-${{ hashFiles('sushi-config.yaml') }}
-          restore-keys: fhir-packages-
-
-      - name: Run SUSHI
-        run: sushi .
-
-      - name: Upload SUSHI output
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: fsh-generated
-          path: fsh-generated/
-          retention-days: 7
+  validate:
+    uses: Inera-AB/fhir-ig-workflows/.github/workflows/validate.yml@v1

@@ -34,7 +34,7 @@ ig-formular-r5/    ← nytt repo vid R5-migrering
 
 Versionsnumreringen börjar om från 1.0.0 i det nya repot, och de två repona lever sedan oberoende av varandra.
 
-Det nya repot behöver ett eget paket-id och en egen canonical. Tredje delen av paket-id:t blir IG:ns katalog på fhir.inera.se och måste vara unik, till exempel `inera.blankett.formular-r5` → `https://fhir.inera.se/ig/formular-r5`. Workflows i mallen använder terminologiservern för R4 (`tx.fhir.org/r4`), och den behöver bytas i ett R5-repo.
+Det nya repot behöver ett eget paket-id och en egen canonical. Tredje delen av paket-id:t blir IG:ns katalog på fhir.inera.se och måste vara unik, till exempel `inera.blankett.formular-r5` → `https://fhir.inera.se/ig/formular-r5`. Workflowsen använder terminologiservern för R4 (`tx.fhir.org/r4`) som standard. Ett R5-repo sätter `tx-server: https://tx.fhir.org/r5` med `with:` i anropen i `publish.yml` och `release.yml`.
 
 ---
 
@@ -57,6 +57,8 @@ Regler:
 ---
 
 ## Vad CI gör
+
+Workflowsen i IG-repot är korta anrop till de delade workflowsen i [Inera-AB/fhir-ig-workflows](https://github.com/Inera-AB/fhir-ig-workflows). En rättning där når alla IG:er som anropar samma huvudversion (`@v1`).
 
 | Händelse | Workflow | Publiceras till |
 |---|---|---|
@@ -104,7 +106,7 @@ git merge develop
 
 Gör sedan, på `main` via en PR:
 
-1. Räkna upp versionen: Actions → *Release Please* → *Run workflow* öppnar en PR med ny `version` i `sushi-config.yaml`, `.release-please-manifest.json` och en post i `version-history.md`. Det går också att göra för hand.
+1. Räkna upp versionen: ny `version` i `sushi-config.yaml` och en post i `version-history.md` som beskriver ändringarna.
 2. Uppdatera `publication-request.json`: `desc` (en rad om releasen, ska skilja sig från tidigare releaser) och `"mode": "milestone"`.
 3. Merga PR:en när CI och IG Publisher QA är gröna.
 
