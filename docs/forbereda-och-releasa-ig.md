@@ -53,13 +53,12 @@ Görs en gång per IG-repo. Kolumnen *Mallen* anger vad mallen redan sköter.
 | 3 | Sätt `ig = fsh-generated/resources/ImplementationGuide-<id>.json` i `ig.ini`, med samma `id` som i `sushi-config.yaml`. | Nej. Missas lätt, och då hittar IG Publisher ingen IG |
 | 4 | Fyll i `publication-request.json` för första releasen (se nedan) med `"first": true`. | Filen finns med mallens värden |
 | 5 | Töm `input/pagecontent/version-history.md` på mallens poster. **Behåll första raden** `{::options header_offset="1" /}`. | Raden finns i mallen |
-| 6 | Sätt `.release-please-manifest.json` till startversionen. | Nej |
-| 7 | Byt länken till paketet i `input/pagecontent/downloads.md` till `https://fhir.inera.se/ig/<code>/package.tgz`, och motsvarande rad i `input/ignoreWarnings.txt`. | Nej |
-| 8 | Ge varje profil en egen version med `* ^version = "x.y.z"` om profilerna ska versionshanteras separat. | Exempelprofilen visar hur |
-| 9 | Slå på GitHub Pages för branchbyggen: Settings → Pages → *Deploy from a branch* → `gh-pages` / `(root)`. | Nej |
-| 10 | Ge Actions skrivrättighet: Settings → Actions → General → **Read and write permissions**. Kryssa i *Allow GitHub Actions to create and approve pull requests* om release-please ska användas. | Nej |
-| 11 | Lägg in hemligheten `FHIR_PORTAL_TOKEN`: Settings → Secrets and variables → Actions. En fine-grained PAT med *Contents: Read and write* på `inera-ab/fhir-portal` och `inera-ab/fhir-portal-test`. Notera tokens utgångsdatum. | Workflows använder den automatiskt |
-| 12 | Skapa branchen `develop` från `main`. | Nej |
+| 6 | Byt länken till paketet i `input/pagecontent/downloads.md` till `https://fhir.inera.se/ig/<code>/package.tgz`, och motsvarande rad i `input/ignoreWarnings.txt`. | Nej |
+| 7 | Ge varje profil en egen version med `* ^version = "x.y.z"` om profilerna ska versionshanteras separat. | Exempelprofilen visar hur |
+| 8 | Slå på GitHub Pages för branchbyggen: Settings → Pages → *Deploy from a branch* → `gh-pages` / `(root)`. | Nej |
+| 9 | Ge Actions skrivrättighet: Settings → Actions → General → **Read and write permissions**. | Nej |
+| 10 | Lägg in hemligheten `FHIR_PORTAL_TOKEN`: Settings → Secrets and variables → Actions. En fine-grained PAT med *Contents: Read and write* på `inera-ab/fhir-portal` och `inera-ab/fhir-portal-test`. Notera tokens utgångsdatum. | Workflows använder den automatiskt |
+| 11 | Skapa branchen `develop` från `main`. | Nej |
 
 Webbroten på fhir.inera.se, flödena och layoutregeln är gemensamma för alla Inera-IG:er och redan uppsatta. De beskrivs i [fhir-portals README](https://github.com/Inera-AB/fhir-portal).
 
@@ -121,9 +120,8 @@ Webbroten på fhir.inera.se, flödena och layoutregeln är gemensamma för alla 
 
 | Var | Vad | Vem |
 |---|---|---|
-| `sushi-config.yaml` | `version: X.Y.Z` | release-please eller för hand |
-| `.release-please-manifest.json` | `{ ".": "X.Y.Z" }` | release-please eller för hand |
-| `input/pagecontent/version-history.md` | Ny post `## [X.Y.Z] — ÅÅÅÅ-MM-DD` med ändringarna | release-please eller för hand |
+| `sushi-config.yaml` | `version: X.Y.Z` | För hand |
+| `input/pagecontent/version-history.md` | Ny post `## [X.Y.Z] — ÅÅÅÅ-MM-DD` med ändringarna | För hand |
 | `publication-request.json` | `desc` för den här releasen, och `mode` | För hand |
 | `sushi-config.yaml`, `dependencies` | Låsta till publicerade versioner, aldrig `current` | För hand |
 | Profiler som ändrats | `* ^version` enligt konventionen för semver | För hand |
@@ -133,7 +131,7 @@ Webbroten på fhir.inera.se, flödena och layoutregeln är gemensamma för alla 
 ### Steg för steg
 
 1. **Välj version** enligt semver-konventionen. `fix` ger patch, `feat` ger minor och en brytande ändring ger major.
-2. **Räkna upp versionen** på branchen som ska releasas (`main`, eller `support/<M>.x` för en patch), antingen via release-please (Actions → *Release Please* → *Run workflow*, granska och merga PR:en) eller för hand i en vanlig PR.
+2. **Räkna upp versionen** i en PR på branchen som ska releasas (`main`, eller `support/<M>.x` för en patch): `version` i `sushi-config.yaml` och en post i `version-history.md`.
 3. **Uppdatera `publication-request.json`** i samma PR: en ny `desc` och rätt `mode` (`milestone`, eller `working` för en release candidate eller en patch på en äldre major).
 4. **Kontrollera** att CI och IG Publisher QA är gröna på release-commiten.
 5. **Testpublicera (rekommenderas):** Actions → *Publish release* → *Run workflow* på branchen. Resultatet hamnar i [inera-ab/fhir-portal-test](https://github.com/Inera-AB/fhir-portal-test) och kan granskas på `https://inera-ab.github.io/fhir-portal-test/ig/<code>/`. Länkarna där pekar på fhir.inera.se, eftersom canonical är densamma.

@@ -1,7 +1,6 @@
 {::options header_offset="1" /}
 
-This page is maintained automatically by [release-please](https://github.com/googleapis/release-please).
-Entries are generated from commit messages that follow [Conventional Commits](https://www.conventionalcommits.org/).
+Den här sidan beskriver vad som har ändrats i varje version. Listan över alla publicerade versioner nås via länken i bannern överst på varje sida.
 
 ---
 
@@ -23,7 +22,8 @@ Entries are generated from commit messages that follow [Conventional Commits](ht
 - `package-list.json` finns inte längre i IG-repot. Den hålls av publishern
   i webbroten
 - `publish.yml` bygger bara brancher
-- release-please skapar taggar utan `v` och ingen GitHub-release
+- release-please är borttaget. Versionen räknas upp för hand i `sushi-config.yaml`, med en post här och en `desc` i `publication-request.json`
+- Workflowsen i `.github/workflows/` anropar de delade workflowsen i `Inera-AB/fhir-ig-workflows`
 
 ---
 

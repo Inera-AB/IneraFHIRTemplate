@@ -95,8 +95,6 @@ Edit these files before doing anything else. The values here drive the build out
 
 **`input/pagecontent/version-history.md`** — remove the template's entries. Keep the first line, `{::options header_offset="1" /}` (see [Version history](#version-history)).
 
-**`.release-please-manifest.json`** — set to the starting version.
-
 **`input/pagecontent/downloads.md`** — point the package link to `https://fhir.inera.se/ig/<code>/package.tgz`, and update the matching line in `input/ignoreWarnings.txt`.
 
 There is no `package-list.json` in the IG repo. The publisher keeps it in the web root and refuses to publish from a source folder that has one.
@@ -104,7 +102,7 @@ There is no `package-list.json` in the IG repo. The publisher keeps it in the we
 ### 3. Configure the repository
 
 - **GitHub Pages** (for branch builds): Settings → Pages → *Deploy from a branch* → `gh-pages` / `(root)`. The branch is created by the first push to `main`.
-- **Workflow permissions:** Settings → Actions → General → *Read and write permissions*. Tick *Allow GitHub Actions to create and approve pull requests* if you use release-please.
+- **Workflow permissions:** Settings → Actions → General → *Read and write permissions*.
 - **`FHIR_PORTAL_TOKEN`:** Settings → Secrets and variables → Actions. A fine-grained PAT with **Contents: Read and write** on `inera-ab/fhir-portal` and `inera-ab/fhir-portal-test`. Releases need it to push to the web root and to update the IG catalog. Note the token's expiry date.
 
 ### 4. Develop and validate
@@ -131,7 +129,7 @@ Replace placeholder content:
 
 On the branch that is released (`main`, or `support/<major>.x` for a patch to an older major version), via a pull request:
 
-1. **Version:** set `version` in `sushi-config.yaml` and `.release-please-manifest.json`, and add an entry to `input/pagecontent/version-history.md`. release-please can do this for you: Actions → *Release Please* → *Run workflow* opens a pull request with all three.
+1. **Version:** set `version` in `sushi-config.yaml` and add an entry to `input/pagecontent/version-history.md` describing the changes.
 2. **Publication request:** update `publication-request.json`:
    - `desc`: one line describing this release. It must differ from every earlier release.
    - `mode`: `milestone` for a release that becomes the current version at the IG root; `working` for a publication that does not replace the root, such as a release candidate or a patch to an older major version. (`technical-correction` also needs a `tech-correction.template.html` in the web root's templates, which is not set up yet.)
@@ -177,7 +175,7 @@ git push origin 1.2.0
 
 `input/pagecontent/version-history.md` is the IG's change log. The publisher's `history.html` lists the published versions; the change log describes what changed in each.
 
-release-please writes entries as `##` (version) and `###` (sections). The first line of `version-history.md`, `{::options header_offset="1" /}`, makes kramdown render them one level down (`<h3>`/`<h4>`), below the `<h2>` page title the template adds. Keep that line; without it IG Publisher reports a second `<h2>` on the page as an error.
+Write each entry as `## [X.Y.Z] — YYYY-MM-DD` with `###` sections. The first line of `version-history.md`, `{::options header_offset="1" /}`, makes kramdown render them one level down (`<h3>`/`<h4>`), below the `<h2>` page title the template adds. Keep that line; without it IG Publisher reports a second `<h2>` on the page as an error.
 
 ---
 
@@ -192,7 +190,6 @@ The workflows in `.github/workflows/` only set the triggers and permissions. The
 | `publish.yml` | Push to `main`, `develop`, `feature/**`, `support/**`; manual trigger | Branch build, deployed to `gh-pages` of this repo under the branch's directory; updates the IG catalog entry |
 | `release.yml` | Push of a release tag (`1.2.0`, `1.2.0-rc1`); manual trigger | Publishes the release with `-go-publish`: a tag to fhir.inera.se, a manual run on a branch to the test web root |
 | `cleanup.yml` | Branch deleted | Removes the branch's build directory from `gh-pages` |
-| `release-please.yml` | Manual trigger only | Opens a PR bumping `version` in `sushi-config.yaml` and adding a changelog entry to `version-history.md`. Creates no tag or GitHub release |
 
 Settings such as the web roots, the terminology server (an R5 IG uses `https://tx.fhir.org/r5`) and the IG Publisher version are inputs of the shared workflows, set with `with:` in the caller. See the [fhir-ig-workflows README](https://github.com/Inera-AB/fhir-ig-workflows#using-them-from-an-ig-repo).
 
@@ -229,7 +226,6 @@ open output/index.html
   publish.yml              Branch builds to this repo's GitHub Pages
   release.yml              Releases with -go-publish to the web root
   cleanup.yml              Remove build dir for deleted branches
-  release-please.yml       Bump version and generate changelog (manual)
 docs/                      Swedish instructions for versioning and publishing
 publication-request.json   What the next release is (desc, mode, status, sequence)
 sushi-config.yaml          IG metadata, dependencies, pages and menu

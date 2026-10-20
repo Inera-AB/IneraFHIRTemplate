@@ -106,7 +106,7 @@ git merge develop
 
 Gör sedan, på `main` via en PR:
 
-1. Räkna upp versionen: Actions → *Release Please* → *Run workflow* öppnar en PR med ny `version` i `sushi-config.yaml`, `.release-please-manifest.json` och en post i `version-history.md`. Det går också att göra för hand.
+1. Räkna upp versionen: ny `version` i `sushi-config.yaml` och en post i `version-history.md` som beskriver ändringarna.
 2. Uppdatera `publication-request.json`: `desc` (en rad om releasen, ska skilja sig från tidigare releaser) och `"mode": "milestone"`.
 3. Merga PR:en när CI och IG Publisher QA är gröna.
 
