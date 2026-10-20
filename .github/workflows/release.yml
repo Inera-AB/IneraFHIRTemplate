@@ -144,6 +144,34 @@ jobs:
           git clone --depth 1 https://github.com/FHIR/ig-registry.git ig-registry
           git clone --depth 1 https://github.com/HL7/fhir-ig-history-template.git fhir-ig-history-template
 
+      - name: Copy history page assets
+        run: |
+          # The publisher copies the history template's styles and scripts
+          # into the IG folder only on a first publication. An IG that moves
+          # over with an existing history (first: false) would otherwise get
+          # an unstyled history.html. Same rules as the publisher: manifest.ini
+          # entries marked overwrite are always copied, the rest if missing.
+          # index.html is left out: the IG root page comes from the milestone
+          # build, and the template's placeholder page is only filled in on a
+          # first publication.
+          python3 - fhir-ig-history-template "web/${WEB_DIR}/${{ steps.meta.outputs.code }}" <<'PYEOF'
+          import configparser, os, shutil, sys
+          src, dst = sys.argv[1:]
+          ini = configparser.ConfigParser()
+          ini.optionxform = str
+          ini.read(os.path.join(src, 'manifest.ini'))
+          os.makedirs(dst, exist_ok=True)
+          for name, mode in ini['files'].items():
+              if name == 'index.html':
+                  continue
+              s, d = os.path.join(src, name), os.path.join(dst, name)
+              if mode == 'overwrite' or not os.path.exists(d):
+                  if os.path.isdir(s):
+                      shutil.copytree(s, d, dirs_exist_ok=True)
+                  else:
+                      shutil.copy2(s, d)
+          PYEOF
+
       - name: Publish with IG Publisher
         run: |
           java -Xmx8g -jar source/input-cache/publisher.jar -go-publish \
