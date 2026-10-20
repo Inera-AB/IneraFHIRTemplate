@@ -1,5 +1,8 @@
 name: Build and publish IG
 
+# Branch builds to this repo's GitHub Pages. Releases are published by
+# release.yml. The workflow itself lives in Inera-AB/fhir-ig-workflows.
+
 on:
   push:
     branches:
@@ -9,126 +12,10 @@ on:
       - 'support/**'
   workflow_dispatch:
 
-concurrency:
-  group: pages-${{ github.ref }}
-  cancel-in-progress: true
-
 permissions:
   contents: write
 
 jobs:
   build:
-    name: Build IG
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Determine deploy path
-        id: meta
-        run: |
-          BRANCH="${{ github.ref_name }}"
-
-          # Releases are published by release.yml; this workflow only builds branches.
-          if [[ "$BRANCH" == "main" ]]; then
-            echo "deploy_path="            >> $GITHUB_OUTPUT
-          elif [[ "$BRANCH" == "develop" ]]; then
-            echo "deploy_path=branches/develop" >> $GITHUB_OUTPUT
-          else
-            SLUG=$(echo "$BRANCH" | sed 's|[^a-zA-Z0-9]|-|g' | sed 's|-\+|-|g' | sed 's|^-||;s|-$||')
-            echo "deploy_path=branches/${SLUG}" >> $GITHUB_OUTPUT
-          fi
-
-          # The IG's folder under ig/ is the last segment of its canonical,
-          # e.g. https://fhir.inera.se/ig/template → template
-          CANONICAL=$(grep '^canonical:' sushi-config.yaml | awk '{print $2}' | tr -d "\"'")
-          echo "ig_slug=${CANONICAL##*/}" >> $GITHUB_OUTPUT
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Set up Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '17'
-
-      - name: Set up Ruby and Jekyll
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-
-      - name: Install Jekyll
-        run: gem install jekyll
-
-      - name: Install SUSHI
-        run: npm install -g fsh-sushi
-
-      - name: Restore FHIR package cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.fhir/packages
-          key: fhir-packages-${{ hashFiles('sushi-config.yaml') }}
-          restore-keys: fhir-packages-
-
-      - name: Restore IG Publisher cache
-        uses: actions/cache@v4
-        with:
-          path: input-cache/publisher.jar
-          key: ig-publisher-${{ hashFiles('ig.ini') }}
-
-      - name: Download IG Publisher
-        run: |
-          mkdir -p input-cache
-          if [ ! -f input-cache/publisher.jar ]; then
-            curl -sL https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar \
-              -o input-cache/publisher.jar
-          fi
-
-      - name: Run SUSHI
-        run: sushi .
-
-      - name: Build IG
-        run: |
-          build() {
-            java -jar input-cache/publisher.jar -ig ig.ini "$@"
-          }
-          if build -tx https://tx.fhir.org/r4; then
-            echo "Build succeeded with terminology server."
-          else
-            echo "TX attempt 1 failed, retrying in 30s..."
-            sleep 30
-            if build -tx https://tx.fhir.org/r4; then
-              echo "Build succeeded on retry."
-            else
-              echo "TX server unavailable — building without terminology validation."
-              build -tx n/a
-            fi
-          fi
-
-      - name: Read IG metadata from build output
-        run: |
-          MANIFEST=output/package.manifest.json
-          PKG_ID=$(jq -r '.name' "$MANIFEST")
-          echo "IG_VERSION=$(jq -r '.version' "$MANIFEST")" >> $GITHUB_ENV
-          IG_FILE="output/ImplementationGuide-${PKG_ID}.json"
-          echo "IG_TITLE=$(jq -r '.title' "$IG_FILE")"       >> $GITHUB_ENV
-          echo "IG_DESCRIPTION=$(jq -r '.description' "$IG_FILE")" >> $GITHUB_ENV
-
-      - name: Deploy to GitHub Pages (gh-pages branch)
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./output
-          destination_dir: ${{ steps.meta.outputs.deploy_path }}
-          keep_files: true
-          commit_message: "deploy: ${{ github.ref_name }} → ${{ steps.meta.outputs.deploy_path }}"
-
-      - name: Update IG catalog
-        if: env.FHIR_PORTAL_TOKEN != ''
-        env:
-          FHIR_PORTAL_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
-          GH_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
-          WEB_REPO: ${{ vars.IG_WEB_REPO || 'inera-ab/fhir-portal' }}
-        run: gh api "repos/${WEB_REPO}/dispatches" --method POST -f event_type=ig-deployed -f "client_payload[ig_name]=${{ github.event.repository.name }}" -f "client_payload[ig_slug]=${{ steps.meta.outputs.ig_slug }}" -f "client_payload[ig_title]=${{ env.IG_TITLE }}" -f "client_payload[ig_description]=${{ env.IG_DESCRIPTION }}" -f "client_payload[ig_version]=${{ env.IG_VERSION }}" -f "client_payload[is_release]=false"
+    uses: Inera-AB/fhir-ig-workflows/.github/workflows/build.yml@main
+    secrets: inherit
