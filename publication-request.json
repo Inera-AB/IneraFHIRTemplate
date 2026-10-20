@@ -1,0 +1,17 @@
+{
+  "package-id" : "inera.core.template",
+  "version" : "2.3.0",
+  "path" : "https://fhir.inera.se/ig/template/2.3.0",
+  "mode" : "milestone",
+  "status" : "release",
+  "sequence" : "Releases",
+  "desc" : "Första versionen publicerad med IG Publishers officiella publiceringsläge.",
+  "first" : true,
+  "title" : "Inera FHIR Implementation Guide Template",
+  "category" : "National Base",
+  "introduction" : "Mall för Ineras FHIR Implementation Guides.",
+  "ci-build" : "https://inera-ab.github.io/IneraFHIRTemplate",
+  "registry-description" : "Mall för Ineras FHIR Implementation Guides.",
+  "registry-country" : "se",
+  "registry-authority" : "Inera"
+}

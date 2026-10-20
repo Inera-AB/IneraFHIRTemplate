@@ -1,0 +1,209 @@
+name: Publish release
+
+# Publishes a release with IG Publisher's publication mode (-go-publish) into
+# the shared web root (the gh-pages branch of the web repo, folder ig/). The
+# publisher writes the version folder, refreshes the IG root, package-list.json,
+# history.html, the package and publication feeds, package-registry.json and
+# its local copy of the FHIR IG registry (fhir-ig-list.json).
+#
+# Release tags have no "v" prefix: 2.3.0, 2.3.0-rc1.
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+      - '[0-9]+.[0-9]+.[0-9]+-*'
+    # TEMPORARY: test publications while the release flow is being developed.
+    # Remove before merging.
+    branches:
+      - claude/clever-darwin-n9oo7i
+  workflow_dispatch:
+
+# The feeds and package-registry.json are shared by every IG in the web root.
+# Releases of this IG run one at a time; pushes from other IG repos are handled
+# by rebasing before the push.
+concurrency:
+  group: publish-release
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  # Only a release tag publishes to the real web root (fhir.inera.se). Manual
+  # runs and branch runs are test publications and go to the test web root.
+  # The repository variables IG_WEB_REPO and IG_TEST_WEB_REPO override either.
+  WEB_REPO: ${{ startsWith(github.ref, 'refs/tags/') && (vars.IG_WEB_REPO || 'inera-ab/fhir-portal') || (vars.IG_TEST_WEB_REPO || 'inera-ab/fhir-portal-test') }}
+  WEB_BRANCH: gh-pages
+  WEB_DIR: ig
+
+jobs:
+  publish:
+    name: Publish IG
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: source
+
+      - name: Check version, tag and publication request
+        id: meta
+        working-directory: source
+        run: |
+          VERSION=$(grep '^version:' sushi-config.yaml | awk '{print $2}' | tr -d "\"'")
+          PACKAGE_ID=$(grep '^id:' sushi-config.yaml | awk '{print $2}' | tr -d "\"'")
+
+          if [[ "$GITHUB_REF" == refs/tags/* && "$GITHUB_REF_NAME" != "$VERSION" ]]; then
+            echo "::error::Tag ${GITHUB_REF_NAME} does not match version ${VERSION} in sushi-config.yaml."
+            exit 1
+          fi
+          if [ ! -f publication-request.json ]; then
+            echo "::error::publication-request.json is missing."
+            exit 1
+          fi
+          PR_VERSION=$(jq -r '.version' publication-request.json)
+          PR_ID=$(jq -r '."package-id"' publication-request.json)
+          if [ "$PR_VERSION" != "$VERSION" ] || [ "$PR_ID" != "$PACKAGE_ID" ]; then
+            echo "::error::publication-request.json (${PR_ID}#${PR_VERSION}) does not match sushi-config.yaml (${PACKAGE_ID}#${VERSION})."
+            exit 1
+          fi
+          if [ -f package-list.json ]; then
+            echo "::error::package-list.json must not be in the IG repo; the publisher keeps it in the web root."
+            exit 1
+          fi
+
+          # The layout rule inera.*.* publishes to ig/{3}
+          CODE=$(echo "$PACKAGE_ID" | cut -d. -f3)
+          echo "version=${VERSION}"       >> $GITHUB_OUTPUT
+          echo "package_id=${PACKAGE_ID}" >> $GITHUB_OUTPUT
+          echo "code=${CODE}"             >> $GITHUB_OUTPUT
+          echo "Publishing ${PACKAGE_ID}#${VERSION} to ${WEB_REPO} ${WEB_DIR}/${CODE}"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Ruby and Jekyll
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+
+      - name: Install Jekyll
+        run: gem install jekyll
+
+      - name: Install SUSHI
+        run: npm install -g fsh-sushi
+
+      - name: Download IG Publisher
+        working-directory: source
+        run: |
+          mkdir -p input-cache
+          curl -sL https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar \
+            -o input-cache/publisher.jar
+
+      - name: Build IG
+        id: build
+        working-directory: source
+        run: |
+          sushi .
+          # The publication run rebuilds the IG and refuses to continue if it
+          # gets more errors, warnings or hints than this build, so both have
+          # to use the same terminology server.
+          TX=https://tx.fhir.org/r4
+          if ! java -jar input-cache/publisher.jar -ig ig.ini -tx "$TX"; then
+            echo "TX attempt failed, retrying in 30s..."
+            sleep 30
+            java -jar input-cache/publisher.jar -ig ig.ini -tx "$TX"
+          fi
+          test -f output/qa.json
+          echo "tx=${TX}" >> $GITHUB_OUTPUT
+
+      - name: Check out web root
+        env:
+          FHIR_PORTAL_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
+        run: |
+          if [ -z "$FHIR_PORTAL_TOKEN" ]; then
+            echo "::error::The secret FHIR_PORTAL_TOKEN is not set."
+            exit 1
+          fi
+          # Only this IG's folder and the shared files at the web root are
+          # needed, not every version of every IG.
+          git clone --depth 1 --filter=blob:none --sparse --branch "$WEB_BRANCH" \
+            "https://x-access-token:${FHIR_PORTAL_TOKEN}@github.com/${WEB_REPO}.git" web
+          git -C web sparse-checkout set "${WEB_DIR}/templates" "${WEB_DIR}/${{ steps.meta.outputs.code }}"
+
+      - name: Check out FHIR IG registry and history template
+        run: |
+          git clone --depth 1 https://github.com/FHIR/ig-registry.git ig-registry
+          git clone --depth 1 https://github.com/HL7/fhir-ig-history-template.git fhir-ig-history-template
+
+      - name: Publish with IG Publisher
+        run: |
+          java -Xmx8g -jar source/input-cache/publisher.jar -go-publish \
+            -source "$PWD/source" \
+            -web "$PWD/web/${WEB_DIR}" \
+            -registry "$PWD/ig-registry/fhir-ig-list.json" \
+            -history "$PWD/fhir-ig-history-template" \
+            -templates "$PWD/web/${WEB_DIR}/templates" \
+            -temp "$RUNNER_TEMP/publish" \
+            -zips "$RUNNER_TEMP/publish-zips" \
+            -tx "${{ steps.build.outputs.tx }}"
+
+      - name: Push web root
+        run: |
+          cd web
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A "$WEB_DIR"
+          git commit -q -m "Publish ${{ steps.meta.outputs.package_id }}#${{ steps.meta.outputs.version }}"
+          # Another IG may have published since the checkout; rebase onto it.
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:${WEB_BRANCH}"; then
+              exit 0
+            fi
+            # Deepen enough to reach the commit this clone started from.
+            git fetch --deepen=50 origin "$WEB_BRANCH"
+            git rebase "origin/${WEB_BRANCH}"
+          done
+          echo "::error::Could not push to ${WEB_REPO} ${WEB_BRANCH}."
+          exit 1
+
+      - name: Save registry change and publication log
+        if: always()
+        run: |
+          mkdir -p "$RUNNER_TEMP/publish-zips"
+          if [ -d ig-registry ]; then
+            git -C ig-registry diff > "$RUNNER_TEMP/publish-zips/fhir-ig-list.diff" || true
+            cp ig-registry/fhir-ig-list.json "$RUNNER_TEMP/publish-zips/" || true
+          fi
+          # The zipped build folders are large and stay out of the artifact.
+          find "$RUNNER_TEMP/publish-zips" -name '*.zip' -delete || true
+
+      - name: Upload publication artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publication-${{ steps.meta.outputs.package_id }}-${{ steps.meta.outputs.version }}
+          path: ${{ runner.temp }}/publish-zips
+          if-no-files-found: ignore
+
+      - name: Update IG catalog
+        env:
+          GH_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
+        run: |
+          IG_FILE="source/output/ImplementationGuide-${{ steps.meta.outputs.package_id }}.json"
+          gh api "repos/${WEB_REPO}/dispatches" --method POST \
+            -f event_type=ig-deployed \
+            -f "client_payload[ig_name]=${{ github.event.repository.name }}" \
+            -f "client_payload[ig_slug]=${{ steps.meta.outputs.code }}" \
+            -f "client_payload[ig_title]=$(jq -r '.title' "$IG_FILE")" \
+            -f "client_payload[ig_description]=$(jq -r '.description' "$IG_FILE")" \
+            -f "client_payload[ig_version]=${{ steps.meta.outputs.version }}" \
+            -f "client_payload[is_release]=true"
