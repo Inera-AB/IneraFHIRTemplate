@@ -219,8 +219,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 </div>
 
-<p>This page is maintained automatically by <a href="https://github.com/googleapis/release-please">release-please</a>.
-Entries are generated from commit messages that follow <a href="https://www.conventionalcommits.org/">Conventional Commits</a>.</p>
+<p>Den här sidan beskriver vad som har ändrats i varje version. Listan över alla publicerade versioner nås via länken i bannern överst på varje sida.</p>
 
 <hr />
 
@@ -243,7 +242,8 @@ och sökväg fylls i från <code class="language-plaintext highlighter-rouge">su
   <li><code class="language-plaintext highlighter-rouge">package-list.json</code> finns inte längre i IG-repot. Den hålls av publishern
 i webbroten</li>
   <li><code class="language-plaintext highlighter-rouge">publish.yml</code> bygger bara brancher</li>
-  <li>release-please skapar taggar utan <code class="language-plaintext highlighter-rouge">v</code> och ingen GitHub-release</li>
+  <li>release-please är borttaget. Versionen räknas upp för hand i <code class="language-plaintext highlighter-rouge">sushi-config.yaml</code>, med en post här och en <code class="language-plaintext highlighter-rouge">desc</code> i <code class="language-plaintext highlighter-rouge">publication-request.json</code></li>
+  <li>Workflowsen i <code class="language-plaintext highlighter-rouge">.github/workflows/</code> anropar de delade workflowsen i <code class="language-plaintext highlighter-rouge">Inera-AB/fhir-ig-workflows</code></li>
 </ul>
 
 <hr />
@@ -400,7 +400,7 @@ vid release</li>
           IG © 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.core.template#2.3.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Genererad 
-  <span title="2026-10-20 14:56:00 +0000">
+  <span title="2026-10-20 21:22:00 +0000">
     2026-10-20
   </span>
 
