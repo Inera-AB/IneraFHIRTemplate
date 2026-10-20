@@ -1,4 +1,4 @@
-# Inera Patient Example - Inera FHIR Implementation Guide Template v2.2.2
+# Inera Patient Example - Inera FHIR Implementation Guide Template v2.3.0
 
 ## Exempel Patient: Inera Patient Example
 

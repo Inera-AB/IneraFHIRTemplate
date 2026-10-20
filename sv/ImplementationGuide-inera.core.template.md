@@ -10,11 +10,11 @@
   "id" : "inera.core.template",
   "language" : "sv",
   "url" : "https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template",
-  "version" : "2.2.2",
+  "version" : "2.3.0",
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-10-20T12:13:26+00:00",
+  "date" : "2026-10-20T14:56:13+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

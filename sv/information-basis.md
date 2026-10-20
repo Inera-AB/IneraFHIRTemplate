@@ -1,4 +1,4 @@
-# Informationsunderlag - Inera FHIR Implementation Guide Template v2.2.2
+# Informationsunderlag - Inera FHIR Implementation Guide Template v2.3.0
 
 ## Informationsunderlag
 

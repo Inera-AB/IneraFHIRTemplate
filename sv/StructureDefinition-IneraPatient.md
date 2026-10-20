@@ -1,4 +1,4 @@
-# Inera Patient - Inera FHIR Implementation Guide Template v2.2.2
+# Inera Patient - Inera FHIR Implementation Guide Template v2.3.0
 
 ## Resursprofil: Inera Patient 
 
@@ -64,7 +64,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-IneraPatient.cs
   "identifier" : [{
     "value" : "IneraPatient"
   }],
-  "version" : "2.2.2",
+  "version" : "2.3.0",
   "name" : "IneraPatient",
   "title" : "Inera Patient",
   "status" : "draft",

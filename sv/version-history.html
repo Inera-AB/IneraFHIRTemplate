@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Versionshistorik - Inera FHIR Implementation Guide Template v2.2.2</title>
+    <title>Versionshistorik - Inera FHIR Implementation Guide Template v2.3.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -65,7 +65,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">Inera FHIR Implementation Guide Template</span>
             <br/>
-            <span style="display:inline-block;">2.2.2 - ci-build
+            <span style="display:inline-block;">2.3.0 - ci-build
 
 
 
@@ -163,7 +163,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.2.2) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.3.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Versionshistorik</h2>
   
 
@@ -182,6 +182,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <p><!-- white space is critical inside of capture --></p>
 <div class="markdown-toc">
 <ul id="markdown-toc">
+  <li><a href="#230--2026-10-20" id="markdown-toc-230--2026-10-20">[2.3.0] — 2026-10-20</a>    <ul>
+      <li><a href="#features" id="markdown-toc-features">Features</a></li>
+    </ul>
+  </li>
   <li><a href="#222--2026-10-15" id="markdown-toc-222--2026-10-15">[2.2.2] — 2026-10-15</a>    <ul>
       <li><a href="#bug-fixes" id="markdown-toc-bug-fixes">Bug Fixes</a></li>
     </ul>
@@ -191,12 +195,12 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     </ul>
   </li>
   <li><a href="#220--2026-08-27" id="markdown-toc-220--2026-08-27">[2.2.0] — 2026-08-27</a>    <ul>
-      <li><a href="#features" id="markdown-toc-features">Features</a></li>
+      <li><a href="#features-1" id="markdown-toc-features-1">Features</a></li>
       <li><a href="#bug-fixes-2" id="markdown-toc-bug-fixes-2">Bug Fixes</a></li>
     </ul>
   </li>
   <li><a href="#200--2026-06-25" id="markdown-toc-200--2026-06-25">[2.0.0] — 2026-06-25</a>    <ul>
-      <li><a href="#features-1" id="markdown-toc-features-1">Features</a></li>
+      <li><a href="#features-2" id="markdown-toc-features-2">Features</a></li>
     </ul>
   </li>
   <li><a href="#101--2026-06-24" id="markdown-toc-101--2026-06-24">[1.0.1] — 2026-06-24</a>    <ul>
@@ -204,11 +208,11 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     </ul>
   </li>
   <li><a href="#100--2026-06-24" id="markdown-toc-100--2026-06-24">[1.0.0] — 2026-06-24</a>    <ul>
-      <li><a href="#features-2" id="markdown-toc-features-2">Features</a></li>
+      <li><a href="#features-3" id="markdown-toc-features-3">Features</a></li>
     </ul>
   </li>
   <li><a href="#010--2026-06-16" id="markdown-toc-010--2026-06-16">[0.1.0] — 2026-06-16</a>    <ul>
-      <li><a href="#features-3" id="markdown-toc-features-3">Features</a></li>
+      <li><a href="#features-4" id="markdown-toc-features-4">Features</a></li>
     </ul>
   </li>
 </ul>
@@ -217,6 +221,30 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <p>This page is maintained automatically by <a href="https://github.com/googleapis/release-please">release-please</a>.
 Entries are generated from commit messages that follow <a href="https://www.conventionalcommits.org/">Conventional Commits</a>.</p>
+
+<hr />
+
+<h3 id="230--2026-10-20">[2.3.0] — 2026-10-20</h3>
+
+<h4 id="features">Features</h4>
+
+<ul>
+  <li>Releaser publiceras med IG Publishers officiella publiceringsläge
+(<code class="language-plaintext highlighter-rouge">-go-publish</code>) till den gemensamma webbroten på fhir.inera.se.
+Publishern skriver versionshistoriken (<code class="language-plaintext highlighter-rouge">history.html</code> och
+<code class="language-plaintext highlighter-rouge">package-list.json</code>), paket- och publiceringsflödena och IG:ns post i
+FHIR:s IG-register, och sätter releasebannern på alla sidor, även i
+tidigare versioner</li>
+  <li>Ny workflow <code class="language-plaintext highlighter-rouge">release.yml</code>. Releasetaggar skrivs utan <code class="language-plaintext highlighter-rouge">v</code>, till exempel
+<code class="language-plaintext highlighter-rouge">2.3.0</code>. Manuella körningar publicerar till testwebbroten
+<code class="language-plaintext highlighter-rouge">inera-ab/fhir-portal-test</code></li>
+  <li><code class="language-plaintext highlighter-rouge">publication-request.json</code> beskriver varje release. Paket-id, version
+och sökväg fylls i från <code class="language-plaintext highlighter-rouge">sushi-config.yaml</code></li>
+  <li><code class="language-plaintext highlighter-rouge">package-list.json</code> finns inte längre i IG-repot. Den hålls av publishern
+i webbroten</li>
+  <li><code class="language-plaintext highlighter-rouge">publish.yml</code> bygger bara brancher</li>
+  <li>release-please skapar taggar utan <code class="language-plaintext highlighter-rouge">v</code> och ingen GitHub-release</li>
+</ul>
 
 <hr />
 
@@ -259,7 +287,7 @@ skrevs bara till <code class="language-plaintext highlighter-rouge">index.html</
 ingen tagg och ingen changelog-post. Ändringarna därifrån ingår i den här
 releasen.</p>
 
-<h4 id="features">Features</h4>
+<h4 id="features-1">Features</h4>
 
 <ul>
   <li>Byte till <code class="language-plaintext highlighter-rouge">fhir2.base.template</code>, HL7:s språkmedvetna bastemplate. Sidorna
@@ -294,7 +322,7 @@ vid release</li>
 
 <h3 id="200--2026-06-25">[2.0.0] — 2026-06-25</h3>
 
-<h4 id="features-1">Features</h4>
+<h4 id="features-2">Features</h4>
 
 <ul>
   <li>Svenska sidtexter och menyrubriker i alla mallsidor</li>
@@ -318,7 +346,7 @@ vid release</li>
 
 <h3 id="100--2026-06-24">[1.0.0] — 2026-06-24</h3>
 
-<h4 id="features-2">Features</h4>
+<h4 id="features-3">Features</h4>
 
 <ul>
   <li>Multi-branch CI: <code class="language-plaintext highlighter-rouge">develop</code>, <code class="language-plaintext highlighter-rouge">feature/**</code> and <code class="language-plaintext highlighter-rouge">support/&lt;M&gt;.x</code> branches each build and deploy to their own subdirectory</li>
@@ -333,7 +361,7 @@ vid release</li>
 
 <h3 id="010--2026-06-16">[0.1.0] — 2026-06-16</h3>
 
-<h4 id="features-3">Features</h4>
+<h4 id="features-4">Features</h4>
 
 <ul>
   <li>Initial IG template structure with Inera branding</li>
@@ -370,9 +398,9 @@ vid release</li>
 
 
           IG © 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.core.template#2.2.2 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
+          Paket inera.core.template#2.3.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Genererad 
-  <span title="2026-10-20 12:13:00 +0000">
+  <span title="2026-10-20 14:56:00 +0000">
     2026-10-20
   </span>
 
