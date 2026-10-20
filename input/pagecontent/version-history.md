@@ -5,6 +5,28 @@ Entries are generated from commit messages that follow [Conventional Commits](ht
 
 ---
 
+## [2.3.0] — 2026-10-20
+
+### Features
+
+- Releaser publiceras med IG Publishers officiella publiceringsläge
+  (`-go-publish`) till den gemensamma webbroten på fhir.inera.se.
+  Publishern skriver versionshistoriken (`history.html` och
+  `package-list.json`), paket- och publiceringsflödena och IG:ns post i
+  FHIR:s IG-register, och sätter releasebannern på alla sidor, även i
+  tidigare versioner
+- Ny workflow `release.yml`. Releasetaggar skrivs utan `v`, till exempel
+  `2.3.0`. Manuella körningar publicerar till testwebbroten
+  `inera-ab/fhir-portal-test`
+- `publication-request.json` beskriver varje release. Paket-id, version
+  och sökväg fylls i från `sushi-config.yaml`
+- `package-list.json` finns inte längre i IG-repot. Den hålls av publishern
+  i webbroten
+- `publish.yml` bygger bara brancher
+- release-please skapar taggar utan `v` och ingen GitHub-release
+
+---
+
 ## [2.2.2] — 2026-10-15
 
 ### Bug Fixes

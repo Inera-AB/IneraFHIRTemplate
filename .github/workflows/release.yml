@@ -7,16 +7,16 @@ name: Publish release
 # its local copy of the FHIR IG registry (fhir-ig-list.json).
 #
 # Release tags have no "v" prefix: 2.3.0, 2.3.0-rc1.
+#
+# publication-request.json holds what changes per release (desc, mode,
+# status, sequence). package-id, version and path are filled in here from
+# sushi-config.yaml so they cannot drift from the IG.
 
 on:
   push:
     tags:
       - '[0-9]+.[0-9]+.[0-9]+'
       - '[0-9]+.[0-9]+.[0-9]+-*'
-    # TEMPORARY: test publications while the release flow is being developed.
-    # Remove before merging.
-    branches:
-      - claude/clever-darwin-n9oo7i
   workflow_dispatch:
 
 # The feeds and package-registry.json are shared by every IG in the web root.
@@ -30,8 +30,9 @@ permissions:
   contents: read
 
 env:
-  # Only a release tag publishes to the real web root (fhir.inera.se). Manual
-  # runs and branch runs are test publications and go to the test web root.
+  # Only a tag publishes to the real web root (fhir.inera.se), whether pushed
+  # or run manually on the tag. A manual run on a branch is a test publication
+  # and goes to the test web root.
   # The repository variables IG_WEB_REPO and IG_TEST_WEB_REPO override either.
   WEB_REPO: ${{ startsWith(github.ref, 'refs/tags/') && (vars.IG_WEB_REPO || 'inera-ab/fhir-portal') || (vars.IG_TEST_WEB_REPO || 'inera-ab/fhir-portal-test') }}
   WEB_BRANCH: gh-pages
@@ -61,12 +62,16 @@ jobs:
             echo "::error::publication-request.json is missing."
             exit 1
           fi
-          PR_VERSION=$(jq -r '.version' publication-request.json)
-          PR_ID=$(jq -r '."package-id"' publication-request.json)
-          if [ "$PR_VERSION" != "$VERSION" ] || [ "$PR_ID" != "$PACKAGE_ID" ]; then
-            echo "::error::publication-request.json (${PR_ID}#${PR_VERSION}) does not match sushi-config.yaml (${PACKAGE_ID}#${VERSION})."
+          if [ -z "$(jq -r '.desc // empty' publication-request.json)" ]; then
+            echo "::error::publication-request.json has no desc for this release."
             exit 1
           fi
+          CANONICAL=$(grep '^canonical:' sushi-config.yaml | awk '{print $2}' | tr -d "\"'")
+          jq --arg id "$PACKAGE_ID" --arg v "$VERSION" --arg path "${CANONICAL%/}/${VERSION}" \
+            '."package-id" = $id | .version = $v | .path = $path' \
+            publication-request.json > "$RUNNER_TEMP/publication-request.json"
+          mv "$RUNNER_TEMP/publication-request.json" publication-request.json
+          cat publication-request.json
           if [ -f package-list.json ]; then
             echo "::error::package-list.json must not be in the IG repo; the publisher keeps it in the web root."
             exit 1
@@ -138,6 +143,21 @@ jobs:
           git clone --depth 1 --filter=blob:none --sparse --branch "$WEB_BRANCH" \
             "https://x-access-token:${FHIR_PORTAL_TOKEN}@github.com/${WEB_REPO}.git" web
           git -C web sparse-checkout set "${WEB_DIR}/templates" "${WEB_DIR}/${{ steps.meta.outputs.code }}"
+
+      - name: Check that this version and description are new
+        run: |
+          PL="web/${WEB_DIR}/${{ steps.meta.outputs.code }}/package-list.json"
+          [ -f "$PL" ] || exit 0
+          V="${{ steps.meta.outputs.version }}"
+          DESC=$(jq -r '.desc' source/publication-request.json)
+          if jq -e --arg v "$V" '.list[] | select(.version == $v)' "$PL" > /dev/null; then
+            echo "::error::${V} is already published. A version is never published twice; publish a new version."
+            exit 1
+          fi
+          if jq -e --arg d "$DESC" '.list[] | select(.desc == $d)' "$PL" > /dev/null; then
+            echo "::error::desc in publication-request.json is the same as for an earlier version. Describe this release."
+            exit 1
+          fi
 
       - name: Check out FHIR IG registry and history template
         run: |
@@ -227,6 +247,10 @@ jobs:
           GH_TOKEN: ${{ secrets.FHIR_PORTAL_TOKEN }}
         run: |
           IG_FILE="source/output/ImplementationGuide-${{ steps.meta.outputs.package_id }}.json"
+          # Only a milestone becomes the IG's latest version in the catalog; a
+          # release candidate or a patch to an older major version does not.
+          MODE=$(jq -r '.mode // "working"' source/publication-request.json)
+          IS_RELEASE=$([ "$MODE" = "milestone" ] && echo true || echo false)
           gh api "repos/${WEB_REPO}/dispatches" --method POST \
             -f event_type=ig-deployed \
             -f "client_payload[ig_name]=${{ github.event.repository.name }}" \
@@ -234,4 +258,4 @@ jobs:
             -f "client_payload[ig_title]=$(jq -r '.title' "$IG_FILE")" \
             -f "client_payload[ig_description]=$(jq -r '.description' "$IG_FILE")" \
             -f "client_payload[ig_version]=${{ steps.meta.outputs.version }}" \
-            -f "client_payload[is_release]=true"
+            -f "client_payload[is_release]=${IS_RELEASE}"
