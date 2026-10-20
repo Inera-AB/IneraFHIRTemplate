@@ -8,4 +8,4 @@ permissions:
 
 jobs:
   cleanup:
-    uses: Inera-AB/fhir-ig-workflows/.github/workflows/cleanup.yml@main
+    uses: Inera-AB/fhir-ig-workflows/.github/workflows/cleanup.yml@v1

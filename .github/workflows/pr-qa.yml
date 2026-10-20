@@ -10,4 +10,4 @@ permissions:
 
 jobs:
   qa:
-    uses: Inera-AB/fhir-ig-workflows/.github/workflows/pr-qa.yml@main
+    uses: Inera-AB/fhir-ig-workflows/.github/workflows/pr-qa.yml@v1

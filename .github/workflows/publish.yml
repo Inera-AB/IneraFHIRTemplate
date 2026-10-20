@@ -17,5 +17,5 @@ permissions:
 
 jobs:
   build:
-    uses: Inera-AB/fhir-ig-workflows/.github/workflows/build.yml@main
+    uses: Inera-AB/fhir-ig-workflows/.github/workflows/build.yml@v1
     secrets: inherit
