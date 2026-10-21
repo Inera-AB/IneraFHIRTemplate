@@ -139,4 +139,5 @@ Rättningen mergas inte upp till `develop` eller `main`.
 
 - **IG-katalogen på fhir.inera.se** uppdateras automatiskt vid varje release. En milestone-release blir IG:ns senaste version i katalogen, en release med `working` blir det inte. Ingen manuell registrering behövs.
 - **FHIR:s IG-register** ([FHIR/ig-registry](https://github.com/FHIR/ig-registry)): publishern lägger till IG:n, och vid senare releaser en ny utgåva, i sin kopia av `fhir-ig-list.json`. `release.yml` sparar ändringen som artefakt (`fhir-ig-list.diff`). Den skickas som PR till FHIR/ig-registry.
+- **Mallen** publiceras på fhir.inera.se som exempel men hålls utanför paketflödet (`package-feed: false` i dess `release.yml`), och därmed utanför FHIR:s register och packages.fhir.org.
 - **packages.fhir.org** hämtar paketen från Ineras paketflöde `https://fhir.inera.se/ig/package-feed.xml`. Flödet registreras en gång för hela Inera i `package-feeds.json` i FHIR/ig-registry. Ingenting behöver registreras per IG.
