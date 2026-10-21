@@ -14,7 +14,7 @@
   "name" : "IneraCoreTemplate",
   "title" : "Inera FHIR Implementation Guide Template",
   "status" : "draft",
-  "date" : "2026-10-20T21:22:20+00:00",
+  "date" : "2026-10-21T09:46:39+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
