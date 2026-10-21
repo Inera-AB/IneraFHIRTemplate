@@ -41,18 +41,18 @@ Every Inera IG has three kinds of build:
 | Build | Trigger | Published to |
 |---|---|---|
 | Branch build | Push to `main`, `develop`, `feature/**`, `support/**` (`publish.yml`) | The IG repo's own GitHub Pages: `https://inera-ab.github.io/<repo>/` (`main`), `…/branches/<branch>/` (other branches) |
-| Release | Push of a release tag such as `1.2.0` (`release.yml`) | `https://fhir.inera.se/ig/<code>/<version>/`, with the latest milestone also at `https://fhir.inera.se/ig/<code>/` |
+| Release | Push of a release tag such as `1.2.0` (`release.yml`) | `https://fhir.inera.se/ig/<name>/<version>/`, with the latest milestone also at `https://fhir.inera.se/ig/<name>/` |
 | Test publication | Manual run of `release.yml` on a branch | The test web root [inera-ab/fhir-portal-test](https://github.com/Inera-AB/fhir-portal-test), never fhir.inera.se |
 
 Releases use IG Publisher's publication mode (`-go-publish`). The publisher publishes into a web root shared by all Inera IGs, the `ig/` folder of the `gh-pages` branch of [inera-ab/fhir-portal](https://github.com/Inera-AB/fhir-portal), and takes care of:
 
 - the version folder and the copy of the latest milestone at the IG root
 - the release banner on every page, including earlier versions ("The current version which supersedes this version is …")
-- the version history: `package-list.json` and `history.html` at `https://fhir.inera.se/ig/<code>/history.html`
+- the version history: `package-list.json` and `history.html` at `https://fhir.inera.se/ig/<name>/history.html`
 - the package and publication feeds (`package-feed.xml`, `publication-feed.xml`), through which packages reach packages.fhir.org once Inera's package feed is registered in FHIR/ig-registry (not yet done; it will be when the first real IG is published)
 - the IG's entry in the FHIR IG registry (`fhir-ig-list.json`), saved as a workflow artifact for a PR to [FHIR/ig-registry](https://github.com/FHIR/ig-registry)
 
-`<code>` is the third part of the package id: `inera.core.template` publishes to `https://fhir.inera.se/ig/template`. The layout rule in the web root's `publish-setup.json` only matches package ids with exactly three parts, and `<code>` must be unique among Inera IGs.
+`<name>` is the third part of the package id: `inera.core.template` publishes to `https://fhir.inera.se/ig/template`. The layout rule in the web root's `publish-setup.json` only matches package ids with exactly three parts, and `<name>` must be unique among Inera IGs.
 
 The Swedish instructions in [`docs/`](docs/) describe the process in full:
 
@@ -64,64 +64,84 @@ The Swedish instructions in [`docs/`](docs/) describe the process in full:
 
 ## Creating a new IG from this template
 
-### 1. Create a new repository
+Done once per IG repo. The web root on fhir.inera.se and the feeds are shared by all Inera IGs and already set up. In the addresses below, `<repo>` is the repository name and `<name>` the third part of the package id, e.g. `laboratory` in `inera.lab.laboratory`.
 
-Go to this repository on GitHub and click **"Use this template"** → **"Create a new repository"**.
+### Repository and GitHub settings
 
-- Choose the `inera-ab` organisation as owner.
-- Give the repository a name that reflects your IG, e.g. `inera-laboratory`.
-- Click **"Create repository"**.
+1. **Create the repository.** On this repository click **Use this template** → **Create a new repository**. Choose `inera-ab` as owner and a name that describes the IG, e.g. `ig-laboratory`. All files, including the workflows, are copied.
+2. **Give Actions write access:** Settings → Actions → General → *Workflow permissions* → **Read and write permissions**. Branch builds need it to write to `gh-pages`.
+3. **Add the secret `FHIR_PORTAL_TOKEN`:** Settings → Secrets and variables → Actions. A fine-grained PAT with **Contents: Read and write** on `inera-ab/fhir-portal` and `inera-ab/fhir-portal-test`. Releases use it to publish to fhir.inera.se and update the IG catalog. Note the token's expiry date.
 
-All files — including GitHub Actions workflows — are copied into the new repository.
+### IG identity
 
-### 2. Configure the IG identity
+4. **Fill in `sushi-config.yaml`:**
 
-Edit these files before doing anything else. The values here drive the build output, the published URLs and the registry entries.
+   | Field | Example | Notes |
+   |-------|---------|-------|
+   | `id` | `inera.lab.laboratory` | Exactly three parts: `inera.<domain>.<name>`. `<name>` becomes the IG's folder on fhir.inera.se and must be unique |
+   | `canonical` | `https://fhir.inera.se/ig/laboratory` | `https://fhir.inera.se/ig/<name>`. Never change it after the first release |
+   | `name` | `IneraLaboratory` | PascalCase, no spaces |
+   | `title` | `"Inera Laboratory IG"` | Shown in the IG header and in the IG catalog |
+   | `description` | `"FHIR-profiler för laboratoriesvar."` | Shown in the IG catalog |
+   | `version` | `0.1.0` | The version the next release will get |
+   | `status` | `draft` | Changed as the IG matures |
+   | `fhirVersion` | `4.0.1` | One repository per FHIR base version |
 
-**`sushi-config.yaml`**
+5. **Set `ig = fsh-generated/resources/ImplementationGuide-<id>.json` in `ig.ini`**, with the same `id`. Easy to miss, and then IG Publisher finds no IG.
+6. **Fill in `publication-request.json`** for the first release: `"mode": "milestone"`, `"first": true`, a `desc`, `title`, `introduction`, `ci-build` (`https://inera-ab.github.io/<repo>`) and the FHIR IG registry fields. The workflow fills in `package-id`, `version` and `path`.
+7. **Remove the lines `with:` and `package-feed: false`** in `.github/workflows/release.yml`. They keep the template out of packages.fhir.org; your IG's packages should go there.
+8. **Empty `input/pagecontent/version-history.md`** of the template's entries. Keep the first line, `{::options header_offset="1" /}` (see [Version history](#version-history)).
+9. **Point the package link** in `input/pagecontent/downloads.md` to `https://fhir.inera.se/ig/<name>/package.tgz`, and update the matching line in `input/ignoreWarnings.txt`.
+10. **Give each profile its own `* ^version`** if profiles are versioned separately. Otherwise they get the IG version.
 
-| Field | Example | Notes |
-|-------|---------|-------|
-| `id` | `inera.lab.laboratory` | npm package id, exactly three parts: `inera.<domain>.<code>`. `<code>` becomes the folder on fhir.inera.se and must be unique |
-| `canonical` | `https://fhir.inera.se/ig/laboratory` | Must be `https://fhir.inera.se/ig/<code>`. Never change it after the first release |
-| `name` | `IneraLaboratory` | PascalCase, no spaces |
-| `title` | `"Inera Laboratory IG"` | Shown in the IG header and in the IG catalog |
-| `description` | `"FHIR-profiler för laboratoriesvar."` | Shown in the IG catalog |
-| `version` | `0.1.0` | The version the next release will get |
+### After the first push to `main`
 
-**`ig.ini`** — set `ig = fsh-generated/resources/ImplementationGuide-<id>.json` with the same `id`.
+11. **Turn on GitHub Pages:** Settings → Pages → *Deploy from a branch* → `gh-pages` / `(root)`. The `gh-pages` branch is created by the first build on `main`. Without this step no branch builds are visible.
+12. **Create the `develop` branch** from `main`.
 
-**`publication-request.json`** — fill in for the first release (see [Publish a release](#publish-a-release)). Set `"first": true` and replace the template's values for `title`, `introduction`, `ci-build` (`https://inera-ab.github.io/<repo>`), `registry-description` and `desc`.
+The template no longer needs *Allow GitHub Actions to create and approve pull requests*. That setting was for release-please, which has been removed.
 
-**`input/pagecontent/version-history.md`** — remove the template's entries. Keep the first line, `{::options header_offset="1" /}` (see [Version history](#version-history)).
+### Check before the first release
 
-**`input/pagecontent/downloads.md`** — point the package link to `https://fhir.inera.se/ig/<code>/package.tgz`, and update the matching line in `input/ignoreWarnings.txt`.
+- [ ] `id` is the same in `sushi-config.yaml` and `ig.ini`, and has three parts
+- [ ] `<name>` is not already used on `https://fhir.inera.se/ig/`
+- [ ] The repository has no `package-list.json` (the publisher keeps it in the web root and refuses to publish from a source folder that has one)
+- [ ] The build on `main` is green and visible at `https://inera-ab.github.io/<repo>/`
+- [ ] `FHIR_PORTAL_TOKEN` exists and has not expired
+- [ ] A test publication has succeeded
 
-**`.github/workflows/release.yml`** — remove `with: package-feed: false`. The template keeps itself out of the FHIR package registry with it; your IG's packages should reach packages.fhir.org.
+---
 
-There is no `package-list.json` in the IG repo. The publisher keeps it in the web root and refuses to publish from a source folder that has one.
+## Daily workflow
 
-### 3. Configure the repository
+1. Create a feature branch from `develop`, e.g. `feature/lab-observation`.
+2. Push. `validate.yml` runs SUSHI and `publish.yml` builds the branch to `https://inera-ab.github.io/<repo>/branches/feature-lab-observation/`.
+3. Open a pull request against `develop`. `pr-qa.yml` posts a QA report as a comment with the number of errors, warnings, hints and broken links, so there is no need to open the logs.
+4. Merge when QA is green. `develop` is built to `https://inera-ab.github.io/<repo>/branches/develop/`, and the feature branch's build is removed when the branch is deleted.
 
-- **GitHub Pages** (for branch builds): Settings → Pages → *Deploy from a branch* → `gh-pages` / `(root)`. The branch is created by the first push to `main`.
-- **Workflow permissions:** Settings → Actions → General → *Read and write permissions*.
-- **`FHIR_PORTAL_TOKEN`:** Settings → Secrets and variables → Actions. A fine-grained PAT with **Contents: Read and write** on `inera-ab/fhir-portal` and `inera-ab/fhir-portal-test`. Releases need it to push to the web root and to update the IG catalog. Note the token's expiry date.
+Nothing is published to fhir.inera.se on ordinary merges. `develop` is merged to `main` before a release (see [Publish a release](#publish-a-release)).
 
-### 4. Develop and validate
+Replace the template's placeholder content: profiles in `input/fsh/profiles/`, examples in `input/fsh/examples/` and narrative pages in `input/pagecontent/`.
 
-Create a feature branch for your work:
+### Editing in the browser
 
-```bash
-git checkout -b feature/my-first-profile
-```
+Any file can be edited on GitHub without cloning: open the file, click the pencil (*Edit this file*), make the change and choose *Create a new branch and start a pull request*, with `develop` as the target. `pr-qa.yml` runs automatically. Pressing `.` in a repository opens it in the web-based VS Code.
 
-Every push to a non-main branch, and every pull request, triggers the **SUSHI validation** workflow. Full IG Publisher QA runs on pull requests and posts results as a PR comment. Fix all errors before merging.
+### Commit messages and choosing a version
 
-Replace placeholder content:
+The version is bumped by hand before a release, and the version history entry is written by hand. Nothing creates versions or tags automatically. Commit messages following [Conventional Commits](https://www.conventionalcommits.org/) make it easy to see what changed since the last release and which version the next one should get:
 
-- Profiles in `input/fsh/profiles/`. Give each profile its own `* ^version` if profiles are versioned separately; otherwise they get the IG version.
-- Examples in `input/fsh/examples/`
-- Narrative pages in `input/pagecontent/`
+| Prefix | Meaning | Usually gives |
+|---|---|---|
+| `feat: ...` | New profile, element or page | Minor (0.1.0 → 0.2.0) |
+| `fix: ...` | Bug fix in a profile or text | Patch (0.1.0 → 0.1.1) |
+| `profile: ...` | Profile change | Patch |
+| `valueset: ...` | Terminology change | Patch |
+| `docs: ...` | Documentation only | Patch |
+| `chore: ...` | Maintenance, CI | No new version |
+| `feat!: ...` or `BREAKING CHANGE:` in the message | Backwards-incompatible change | Major (0.1.0 → 1.0.0) |
+
+`git log --oneline <previous version>..HEAD` lists the changes since the last release, which are the basis for the entry in `input/pagecontent/version-history.md`.
 
 ---
 
@@ -163,7 +183,7 @@ git push origin 1.2.0
 
 ### After the release
 
-- Check `https://fhir.inera.se/ig/<code>/<version>/`, `https://fhir.inera.se/ig/<code>/history.html` and the IG catalog at `https://fhir.inera.se/ig/`.
+- Check `https://fhir.inera.se/ig/<name>/<version>/`, `https://fhir.inera.se/ig/<name>/history.html` and the IG catalog at `https://fhir.inera.se/ig/`.
 - Open a pull request to [FHIR/ig-registry](https://github.com/FHIR/ig-registry) with the change in `fhir-ig-list.diff`.
 
 ### Rules
@@ -199,23 +219,94 @@ Settings such as the web roots, the terminology server (an R5 IG uses `https://t
 
 ## Local development
 
-Install [SUSHI](https://fshschool.org/docs/sushi/installation/) and Java 17+, then:
+Prerequisites:
+
+- Git
+- VS Code
+- Node.js 20 or later, for SUSHI
+- Java 17 or later, for IG Publisher
+- Ruby and Jekyll, which IG Publisher uses to render the pages
+
+The commands below are for Git Bash (included in Git for Windows) or a terminal on macOS and Linux.
+
+Once:
 
 ```bash
-# Compile FSH
+git clone https://github.com/inera-ab/<repo>.git
+cd <repo>
+
+# SUSHI and Jekyll
+npm install -g fsh-sushi
+gem install jekyll
+
+# IG Publisher
+mkdir -p input-cache
+curl -sL https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o input-cache/publisher.jar
+```
+
+Day to day:
+
+```bash
+# New feature branch from develop
+git checkout develop
+git pull
+git checkout -b feature/lab-observation
+
+# Check the FSH
 sushi .
 
-# Download the IG Publisher (first time)
-mkdir -p input-cache
-curl -sL https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar \
-  -o input-cache/publisher.jar
-
-# Build the IG
+# Build the whole IG (a few minutes)
 java -jar input-cache/publisher.jar -ig ig.ini
 
 # Open the result
-open output/index.html
+start output/index.html       # Windows
+open output/index.html        # macOS
+xdg-open output/index.html    # Linux
+
+# Commit and push
+git add .
+git commit -m "feat: add LaboratoryObservation profile"
+git push -u origin feature/lab-observation
 ```
+
+Then open a pull request against `develop` on GitHub.
+
+Recommended VS Code extensions:
+
+| Extension | Description |
+|---|---|
+| FHIR Shorthand (vscode-fsh) | Syntax highlighting and snippets for FSH |
+| YAML | Validation of `sushi-config.yaml` |
+| GitHub Pull Requests | Handle pull requests in VS Code |
+| GitLens | Better git history and blame |
+
+---
+
+## Tips and common pitfalls
+
+**FSH and SUSHI**
+
+- Run `sushi .` locally before pushing. It is faster than waiting for CI.
+- Aliases in `input/fsh/aliases.fsh` save repeating long URLs in every profile.
+- Do not add `hl7.fhir.r4.core` as a dependency in `sushi-config.yaml`. SUSHI adds the core package itself.
+- Pin other dependencies to published versions before a release, never `current`.
+
+**IG Publisher and cache**
+
+- The first build downloads several hundred MB of FHIR packages. Later builds are faster thanks to the cache in `~/.fhir/packages/`.
+- `output/`, `temp/`, `template/`, `input-cache/` and `fsh-generated/` are git-ignored and must never be committed.
+- The repository must never have a `package-list.json`. The version history lives on fhir.inera.se, and the publisher refuses to publish from a repository that has the file.
+
+**GitHub Pages**
+
+- Every push to a branch rebuilds the branch's page. The build takes a few minutes.
+- If the page does not update: go to Actions, open the latest run of *Build and publish IG* and read the log.
+
+**QA report on pull requests**
+
+- `pr-qa.yml` posts a comment with the number of errors, warnings, hints and broken links, and the first issues in a table.
+- The comment is updated on every push to the PR branch instead of a new one being added.
+- Warnings listed in `input/ignoreWarnings.txt` are not counted in the report.
 
 ---
 
