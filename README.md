@@ -49,7 +49,7 @@ Releases use IG Publisher's publication mode (`-go-publish`). The publisher publ
 - the version folder and the copy of the latest milestone at the IG root
 - the release banner on every page, including earlier versions ("The current version which supersedes this version is …")
 - the version history: `package-list.json` and `history.html` at `https://fhir.inera.se/ig/<code>/history.html`
-- the package and publication feeds (`package-feed.xml`, `publication-feed.xml`), through which packages reach packages.fhir.org
+- the package and publication feeds (`package-feed.xml`, `publication-feed.xml`), through which packages reach packages.fhir.org once Inera's package feed is registered in FHIR/ig-registry (not yet done; it will be when the first real IG is published)
 - the IG's entry in the FHIR IG registry (`fhir-ig-list.json`), saved as a workflow artifact for a PR to [FHIR/ig-registry](https://github.com/FHIR/ig-registry)
 
 `<code>` is the third part of the package id: `inera.core.template` publishes to `https://fhir.inera.se/ig/template`. The layout rule in the web root's `publish-setup.json` only matches package ids with exactly three parts, and `<code>` must be unique among Inera IGs.

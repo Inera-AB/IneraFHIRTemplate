@@ -101,7 +101,7 @@ Webbroten på fhir.inera.se, flödena och layoutregeln är gemensamma för alla 
 
 - **IG-katalogen på fhir.inera.se** fylls i automatiskt vid första releasen.
 - **FHIR:s IG-register:** skicka en PR till [FHIR/ig-registry](https://github.com/FHIR/ig-registry) med ändringen från artefakten `fhir-ig-list.diff`.
-- **packages.fhir.org** hämtar paketet från Ineras paketflöde. Ingenting behöver registreras per IG.
+- **packages.fhir.org** hämtar paketet från Ineras paketflöde. Ingenting behöver registreras per IG. Flödet är inte registrerat än, utan registreras en gång för hela Inera när den första riktiga IG:n publiceras.
 
 ### Kontroll innan första releasen
 
