@@ -17,7 +17,7 @@ Ta bort `.github/scripts/` om den finns, eftersom skripten nu ligger i fhir-ig-w
 
 Ta bort `package-list.json` ur IG-repot. Publishern vägrar publicera från en källmapp som har en.
 
-Kontrollera att paket-id:t har exakt tre delar och att `canonical` är `https://fhir.inera.se/ig/<code>`, där `<code>` är tredje delen av paket-id:t och samma som IG:ns befintliga katalog på fhir.inera.se. Om de inte stämmer kan IG:n inte flyttas på det här sättet. Det kräver då `movedFrom` i `publication-request.json`, som inte beskrivs här.
+Kontrollera att paket-id:t har exakt tre delar och att `canonical` är `https://fhir.inera.se/ig/<namn>`, där `<namn>` är tredje delen av paket-id:t och samma som IG:ns befintliga katalog på fhir.inera.se. Om de inte stämmer kan IG:n inte flyttas på det här sättet. Det kräver då `movedFrom` i `publication-request.json`, som inte beskrivs här.
 
 Releasetaggar skrivs utan `v` från och med flytten. De gamla taggarna (`v1.0.0` …) ligger kvar.
 
@@ -25,7 +25,7 @@ Releasetaggar skrivs utan `v` från och med flytten. De gamla taggarna (`v1.0.0`
 
 ## 2. Förbereda IG:ns katalog i webbroten
 
-Ändringarna görs i `ig/<code>/` på `gh-pages` i [inera-ab/fhir-portal](https://github.com/Inera-AB/fhir-portal), via en PR.
+Ändringarna görs i `ig/<namn>/` på `gh-pages` i [inera-ab/fhir-portal](https://github.com/Inera-AB/fhir-portal), via en PR.
 
 ### `package-list.json` i publisherns format
 
@@ -81,7 +81,7 @@ Exempel för mallen:
 
 ### Saknade versionsmappar
 
-Varje version i `package-list.json` måste ha sin mapp i `ig/<code>/`. Publishern läser alla versionsmappar för att skriva om bannern och stoppar om en saknas. Kopiera en saknad version från IG-repots egna GitHub Pages (`gh-pages`, mappen `<version>/`), eller ta bort versionen ur listan om den aldrig ska finnas.
+Varje version i `package-list.json` måste ha sin mapp i `ig/<namn>/`. Publishern läser alla versionsmappar för att skriva om bannern och stoppar om en saknas. Kopiera en saknad version från IG-repots egna GitHub Pages (`gh-pages`, mappen `<version>/`), eller ta bort versionen ur listan om den aldrig ska finnas.
 
 För mallen saknades 1.0.1, som fanns i listan men aldrig hade kopierats till fhir-portal.
 
@@ -93,9 +93,9 @@ Publishern kopierar historikmallens stilar och skript bara vid en första public
 
 ## 3. Öva i testwebbroten
 
-1. Kopiera `ig/<code>/` från `gh-pages` i fhir-portal till `gh-pages` i fhir-portal-test, med samma normalisering som ovan.
+1. Kopiera `ig/<namn>/` från `gh-pages` i fhir-portal till `gh-pages` i fhir-portal-test, med samma normalisering som ovan.
 2. Kör *Publish release* manuellt på branchen med flytten. En manuell körning på en branch publicerar alltid till testwebbroten.
-3. Kontrollera på `https://inera-ab.github.io/fhir-portal-test/ig/<code>/`:
+3. Kontrollera på `https://inera-ab.github.io/fhir-portal-test/ig/<namn>/`:
    - [ ] `package-list.json` har den nya versionen först, som `current`
    - [ ] Bannern i varje gammal version säger *"The current version which supersedes this version is X.Y.Z"*
    - [ ] `history.html` visar alla versioner, med stil

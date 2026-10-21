@@ -66,17 +66,17 @@ Branchbyggen hamnar bara på IG-repots egna GitHub Pages. Bara en releasetagg pu
 |---|---|---|
 | Push till `main` | `publish.yml` | `https://inera-ab.github.io/<repo>/` |
 | Push till `develop` | `publish.yml` | `https://inera-ab.github.io/<repo>/branches/develop/` |
-| Push till `feature/<namn>` | `publish.yml` | `https://inera-ab.github.io/<repo>/branches/feature-<namn>/` |
+| Push till `feature/abc` | `publish.yml` | `https://inera-ab.github.io/<repo>/branches/feature-abc/` |
 | Push till `support/<M>.x` | `publish.yml` | `https://inera-ab.github.io/<repo>/branches/support-<M>-x/` |
 | Pull request | `pr-qa.yml` | Ingenting. QA-sammanfattningen postas som kommentar på PR:en |
-| Releasetagg, t.ex. `1.2.0` | `release.yml` | `https://fhir.inera.se/ig/<code>/1.2.0/` |
-| Manuell körning av *Publish release* på en branch | `release.yml` | Testwebbroten `https://inera-ab.github.io/fhir-portal-test/ig/<code>/` ([inera-ab/fhir-portal-test](https://github.com/Inera-AB/fhir-portal-test)) |
+| Releasetagg, t.ex. `1.2.0` | `release.yml` | `https://fhir.inera.se/ig/<namn>/1.2.0/` |
+| Manuell körning av *Publish release* på en branch | `release.yml` | Testwebbroten `https://inera-ab.github.io/fhir-portal-test/ig/<namn>/` ([inera-ab/fhir-portal-test](https://github.com/Inera-AB/fhir-portal-test)) |
 
 I branchnamnet byts tecken som inte är bokstäver eller siffror, till exempel `/` och `.`, mot `-`. När en branch tas bort rensas dess katalog automatiskt (`cleanup.yml`).
 
-En release publiceras med IG Publishers officiella publiceringsläge till den gemensamma webbroten på fhir.inera.se. `<code>` är tredje delen av paket-id:t: `inera.core.template` publiceras till `https://fhir.inera.se/ig/template/`.
+En release publiceras med IG Publishers officiella publiceringsläge till den gemensamma webbroten på fhir.inera.se. `<namn>` är tredje delen av paket-id:t: `inera.core.template` publiceras till `https://fhir.inera.se/ig/template/`.
 
-En milestone-release kopieras dessutom till IG:ns rot, `https://fhir.inera.se/ig/<code>/`, som alltid visar den senaste milestone-releasen. Versionshistoriken finns på `https://fhir.inera.se/ig/<code>/history.html`.
+En milestone-release kopieras dessutom till IG:ns rot, `https://fhir.inera.se/ig/<namn>/`, som alltid visar den senaste milestone-releasen. Versionshistoriken finns på `https://fhir.inera.se/ig/<namn>/history.html`.
 
 En publicerad version ändras aldrig och publiceras aldrig om. Publishern uppdaterar bara bannern i tidigare versioner, så att de hänvisar till den nya versionen.
 
@@ -93,7 +93,7 @@ En publicerad version ändras aldrig och publiceras aldrig om. Publishern uppdat
 
 Taggar skrivs **utan `v`**. Taggen måste vara identisk med `version` i `sushi-config.yaml`, annars avbryter CI.
 
-`working` publicerar versionen utan att ersätta IG:ns rot. Det används för en release candidate och för en patch på en äldre major. Annars skulle `https://fhir.inera.se/ig/<code>/` visa den äldre versionen.
+`working` publicerar versionen utan att ersätta IG:ns rot. Det används för en release candidate och för en patch på en äldre major. Annars skulle `https://fhir.inera.se/ig/<namn>/` visa den äldre versionen.
 
 ---
 
@@ -111,7 +111,7 @@ Checklista, testpublicering och felsökning finns i [Förbereda en IG för publi
     - beroenden i `sushi-config.yaml` låsta till publicerade versioner, aldrig `current`
 3. **Uppdatera `publication-request.json`** i samma PR: en ny `desc` som skiljer sig från tidigare releaser och `"mode": "milestone"`. Efter första releasen ska `"first"` vara `false`.
 4. **Merga** när CI och IG Publisher QA är gröna.
-5. **Testpublicera** (rekommenderas): Actions → *Publish release* → *Run workflow* på `main`. Granska resultatet på `https://inera-ab.github.io/fhir-portal-test/ig/<code>/`.
+5. **Testpublicera** (rekommenderas): Actions → *Publish release* → *Run workflow* på `main`. Granska resultatet på `https://inera-ab.github.io/fhir-portal-test/ig/<namn>/`.
 6. **Tagga och pusha.** Taggen ska vara exakt versionen, utan `v`:
 
    ```bash
@@ -124,7 +124,7 @@ Checklista, testpublicering och felsökning finns i [Förbereda en IG för publi
 
 ### Release candidate
 
-Som ovan, men med taggen `X.Y.Z-rcN` och `"mode": "working"`. Versionen publiceras under `https://fhir.inera.se/ig/<code>/X.Y.Z-rcN/` utan att ersätta IG:ns rot.
+Som ovan, men med taggen `X.Y.Z-rcN` och `"mode": "working"`. Versionen publiceras under `https://fhir.inera.se/ig/<namn>/X.Y.Z-rcN/` utan att ersätta IG:ns rot.
 
 ### Patch på äldre version (support-branch)
 
@@ -141,8 +141,8 @@ Rättningen mergas inte upp till `develop` eller `main`.
 
 ### Kontrollera efter publiceringen
 
-- [ ] `https://fhir.inera.se/ig/<code>/X.Y.Z/` visar IG:n med bannern *"(vX.Y.Z: Release) … current published version"*
-- [ ] `https://fhir.inera.se/ig/<code>/history.html` listar versionen
+- [ ] `https://fhir.inera.se/ig/<namn>/X.Y.Z/` visar IG:n med bannern *"(vX.Y.Z: Release) … current published version"*
+- [ ] `https://fhir.inera.se/ig/<namn>/history.html` listar versionen
 - [ ] En tidigare version har bannern *"The current version which supersedes this version is X.Y.Z"*
 - [ ] Katalogen på `https://fhir.inera.se/ig/` visar den nya versionen
 
