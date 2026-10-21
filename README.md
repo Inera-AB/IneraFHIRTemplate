@@ -97,6 +97,8 @@ Edit these files before doing anything else. The values here drive the build out
 
 **`input/pagecontent/downloads.md`** — point the package link to `https://fhir.inera.se/ig/<code>/package.tgz`, and update the matching line in `input/ignoreWarnings.txt`.
 
+**`.github/workflows/release.yml`** — remove `with: package-feed: false`. The template keeps itself out of the FHIR package registry with it; your IG's packages should reach packages.fhir.org.
+
 There is no `package-list.json` in the IG repo. The publisher keeps it in the web root and refuses to publish from a source folder that has one.
 
 ### 3. Configure the repository

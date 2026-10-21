@@ -52,13 +52,14 @@ Görs en gång per IG-repo. Kolumnen *Mallen* anger vad mallen redan sköter.
 | 2 | Fyll i `sushi-config.yaml` (se nedan). | Nej |
 | 3 | Sätt `ig = fsh-generated/resources/ImplementationGuide-<id>.json` i `ig.ini`, med samma `id` som i `sushi-config.yaml`. | Nej. Missas lätt, och då hittar IG Publisher ingen IG |
 | 4 | Fyll i `publication-request.json` för första releasen (se nedan) med `"first": true`. | Filen finns med mallens värden |
-| 5 | Töm `input/pagecontent/version-history.md` på mallens poster. **Behåll första raden** `{::options header_offset="1" /}`. | Raden finns i mallen |
-| 6 | Byt länken till paketet i `input/pagecontent/downloads.md` till `https://fhir.inera.se/ig/<code>/package.tgz`, och motsvarande rad i `input/ignoreWarnings.txt`. | Nej |
-| 7 | Ge varje profil en egen version med `* ^version = "x.y.z"` om profilerna ska versionshanteras separat. | Exempelprofilen visar hur |
-| 8 | Slå på GitHub Pages för branchbyggen: Settings → Pages → *Deploy from a branch* → `gh-pages` / `(root)`. | Nej |
-| 9 | Ge Actions skrivrättighet: Settings → Actions → General → **Read and write permissions**. | Nej |
-| 10 | Lägg in hemligheten `FHIR_PORTAL_TOKEN`: Settings → Secrets and variables → Actions. En fine-grained PAT med *Contents: Read and write* på `inera-ab/fhir-portal` och `inera-ab/fhir-portal-test`. Notera tokens utgångsdatum. | Workflows använder den automatiskt |
-| 11 | Skapa branchen `develop` från `main`. | Nej |
+| 5 | Ta bort raderna `with:` och `package-feed: false` i `.github/workflows/release.yml`. Mallen håller sig själv utanför FHIR:s paketregister med dem, men IG:ns paket ska nå packages.fhir.org. | Kommentar i filen |
+| 6 | Töm `input/pagecontent/version-history.md` på mallens poster. **Behåll första raden** `{::options header_offset="1" /}`. | Raden finns i mallen |
+| 7 | Byt länken till paketet i `input/pagecontent/downloads.md` till `https://fhir.inera.se/ig/<code>/package.tgz`, och motsvarande rad i `input/ignoreWarnings.txt`. | Nej |
+| 8 | Ge varje profil en egen version med `* ^version = "x.y.z"` om profilerna ska versionshanteras separat. | Exempelprofilen visar hur |
+| 9 | Slå på GitHub Pages för branchbyggen: Settings → Pages → *Deploy from a branch* → `gh-pages` / `(root)`. | Nej |
+| 10 | Ge Actions skrivrättighet: Settings → Actions → General → **Read and write permissions**. | Nej |
+| 11 | Lägg in hemligheten `FHIR_PORTAL_TOKEN`: Settings → Secrets and variables → Actions. En fine-grained PAT med *Contents: Read and write* på `inera-ab/fhir-portal` och `inera-ab/fhir-portal-test`. Notera tokens utgångsdatum. | Workflows använder den automatiskt |
+| 12 | Skapa branchen `develop` från `main`. | Nej |
 
 Webbroten på fhir.inera.se, flödena och layoutregeln är gemensamma för alla Inera-IG:er och redan uppsatta. De beskrivs i [fhir-portals README](https://github.com/Inera-AB/fhir-portal).
 
