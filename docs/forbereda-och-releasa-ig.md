@@ -2,8 +2,8 @@
 
 Den här sidan beskriver vad som måste göras i ett IG-repo innan den första publiceringen och vad som måste ändras inför varje release. Målet är att följande ska stämma överens:
 
-- en version publicerad på `https://fhir.inera.se/ig/<code>/<version>/` med releasebanner
-- versionshistoriken på `https://fhir.inera.se/ig/<code>/history.html`
+- en version publicerad på `https://fhir.inera.se/ig/<namn>/<version>/` med releasebanner
+- versionshistoriken på `https://fhir.inera.se/ig/<namn>/history.html`
 - en git-tagg `<version>` på GitHub för varje publicerad version
 - IG:n i FHIR:s IG-register och paketet på packages.fhir.org
 
@@ -15,9 +15,9 @@ Branchmodell, versionsformat och flödet beskrivs i [Versionshantering, brancher
 
 | Begrepp | Var det bestäms | Kommentar |
 |---|---|---|
-| Paket-id | `id` i `sushi-config.yaml` | Exakt tre delar: `inera.<domän>.<code>` |
-| `<code>` | Tredje delen av paket-id:t | Katalogen på fhir.inera.se. Måste vara unik bland Inera-IG:er |
-| `canonical` | `sushi-config.yaml` | `https://fhir.inera.se/ig/<code>`. Ändras aldrig efter första releasen |
+| Paket-id | `id` i `sushi-config.yaml` | Exakt tre delar: `inera.<domän>.<namn>` |
+| `<namn>` | Tredje delen av paket-id:t | Katalogen på fhir.inera.se. Måste vara unik bland Inera-IG:er |
+| `canonical` | `sushi-config.yaml` | `https://fhir.inera.se/ig/<namn>`. Ändras aldrig efter första releasen |
 | Version | `version` i `sushi-config.yaml` | Taggen måste vara identisk, utan `v` |
 | Releasebeskrivning | `publication-request.json` | `desc`, `mode`, `status` och `sequence` per release |
 | Versionshistorik | `package-list.json` i webbroten | Skrivs av IG Publisher. Finns inte i IG-repot |
@@ -29,8 +29,8 @@ När en releasetagg pushas gör `release.yml` följande:
 3. Bygger IG:n.
 4. Checkar ut webbroten (`ig/` på `gh-pages` i [inera-ab/fhir-portal](https://github.com/Inera-AB/fhir-portal)), men bara IG:ns egen katalog och de gemensamma filerna.
 5. Kör IG Publisher med `-go-publish`. Publishern bygger IG:n på nytt för publicering och:
-   - lägger versionen i `ig/<code>/<version>/`
-   - kopierar en milestone-release till `ig/<code>/`
+   - lägger versionen i `ig/<namn>/<version>/`
+   - kopierar en milestone-release till `ig/<namn>/`
    - uppdaterar `package-list.json` och `history.html`
    - skriver om bannern i tidigare versioner
    - uppdaterar paket- och publiceringsflödena och `package-registry.json`
@@ -54,7 +54,7 @@ Görs en gång per IG-repo. Kolumnen *Mallen* anger vad mallen redan sköter.
 | 4 | Fyll i `publication-request.json` för första releasen (se nedan) med `"first": true`. | Filen finns med mallens värden |
 | 5 | Ta bort raderna `with:` och `package-feed: false` i `.github/workflows/release.yml`. Mallen håller sig själv utanför FHIR:s paketregister med dem, men IG:ns paket ska nå packages.fhir.org. | Kommentar i filen |
 | 6 | Töm `input/pagecontent/version-history.md` på mallens poster. **Behåll första raden** `{::options header_offset="1" /}`. | Raden finns i mallen |
-| 7 | Byt länken till paketet i `input/pagecontent/downloads.md` till `https://fhir.inera.se/ig/<code>/package.tgz`, och motsvarande rad i `input/ignoreWarnings.txt`. | Nej |
+| 7 | Byt länken till paketet i `input/pagecontent/downloads.md` till `https://fhir.inera.se/ig/<namn>/package.tgz`, och motsvarande rad i `input/ignoreWarnings.txt`. | Nej |
 | 8 | Ge varje profil en egen version med `* ^version = "x.y.z"` om profilerna ska versionshanteras separat. | Exempelprofilen visar hur |
 | 9 | Slå på GitHub Pages för branchbyggen: Settings → Pages → *Deploy from a branch* → `gh-pages` / `(root)`. | Nej |
 | 10 | Ge Actions skrivrättighet: Settings → Actions → General → **Read and write permissions**. | Nej |
@@ -68,7 +68,7 @@ Webbroten på fhir.inera.se, flödena och layoutregeln är gemensamma för alla 
 | Fält | Exempel | Kommentar |
 |---|---|---|
 | `id` | `inera.lab.laboratory` | Exakt tre delar. Samma värde i `ig.ini` |
-| `canonical` | `https://fhir.inera.se/ig/laboratory` | `https://fhir.inera.se/ig/<code>` |
+| `canonical` | `https://fhir.inera.se/ig/laboratory` | `https://fhir.inera.se/ig/<namn>` |
 | `name` | `IneraLaboratory` | PascalCase, inga mellanslag |
 | `title` | `"Inera Laboratoriesvar"` | Visas i IG:n och i katalogen på fhir.inera.se |
 | `description` | `"FHIR-profiler för laboratoriesvar."` | Visas i katalogen |
@@ -101,13 +101,13 @@ Webbroten på fhir.inera.se, flödena och layoutregeln är gemensamma för alla 
 
 - **IG-katalogen på fhir.inera.se** fylls i automatiskt vid första releasen.
 - **FHIR:s IG-register:** skicka en PR till [FHIR/ig-registry](https://github.com/FHIR/ig-registry) med ändringen från artefakten `fhir-ig-list.diff`.
-- **packages.fhir.org** hämtar paketet från Ineras paketflöde. Ingenting behöver registreras per IG.
+- **packages.fhir.org** hämtar paketet från Ineras paketflöde. Ingenting behöver registreras per IG. Flödet är inte registrerat än, utan registreras en gång för hela Inera när den första riktiga IG:n publiceras.
 
 ### Kontroll innan första releasen
 
 - [ ] `id` är samma i `sushi-config.yaml` och `ig.ini`, och har tre delar
-- [ ] `canonical` är `https://fhir.inera.se/ig/<code>`
-- [ ] `<code>` är inte redan använt på `https://fhir.inera.se/ig/`
+- [ ] `canonical` är `https://fhir.inera.se/ig/<namn>`
+- [ ] `<namn>` är inte redan använt på `https://fhir.inera.se/ig/`
 - [ ] Repot har ingen `package-list.json`
 - [ ] Bygget på `main` är grönt och syns på `https://inera-ab.github.io/<repo>/`
 - [ ] `FHIR_PORTAL_TOKEN` finns och har inte gått ut
@@ -135,7 +135,7 @@ Webbroten på fhir.inera.se, flödena och layoutregeln är gemensamma för alla 
 2. **Räkna upp versionen** i en PR på branchen som ska releasas (`main`, eller `support/<M>.x` för en patch): `version` i `sushi-config.yaml` och en post i `version-history.md`.
 3. **Uppdatera `publication-request.json`** i samma PR: en ny `desc` och rätt `mode` (`milestone`, eller `working` för en release candidate eller en patch på en äldre major).
 4. **Kontrollera** att CI och IG Publisher QA är gröna på release-commiten.
-5. **Testpublicera (rekommenderas):** Actions → *Publish release* → *Run workflow* på branchen. Resultatet hamnar i [inera-ab/fhir-portal-test](https://github.com/Inera-AB/fhir-portal-test) och kan granskas på `https://inera-ab.github.io/fhir-portal-test/ig/<code>/`. Länkarna där pekar på fhir.inera.se, eftersom canonical är densamma.
+5. **Testpublicera (rekommenderas):** Actions → *Publish release* → *Run workflow* på branchen. Resultatet hamnar i [inera-ab/fhir-portal-test](https://github.com/Inera-AB/fhir-portal-test) och kan granskas på `https://inera-ab.github.io/fhir-portal-test/ig/<namn>/`. Länkarna där pekar på fhir.inera.se, eftersom canonical är densamma.
 6. **Tagga och pusha.** Taggen ska vara exakt versionen i `sushi-config.yaml`:
    ```
    git fetch origin
@@ -144,8 +144,8 @@ Webbroten på fhir.inera.se, flödena och layoutregeln är gemensamma för alla 
    ```
 7. **Följ körningen** under Actions → *Publish release*.
 8. **Verifiera:**
-   - [ ] `https://fhir.inera.se/ig/<code>/X.Y.Z/` visar IG:n med bannern *"(vX.Y.Z: Release) … current published version"*
-   - [ ] `https://fhir.inera.se/ig/<code>/history.html` listar versionen
+   - [ ] `https://fhir.inera.se/ig/<namn>/X.Y.Z/` visar IG:n med bannern *"(vX.Y.Z: Release) … current published version"*
+   - [ ] `https://fhir.inera.se/ig/<namn>/history.html` listar versionen
    - [ ] En tidigare version har bannern *"The current version which supersedes this version is X.Y.Z"*
    - [ ] Katalogen på `https://fhir.inera.se/ig/` visar den nya versionen
 9. **Skicka PR till FHIR/ig-registry** med ändringen från artefakten `fhir-ig-list.diff`.
