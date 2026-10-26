@@ -208,12 +208,12 @@ The workflows in `.github/workflows/` only set the triggers and permissions. The
 | Workflow | Trigger | What it does |
 |----------|---------|--------------|
 | `validate.yml` | Push to non-main branches; pull requests | Runs SUSHI |
-| `pr-qa.yml` | Pull request (opened, synchronised) | Full IG Publisher build (no tx server), posts QA report as PR comment |
+| `pr-qa.yml` | Pull request (opened, synchronised) | Full IG Publisher build, posts QA report as PR comment. No terminology server unless `tx-server` is set |
 | `publish.yml` | Push to `main`, `develop`, `feature/**`, `support/**`; manual trigger | Branch build, deployed to `gh-pages` of this repo under the branch's directory; updates the IG catalog entry |
 | `release.yml` | Push of a release tag (`1.2.0`, `1.2.0-rc1`); manual trigger | Publishes the release with `-go-publish`: a tag to fhir.inera.se, a manual run on a branch to the test web root |
 | `cleanup.yml` | Branch deleted | Removes the branch's build directory from `gh-pages` |
 
-Settings such as the web roots, the terminology server (an R5 IG uses `https://tx.fhir.org/r5`) and the IG Publisher version are inputs of the shared workflows, set with `with:` in the caller. See the [fhir-ig-workflows README](https://github.com/Inera-AB/fhir-ig-workflows#using-them-from-an-ig-repo).
+Settings such as the web roots, the terminology server and the IG Publisher version are inputs of the shared workflows, set with `with:` in the caller. An R5 IG sets `tx-server: https://tx.fhir.org/r5` in `publish.yml`, `release.yml` and `pr-qa.yml`; without a terminology server the QA build reports false errors on R5 core value sets. See the [fhir-ig-workflows README](https://github.com/Inera-AB/fhir-ig-workflows#using-them-from-an-ig-repo).
 
 ---
 

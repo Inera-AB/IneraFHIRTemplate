@@ -34,7 +34,7 @@ ig-formular-r5/    ← nytt repo vid R5-migrering
 
 Versionsnumreringen börjar om från 1.0.0 i det nya repot, och de två repona lever sedan oberoende av varandra.
 
-Det nya repot behöver ett eget paket-id och en egen canonical. Tredje delen av paket-id:t blir IG:ns katalog på fhir.inera.se och måste vara unik, till exempel `inera.blankett.formular-r5` → `https://fhir.inera.se/ig/formular-r5`. Workflowsen använder terminologiservern för R4 (`tx.fhir.org/r4`) som standard. Ett R5-repo sätter `tx-server: https://tx.fhir.org/r5` med `with:` i anropen i `publish.yml` och `release.yml`.
+Det nya repot behöver ett eget paket-id och en egen canonical. Tredje delen av paket-id:t blir IG:ns katalog på fhir.inera.se och måste vara unik, till exempel `inera.blankett.formular-r5` → `https://fhir.inera.se/ig/formular-r5`. Workflowsen använder terminologiservern för R4 (`tx.fhir.org/r4`) som standard, och QA-bygget på pull requests ingen terminologiserver alls. Ett R5-repo sätter `tx-server: https://tx.fhir.org/r5` med `with:` i anropen i `publish.yml`, `release.yml` och `pr-qa.yml`. Utan terminologiserver rapporterar QA-bygget falska fel på R5:s kärnvärdemängder.
 
 ---
 
