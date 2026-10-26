@@ -116,7 +116,7 @@ The template no longer needs *Allow GitHub Actions to create and approve pull re
 
 1. Create a feature branch from `develop`, e.g. `feature/lab-observation`.
 2. Push. `validate.yml` runs SUSHI and `publish.yml` builds the branch to `https://inera-ab.github.io/<repo>/branches/feature-lab-observation/`.
-3. Open a pull request against `develop`. `pr-qa.yml` posts a QA report as a comment with the number of errors, warnings, hints and broken links, so there is no need to open the logs.
+3. Open a pull request against `develop`. The pull request template (`.github/pull_request_template.md`) asks what changes, whether the change is backwards compatible, and, in the PR that bumps the version, for the release checklist. `pr-qa.yml` posts a QA report as a comment with the number of errors, warnings, hints and broken links, so there is no need to open the logs.
 4. Merge when QA is green. `develop` is built to `https://inera-ab.github.io/<repo>/branches/develop/`, and the feature branch's build is removed when the branch is deleted.
 
 Nothing is published to fhir.inera.se on ordinary merges. `develop` is merged to `main` before a release (see [Publish a release](#publish-a-release)).
@@ -313,12 +313,15 @@ Recommended VS Code extensions:
 ## Repository structure
 
 ```
-.github/workflows/         Callers of the shared workflows in Inera-AB/fhir-ig-workflows
-  validate.yml             Validate FSH on push / PR
-  pr-qa.yml                IG Publisher QA on pull requests
-  publish.yml              Branch builds to this repo's GitHub Pages
-  release.yml              Releases with -go-publish to the web root
-  cleanup.yml              Remove build dir for deleted branches
+.github/
+  pull_request_template.md Pull request template (Swedish): change, impact, checklists
+  ISSUE_TEMPLATE/          Issue templates for change requests and bugs
+  workflows/               Callers of the shared workflows in Inera-AB/fhir-ig-workflows
+    validate.yml           Validate FSH on push / PR
+    pr-qa.yml              IG Publisher QA on pull requests
+    publish.yml            Branch builds to this repo's GitHub Pages
+    release.yml            Releases with -go-publish to the web root
+    cleanup.yml            Remove build dir for deleted branches
 docs/                      Swedish instructions for versioning and publishing
 publication-request.json   What the next release is (desc, mode, status, sequence)
 sushi-config.yaml          IG metadata, dependencies, pages and menu
