@@ -104,7 +104,7 @@ Checklista, testpublicering och felsökning finns i [Förbereda en IG för publi
 ### Ny minor- eller major-release
 
 1. **Merga `develop` till `main`** via en PR.
-2. **Räkna upp versionen** i en PR mot `main`:
+2. **Räkna upp versionen** i en PR mot `main`. Avsnittet *Inför release* i PR-mallen är checklistan:
     - `version` i `sushi-config.yaml`
     - en ny post `## [X.Y.Z] — ÅÅÅÅ-MM-DD` i `input/pagecontent/version-history.md`
     - `* ^version` på profiler som ändrats, enligt semver-konventionen

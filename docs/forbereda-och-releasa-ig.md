@@ -132,7 +132,7 @@ Webbroten på fhir.inera.se, flödena och layoutregeln är gemensamma för alla 
 ### Steg för steg
 
 1. **Välj version** enligt semver-konventionen. `fix` ger patch, `feat` ger minor och en brytande ändring ger major.
-2. **Räkna upp versionen** i en PR på branchen som ska releasas (`main`, eller `support/<M>.x` för en patch): `version` i `sushi-config.yaml` och en post i `version-history.md`.
+2. **Räkna upp versionen** i en PR på branchen som ska releasas (`main`, eller `support/<M>.x` för en patch): `version` i `sushi-config.yaml` och en post i `version-history.md`. Avsnittet *Inför release* i PR-mallen är checklistan.
 3. **Uppdatera `publication-request.json`** i samma PR: en ny `desc` och rätt `mode` (`milestone`, eller `working` för en release candidate eller en patch på en äldre major).
 4. **Kontrollera** att CI och IG Publisher QA är gröna på release-commiten.
 5. **Testpublicera (rekommenderas):** Actions → *Publish release* → *Run workflow* på branchen. Resultatet hamnar i [inera-ab/fhir-portal-test](https://github.com/Inera-AB/fhir-portal-test) och kan granskas på `https://inera-ab.github.io/fhir-portal-test/ig/<namn>/`. Länkarna där pekar på fhir.inera.se, eftersom canonical är densamma.
