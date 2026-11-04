@@ -1,11 +1,15 @@
 window.artifactsTableData = {
   "sv": {
     "labels": {
-      "type":        "Type",
-      "category":    "Category",
-      "useGrouping": "Use grouping",
-      "clearAll":      "Clear all",
-      "linkToSection": "Link to this section"
+      "type":        "Typ",
+      "category":    "Kategori",
+      "useGrouping": "Använd gruppering",
+      "clearAll":      "Rensa alla",
+      "linkToSection": "Länk till detta avsnitt",
+      "headings":      "Rubriker",
+      "headingsFull":  "Fullständiga",
+      "headingsTitle": "Titel",
+      "headingsNone":  "Inga"
     },
     "groupDescriptions": {
       "-str-profile": "<p>Dessa definierar begränsningar på FHIR-resurser för system som följer denna implementationsguide.</p>\n"
