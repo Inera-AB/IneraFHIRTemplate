@@ -90,7 +90,7 @@ Done once per IG repo. The web root on fhir.inera.se and the feeds are shared by
 5. **Set `ig = fsh-generated/resources/ImplementationGuide-<id>.json` in `ig.ini`**, with the same `id`. Easy to miss, and then IG Publisher finds no IG.
 6. **Fill in `publication-request.json`** for the first release: `"mode": "milestone"`, `"first": true`, a `desc`, `title`, `introduction`, `ci-build` (`https://inera-ab.github.io/<repo>`) and the FHIR IG registry fields. The workflow fills in `package-id`, `version` and `path`.
 7. **Remove the lines `with:` and `package-feed: false`** in `.github/workflows/release.yml`. They keep the template out of packages.fhir.org; your IG's packages should go there.
-8. **Empty `input/pagecontent/version-history.md`** of the template's entries. Keep the first line, `{::options header_offset="1" /}` (see [Version history](#version-history)).
+8. **Empty `input/pagecontent/version-history.md`** of the template's entries (see [Version history](#version-history)).
 9. **Point the package link** in `input/pagecontent/downloads.md` to `https://fhir.inera.se/ig/<name>/package.tgz`, and update the matching line in `input/ignoreWarnings.txt`.
 10. **Give each profile its own `* ^version`** if profiles are versioned separately. Otherwise they get the IG version.
 
@@ -197,7 +197,7 @@ git push origin 1.2.0
 
 `input/pagecontent/version-history.md` is the IG's change log. The publisher's `history.html` lists the published versions; the change log describes what changed in each.
 
-Write each entry as `## [X.Y.Z] — YYYY-MM-DD` with `###` sections. The first line of `version-history.md`, `{::options header_offset="1" /}`, makes kramdown render them one level down (`<h3>`/`<h4>`), below the `<h2>` page title the template adds. Keep that line; without it IG Publisher reports a second `<h2>` on the page as an error.
+Write each entry as `### [X.Y.Z] — YYYY-MM-DD` with `####` sections. Like every narrative page, the version history starts at `###`, below the `<h2>` page title the template adds. Do not use `{::options header_offset="1" /}`: since IG Publisher 3.0.2 the publisher seats markdown headings under the page title itself, and the option would push them down one more level, which QA reports as a skipped heading level.
 
 ---
 

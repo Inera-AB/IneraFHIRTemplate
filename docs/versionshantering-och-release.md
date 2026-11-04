@@ -106,7 +106,7 @@ Checklista, testpublicering och felsökning finns i [Förbereda en IG för publi
 1. **Merga `develop` till `main`** via en PR.
 2. **Räkna upp versionen** i en PR mot `main`. Avsnittet *Inför release* i PR-mallen är checklistan:
     - `version` i `sushi-config.yaml`
-    - en ny post `## [X.Y.Z] — ÅÅÅÅ-MM-DD` i `input/pagecontent/version-history.md`
+    - en ny post `### [X.Y.Z] — ÅÅÅÅ-MM-DD` med `####`-avsnitt i `input/pagecontent/version-history.md`
     - `* ^version` på profiler som ändrats, enligt semver-konventionen
     - beroenden i `sushi-config.yaml` låsta till publicerade versioner, aldrig `current`
 3. **Uppdatera `publication-request.json`** i samma PR: en ny `desc` som skiljer sig från tidigare releaser och `"mode": "milestone"`. Efter första releasen ska `"first"` vara `false`.

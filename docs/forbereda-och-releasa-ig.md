@@ -53,7 +53,7 @@ Görs en gång per IG-repo. Kolumnen *Mallen* anger vad mallen redan sköter.
 | 3 | Sätt `ig = fsh-generated/resources/ImplementationGuide-<id>.json` i `ig.ini`, med samma `id` som i `sushi-config.yaml`. | Nej. Missas lätt, och då hittar IG Publisher ingen IG |
 | 4 | Fyll i `publication-request.json` för första releasen (se nedan) med `"first": true`. | Filen finns med mallens värden |
 | 5 | Ta bort raderna `with:` och `package-feed: false` i `.github/workflows/release.yml`. Mallen håller sig själv utanför FHIR:s paketregister med dem, men IG:ns paket ska nå packages.fhir.org. | Kommentar i filen |
-| 6 | Töm `input/pagecontent/version-history.md` på mallens poster. **Behåll första raden** `{::options header_offset="1" /}`. | Raden finns i mallen |
+| 6 | Töm `input/pagecontent/version-history.md` på mallens poster. Posterna skrivs som `### [X.Y.Z] — ÅÅÅÅ-MM-DD` med `####`-avsnitt, under sidtiteln. | Mallens poster visar formatet |
 | 7 | Byt länken till paketet i `input/pagecontent/downloads.md` till `https://fhir.inera.se/ig/<namn>/package.tgz`, och motsvarande rad i `input/ignoreWarnings.txt`. | Nej |
 | 8 | Ge varje profil en egen version med `* ^version = "x.y.z"` om profilerna ska versionshanteras separat. | Exempelprofilen visar hur |
 | 9 | Slå på GitHub Pages för branchbyggen: Settings → Pages → *Deploy from a branch* → `gh-pages` / `(root)`. | Nej |
@@ -122,7 +122,7 @@ Webbroten på fhir.inera.se, flödena och layoutregeln är gemensamma för alla 
 | Var | Vad | Vem |
 |---|---|---|
 | `sushi-config.yaml` | `version: X.Y.Z` | För hand |
-| `input/pagecontent/version-history.md` | Ny post `## [X.Y.Z] — ÅÅÅÅ-MM-DD` med ändringarna | För hand |
+| `input/pagecontent/version-history.md` | Ny post `### [X.Y.Z] — ÅÅÅÅ-MM-DD` med ändringarna i `####`-avsnitt | För hand |
 | `publication-request.json` | `desc` för den här releasen, och `mode` | För hand |
 | `sushi-config.yaml`, `dependencies` | Låsta till publicerade versioner, aldrig `current` | För hand |
 | Profiler som ändrats | `* ^version` enligt konventionen för semver | För hand |
