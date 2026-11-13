@@ -268,6 +268,17 @@ thead th {
   border-bottom: 2px solid var(--inera-primary-dark);
 }
 
+/* Filterraden på artefaktsidan (artifacts.html) ligger i thead. Sökfält,
+   filtermenyer och valda värden ska inte ärva rubrikradens vita text. */
+thead tr.filters {
+  background-color: var(--inera-secondary-light);
+  color: var(--inera-text);
+}
+
+thead tr.filters th {
+  font-weight: normal;
+}
+
 tbody tr {
   border-bottom: 1px solid var(--inera-border);
 }
