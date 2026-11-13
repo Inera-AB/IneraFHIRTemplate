@@ -21,10 +21,28 @@ Three deliberate choices shape how this template's narrative pages are organised
 
 ## Inera branding
 
-The template uses Inera's visual identity by default. All branding is isolated to four files:
+The Inera look comes from the IG Publisher template in [Inera-AB/inera-fhir-graphic-profile](https://github.com/Inera-AB/inera-fhir-graphic-profile), set in `ig.ini`:
 
-| File | What it does |
-|------|-------------|
+```ini
+template = https://github.com/Inera-AB/inera-fhir-graphic-profile/tree/v1
+```
+
+It holds `inera.css`, the logos and favicon, and the two header fragments, on top of HL7's `fhir2.base.template`. IG Publisher downloads it on every build, so a fix released there reaches every IG on `v1` at its next build, locally and in CI. Published versions are never rebuilt and keep their look.
+
+- Do not add `input/includes/fragment-css.html` or `fragment-header.html` to an IG: they replace the template's files and the Inera styling disappears. `input/includes/menu.xml` is the IG's own.
+- The logos are available to IG pages as `assets/images/inera-logo.svg`, `inera-logo-official.svg`, `inera-logo-negative.svg` and `inera-logo.png`.
+- To build with standard HL7 FHIR styling instead, set `template = fhir2.base.template#current`.
+
+### Moving an existing IG to the shared graphic profile
+
+IGs created from this template before the graphic profile existed have their own copies of the Inera files. To switch:
+
+1. In `ig.ini`, set `template = https://github.com/Inera-AB/inera-fhir-graphic-profile/tree/v1`.
+2. Delete `input/includes/fragment-css.html`, `input/includes/fragment-header.html` and `input/images/inera*` (`inera.css`, the logos, the favicon).
+3. If a page refers to a logo as `inera-logo.svg` (or another of the removed files), change it to `assets/images/inera-logo.svg`.
+4. Build and check that the header logo and colours are there.
+
+------|-------------|
 | `input/includes/fragment-css.html` | Loads Inera CSS and favicon |
 | `input/includes/fragment-header.html` | Inera logo in the header |
 | `input/images/inera.css` | All Inera colours, fonts and layout |
@@ -332,8 +350,8 @@ input/
     profiles/              FHIR profile definitions (.fsh)
     examples/              Example instances (.fsh)
   pagecontent/             Narrative IG pages (.md); no leading "# Title", the template renders the page title
-  images/                  Images, CSS and diagrams
-  includes/                Fragment overrides (CSS, header) and menu.xml (only the <ul>; the IG template supplies the surrounding navbar markup)
+  images/                  The IG's own images and diagrams (Inera's logos and CSS come from the template)
+  includes/                menu.xml (only the <ul>; the IG template supplies the surrounding navbar markup)
 ```
 
 ---
