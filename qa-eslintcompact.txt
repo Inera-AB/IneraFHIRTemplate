@@ -12,4 +12,4 @@ Generic: line 0, col 0, Error - The link 'StructureDefinition-[Profil].html' for
 /home/runner/work/IneraFHIRTemplate/IneraFHIRTemplate/fsh-generated/resources/StructureDefinition-IneraPatient.json: line 0, col 0, Info - The resource StructureDefinition/IneraPatient could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html) (BUSINESSRULE)
 
 err = 0, warn = 1, info = 5, broken links = 3
-IG Publisher Version: 3.0.2
+IG Publisher Version: 3.0.3
