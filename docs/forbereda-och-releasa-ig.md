@@ -58,7 +58,7 @@ Görs en gång per IG-repo. Kolumnen *Mallen* anger vad mallen redan sköter.
 | 8 | Ge varje profil en egen version med `* ^version = "x.y.z"` om profilerna ska versionshanteras separat. | Exempelprofilen visar hur |
 | 9 | Slå på GitHub Pages för branchbyggen: Settings → Pages → *Deploy from a branch* → `gh-pages` / `(root)`. | Nej |
 | 10 | Ge Actions skrivrättighet: Settings → Actions → General → **Read and write permissions**. | Nej |
-| 11 | Lägg in hemligheten `FHIR_PORTAL_TOKEN`: Settings → Secrets and variables → Actions. En fine-grained PAT med *Contents: Read and write* på `inera-ab/fhir-portal` och `inera-ab/fhir-portal-test`. Notera tokens utgångsdatum. | Workflows använder den automatiskt |
+| 11 | Ge repot åtkomst till publiceringsappen: be en ägare av organisationen lägga till repot under *Repository access* för organisationshemligheterna `FHIR_PORTAL_APP_ID` och `FHIR_PORTAL_APP_KEY` (organisationens Settings → Secrets and variables → Actions). Workflows hämtar med dem en kortlivad token från organisationens GitHub App. Repot behöver ingen egen hemlighet. | Workflows använder dem automatiskt |
 | 12 | Skapa branchen `develop` från `main`. | Nej |
 
 Webbroten på fhir.inera.se, flödena och layoutregeln är gemensamma för alla Inera-IG:er och redan uppsatta. De beskrivs i [fhir-portals README](https://github.com/Inera-AB/fhir-portal).
@@ -110,7 +110,7 @@ Webbroten på fhir.inera.se, flödena och layoutregeln är gemensamma för alla 
 - [ ] `<namn>` är inte redan använt på `https://fhir.inera.se/ig/`
 - [ ] Repot har ingen `package-list.json`
 - [ ] Bygget på `main` är grönt och syns på `https://inera-ab.github.io/<repo>/`
-- [ ] `FHIR_PORTAL_TOKEN` finns och har inte gått ut
+- [ ] Repot har åtkomst till organisationshemligheterna `FHIR_PORTAL_APP_ID` och `FHIR_PORTAL_APP_KEY`
 - [ ] En testpublicering har gått igenom (se nedan)
 
 ---
@@ -157,7 +157,8 @@ Webbroten på fhir.inera.se, flödena och layoutregeln är gemensamma för alla 
 | *Tag X does not match version Y in sushi-config.yaml* | Versionen räknades inte upp före taggningen | Ta bort taggen (`git push origin :refs/tags/X`), rätta versionen och tagga igen |
 | *publication-request.json has no desc* eller *desc … is the same as for an earlier version* | Beskrivningen saknas eller är kvar från förra releasen | Skriv en ny `desc` och tagga igen |
 | *X is already published* | Versionen finns redan i webbroten | Publicera aldrig om en version. Gör en ny patchversion |
-| *Bad credentials*, *403* eller *Permission denied* vid push | `FHIR_PORTAL_TOKEN` har gått ut eller saknar åtkomst | Skapa en ny token, uppdatera hemligheten och kör om |
+| *No token for inera-ab/fhir-portal* | Repot har inte åtkomst till organisationshemligheterna `FHIR_PORTAL_APP_ID` och `FHIR_PORTAL_APP_KEY` | Be en ägare av organisationen lägga till repot under *Repository access* för hemligheterna, och kör om |
+| *Bad credentials*, *403* eller *Permission denied* vid push | Publiceringsappen är inte installerad på webbrepot, eller saknar *Contents: Read and write* | Be en ägare av organisationen kontrollera appens installation och behörighet, och kör om |
 | Publishern stoppar med *depends on … current* | Ett beroende pekar på `current` | Lås beroendet till en publicerad version |
 | Publishern stoppar med *Increase in Errors/Warnings/Hints* | Publiceringsbygget gav fler fel än det första bygget, oftast på grund av terminologiservern | Kör om. Kvarstår felet, rätta det i IG:n |
 | Körningen misslyckades före steget *Push web root* | — | Ingenting har ändrats i webbroten. Rätta och kör om |

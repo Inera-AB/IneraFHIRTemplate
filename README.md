@@ -88,7 +88,7 @@ Done once per IG repo. The web root on fhir.inera.se and the feeds are shared by
 
 1. **Create the repository.** On this repository click **Use this template** → **Create a new repository**. Choose `inera-ab` as owner and a name that describes the IG, e.g. `ig-laboratory`. All files, including the workflows, are copied.
 2. **Give Actions write access:** Settings → Actions → General → *Workflow permissions* → **Read and write permissions**. Branch builds need it to write to `gh-pages`.
-3. **Add the secret `FHIR_PORTAL_TOKEN`:** Settings → Secrets and variables → Actions. A fine-grained PAT with **Contents: Read and write** on `inera-ab/fhir-portal` and `inera-ab/fhir-portal-test`. Releases use it to publish to fhir.inera.se and update the IG catalog. Note the token's expiry date.
+3. **Give the repository access to the publishing app:** in the organisation's settings (Settings → Secrets and variables → Actions), add the repository under *Repository access* for the organisation secrets `FHIR_PORTAL_APP_ID` and `FHIR_PORTAL_APP_KEY`. Releases and branch builds use them to get a short-lived token from the organisation's GitHub App, to publish to fhir.inera.se and update the IG catalog. This needs an organisation owner. No secret is added to the repository itself, and nothing expires.
 
 ### IG identity
 
@@ -125,7 +125,7 @@ The template no longer needs *Allow GitHub Actions to create and approve pull re
 - [ ] `<name>` is not already used on `https://fhir.inera.se/ig/`
 - [ ] The repository has no `package-list.json` (the publisher keeps it in the web root and refuses to publish from a source folder that has one)
 - [ ] The build on `main` is green and visible at `https://inera-ab.github.io/<repo>/`
-- [ ] `FHIR_PORTAL_TOKEN` exists and has not expired
+- [ ] The repository has access to the organisation secrets `FHIR_PORTAL_APP_ID` and `FHIR_PORTAL_APP_KEY`
 - [ ] A test publication has succeeded
 
 ---
